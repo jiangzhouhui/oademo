@@ -1,0 +1,1284 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("差旅报销申请单", "TRCommon", "TRItemType", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("报销管理", "TRCommon", "TRItemType", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("差旅报销申请单", "TRCommon", "TRItemType", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="startTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("开始时间", "CommonName", "Common", ViewBag.language)" />--
+                        <input type="text" name="endTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("结束时间", "CommonName", "Common", ViewBag.language)" />
+                    </div>
+                    <div class="form-group">
+                        <select name="status" class="form-control"></select>
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                    <button type="button" class="btn btn-w-m btn-warning" id="btnAdd">@OABordrinCommon.Common.GetLanguageValueByParam("新建", "CommonName", "Common", ViewBag.language)</button>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="TripReimbursementDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;min-width:1074px;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("单号", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请部门", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("合计金额", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</th>
+                                    <th> @OABordrinCommon.Common.GetLanguageValueByParam("当前处理人", "CommonName", "Common", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "CommonName", "Common", ViewBag.language)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/TripReimbursement/TripReimbursementEdit.cshtml")
+<div style="display:none"></div>
+@Html.Partial("~/Views/TripReimbursement/TripReimbursementHistory.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/TripReimbursement/TripReimbursementDetail.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/TripReimbursement/TripReimbursementWorkFlow.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/WorkFlow/WorkflowTurnToDo.cshtml")
+@section scripts{
+
+    <!-- jquery-ui -->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+    <!-- bootstrap-datepicker CSS-->
+    <link href="~/OpenResouce/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <!-- bootstrap-datepicker JS-->
+    <script src="~/OpenResouce/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- 新增窗口 JS -->
+    <script src="@Url.Version("~/Scripts/TripReimbursement/TripReimbursementEdit.js")"></script>
+
+    <!-- 日志Js -->
+    <script src="@Url.Version("~/Scripts/TripReimbursement/TripReimbursementHistory.js")"></script>
+
+    <!-- 详情Js -->
+    <script src="@Url.Version("~/Scripts/TripReimbursement/TripReimbursementDetail.js")"></script>
+
+    <!-- 转办Js -->
+    <script src="@Url.Version("~/Scripts/WorkflowTurnToDo.js")"></script>
+
+    <script type="text/javascript">
+
+        var $TripReimbursementDataTable = $("#TripReimbursementDataTable");
+        var TripReimbursementDataTableObj;
+        TrSearchParam = app.util.getEditParam($("#SearchPara"));
+
+
+        $(document).ready(function () {
+            TrSearchParam.startTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            TrSearchParam.endTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            //加载表格
+            TripReimbursementDataTableObj = $TripReimbursementDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": false,
+                "aaSorting": [1, "desc"],
+                "sAjaxSource": '/TripReimbursement/GetTripReimbursementList',
+                "fnServerData": RetrieveTripReimbursementData,
+                "aoColumns": [                                                   //返回引用的列数
+                  { "data": "b_RecordNo", "sWidth": 240 },
+                  { "data": "b_ApplicationDate" },
+                  { "data": "b_Dept" },
+                  { "data": "b_Employee" },
+                  { "data": "b_AmountInTotal" },
+                  { "data": "AuditorStr", "sWidth": 150, "bSortable": false },
+                  { "data": "status", "sWidth": 80 }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language)",
+
+                    "oPaginate":
+                        {
+                            "sPrevious": "@OABordrinCommon.Common.GetLanguageValueByParam("上一页", "CommonName", "Common", ViewBag.language)",
+                            "sNext": "@OABordrinCommon.Common.GetLanguageValueByParam("下一页", "CommonName", "Common", ViewBag.language)",
+                            "sFirst": "@OABordrinCommon.Common.GetLanguageValueByParam("第一页", "CommonName", "Common", ViewBag.language)",
+                            "sLast": "@OABordrinCommon.Common.GetLanguageValueByParam("最后", "CommonName", "Common", ViewBag.language)"
+                        }
+                },
+                "aLengthMenu": [10, 20, 50, 100]
+            });
+            //加载流程状态
+            loadWorkFlowStatus();
+        });
+
+        function GetTripReimbursementSearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;                                         //请求次数
+            var iDisplayStart = aoData[3].value;                                 //每页跨度数量
+            var iDisplayLength = aoData[4].value;                                //每页显示数量
+
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+
+            if (iSortTitle == "b_ApplicationDate") {
+                iSortTitle = "nb_ApplicationDate";
+            }
+
+            //获取searchValue
+            var searchValue = $("input[name='SearchValue']").val();
+
+            var startTime = TrSearchParam.startTime.val();
+
+            var endTime = TrSearchParam.endTime.val();
+
+            var status = TrSearchParam.status.val();
+
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue, "startTime": startTime, "endTime": endTime, "status": status };
+        }
+
+        function RetrieveTripReimbursementData(sSourect, aoData, fnCallback) {
+            $.ajax({
+                url: '/TripReimbursement/GetTripReimbursementList',
+                data: GetTripReimbursementSearchParam(aoData),
+                dataType: 'json',                                                // josn 数据类型
+                success: function (result) {
+                    fnCallback(result);                                          //返回的数据传给这个方法,datatable会自动绑定数据
+                },
+                error: function (msg) {                                          //提示错误信息
+                }
+            });
+        }
+
+        $("#btnAdd").click(function () {
+            //清除小窗口错误
+            app.util.clearError($TripReimbursementEdit);
+            //每个子表保证最少一行
+            $HotelExpenseItemTr.empty().append(AddHotelExpenseItemTr());
+            $("#HotelID").show();
+            $TrafficExpenseItemTr.empty().append(AddTrafficExpenseItemTr());
+            $("#TrafID").show();
+            $MealsSubsidiesItemTr.empty().append(AddMealsSubsidiesItemTr());
+            $("#MealID").show();
+            $OthersItemTr.empty().append(AddOthersItemTr());
+            $("#OtherID").show();
+            $LoanItemsTr.empty().append(AddLoanItemsTr('@ViewBag.UserName'));
+            //$("#LoanID").show();
+            //清空小窗口数据
+            app.util.bindValue(TripReimbursementParam, "");
+
+            TripReimbursementParam.b_ApplicationDate.val(GetNowFormatDate());
+            TripReimbursementParam.b_Employee.val('@ViewBag.UserName');
+            TripReimbursementParam.b_Dept.val('@ViewBag.department');
+            TripReimbursementParam.b_Preparer.val('@ViewBag.UserName');
+            TripReimbursementParam.b_PreparerNo.val('@ViewBag.b_JobNumber');
+            LoadEmployeeInfo(TripReimbursementParam.b_Employee.val());
+
+            //获取出差单号列表
+            GetAutocompleteTravelRecordNo();
+
+            $TripReimbursementEdit.find("input[name='b_IsBudgetary']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+            $TripReimbursementEdit.find("input[name='b_IntalBusiness']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+            $TripReimbursementEdit.find("input[name='b_Type']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+            //验证填单人信息是否完整
+            ValidUserInfo(TripReimbursementParam.b_Employee.val());
+
+            //上传文件控件
+            $("#fileList").empty();
+            var fileobj = $("#Trfile").clone().val("");
+            $("#Trfile").closest("label").empty().append(fileobj);
+
+            $("#departmentLeaderInfo").hide();
+            $("#BeyondReasonIsDisplay").hide();
+            $("label.AddRedLabel").css("color", "");
+            //打开小窗口
+            displayModelSetting();
+            $TripReimbursementEdit.modal({ backdrop: 'static' });
+            $TripReimbursementEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("新建差旅申请","TRCommon","TRItemType", ViewBag.language)");
+            $TripReimbursementEdit.modal("show");
+        })
+
+        //查询
+        $("#BtnSearch").click(function () {
+            TripReimbursementDataTableObj.fnDraw();
+        });
+
+        //保存/提交
+        $TripReimbursementEdit.delegate("#SaveTripReimbursement,#SubmitTripReimbursement", "click", function () {
+            var $this = $(this);
+            var operation = $(this).attr("operation");
+            var validData = true;
+            var errorList = [];
+
+            //验证数据是否填写完整
+            if (app.util.ValidationFromData($TripReimbursementEdit)) {
+
+                //验证出差单号必填
+                if ($.trim(TripReimbursementParam.b_BTRecordNo.val()) == "")
+                {
+                    TripReimbursementParam.b_BTRecordNo.closest("div").addClass("has-error");
+                    return;
+                }
+                else
+                {
+                    TripReimbursementParam.b_BTRecordNo.closest("div").removeClass("has-error");
+                }
+
+                //验证输入是否为数字
+                if (!app.util.ValidNumber(TripReimbursementParam.b_AttachmentsQuantity)) {
+                    return;
+                }
+
+                var b_Type = "";
+                $TripReimbursementEdit.find("input[name='b_Type']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_Type = $this.val();
+                    }
+                });
+                if (b_Type == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择报销类型！", "TRCommon", "TRItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                if (TripReimbursementParam.b_IsBeyondBudget.html() == "是" && $.trim(TripReimbursementParam.b_BeyondReason.val())=="")
+                {
+                    errorList.push({ "key": "errorMessage", "value": "必须要填写超出理由！" });
+                    validData = false;
+                }
+
+                //判断住宿是否为项目
+                var isHoteProject = false;
+                //验证住宿费是否填写完整
+                $HotelExpenseItemTr.find("tr").each(function () {
+                    var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                    var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                    var b_ProjectName = $.trim($(this).find("select.b_ProjectName").val());
+                    var b_City = $.trim($(this).find("input.b_City").val());
+                    var b_Hotel = $.trim($(this).find("input.b_Hotel").val());
+                    var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                    var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                    var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                    var b_Count = $.trim($(this).find("input.b_Count").val());
+                    var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                    var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                    var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                    //判断税率  大于等于0，小于1
+                    if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("税率中设置范围[0,1]，超出范围不让填写。（可以为0）", "TRCommon", "TRItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+
+                    if (b_StartDate != "" || b_EndDate != "" || b_City != "" || b_Hotel != "" || b_OriginalCurrency != "" || b_Count != "" || b_TaxRate != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                        if (b_StartDate == "" || b_EndDate == "" || b_City == "" || b_Hotel == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("住宿费报销明细填写不完整!", "TRCommon", "TRItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                        else {
+                            if (b_Type != "Project" && b_ProjectName != "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，住宿费报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+
+                            if (b_Type == "Project" && b_ProjectName == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，住宿费报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                    }
+                });
+
+                //判断交通是否为填写项目
+                var isTrafProject = false;
+                //验证交通费是否填写完整
+                $TrafficExpenseItemTr.find("tr").each(function () {
+                    var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                    var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                    var b_ProjectName = $.trim($(this).find("select.b_ProjectName").val());
+                    var b_Category = $.trim($(this).find("select.b_Type").val());
+                    var b_StartPoint = $.trim($(this).find("input.b_StartPoint").val());
+                    var b_EndPoint = $.trim($(this).find("input.b_EndPoint").val());
+                    var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                    var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                    var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                    var b_Count = $.trim($(this).find("input.b_Count").val());
+                    var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                    var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                    var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                    //判断税率  大于等于0，小于1
+                    if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("税率中设置范围[0,1]，超出范围不让填写。（可以为0）", "TRCommon", "TRItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+
+                    if (b_StartDate != "" || b_EndDate != "" || b_Category != "" || b_StartPoint != "" || b_EndPoint != "" || b_OriginalCurrency != "" || b_Count != "" || b_TaxRate != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                        if (b_StartDate == "" || b_EndDate == "" || b_Category == "" || b_StartPoint == "" || b_EndPoint == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("交通费报销明细填写不完整！", "TRCommon", "TRItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                        else {
+                            if (b_Type != "Project" && b_ProjectName != "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，交通费报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+
+                            if (b_Type == "Project" && b_ProjectName == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，交通费报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                    }
+                });
+
+                //判断餐补是否填写为项目
+                var isMealProject = false;
+                //验证餐费及固定补贴是否填写完整
+                $MealsSubsidiesItemTr.find("tr").each(function () {
+                    var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                    var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                    var b_ProjectName = $.trim($(this).find("select.b_ProjectName").val());
+                    var b_Place = $.trim($(this).find("input.b_Place").val());
+                    var b_CompanionAmount = $.trim($(this).find("input.b_CompanionAmount").val());
+                    var b_CompanionName = $.trim($(this).find("input.b_CompanionName").val());
+                    var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                    var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                    var b_FixedSubsidy = $.trim($(this).find("input.b_FixedSubsidy").val());
+                    var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                    var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                    var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                    //判断税率  大于等于0，小于1
+                    if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("税率中设置范围[0,1]，超出范围不让填写。（可以为0）", "TRCommon", "TRItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+
+                    if (b_StartDate != "" || b_EndDate != "" || b_Place != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                        if (b_StartDate == "" || b_EndDate == "" || b_Place == "" || b_Currency == "" || b_Rate == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("餐费及固定补贴报销明细填写不完整!", "TRCommon", "TRItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                        else {
+                            if (b_Type != "Project" && b_ProjectName != "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，餐费及固定补贴报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                            if (b_Type == "Project" && b_ProjectName == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，餐费及固定补贴报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+
+                        }
+                    }
+                });
+
+                //判断其他是否填写为项目
+                var isOtherProject = false;
+                //其他
+                $OthersItemTr.find("tr").each(function () {
+                    var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                    var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                    var b_ProjectName = $.trim($(this).find("select.b_ProjectName").val());
+                    var b_Place = $.trim($(this).find("input.b_Place").val());
+                    var b_Category = $.trim($(this).find("input.b_Type").val());
+                    var b_Reason = $.trim($(this).find("input.b_Reason").val());
+                    var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                    var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                    var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                    var b_Count = $.trim($(this).find("input.b_Count").val());
+                    var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                    var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                    var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                    //判断税率  大于等于0，小于1
+                    if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("税率中设置范围[0,1]，超出范围不让填写。（可以为0）", "TRCommon", "TRItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+
+                    if (b_StartDate != "" || b_EndDate != "" || b_Place != "" || b_Category != "" || b_Reason != "" || b_OriginalCurrency != "" || b_Count != "" || b_TaxRate != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                        if (b_StartDate == "" || b_EndDate == "" || b_Place == "" || b_Category == "" || b_Reason == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("其他报销明细填写不完整!", "TRCommon", "TRItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                        else {
+                            if (b_Type != "Project" && b_ProjectName != "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，其他报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+
+                            if (b_Type == "Project" && b_ProjectName == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，其他报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                    }
+                });
+
+                //借款明细
+                $LoanItems.find("tr").each(function () {
+                    var b_LoanOrderNo = $.trim($(this).find("input.b_LoanOrderNo").val());
+                    var b_Date = $.trim($(this).find("input.b_Date").val());
+                    var b_Borrower = $.trim($(this).find("input.b_Borrower").val());
+                    var b_LoanAmount = $.trim($(this).find("input.b_LoanAmount").val());
+                    var b_LoanReason = $.trim($(this).find("input.b_LoanReason").val());
+                    if (b_LoanOrderNo != "" || b_Date != "" || b_LoanAmount != "" || b_LoanReason != "") {
+                        if (b_LoanOrderNo == "" || b_Date == "" || b_LoanAmount == "" || b_LoanReason == "") {
+
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("填写借款明细时，必须填写完整！", "TRCommon", "TRItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                    }
+                });
+
+                var b_IsBudgetary = "";
+                $TripReimbursementEdit.find("input[name='b_IsBudgetary']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_IsBudgetary = $this.val();
+                    }
+                });
+                if (b_IsBudgetary == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择是否在预算内！", "TRCommon", "TRItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                var b_IntalBusiness = "";
+                $TripReimbursementEdit.find("input[name='b_IntalBusiness']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_IntalBusiness = $this.val();
+                    }
+                });
+                if (b_IntalBusiness == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择是否国际出差！", "TRCommon", "TRItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                if (errorList.length > 0) {
+                    app.util.onError(errorList, $TripReimbursementEdit);
+                }
+
+                if (validData) {
+                    $("#SaveTripReimbursement,#SubmitTripReimbursement").attr("disabled", "disabled");
+                    $.ajax({
+                        url: '/TripReimbursement/SaveTripReimbursement',
+                        data: GetSaveParam(operation),
+                        dataType: "json",
+                        success: function (ans) {
+                            if (ans.error.length > 0) {
+                                $("#SaveTripReimbursement,#SubmitTripReimbursement").removeAttr("disabled", "disabled");
+                                app.util.onError(ans.error, $TripReimbursementEdit);
+                                return;
+                            }
+                            $TripReimbursementEdit.modal("hide");
+                            $("#SaveTripReimbursement,#SubmitTripReimbursement").removeAttr("disabled", "disabled");
+                            TripReimbursementDataTableObj.fnDraw();
+
+                        }
+                    });
+                }
+            }
+        });
+
+        //修改/审核
+        $TripReimbursementDataTable.delegate(".edit,.audit", "click", function () {
+            var $this = $(this);
+            var opertorType = "";
+            if ($this.hasClass("audit")) {
+                opertorType = "audit";
+            }
+            else {
+                opertorType = "edit";
+            }
+            var activityId = $this.attr("activityId");
+            var activityAssignmentId = $this.attr("activityAssignmentId");
+            $.ajax({
+                url: '/TripReimbursement/GetTripReimbursementById',
+                data: { "id": $this.attr("id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)!", ans.error[0].value);
+                        return;
+                    }
+
+                    app.util.clearError($TripReimbursementEdit);
+                    app.util.bindValue(TripReimbursementParam, ans);
+                    $TripReimbursementEdit.find("input[name='b_IsBudgetary']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_IsBudgetary.toString()) {
+                            $this.iCheck('check');
+                        }
+                    });
+                    $TripReimbursementEdit.find("input[name='b_IntalBusiness']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_IntalBusiness.toString()) {
+                            $this.iCheck('check');
+                        }
+                    });
+                    $TripReimbursementEdit.find("input[name='b_Type']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_Type) {
+                            $this.iCheck('check');
+                        }
+                    });
+
+                    //获取绑定状态
+                    TripReimbursementParam.status.val($this.attr("ItemStatus"));
+                    TripReimbursementParam.activityId.val(activityId);
+                    TripReimbursementParam.activityAssignmentId.val(activityAssignmentId);
+
+                    //住宿
+                    $HotelExpenseItemTr.empty();
+                    if (ans.data != null && ans.data.HotelExpenseItems != null && ans.data.HotelExpenseItems.length > 0) {
+                        for (var i = 0; i < ans.data.HotelExpenseItems.length; i++) {
+                            var item = ans.data.HotelExpenseItems[i];
+                            $tr = $(AddHotelExpenseItemTr(opertorType));
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_StartDate").val(item.b_StartDate);
+                            $tr.find(".b_EndDate").val(item.b_EndDate);
+                            $tr.find(".b_ProjectName").val(item.b_ProjectName);
+                            $tr.find(".b_City").val(item.b_City);
+                            $tr.find(".b_Hotel").val(item.b_Hotel);
+                            $tr.find(".b_Currency").val(item.b_Currency);
+                            $tr.find(".b_Rate").val(item.b_Rate);
+                            $tr.find(".b_OriginalCurrency").val(item.b_OriginalCurrency);
+                            $tr.find(".b_Count").val(item.b_Count);
+                            $tr.find(".b_TaxRate").val(item.b_TaxRate);
+                            $tr.find(".b_Tax").val(item.b_Tax);
+                            $tr.find(".b_TaxFreeAmount").val(item.b_TaxFreeAmount);
+                            $tr.find(".b_CNYSubtotal").html(item.b_CNYSubtotal);
+                            $tr.find(".b_HotelInWords").val(item.b_HotelInWords);
+                            $tr.find(".b_HotelAmount").val(item.b_HotelAmount);
+                            $HotelExpenseItemTr.append($tr);
+                        }
+                        $("#HotelID").show();
+                    }
+                    else {
+                        if (TripReimbursementParam.status.val() != "Start") {
+                            $("#HotelID").hide();
+                        }
+                        else {
+                            $("#HotelID").show();
+                        }
+                    }
+                    if (TripReimbursementParam.status.val() == "Start" && $HotelExpenseItemTr.find("tr").length == 0) {
+                        $HotelExpenseItemTr.prepend(AddHotelExpenseItemTr());
+                    }
+
+                    //交通
+                    $TrafficExpenseItemTr.empty();
+                    if (ans.data != null && ans.data.TrafficExpenseItems != null && ans.data.TrafficExpenseItems.length > 0) {
+                        for (var i = 0; i < ans.data.TrafficExpenseItems.length; i++) {
+                            var item = ans.data.TrafficExpenseItems[i];
+                            $tr = $(AddTrafficExpenseItemTr(opertorType));
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_StartDate").val(item.b_StartDate);
+                            $tr.find(".b_EndDate").val(item.b_EndDate);
+                            $tr.find(".b_ProjectName").val(item.b_ProjectName);
+                            $tr.find(".b_Type").val(item.b_Type);
+                            $tr.find(".b_StartPoint").val(item.b_StartPoint);
+                            $tr.find(".b_EndPoint").val(item.b_EndPoint);
+                            $tr.find(".b_Currency").val(item.b_Currency);
+                            $tr.find(".b_Rate").val(item.b_Rate);
+                            $tr.find(".b_OriginalCurrency").val(item.b_OriginalCurrency);
+                            $tr.find(".b_Count").val(item.b_Count);
+                            $tr.find(".b_TaxRate").val(item.b_TaxRate);
+                            $tr.find(".b_Tax").val(item.b_Tax);
+                            $tr.find(".b_TaxFreeAmount").val(item.b_TaxFreeAmount);
+                            $tr.find(".b_CNYSubtotal").html(item.b_CNYSubtotal);
+                            $tr.find(".b_TrafInWords").val(item.b_TrafInWords);
+                            $tr.find(".b_TrafAmount").val(item.b_TrafAmount);
+                            $TrafficExpenseItemTr.append($tr);
+                        }
+                        $("#TrafID").show();
+                    }
+                    else {
+                        if (TripReimbursementParam.status.val() != "Start") {
+                            $("#TrafID").hide();
+                        }
+                        else {
+                            $("#TrafID").show();
+                        }
+                    }
+                    if (TripReimbursementParam.status.val() == "Start" && $TrafficExpenseItemTr.find("tr").length == 0) {
+                        $TrafficExpenseItemTr.prepend(AddTrafficExpenseItemTr());
+                    }
+
+                    //餐补
+                    $MealsSubsidiesItemTr.empty();
+                    if (ans.data != null && ans.data.MealsSubsidiesItems != null && ans.data.MealsSubsidiesItems.length > 0) {
+                        for (var i = 0; i < ans.data.MealsSubsidiesItems.length; i++) {
+                            var item = ans.data.MealsSubsidiesItems[i];
+                            $tr = $(AddMealsSubsidiesItemTr(opertorType));
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_StartDate").val(item.b_StartDate);
+                            $tr.find(".b_EndDate").val(item.b_EndDate);
+                            $tr.find(".b_ProjectName").val(item.b_ProjectName);
+                            $tr.find(".b_Place").val(item.b_Place);
+                            $tr.find(".b_CompanionAmount").val(item.b_CompanionAmount);
+                            $tr.find(".b_CompanionName").val(item.b_CompanionName);
+                            $tr.find(".b_Currency").val(item.b_Currency);
+                            $tr.find(".b_Rate").val(item.b_Rate);
+                            $tr.find(".b_FixedSubsidy").val(item.b_FixedSubsidy);
+                            $tr.find(".b_TaxRate").val(item.b_TaxRate);
+                            $tr.find(".b_Tax").val(item.b_Tax);
+                            $tr.find(".b_TaxFreeAmount").val(item.b_TaxFreeAmount);
+                            $tr.find(".b_CNYSubtotal").html(item.b_CNYSubtotal);
+                            $tr.find(".b_MealInWords").val(item.b_MealInWords);
+                            $tr.find(".b_MealAmount").val(item.b_MealAmount);
+                            $MealsSubsidiesItemTr.append($tr);
+                        }
+                        $("#MealID").show();
+                    }
+                    else {
+                        if (TripReimbursementParam.status.val() != "Start") {
+                            $("#MealID").hide();
+                        }
+                        else {
+                            $("#MealID").show();
+                        }
+                    }
+                    if (TripReimbursementParam.status.val() == "Start" && $MealsSubsidiesItemTr.find("tr").length == 0) {
+                        $MealsSubsidiesItemTr.prepend(AddMealsSubsidiesItemTr());
+                    }
+
+                    //其他
+                    $OthersItemTr.empty();
+                    if (ans.data != null && ans.data.OthersItems != null && ans.data.OthersItems.length > 0) {
+                        for (var i = 0; i < ans.data.OthersItems.length ; i++) {
+                            var item = ans.data.OthersItems[i];
+                            $tr = $(AddOthersItemTr(opertorType));
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_StartDate").val(item.b_StartDate);
+                            $tr.find(".b_EndDate").val(item.b_EndDate);
+                            $tr.find(".b_ProjectName").val(item.b_ProjectName);
+                            $tr.find(".b_Place").val(item.b_Place);
+                            $tr.find(".b_Type").val(item.b_Type);
+                            $tr.find(".b_Reason").val(item.b_Reason);
+                            $tr.find(".b_Currency").val(item.b_Currency);
+                            $tr.find(".b_Rate").val(item.b_Rate);
+                            $tr.find(".b_OriginalCurrency").val(item.b_OriginalCurrency);
+                            $tr.find(".b_Count").val(item.b_Count);
+                            $tr.find(".b_TaxRate").val(item.b_TaxRate);
+                            $tr.find(".b_Tax").val(item.b_Tax);
+                            $tr.find(".b_TaxFreeAmount").val(item.b_TaxFreeAmount);
+                            $tr.find(".b_CNYSubtotal").html(item.b_CNYSubtotal);
+                            $tr.find(".b_OthInWords").val(item.b_OthInWords);
+                            $tr.find(".b_OthAmount").val(item.b_OthAmount);
+                            $OthersItemTr.append($tr);
+                        }
+                        $("#OtherID").show();
+                    }
+                    else {
+                        if (TripReimbursementParam.status.val() != "Start") {
+                            $("#OtherID").hide();
+                        }
+                        else {
+                            $("#OtherID").show();
+                        }
+                    }
+                    if (TripReimbursementParam.status.val() == "Start" && $OthersItemTr.find("tr").length == 0) {
+                        $OthersItemTr.prepend(AddOthersItemTr());
+                    }
+
+                    //借款明细
+                    $LoanItemsTr.empty();
+                    if (ans.data != null && ans.data.LoanItems != null && ans.data.LoanItems.length > 0) {
+                        for (var i = 0; i < ans.data.LoanItems.length; i++) {
+                            var item = ans.data.LoanItems[i];
+                            $tr = $(AddLoanItemsTr(""));
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_LoanOrderNo").val(item.b_LoanOrderNo);
+                            $tr.find(".b_Date").val(item.b_Date);
+                            $tr.find(".b_Borrower").val(item.b_Borrower);
+                            $tr.find(".b_LoanAmount").val(item.b_LoanAmount);
+                            $tr.find(".b_LoanReason").val(item.b_LoanReason);
+                            $LoanItemsTr.append($tr);
+                        }
+                        $("#LoanID").show();
+                    }
+
+                    if (TripReimbursementParam.status.val() == "Start" && $LoanItemsTr.find("tr").length == 0) {
+                        $LoanItemsTr.prepend(AddLoanItemsTr(TripReimbursementParam.b_Employee.val()));
+                    }
+
+                    //上传
+                    $("#fileList").empty();
+                    if (ans.data != null && ans.data.Files != null && ans.data.Files.length > 0) {
+                        for (var i = 0; i < ans.data.Files.length; i++) {
+                            var item = ans.data.Files[i];
+                            if (item.comments == TripReimbursementParam.status.val()) {
+                                $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a>&nbsp;&nbsp;&nbsp;<a href='#' class='glyphicon glyphicon-remove text-danger' id='" + item.id + "' source_id='" + item.source_id + "' relationId='" + item.relationId + "' onclick='DeleteFile(this)'></a></label></div>");
+                            } else {
+                                $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a></label></div>");
+                            }
+                        }
+                    }
+                    //上传文件控件
+                    var fileobj = $("#Trfile").clone().val("");
+                    $("#Trfile").closest("label").empty().append(fileobj);
+
+                    if (TripReimbursementParam.status.val() == "Start") {
+                        $TripReimbursementEdit.find("h4.modal-title").empty().append("修改 <label style='color:rgb(88,136,193)'>" + TripReimbursementParam.b_RecordNo.val() + "</label>");
+                    }
+                    else {
+                        $TripReimbursementEdit.find("h4.modal-title").empty().append("审核 <label style='color:rgb(88,136,193)'>" + TripReimbursementParam.b_RecordNo.val() + "</label>");
+                    }
+                    //计算是否超出预算
+                    CalculationBeyondBudget();
+                    displayModelSetting();
+                    $TripReimbursementEdit.modal({ backdrop: 'static' });
+                    $TripReimbursementEdit.modal('show');
+
+                }
+            });
+        }).delegate(".delete", "click", function () {
+            var $this = $(this);
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要删除吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/TripReimbursement/DelTripReimbursement',
+                    data: { "id": $this.attr("id") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        TripReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(TripReimbursementDataTableObj));
+                    }
+                });
+            }
+        }).delegate(".history", "click", function () {
+            TripReimbursementHistoryParam.Item_id.val($(this).attr("id"));
+            TripReimbursementHistory.fnDraw();
+            $TripReimbursementHistoryModel.modal('show');
+        }).delegate(".detail", "click", function () {
+            LoadDetail($(this).attr("id"));
+        }).delegate(".recall", "click", function () {
+            var $this = $(this);
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要撤回吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/TripReimbursement/RecallTripReimbursement',
+                    data: { "id": $this.attr("id"), "activityId": $this.attr("activityId"), "btrecordno": $this.attr("btrecordno") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        TripReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(TripReimbursementDataTableObj));
+                    }
+                });
+            }
+        }).delegate(".workflow", "click", function () {
+            var itemStatus = $(this).attr("ItemStatus");
+            $("#workflow").find("text").each(function () {
+                var aimRect = $(this).closest("g").find("rect").first();
+                if (aimRect.attr("fill") == "rgb(238, 238, 0)") {
+                    aimRect.attr("fill", "none");
+                }
+            });
+            $("#workflow").find("text").each(function () {
+                var textValue = $(this).attr("status");
+                if (textValue == itemStatus) {
+                    var aimRect = $(this).closest("g").find("rect").first();
+                    aimRect.attr("fill", "rgb(238, 238, 0)");
+                    aimRect.attr("fill-opacity", "1");
+                    aimRect.attr("fill-rule", "evenodd");
+                }
+            });
+            $("#TripReimbursementWorkFlow").modal("show");
+        })
+
+        //审核出差单
+        $TripReimbursementEdit.delegate("#Approve", "click", function () {
+            var $this = $(this);
+            var validData = true;
+            var errorList = [];
+            var Param;
+            //验证数据是否填写完整
+            if (app.util.ValidationFromData($TripReimbursementEdit)) {
+                if (TripReimbursementParam.status.val() == "Expense Accountant Check" || TripReimbursementParam.status.val() == "Expense Accountant Creation" || TripReimbursementParam.status.val() == "Financial Analyst") {
+                    //验证附件数量是否为数字
+                    if (!app.util.ValidNumber(TripReimbursementParam.b_AttachmentsQuantity)) {
+                        return;
+                    }
+
+                    var b_Type = "";
+                    $TripReimbursementEdit.find("input[name='b_Type']").each(function () {
+                        var $this = $(this);
+                        if ($this.closest("div").hasClass("checked")) {
+                            b_Type = $this.val();
+                        }
+                    });
+                    if (b_Type == "") {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择报销类型！", "TRCommon", "TRItemType", ViewBag.language)" });
+                        validData = false;
+                    }
+
+                    //验证住宿费是否填写完整
+                    $HotelExpenseItemTr.find("tr").each(function () {
+                        var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                        var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                        var b_ProjectName = $.trim($(this).find("input.b_ProjectName").val());
+                        var b_City = $.trim($(this).find("input.b_City").val());
+                        var b_Hotel = $.trim($(this).find("input.b_Hotel").val());
+                        var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                        var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                        var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                        var b_Count = $.trim($(this).find("input.b_Count").val());
+                        var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                        var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                        var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                        //判断税率  大于等于0，小于1
+                        if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                            errorList.push({ "key": "errorMessage", "value": "税率中设置范围[0,1]，超出范围不让填写。（可以为0）" });
+                            validData = false;
+                            return false;
+                        }
+
+                        if (b_StartDate != "" || b_EndDate != "" || b_City != "" || b_Hotel != "" || b_OriginalCurrency != "" || b_Count != "" || b_TaxRate != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                            if (b_StartDate == "" || b_EndDate == "" || b_City == "" || b_Hotel == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("住宿费报销明细填写不完整!", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                            else {
+                                if (b_Type != "Project" && b_ProjectName != "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，住宿费报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+
+                                if (b_Type == "Project" && b_ProjectName == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，住宿费报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+                            }
+                        }
+                    });
+
+                    //验证交通费是否填写完整
+                    $TrafficExpenseItemTr.find("tr").each(function () {
+                        var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                        var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                        var b_ProjectName = $.trim($(this).find("input.b_ProjectName").val());
+                        var b_Category = $.trim($(this).find("select.b_Type").val());
+                        var b_StartPoint = $.trim($(this).find("input.b_StartPoint").val());
+                        var b_EndPoint = $.trim($(this).find("input.b_EndPoint").val());
+                        var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                        var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                        var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                        var b_Count = $.trim($(this).find("input.b_Count").val());
+                        var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                        var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                        var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                        //判断税率  大于等于0，小于1
+                        if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                            errorList.push({ "key": "errorMessage", "value": "税率中设置范围[0,1]，超出范围不让填写。（可以为0）" });
+                            validData = false;
+                            return false;
+                        }
+
+                        if (b_StartDate != "" || b_EndDate != "" || b_Category != "" || b_StartPoint != "" || b_EndPoint != "" || b_OriginalCurrency != "" || b_Count != "" || b_TaxRate != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                            if (b_StartDate == "" || b_EndDate == "" || b_Category == "" || b_StartPoint == "" || b_EndPoint == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("交通费报销明细填写不完整！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                            else {
+                                if (b_Type != "Project" && b_ProjectName != "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，交通费报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+
+                                if (b_Type == "Project" && b_ProjectName == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，交通费报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+                            }
+                        }
+                    });
+
+                    //验证餐费及固定补贴是否填写完整
+                    $MealsSubsidiesItemTr.find("tr").each(function () {
+                        var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                        var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                        var b_ProjectName = $.trim($(this).find("input.b_ProjectName").val());
+                        var b_Place = $.trim($(this).find("input.b_Place").val());
+                        var b_CompanionAmount = $.trim($(this).find("input.b_CompanionAmount").val());
+                        var b_CompanionName = $.trim($(this).find("input.b_CompanionName").val());
+                        var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                        var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                        var b_FixedSubsidy = $.trim($(this).find("input.b_FixedSubsidy").val());
+                        var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                        var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                        var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                        //判断税率  大于等于0，小于1
+                        if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                            errorList.push({ "key": "errorMessage", "value": "税率中设置范围[0,1]，超出范围不让填写。（可以为0）" });
+                            validData = false;
+                            return false;
+                        }
+
+
+                        if (b_StartDate != "" || b_EndDate != "" || b_Place != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                            if (b_StartDate == "" || b_EndDate == "" || b_Place == "" || b_Currency == "" || b_Rate == "" || b_FixedSubsidy == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("餐费及固定补贴报销明细填写不完整！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                            else {
+                                if (b_Type != "Project" && b_ProjectName != "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，餐费及固定补贴报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+                                if (b_Type == "Project" && b_ProjectName == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，餐费及固定补贴报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+
+                            }
+                        }
+                    });
+
+                    //其他
+                    $OthersItemTr.find("tr").each(function () {
+                        var b_StartDate = $.trim($(this).find("input.b_StartDate").val());
+                        var b_EndDate = $.trim($(this).find("input.b_EndDate").val());
+                        var b_ProjectName = $.trim($(this).find("input.b_ProjectName").val());
+                        var b_Place = $.trim($(this).find("input.b_Place").val());
+                        var b_Category = $.trim($(this).find("input.b_Type").val());
+                        var b_Reason = $.trim($(this).find("input.b_Reason").val());
+                        var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                        var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                        var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                        var b_Count = $.trim($(this).find("input.b_Count").val());
+                        var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+                        var b_Tax = $.trim($(this).find("input.b_Tax").val());
+                        var b_TaxFreeAmount = $.trim($(this).find("input.b_TaxFreeAmount").val());
+
+                        //判断税率  大于等于0，小于1
+                        if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                            errorList.push({ "key": "errorMessage", "value": "税率中设置范围[0,1]，超出范围不让填写。（可以为0）" });
+                            validData = false;
+                            return false;
+                        }
+
+
+                        if (b_StartDate != "" || b_EndDate != "" || b_Place != "" || b_Category != "" || b_Reason != "" || b_OriginalCurrency != "" || b_Count != "" || b_TaxRate != "" || b_Tax != "" || b_TaxFreeAmount != "") {
+                            if (b_StartDate == "" || b_EndDate == "" || b_Place == "" || b_Category == "" || b_Reason == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "" || b_Tax == "" || b_TaxFreeAmount == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("其他报销明细填写不完整!", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                            else {
+                                if (b_Type != "Project" && b_ProjectName != "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为非项目时，其他报销明细不可填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+
+                                if (b_Type == "Project" && b_ProjectName == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当类型为项目时，其他报销明细请填写项目名称！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+                            }
+                        }
+                    });
+
+                    //借款明细
+                    $LoanItems.find("tr").each(function () {
+                        var b_LoanOrderNo = $.trim($(this).find("input.b_LoanOrderNo").val());
+                        var b_Date = $.trim($(this).find("input.b_Date").val());
+                        var b_Borrower = $.trim($(this).find("input.b_Borrower").val());
+                        var b_LoanAmount = $.trim($(this).find("input.b_LoanAmount").val());
+                        var b_LoanReason = $.trim($(this).find("input.b_LoanReason").val());
+                        if (b_LoanOrderNo != "" || b_Date != "" || b_Borrower != "" || b_LoanAmount != "" || b_LoanReason != "") {
+                            if (b_LoanOrderNo == "" || b_Date == "" || b_Borrower == "" || b_LoanAmount == "" || b_LoanReason == "") {
+
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("填写借款明细时，必须填写完整！", "TRCommon", "TRItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                    });
+
+                    Param = GetSaveParam("audit");
+                }
+                else {
+                    Param = GetAuditTripReimbursement();
+                }
+                if (errorList.length > 0) {
+                    app.util.onError(errorList, $TripReimbursementEdit);
+                }
+                if (validData) {
+                    $this.attr("disabled", "disabled");
+                    $.ajax({
+                        url: '/TripReimbursement/AuditTripReimbursement',
+                        data: Param,
+                        dataType: "json",
+                        success: function (ans) {
+                            if (ans.error.length > 0) {
+                                $this.removeAttr("disabled", "disabled");
+                                app.util.onError(ans.error, $TripReimbursementEdit);
+                                return;
+                            }
+                            $this.removeAttr("disabled", "disabled");
+                            $TripReimbursementEdit.modal("hide");
+                            TripReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(TripReimbursementDataTableObj));
+                        }
+                    });
+                }
+            } //拒绝
+        }).delegate("#SendRefuse", "click", function () {
+            var $this = $(this);
+            var isValid = true;
+            if ($.trim(TripReimbursementParam.b_Remark.val()) == "") {
+                TripReimbursementParam.b_Remark.closest("div").addClass("has-error");
+                isValid = false;
+            }
+            if (isValid) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/TripReimbursement/RefuseTripReimbursement',
+                    data: GetAuditTripReimbursement(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $TripReimbursementEdit);
+                            return;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $TripReimbursementEdit.modal("hide");
+                        TripReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(TripReimbursementDataTableObj));
+                    }
+                })
+            }
+            //挂起
+        }).delegate("#SendHangUp", "click", function () {
+            var $this = $(this);
+            var isValid = true;
+            if ($.trim(TripReimbursementParam.b_Remark.val()) == "") {
+                TripReimbursementParam.b_Remark.closest("div").addClass("has-error");
+                isValid = false;
+            }
+            if (isValid) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/TripReimbursement/HangUpTripReimbursement',
+                    data: GetAuditTripReimbursement(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $TripReimbursementEdit);
+                            return;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $TripReimbursementEdit.modal("hide");
+                        TripReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(TripReimbursementDataTableObj));
+                    }
+                });
+            }
+        })
+
+        //验证填单人信息
+        function ValidUserInfo(userName) {
+            $.ajax({
+                url: '/TripReimbursement/ValidUserInfo',
+                dataType: "json",
+                data: { "userName": userName },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        app.util.onError(ans.error, $TripReimbursementEdit);
+                        return;
+                    }
+                }
+            });
+        }
+
+        //获取查询流程状态
+        function loadWorkFlowStatus() {
+            $.ajax({
+                url: '/TripReimbursement/GetWorkflowStatusList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    TrSearchParam.status.empty();
+                    TrSearchParam.status.append("<option value=''>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "Common", "ItemType", ViewBag.language)</option>");
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            TrSearchParam.status.append("<option value='" + item.value + "'>" + item.text + "</option>");
+                        }
+                    }
+                }
+            });
+        }
+
+
+        TripReimbursementParam.b_CompanyCode.change(function () {
+            var currentCompanyCode = $(this).val();
+            currentCompanyCode = $.trim(currentCompanyCode.substring(0, currentCompanyCode.indexOf('(')));
+            $.ajax({
+                url: '/Common/GetUserByName',
+                dataType: "json",
+                async: false,
+                data: { "name": TripReimbursementParam.b_Employee.val() },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    if (ans.data != null) {
+                        var joinCostCenterStr = currentCompanyCode + ans.data.b_CostCenter;
+                        TripReimbursementParam.b_CostCenter.val(joinCostCenterStr);
+                    }
+                }
+            });
+        });
+
+
+        $("#TurnToDo").click(function () {
+            app.util.bindValue(WorkflowTurnToDoParam, "");
+            WorkflowTurnToDoParam.activityId.val(TripReimbursementParam.activityId.val());
+            WorkflowTurnToDoParam.activityAssignmentId.val(TripReimbursementParam.activityAssignmentId.val());
+            WorkflowTurnToDoParam.itemId.val(TripReimbursementParam.id.val());
+            WorkflowTurnToDoParam.recordNo.val(TripReimbursementParam.b_RecordNo.val());
+            WorkflowTurnToDoParam.linkStr.val("/TripReimbursement/Index");
+            $TripReimbursementEdit.modal("hide");
+            $WorkflowTurnToDoModel.find("h4.modal-title").empty().append("转办 <label style='color:rgb(88,136,193)'>" + TripReimbursementParam.b_RecordNo.val() + "</label>");
+            $WorkflowTurnToDoModel.modal({ backdrop: 'static' });
+            $WorkflowTurnToDoModel.modal("show");
+        });
+
+
+        $("#btnTurnToDo").click(function () {
+            var $this = $(this);
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($WorkflowTurnToDoModel)) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/WorkFlow/SaveWorkflowTurnToDo',
+                    data: app.util.serializeParamArray(WorkflowTurnToDoParam),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $WorkflowTurnToDoModel);
+                            return false;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $WorkflowTurnToDoModel.modal("hide");
+                        TripReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(TripReimbursementDataTableObj));
+                    }
+                });
+            }
+        });
+
+
+    </script>
+}

@@ -1,0 +1,267 @@
+﻿
+@{
+    ViewBag.Title = "SearchPrManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("查询", "PRCommon", "PRItemType", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("采购管理", "PRCommon", "PRItemType", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("查询", "PRCommon", "PRItemType", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="startTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("开始时间", "CommonName", "Common", ViewBag.language)" style="width:120px;" />--
+                        <input type="text" name="endTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("结束时间", "CommonName", "Common", ViewBag.language)" style="width:120px;" />
+                    </div>
+                    <div class="form-group">
+                        <select name="status" class="form-control" style="width:150px;"></select>
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                    <button type="button" class="btn btn-w-m btn-warning" id="btnExport">@OABordrinCommon.Common.GetLanguageValueByParam("导出", "CommonName", "Common", ViewBag.language)</button>
+                    @if (ViewBag.CanExport == true)
+                    {
+                        <button type="button" class="btn btn-w-m btn-info" id="btnPurchaseExport">@OABordrinCommon.Common.GetLanguageValueByParam("采购管理导出", "PRExportContract", "PRItemType", ViewBag.language)</button>
+                    }
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="SearchPrManageDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;min-width:1074px;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("PR单号", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th style="min-width:100px;">
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("采购内容", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("需求部门", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("预算", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("申请人", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("当前处理人", "CommonName", "Common", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "CommonName", "Common", ViewBag.language)
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/PrManage/PrManageHistory.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/PrManage/PrManageDetail.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/PrManage/PrManageWorkFlow.cshtml")
+@section scripts{
+    <!-- bootstrap-datepicker CSS-->
+    <link href="~/OpenResouce/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <!-- bootstrap-datepicker JS-->
+    <script src="~/OpenResouce/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- 日志 -->
+    <script src="@Url.Version("~/Scripts/PrManage/PrManageHistory.js")"></script>
+    <!--详情-->
+    <script src="@Url.Version("~/Scripts/PrManage/PrManageDetail.js")"></script>
+
+
+    <script type="text/javascript">
+        var $SearchPrManageDataTable = $("#SearchPrManageDataTable");
+        var SearchPrManageDataTable;
+        PrSearchParam = app.util.getEditParam($("#SearchPara"));
+
+        $(document).ready(function () {
+
+            PrSearchParam.startTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            PrSearchParam.endTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            //获取查询Select流程状态数据
+            loadWorkFlowStatus();
+
+            //加载表格数据
+            SearchPrManageDataTable = $SearchPrManageDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": false,
+                "aaSorting": [3, "desc"],
+                "sAjaxSource": '/SearchPrManage/GetSearchPrManageList',
+                "fnServerData": RetrieveSearchPrManageData,
+                "aoColumns": [
+                        { "data": "b_PrRecordNo", "sWidth": 300 },
+                        { "data": "b_PurchaseContent" },
+                        { "data": "b_BusinessDepartment", "sWidth": 60 },
+                        { "data": "b_RaisedDate", "sWidth": 60 },
+                        { "data": "b_Budget", "sWidth": 60, "render": function (data, type, row) { return data.formatMoney() } },
+                        { "data": "b_Applicant", "sWidth": 120 },
+                        { "data": "AuditorStr", "sWidth": 120, "bSortable": false },
+                        { "data": "status", "sWidth": 80 }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language)",
+                    "oPaginate": {//分页的样式内容。
+                        "sPrevious": "@OABordrinCommon.Common.GetLanguageValueByParam("上一页", "CommonName", "Common", ViewBag.language)",
+                        "sNext": "@OABordrinCommon.Common.GetLanguageValueByParam("下一页", "CommonName", "Common", ViewBag.language)",
+                        "sFirst": "@OABordrinCommon.Common.GetLanguageValueByParam("第一页", "CommonName", "Common", ViewBag.language)",
+                        "sLast": "@OABordrinCommon.Common.GetLanguageValueByParam("最后", "CommonName", "Common", ViewBag.language)"
+                    }
+                },
+                "aLengthMenu": [15, 25, 50, 100]
+            });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+
+        function RetrieveSearchPrManageData(sSource, aoData, fnCallback) {
+            $.ajax({
+                url: '/SearchPrManage/GetSearchPrManageList',//这个就是请求地址对应sAjaxSource
+                data: GetPrManageSearchParam(aoData),
+                dataType: 'json',
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
+
+        function GetPrManageSearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;
+            var iDisplayStart = aoData[3].value;
+            var iDisplayLength = aoData[4].value;
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+            if (iSortTitle == "b_RaisedDate") {
+                iSortTitle = "nb_RaisedDate";
+            }
+
+            var startTime = PrSearchParam.startTime.val();
+
+            var endTime = PrSearchParam.endTime.val();
+
+            var searchValue = $("input[name='SearchValue']").val();
+
+            var status = PrSearchParam.status.val();
+
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue, "startTime": startTime, "endTime": endTime, "status": status };
+        }
+
+        //查询更新
+        $("#BtnSearch").click(function () {
+            SearchPrManageDataTable.fnDraw();
+        });
+
+        $SearchPrManageDataTable.delegate(".history", "click", function () {
+            PrManageHistoryParam.Item_id.val($(this).attr("id"));
+            PrManageHistory.fnDraw();
+            $PrManageHistoryModel.modal('show');
+        }).delegate(".detail", "click", function () {
+            LoadDetail($(this).attr("id"));
+        }).delegate(".workflow", "click", function () {
+            var itemStatus = $(this).attr("ItemStatus");
+            //获取版本号
+            var b_VersionNo = $(this).attr("b_VersionNo");
+            GetWorkFlowVersionByVersionNo(b_VersionNo, $("#workflow"), itemStatus);
+            $(".workFlowDescription").hide();
+            $("." + b_VersionNo + "").show();
+            $("#PrManageWorkFlow").modal("show");
+        }).delegate(".Print", "click", function () {
+            window.open('@Url.Action("Print", "SearchPrManage")' + "?id=" + $(this).attr("id"), "printPrManage", "");
+        });
+
+
+        $("#btnExport").click(function () {
+            var SearchValue = $.trim(PrSearchParam.SearchValue.val());
+            location.href = "/SearchPrManage/ExportPRByCondition?SearchValue=" + SearchValue + "&startTime=" + PrSearchParam.startTime.val() + "&endTime=" + PrSearchParam.endTime.val() + "&status=" + PrSearchParam.status.val();
+
+        });
+
+        $("#btnPurchaseExport").click(function () {
+            var SearchValue = $.trim(PrSearchParam.SearchValue.val());
+            location.href = "/SearchPrManage/ExportPurchaseByCondition?SearchValue=" + SearchValue + "&startTime=" + PrSearchParam.startTime.val() + "&endTime=" + PrSearchParam.endTime.val() + "&status=" + PrSearchParam.status.val();
+        });
+
+
+        //获取查询Select流程状态数据
+        function loadWorkFlowStatus() {
+            $.ajax({
+                url: '/PrManage/GetWorkflowStatusList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    PrSearchParam.status.empty();
+                    PrSearchParam.status.append("<option value=''>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "Common", "ItemType", ViewBag.language)</option>");
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            PrSearchParam.status.append("<option value='" + item.value + "'>" + item.text + "</option>");
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+    </script>
+}

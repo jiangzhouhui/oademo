@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> @OABordrinCommon.Common.GetLanguageValueByParam("博郡OA平台", "Noun", "Common", ViewBag.language)</title>
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+    <link href="~/OpenResouce/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="@Url.Version("~/Content/Common.css")" rel="stylesheet" />
+</head>
+<body style="padding-right: 0px !important;">
+    <script src="~/OpenResouce/js/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            MenuAuth();
+            $("#side-menu").find("li").each(function () {
+                if ($(this).hasClass("active")) {
+                    $(this).removeClass("active");
+                }
+                if ($(this).text().trim() == '@ViewBag.CurrentName') {
+                    $(this).addClass("active");
+                    $(this).closest("ul").addClass("collapse in");
+                    $(this).closest("ul").closest("li").addClass("active");
+                }
+            });
+        });
+
+        function MenuAuth() {
+            $.ajax({
+                url: '/Home/GetMenuAuth',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var value = ans.data[i];
+                            $("li." + value + "").addClass("showMenuObj");
+                        }
+                    }
+
+                    $("#side-menu").find("li.menuObj").each(function () {
+                        $(this).find("li").each(function () {
+                            if (!$(this).hasClass("showMenuObj") && $(this).hasClass("menuList")) {
+                                $(this).remove();
+                            }
+                        });
+                        var count = $(this).find("li").length;
+                        if (count <= 0) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    });
+                }
+            });
+        }
+
+
+
+    </script>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span>
+                                <img alt="image" class="img-circle" src="~/Images/homepage.png" style="width:48px;height:48px;" />
+                            </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs">
+                                        <strong class="font-bold">@ViewBag.userName</strong>
+                                    </span>
+                                    @*<span class="text-muted text-xs block" style="display:none;"> <b class="caret"></b></span>*@
+                                </span>
+                            </a>
+                            @*<ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="@Url.Action("Index","Help")"> @OABordrinCommon.Common.GetLanguageValueByParam("帮助", "CommonName", "Common", ViewBag.language)</a></li>
+                                    <li><a href="@Url.Action("LogOut","Login")">@OABordrinCommon.Common.GetLanguageValueByParam("注销", "CommonName", "Common", ViewBag.language)</a></li>
+                                </ul>*@
+                        </div>
+                        <div class="logo-element">
+                            Bordrin
+                        </div>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><i class="glyphicon glyphicon-home"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "Common", "ItemType", ViewBag.language)</span></a>
+                    </li>
+                    <li class="menuObj" style="display:none;">
+                        <a href="#"><i class="fa fa-users"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("组织管理", "CommonName", "Common", ViewBag.language)</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="b_OrganizationalStructure menuList"><a href="@Url.Action("Index","OrganizationalStructure")">@OABordrinCommon.Common.GetLanguageValueByParam("组织架构", "CommonName", "Common", ViewBag.language)</a></li>
+                            <li class="b_User menuList"><a href="@Url.Action("Index","User")">@OABordrinCommon.Common.GetLanguageValueByParam("人员信息", "CommonName", "Common", ViewBag.language)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menuObj" style="display:none;">
+                        <a href="#"><i class="fa fa-th"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("项目管理", "Common", "ItemType", ViewBag.language)</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="b_ProjectManage menuList"><a href="@Url.Action("Index","ProjectManage")">@OABordrinCommon.Common.GetLanguageValueByParam("项目管理", "Common", "ItemType", ViewBag.language)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("采购管理", "PRCommon", "ItemType", ViewBag.language)</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="@Url.Action("Index","PrManage")">@OABordrinCommon.Common.GetLanguageValueByParam("待办", "CommonName", "Common", ViewBag.language)</a></li>
+                            <li><a href="@Url.Action("Index","SearchPrManage")">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-automobile"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("差旅管理", "CommonName", "Common", ViewBag.language)</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="@Url.Action("Index","BookingStaffing")">@OABordrinCommon.Common.GetLanguageValueByParam("行政代订", "BTCommon", "BTItemType", ViewBag.language)</a></li>
+                            <li><a href="@Url.Action("Index","BusinessTravel")">@OABordrinCommon.Common.GetLanguageValueByParam("出差申请", "b_BusinessTravel", "BTItemType", ViewBag.language)</a></li>
+                            <li><a href="@Url.Action("Index","SearchBusinessTravel")">@OABordrinCommon.Common.GetLanguageValueByParam("查询出差", "b_BusinessTravel", "BTItemType", ViewBag.language)</a></li>
+                        </ul>
+                    </li>
+                    <li class="menuObj">
+                        <a href="#"><i class="fa fa-cny"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("报销管理", "CommonName", "Common", ViewBag.language)</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="b_ExpenseCategory menuList"><a href="@Url.Action("Index","ExpenseCategory")">@OABordrinCommon.Common.GetLanguageValueByParam("费用类别", "CommonName", "Common", ViewBag.language)</a> </li>
+                            <li class="b_ExpenseAuditConfiguration menuList"><a href="@Url.Action("Index","ExpenseAuditConfiguration")">@OABordrinCommon.Common.GetLanguageValueByParam("审核人配置表", "CommonName", "Common", ViewBag.language)</a></li>
+                            <li><a href="@Url.Action("Index","ExpenseReimbursement")">@OABordrinCommon.Common.GetLanguageValueByParam("费用报销申请", "CommonName", "Common", ViewBag.language)</a></li>
+                            <li><a href="@Url.Action("Index","SearchExpenseReimbursement")">@OABordrinCommon.Common.GetLanguageValueByParam("查询费用报销", "CommonName", "Common", ViewBag.language)</a></li>
+                            <li><a href="@Url.Action("Index","TripReimbursement")">@OABordrinCommon.Common.GetLanguageValueByParam("差旅报销申请", "CommonName", "Common", ViewBag.language)</a></li>
+                            <li><a href="@Url.Action("Index","SearchTripReimbursement")">@OABordrinCommon.Common.GetLanguageValueByParam("查询差旅报销", "CommonName", "Common", ViewBag.language)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://bordrin.sharepoint.com/sites/SCB/DocLib/Forms/AllItems.aspx"><i class="fa fa-folder-open"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("标准法规库", "CommonName", "Common", ViewBag.language)</span></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="~/Images/OrganizationChart.jpg"><i class="fa fa-picture-o"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("组织架构图", "CommonName", "Common", ViewBag.language)</span></a>
+                    </li>
+                    <li class="menuObj">
+                        <a href="#"><i class="fa fa-share-alt"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("代理设置", "b_AgentSet", "Common", ViewBag.language)</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="b_AgentSet menuList"><a href="@Url.Action("Index","AgentSet")">@OABordrinCommon.Common.GetLanguageValueByParam("代理设置", "b_AgentSet", "Common", ViewBag.language)</a> </li>
+                        </ul>
+                    </li>
+                    <li class="menuObj" style="display:none;">
+                        <a href="#"><i class="fa fa-gear"></i> <span class="nav-label">@OABordrinCommon.Common.GetLanguageValueByParam("权限配置", "Common", "ItemType", ViewBag.language)</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="b_RoleManage menuList"><a href="@Url.Action("Index","RoleManage")">@OABordrinCommon.Common.GetLanguageValueByParam("角色管理", "Common", "ItemType", ViewBag.language)</a></li>
+                            <li class="b_MenuAuthManage menuList"><a href="@Url.Action("Index","MenuAuthManage")">@OABordrinCommon.Common.GetLanguageValueByParam("菜单权限管理", "Common", "ItemType", ViewBag.language)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" action="#">
+                            <div class="form-group">
+                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search" style="display:none;">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        @if (ViewBag.language == "Chinese")
+                        {
+                            <li style="letter-spacing:2px;">
+                                <span class="m-r-sm text-muted welcome-message">欢迎进入博郡OA系统</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Welcome to Bordrin OA System.</span>
+                            </li>
+                        }
+                        <li>
+                            <span class="label label-default" style="cursor:pointer;" id="changeEnglish">
+                                @if (ViewBag.language == "Chinese")
+                                {
+                                    <label>English</label>
+                                }
+                                else
+                                {
+                                    <label>中文</label>
+                                }
+                            </span>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Help")">
+                                <span class="label label-default">@OABordrinCommon.Common.GetLanguageValueByParam("帮助", "CommonName", "Common", ViewBag.language)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("LogOut", "Login")">
+                                <i class="fa fa-sign-out"></i> @OABordrinCommon.Common.GetLanguageValueByParam("注销", "CommonName", "Common", ViewBag.language)
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                @RenderBody()
+            </div>
+            <div class="footer">
+                <div>
+                    <strong>Copyright </strong>@OABordrinCommon.Common.GetLanguageValueByParam("南京博郡新能源汽车有限公司", "Noun", "Common", ViewBag.language) &copy; 2017
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("#changeEnglish").click(function () {
+            var currentLanguage = '@ViewBag.language';
+            $.ajax({
+                url: '/Home/SwitchLanguage',
+                data: { "currentLanguage": currentLanguage },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    location.reload();
+                }
+            });
+        });
+    </script>
+    @System.Web.Optimization.Scripts.Render("~/Script/js")
+    <script src="@Url.Version("~/Scripts/Common.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

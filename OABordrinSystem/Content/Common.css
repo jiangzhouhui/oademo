@@ -1,0 +1,30 @@
+﻿
+.modelWith
+{
+    width:80%;
+}
+.prModelWith
+{
+    width:81%;
+}
+
+@media all and (max-width: 767px){
+    .modelWith{
+        width:100%;
+    }
+    .prModelWith{
+        width:100%;
+    }
+}
+
+@media all and (max-width: 1366px) {
+    .modelWith
+    {
+        width:95%;
+    }
+    .prModelWith
+    {
+        width:81%;
+    }
+}
+

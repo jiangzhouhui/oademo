@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2C19BEA-EF04-446D-9CF5-9284A6E52A33}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OADAL</RootNamespace>
+    <AssemblyName>OADAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="IOM">
+      <HintPath>..\ClassLib\IOM.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityAssignmentDA.cs" />
+    <Compile Include="ActivityDA.cs" />
+    <Compile Include="AgentSetDA.cs" />
+    <Compile Include="ArasInnovator.cs" />
+    <Compile Include="BookingStaffingDA.cs" />
+    <Compile Include="BusinessTravelDA.cs" />
+    <Compile Include="HistoryDA.cs" />
+    <Compile Include="IdentityDA.cs" />
+    <Compile Include="ItemTypeDA.cs" />
+    <Compile Include="MemberDA.cs" />
+    <Compile Include="OrganizationalStructureDA.cs" />
+    <Compile Include="PrManageDA.cs" />
+    <Compile Include="ProjectManageDA.cs" />
+    <Compile Include="RegionDA.cs" />
+    <Compile Include="UserDA.cs" />
+    <Compile Include="WorkFlowDA.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkflowProcessPathDA.cs" />
+    <Compile Include="WorkFlowVersionManagementDA.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OABordrinCommon\OABordrinCommon.csproj">
+      <Project>{63831F39-CA93-4AB3-927E-ADF1A6D54176}</Project>
+      <Name>OABordrinCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OABordrinEntity\OABordrinEntity.csproj">
+      <Project>{F642A559-2CCA-4D2E-A8D4-4B4461B1D6E6}</Project>
+      <Name>OABordrinEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OAEntitys\OAEntitys.csproj">
+      <Project>{15CF8EC6-A8D9-4FB4-A5D3-10C4C693B9F0}</Project>
+      <Name>OAEntitys</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

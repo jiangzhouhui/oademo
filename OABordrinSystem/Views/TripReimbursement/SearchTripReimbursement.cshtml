@@ -1,0 +1,269 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("查询差旅报销", "TRCommon", "TRItemType", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("报销管理", "ERCommon", "ERItemType", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("查询差旅报销", "TRCommon", "TRItemType", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="startTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("开始时间", "CommonName", "Common", ViewBag.language)" />--
+                        <input type="text" name="endTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("结束时间", "CommonName", "Common", ViewBag.language)" />
+                    </div>
+                    <div class="form-group">
+                        <select name="status" class="form-control"></select>
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                    @if (ViewBag.CanExport)
+                    {
+                        <button class="btn btn-w-m btn-warning" type="button" id="BtnExport">@OABordrinCommon.Common.GetLanguageValueByParam("导出", "CommonName", "Common", ViewBag.language)</button>
+                    }
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="SearchTripReimbursementDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;min-width:1074px;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("单号", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请部门", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("合计金额", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("当前处理人", "CommonName", "Common", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "CommonName", "Common", ViewBag.language)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/TripReimbursement/TripReimbursementDetail.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/TripReimbursement/TripReimbursementHistory.cshtml")
+<div style="display:none"></div>
+@Html.Partial("~/Views/TripReimbursement/TripReimbursementWorkFlow.cshtml")
+@section scripts{
+    <!-- bootstrap-datepicker CSS-->
+    <link href="~/OpenResouce/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <!-- bootstrap-datepicker JS-->
+    <script src="~/OpenResouce/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!--详情-->
+    <script src=@Url.Version("~/Scripts/TripReimbursement/TripReimbursementDetail.js")></script>
+
+    <!--日志-->
+    <script src=@Url.Version("~/Scripts/TripReimbursement/TripReimbursementHistory.js")></script>
+
+    <script type="text/javascript">
+        //table Id
+        var $SearchTripReimbursementDataTable = $("#SearchTripReimbursementDataTable");
+        var SearchTripReimbursementDataTable;
+        SearchTripReimbursementParam = app.util.getEditParam($("#SearchPara"));
+
+        $(document).ready(function () {
+
+            SearchTripReimbursementParam.startTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            SearchTripReimbursementParam.endTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+
+            SearchTripReimbursementDataTable = $SearchTripReimbursementDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": false,
+                "aaSorting": [1, "desc"],
+                "sAjaxSource": '/SearchTripReimbursement/GetSearchTripReimbursementList',
+                "fnServerData": RetrieveSearchTripReimbursement,
+                "aoColumns": [
+                      { "data": "b_RecordNo", "sWidth": 300 },
+                      { "data": "b_ApplicationDate" },
+                      { "data": "b_Dept" },
+                      { "data": "b_Employee" },
+                      { "data": "b_AmountInTotal" },
+                      { "data": "AuditorStr", "sWidth": 150, "bSortable": false },
+                      { "data": "status" }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language)",
+                    "oPaginate": {//分页的样式内容。
+                        "sPrevious": "@OABordrinCommon.Common.GetLanguageValueByParam("上一页", "CommonName", "Common", ViewBag.language)",
+                        "sNext": "@OABordrinCommon.Common.GetLanguageValueByParam("下一页", "CommonName", "Common", ViewBag.language)",
+                        "sFirst": "@OABordrinCommon.Common.GetLanguageValueByParam("第一页", "CommonName", "Common", ViewBag.language)",
+                        "sLast": "@OABordrinCommon.Common.GetLanguageValueByParam("最后", "CommonName", "Common", ViewBag.language)"
+                    }
+
+                },
+                "aLengthMenu": [10, 20, 50, 100]
+            });
+            loadWorkFlowStatus();
+        });
+
+        function RetrieveSearchTripReimbursement(sSource, aoData, fnCallback) {
+            $.ajax({
+                url: '/SearchTripReimbursement/GetSearchTripReimbursementList',
+                data: GetTripReimbursementSearchParam(aoData),
+                dataType: 'json',
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
+
+        function GetTripReimbursementSearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;
+            var iDisplayStart = aoData[3].value;
+            var iDisplayLength = aoData[4].value;
+
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+            if (iSortTitle == "b_ApplicationDate") {
+                iSortTitle = "nb_ApplicationDate";
+            }
+
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+
+            var startTime = SearchTripReimbursementParam.startTime.val();
+
+            var endTime = SearchTripReimbursementParam.endTime.val();
+
+            var status = SearchTripReimbursementParam.status.val();
+
+            //获取searchValue
+            var searchValue = $("input[name='SearchValue']").val();
+
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue, "startTime": startTime, "endTime": endTime, "status": status };
+        }
+
+        //查询更新
+        $("#BtnSearch").click(function () {
+
+            SearchTripReimbursementDataTable.fnDraw();
+        });
+
+        $SearchTripReimbursementDataTable.delegate(".history", "click", function () {
+            TripReimbursementHistoryParam.Item_id.val($(this).attr("id"));
+            TripReimbursementHistory.fnDraw();
+            $TripReimbursementHistoryModel.modal('show');
+        }).delegate(".detail", "click", function () {
+            LoadDetail($(this).attr("id"));
+        }).delegate(".Print", "click", function () {
+            window.open('@Url.Action("Print", "SearchTripReimbursement")' + "?id=" + $(this).attr("id"), "PrintTripReimbursement", "");
+        }).delegate(".workflow", "click", function () {
+            var itemStatus = $(this).attr("ItemStatus");
+            $("#workflow").find("text").each(function () {
+                var aimRect = $(this).closest("g").find("rect").first();
+                if (aimRect.attr("fill") == "rgb(238, 238, 0)") {
+                    aimRect.attr("fill", "none");
+                }
+            });
+            $("#workflow").find("text").each(function () {
+                var textValue = $(this).attr("status");
+                if (textValue == itemStatus) {
+                    var aimRect = $(this).closest("g").find("rect").first();
+                    aimRect.attr("fill", "rgb(238, 238, 0)");
+                    aimRect.attr("fill-opacity", "1");
+                    aimRect.attr("fill-rule", "evenodd");
+                }
+            });
+            $("#TripReimbursementWorkFlow").modal("show");
+        }).delegate(".SendEmail", "click", function () {
+            $.ajax({
+                url: '/SearchTripReimbursement/ExpenseAccountantCheckSendEmail',
+                data:{"Id":$(this).attr("id")},
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    alert("发送成功！");
+                }
+            });
+        });
+
+
+        //获取查询流程状态
+        function loadWorkFlowStatus() {
+            $.ajax({
+                url: '/TripReimbursement/GetWorkflowStatusList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    SearchTripReimbursementParam.status.empty();
+                    SearchTripReimbursementParam.status.append("<option value=''>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "Common", "ItemType", ViewBag.language)</option>");
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            SearchTripReimbursementParam.status.append("<option value='" + item.value + "'>" + item.text + "</option>");
+                        }
+                    }
+                }
+            })
+        }
+
+        $("#BtnExport").click(function () {
+            var SearchValue = $("input[name='SearchValue']").val();
+            location.href = "/SearchTripReimbursement/ExportTripReimbursementByCondition?SearchValue=" + SearchValue + "&startTime=" + SearchTripReimbursementParam.startTime.val() + "&endTime=" + SearchTripReimbursementParam.endTime.val() + "&status=" + SearchTripReimbursementParam.status.val();
+
+
+
+        });
+
+
+    </script>
+}

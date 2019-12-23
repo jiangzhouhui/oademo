@@ -1,0 +1,270 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Help";
+}
+<style type="text/css">
+    .auto-style1 {
+        height: 183px;
+    }
+
+    .auto-style2 {
+        height: 30px;
+    }
+</style>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="animated fadeInRight" style="">
+                    <div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>博郡OA系统使用手册</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div id="calendar">
+
+                                    <table style="width:100%;">
+                                        <tr style="height:30px">
+                                            <td>
+                                                <strong>
+                                                    1.	博郡OA系统介绍
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;博郡OA（Office Automation）系统是面向公司内部人员使用的协同办公平台，旨在为公司提供更好的信息化服务，实现协同审批，辅助办公管理，提高办公效率。博郡OA系统目前上线的为采购管理模块，后续将不断增加新的业务模块。
+                                                <br />
+                                                       &nbsp;&nbsp;&nbsp;&nbsp;博郡OA系统采用B/S(浏览器/服务器）操作方式，后续还将支持移动办公，实现企业微信签核申请单功能，让企业办公不受地域、时间限制。
+
+
+                                            </td>
+                                        </tr>
+                              <tr style="height:30px">
+                                            <td><strong>2.	快速入门</strong></td>
+                                        </tr>
+                                           <tr style="height:30px">
+                                            <td><strong>2.1	OA系统登录</strong></td>
+                                        </tr>
+                                          <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在浏览器 （建议Chrome）中输入http://oa.bordrin.com，博郡OA系统已实现域账号集成登录功能，在公司域中使用不需要输入用户名和密码即可登录成功。
+                                                <br />
+                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当您在非公司域中使用，系统会要求输入用户名及密码，您的账号和密码同Windows账号和密码。
+                                            </td>
+                                        </tr>
+                                          <tr>
+                                            <td>&nbsp;<img src="~/Images/Help/CN/1.jpg" width=430 height=221><br />
+                                        </tr>
+
+
+                                            <tr style="height:30px">
+                                            <td><strong>2.2	OA系统主页</strong></td>
+                                        </tr>
+                                          <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;登录后系统进入主页面。系统目前包含主页、采购管理两个主菜单，其中采购管理包含待办和查询两个子菜单。待办页面包含当前待办PR单，查询页面包含权限允许的所有可看PR单。
+                                              </td>
+                                        </tr>
+
+
+                                            <tr style="height:30px">
+                                            <td><strong>2.3	待办</strong></td>
+                                        </tr>
+                                          <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;在待办页面可对待办的申请单进行查询、排序等操作，单击新增可创建申请单。
+                                              </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>&nbsp;<img src="~/Images/Help/image001.jpg" width=430 height=221><br />
+                                        </tr>
+                                        <tr style="height:35px">
+                                            <td>单击 <img src="~/Images/Help/image004.png" width=21 height=24>图标打开申请单，此时PR单状态为编辑状态。 </td>
+                                        </tr>
+
+                                         <tr style="height:35px">
+                                            <td>单击  <img src="~/Images/Help/image005.png" width=17 height=23>图标打开查看日志页面，通过此页面可以看到该张PR单的审批情况及驳回意见。</td>
+                                        </tr>
+                                         
+                                        <tr>
+                                            <td> <img src="~/Images/Help/image006.jpg" width=433 height=153></td>
+                                        </tr>
+                                        <tr style="height:35px">
+                                            <td>单击  <img src="~/Images/Help/image007.png" width=13 height=23>图标打开流程状态，通过此页面可以看到该张PR单的流程情况及当前节点。</td>
+                                        </tr>
+                                        <tr>
+                                            <td> <img src="~/Images/Help/image008.jpg" width=472 height=183></td>
+                                        </tr>
+                                        <tr style="height:35px">
+                                            <td>单击 <img src="~/Images/Help/image009.png" width=17 height=24> 图标打开申请单，此时PR单状态为查看状态。</td>
+                                        </tr>
+
+                                      
+                                        <tr><td>&nbsp;<img src="~/Images/Help/image002.jpg" width=543 height=169><br /></td></tr>
+
+
+
+
+                                          <tr style="height:30px">
+                                            <td><strong>2.4	查询页面</strong></td>
+                                        </tr>
+                                          <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;在查询页面可看到当前账户能看到的所有申请单，可以对所有申请单进行查看等操作，如有特定角色权限还可以进行导出、打印等操作。
+                                              </td>
+                                        </tr>
+
+
+                                            <tr style="height:30px">
+                                            <td><strong>2.5	操作按钮介绍</strong></td>
+                                        </tr>
+                                          <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;缩小或放大页面菜单
+                                              </td>
+                                        </tr>
+                                              <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;切换到英文版
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;打开帮助页面
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;编辑或审批申请单
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;查看申请单详细操作日志
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;查看申请单流程状态
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;查看申请单内容
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;打印申请单（只有特殊权限人员可打印）
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;注销
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;新建申请单
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;查询
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;导出申请单（只有特殊权限人员可导出）
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;提交申请单
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;保存申请单
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;关闭申请单
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;同意申请
+                                              </td>
+                                        </tr>
+                                                 <tr>
+                                            <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;拒绝申请
+                                              </td>
+                                        </tr>
+                                         
+
+                                        <tr style="height:30px">
+                                            <td><strong>3.	采购管理</strong></td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>3.1	创建采购申请单</td>
+                                        </tr>
+                                        <tr>
+                                            <td>单击新增按钮后系统会弹出新增PR单页面，申请人填写相关信息。单击保存按钮系统保存当前填写内容，但流程状态仍为草稿，此时申请人可继续修改。单击提交按钮为提交申请单，申请人不可再修改内容，提交后当前处理人为申请人领导。</td>
+                                        </tr>
+                                        <tr>
+                                            <td> &nbsp;<img src="~/Images/Help/image003.jpg" width=540 height=222><br /></td>
+                                        </tr>
+                                 
+                                          <tr style="height:30px">
+                                            <td>3.2	采购PR单审批</td>
+                                        </tr>
+                                           <tr>
+                                            <td> 单击<img src="~/Images/Help/image004.png" width=21 height=24>图标打开PR单，单击同意或驳回审批PR单。 </td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td> <img src="~/Images/Help/image011.jpg" width=512 height=187> </td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>单击同意按钮审批通过PR单并提交下一环节。</td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>单击驳回按钮表明不同意该张申请单PR内容，在驳回时可选择退回的环节，挑选退回环节，单击完成提交。 </td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td><img src="~/Images/Help/image012.jpg" width=490 height=210>  </td>
+                                        </tr>
+
+                                      
+                                        <tr style="height:30px">
+                                            <td><strong>3.3	查找PR单</strong></td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>在待办和查询页面都提供查找PR单功能，请在搜索框中输入需要查询的内容，系统提供模糊查询、日期查询以及流程状态查询。</td>
+                                        </tr>
+
+                                                 <tr style="height:30px">
+                                            <td><strong>3.4	打印PR单</strong></td>
+                                        </tr>
+                                         <tr style="height:60px">
+                                            <td>&nbsp;单击 <img src="~/Images/Help/image015.png" width=19 height=26>图标可打印当前PR单，首次单击<img src="~/Images/Help/image015.png" width=19 height=26>图标，系统会要求安装打印控件，按照系统要求安装后即可使用。在弹出的打印界面中单击打印按钮，可打印PR单。 </td>
+                                        </tr>
+
+                                      
+                                      
+
+                                    </table>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    &nbsp;<br />
+                                    &nbsp;<br />
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

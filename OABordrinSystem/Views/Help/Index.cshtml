@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Help";
+}
+<style type="text/css">
+    .auto-style1 {
+        height: 183px;
+    }
+
+    .auto-style2 {
+        height: 30px;
+    }
+</style>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="animated fadeInRight" style="">
+                    <div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>OA平台帮助手册</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                @if (ViewBag.language == "Chinese")
+                                {
+                                    <a class="media" href="~/Content/Help/OA _Guide_CN.pdf"></a>
+                                }
+                                else
+                                {
+                                    <a class="media" href="~/Content/Help/OA _Guide_EN.pdf"></a>
+                                }
+                            </div>
+                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.media.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var widthValue = $(document.body).width() * 0.85;
+            var heightValue = $(document.body).height() * 0.8;
+            $('a.media').media({ width: widthValue, height: heightValue });
+        });
+    </script>
+}
+
+
+
+
+

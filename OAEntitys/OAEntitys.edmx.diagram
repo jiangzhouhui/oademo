@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="42388897ae6b4620953139125aaeb84d" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.ACTIVITY" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.ACTIVITY_ASSIGNMENT" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.ACTIVITY_TEMPLATE" Width="1.5" PointX="5.75" PointY="7.375" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.HISTORY" Width="1.5" PointX="12.75" PointY="6.875" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.IDENTITY" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.MEMBER" Width="1.5" PointX="3" PointY="22.25" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.USER" Width="1.5" PointX="12.75" PointY="15.875" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.WORKFLOW" Width="1.5" PointX="3" PointY="32.125" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.WORKFLOW_MAP" Width="1.5" PointX="5.75" PointY="18.625" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.WORKFLOW_MAP_ACTIVITY" Width="1.5" PointX="8" PointY="9" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.WORKFLOW_MAP_PATH" Width="1.5" PointX="9.75" PointY="19.875" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.WORKFLOW_PROCESS" Width="1.5" PointX="0.75" PointY="30.625" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.WORKFLOW_PROCESS_ACTIVITY" Width="1.5" PointX="3" PointY="2.875" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.WORKFLOW_PROCESS_PATH" Width="1.5" PointX="14.75" PointY="6.875" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__ACTIVITY___SOURC__1B48FEF0" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__064DE20A" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__ACTIVITY___RELAT__1C3D2329" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__7CC477D0" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__MEMBER__RELATED___3E923B2D" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__MEMBER__SOURCE_I__3D9E16F4" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__WORKFLOW__RELATE__1A54DAB7" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__7BD05397" />
+        <AssociationConnector Association="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__0559BDD1" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_PROJECTMANAGE" Width="1.5" PointX="15.375" PointY="16.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_PRMANAGE" Width="1.5" PointX="17.25" PointY="0.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_EXPENSEREIMBURSEMENT" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_EXPENSECATEGORY" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_ORGANIZATIONALSTRUCTURE" Width="1.5" PointX="8.375" PointY="2.25" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_REIMBURSEMENTITEM" Width="1.5" PointX="19.375" PointY="13.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.R_REIMBURSEMENTITEM" Width="1.5" PointX="21.625" PointY="7.875" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3821" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3822" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_TRIPREIMBURSEMENTFORM" Width="1.5" PointX="21.375" PointY="15.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_EXPENSEAUDITCONFIGURATION" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_HOTELEXPENSE" Width="1.5" PointX="17.375" PointY="22.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_MEALSANDFIXEDSUBSIDIES" Width="1.5" PointX="23.375" PointY="15.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_OTHERS" Width="1.5" PointX="24.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_TRAFFICEXPENSE" Width="1.5" PointX="23.375" PointY="24.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.R_HOTELEXPENSE" Width="1.5" PointX="29.625" PointY="15" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.R_MEALSANDFIXEDSUBSIDIES" Width="1.5" PointX="25.625" PointY="19.5" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.R_OTHERS" Width="1.5" PointX="26.625" PointY="12" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.R_TRAFFICEXPENSE" Width="1.5" PointX="28.625" PointY="22.125" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3857" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3862" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3872" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3867" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3856" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3861" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3866" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3871" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_TAXCODECONFIGURE" Width="1.5" PointX="26.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_PRCHOICESUPPLIERS" Width="1.5" PointX="25.375" PointY="26.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_CHOICESUPPLIERS" Width="1.5" PointX="32.625" PointY="13.75" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3813" />
+        <AssociationConnector Association="InnovatorSolutionsModel.fk3814" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_AGENTSET" Width="1.5" PointX="28.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_BUSINESSTRAVEL" Width="2.375" PointX="7.25" PointY="28.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_WORKFLOWVERSIONMANAGEMENT" Width="1.5" PointX="10.375" PointY="28.75" />
+        <EntityTypeShape EntityType="InnovatorSolutionsModel.B_BOOKINGSTAFFING" Width="1.5" PointX="12.375" PointY="28.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

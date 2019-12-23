@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "AuthWarn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="wrapper wrapper-content">
+        <div class="middle-box text-center animated fadeInRightBig">
+            <h2 class="font-bold MicroYaHei">友情提示</h2>
+            <div class="error-desc MicroYaHei" style="font-size:1.3em;">
+                亲，您不具有此权限！
+                <br /><a href="@Url.Action("Index", "Home")" class="btn btn-primary m-t">Return Home Page</a>
+            </div>
+        </div>
+    </div>
+    @*<div class="footer">
+        <div class="pull-right">
+            @DateTime.Now.ToString("yyyy-MM-dd")
+        </div>
+        <div class="MicroYaHei">
+            <strong>Copyright</strong> 上海享学网络科技有限公司 &copy; 2015
+        </div>
+    </div>*@
+</div>
+

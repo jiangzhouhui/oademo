@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"content="IE=edge" />
+    <title>BORDRIN | Login</title>
+    <link href="~/OpenResouce/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/OpenResouce/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/animate.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/style.css" rel="stylesheet" />
+    <script src="~/OpenResouce/js/jquery-2.1.1.js"></script>
+</head>
+<body class="gray-bg">
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name" style="margin-left:-130px;">Bordrin</h1>
+            </div>
+            <h3>Welcome to Bordrin OA System</h3>
+            <p>
+            </p>
+            @*<p>Login in. To see it in action.</p>*@
+            <form class="m-t" role="form" action="/Login/LogIn" method="post">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Username" required="" name="Username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="" name="Password">
+                </div>
+                <div class="form-group" style="display:none">
+                    <select class="form-control" name="ChoicePath">
+                        @*<option value="0">门户</option>*@
+                        <option selected="selected" value="1">后台</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b" id="LoginSubmit">Login</button>
+                <div style="color:red;">@ViewBag.errorStr</div>
+                @*<a href="login.html#"><small>Forgot password?</small></a>
+                    <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                    <a class="btn btn-sm btn-white btn-block" href="#">Create an account</a>*@
+            </form>
+            <p class="m-t"> <small><strong>Copyright</strong> @OABordrinCommon.Common.GetLanguageValueByParam("南京博郡新能源汽车有限公司", "Noun", "Common", ViewBag.language) &copy; 2017</small> </p>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="~/OpenResouce/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/Common.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+        $(function () {
+            document.onkeydown = function (e) {
+                var ev = document.all ? window.event : e;
+                if (ev.keyCode == 13) {
+                    $("form").submit();//处理事件
+                }
+            }
+        });
+    </script>
+</body>
+</html>

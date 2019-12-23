@@ -1,0 +1,8 @@
+D:\OASystem\trunk\OABordrinEntity\bin\Release\OABordrinEntity.dll
+D:\OASystem\trunk\OABordrinEntity\bin\Release\OABordrinEntity.pdb
+D:\OASystem\trunk\OABordrinEntity\bin\Release\IOM.dll
+D:\OASystem\trunk\OABordrinEntity\bin\Release\Aras.Net.dll
+D:\OASystem\trunk\OABordrinEntity\bin\Release\Aras.Diagnostics.dll
+D:\OASystem\trunk\OABordrinEntity\obj\Release\OABordrinEntity.csprojResolveAssemblyReference.cache
+D:\OASystem\trunk\OABordrinEntity\obj\Release\OABordrinEntity.dll
+D:\OASystem\trunk\OABordrinEntity\obj\Release\OABordrinEntity.pdb

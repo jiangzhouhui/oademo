@@ -1,0 +1,8 @@
+D:\OASystem\trunk\OABordrinEntity\bin\Debug\OABordrinEntity.dll
+D:\OASystem\trunk\OABordrinEntity\bin\Debug\OABordrinEntity.pdb
+D:\OASystem\trunk\OABordrinEntity\bin\Debug\IOM.dll
+D:\OASystem\trunk\OABordrinEntity\bin\Debug\Aras.Net.dll
+D:\OASystem\trunk\OABordrinEntity\bin\Debug\Aras.Diagnostics.dll
+D:\OASystem\trunk\OABordrinEntity\obj\Debug\OABordrinEntity.dll
+D:\OASystem\trunk\OABordrinEntity\obj\Debug\OABordrinEntity.pdb
+D:\OASystem\trunk\OABordrinEntity\obj\Debug\OABordrinEntity.csprojResolveAssemblyReference.cache

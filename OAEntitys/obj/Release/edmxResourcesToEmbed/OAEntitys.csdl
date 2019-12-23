@@ -1,0 +1,1992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InnovatorSolutionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="InnovatorSolutionsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACTIVITY" EntityType="InnovatorSolutionsModel.ACTIVITY" />
+    <EntitySet Name="ACTIVITY_ASSIGNMENT" EntityType="InnovatorSolutionsModel.ACTIVITY_ASSIGNMENT" />
+    <EntitySet Name="ACTIVITY_TEMPLATE" EntityType="InnovatorSolutionsModel.ACTIVITY_TEMPLATE" />
+    <EntitySet Name="HISTORY" EntityType="InnovatorSolutionsModel.HISTORY" />
+    <EntitySet Name="IDENTITY" EntityType="InnovatorSolutionsModel.IDENTITY" />
+    <EntitySet Name="MEMBER" EntityType="InnovatorSolutionsModel.MEMBER" />
+    <EntitySet Name="USER" EntityType="InnovatorSolutionsModel.USER" />
+    <EntitySet Name="WORKFLOW" EntityType="InnovatorSolutionsModel.WORKFLOW" />
+    <EntitySet Name="WORKFLOW_MAP" EntityType="InnovatorSolutionsModel.WORKFLOW_MAP" />
+    <EntitySet Name="WORKFLOW_MAP_ACTIVITY" EntityType="InnovatorSolutionsModel.WORKFLOW_MAP_ACTIVITY" />
+    <EntitySet Name="WORKFLOW_MAP_PATH" EntityType="InnovatorSolutionsModel.WORKFLOW_MAP_PATH" />
+    <EntitySet Name="WORKFLOW_PROCESS" EntityType="InnovatorSolutionsModel.WORKFLOW_PROCESS" />
+    <EntitySet Name="WORKFLOW_PROCESS_ACTIVITY" EntityType="InnovatorSolutionsModel.WORKFLOW_PROCESS_ACTIVITY" />
+    <EntitySet Name="WORKFLOW_PROCESS_PATH" EntityType="InnovatorSolutionsModel.WORKFLOW_PROCESS_PATH" />
+    <AssociationSet Name="FK__ACTIVITY___SOURC__1B48FEF0" Association="InnovatorSolutionsModel.FK__ACTIVITY___SOURC__1B48FEF0">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="ACTIVITY_ASSIGNMENT" EntitySet="ACTIVITY_ASSIGNMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___RELAT__064DE20A" Association="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__064DE20A">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="WORKFLOW_PROCESS_ACTIVITY" EntitySet="WORKFLOW_PROCESS_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ACTIVITY___RELAT__1C3D2329" Association="InnovatorSolutionsModel.FK__ACTIVITY___RELAT__1C3D2329">
+      <End Role="IDENTITY" EntitySet="IDENTITY" />
+      <End Role="ACTIVITY_ASSIGNMENT" EntitySet="ACTIVITY_ASSIGNMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___RELAT__7CC477D0" Association="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__7CC477D0">
+      <End Role="ACTIVITY_TEMPLATE" EntitySet="ACTIVITY_TEMPLATE" />
+      <End Role="WORKFLOW_MAP_ACTIVITY" EntitySet="WORKFLOW_MAP_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEMBER__RELATED___3E923B2D" Association="InnovatorSolutionsModel.FK__MEMBER__RELATED___3E923B2D">
+      <End Role="IDENTITY" EntitySet="IDENTITY" />
+      <End Role="MEMBER" EntitySet="MEMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEMBER__SOURCE_I__3D9E16F4" Association="InnovatorSolutionsModel.FK__MEMBER__SOURCE_I__3D9E16F4">
+      <End Role="IDENTITY" EntitySet="IDENTITY" />
+      <End Role="MEMBER" EntitySet="MEMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW__RELATE__1A54DAB7" Association="InnovatorSolutionsModel.FK__WORKFLOW__RELATE__1A54DAB7">
+      <End Role="WORKFLOW_PROCESS" EntitySet="WORKFLOW_PROCESS" />
+      <End Role="WORKFLOW" EntitySet="WORKFLOW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___SOURC__7BD05397" Association="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__7BD05397">
+      <End Role="WORKFLOW_MAP" EntitySet="WORKFLOW_MAP" />
+      <End Role="WORKFLOW_MAP_ACTIVITY" EntitySet="WORKFLOW_MAP_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___SOURC__0559BDD1" Association="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__0559BDD1">
+      <End Role="WORKFLOW_PROCESS" EntitySet="WORKFLOW_PROCESS" />
+      <End Role="WORKFLOW_PROCESS_ACTIVITY" EntitySet="WORKFLOW_PROCESS_ACTIVITY" />
+    </AssociationSet>
+    <EntitySet Name="B_PROJECTMANAGE" EntityType="InnovatorSolutionsModel.B_PROJECTMANAGE" />
+    <EntitySet Name="B_PRMANAGE" EntityType="InnovatorSolutionsModel.B_PRMANAGE" />
+    <EntitySet Name="B_EXPENSEREIMBURSEMENT" EntityType="InnovatorSolutionsModel.B_EXPENSEREIMBURSEMENT" />
+    <EntitySet Name="B_EXPENSECATEGORY" EntityType="InnovatorSolutionsModel.B_EXPENSECATEGORY" />
+    <EntitySet Name="B_ORGANIZATIONALSTRUCTURE" EntityType="InnovatorSolutionsModel.B_ORGANIZATIONALSTRUCTURE" />
+    <EntitySet Name="B_REIMBURSEMENTITEM" EntityType="InnovatorSolutionsModel.B_REIMBURSEMENTITEM" />
+    <EntitySet Name="R_REIMBURSEMENTITEM" EntityType="InnovatorSolutionsModel.R_REIMBURSEMENTITEM" />
+    <AssociationSet Name="fk3821" Association="InnovatorSolutionsModel.fk3821">
+      <End Role="B_EXPENSEREIMBURSEMENT" EntitySet="B_EXPENSEREIMBURSEMENT" />
+      <End Role="R_REIMBURSEMENTITEM" EntitySet="R_REIMBURSEMENTITEM" />
+    </AssociationSet>
+    <AssociationSet Name="fk3822" Association="InnovatorSolutionsModel.fk3822">
+      <End Role="B_REIMBURSEMENTITEM" EntitySet="B_REIMBURSEMENTITEM" />
+      <End Role="R_REIMBURSEMENTITEM" EntitySet="R_REIMBURSEMENTITEM" />
+    </AssociationSet>
+    <EntitySet Name="B_TRIPREIMBURSEMENTFORM" EntityType="InnovatorSolutionsModel.B_TRIPREIMBURSEMENTFORM" />
+    <EntitySet Name="B_EXPENSEAUDITCONFIGURATION" EntityType="InnovatorSolutionsModel.B_EXPENSEAUDITCONFIGURATION" />
+    <EntitySet Name="B_HOTELEXPENSE" EntityType="InnovatorSolutionsModel.B_HOTELEXPENSE" />
+    <EntitySet Name="B_MEALSANDFIXEDSUBSIDIES" EntityType="InnovatorSolutionsModel.B_MEALSANDFIXEDSUBSIDIES" />
+    <EntitySet Name="B_OTHERS" EntityType="InnovatorSolutionsModel.B_OTHERS" />
+    <EntitySet Name="B_TRAFFICEXPENSE" EntityType="InnovatorSolutionsModel.B_TRAFFICEXPENSE" />
+    <EntitySet Name="R_HOTELEXPENSE" EntityType="InnovatorSolutionsModel.R_HOTELEXPENSE" />
+    <EntitySet Name="R_MEALSANDFIXEDSUBSIDIES" EntityType="InnovatorSolutionsModel.R_MEALSANDFIXEDSUBSIDIES" />
+    <EntitySet Name="R_OTHERS" EntityType="InnovatorSolutionsModel.R_OTHERS" />
+    <EntitySet Name="R_TRAFFICEXPENSE" EntityType="InnovatorSolutionsModel.R_TRAFFICEXPENSE" />
+    <AssociationSet Name="fk3857" Association="InnovatorSolutionsModel.fk3857">
+      <End Role="B_HOTELEXPENSE" EntitySet="B_HOTELEXPENSE" />
+      <End Role="R_HOTELEXPENSE" EntitySet="R_HOTELEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3862" Association="InnovatorSolutionsModel.fk3862">
+      <End Role="B_MEALSANDFIXEDSUBSIDIES" EntitySet="B_MEALSANDFIXEDSUBSIDIES" />
+      <End Role="R_MEALSANDFIXEDSUBSIDIES" EntitySet="R_MEALSANDFIXEDSUBSIDIES" />
+    </AssociationSet>
+    <AssociationSet Name="fk3872" Association="InnovatorSolutionsModel.fk3872">
+      <End Role="B_OTHERS" EntitySet="B_OTHERS" />
+      <End Role="R_OTHERS" EntitySet="R_OTHERS" />
+    </AssociationSet>
+    <AssociationSet Name="fk3867" Association="InnovatorSolutionsModel.fk3867">
+      <End Role="B_TRAFFICEXPENSE" EntitySet="B_TRAFFICEXPENSE" />
+      <End Role="R_TRAFFICEXPENSE" EntitySet="R_TRAFFICEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3856" Association="InnovatorSolutionsModel.fk3856">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_HOTELEXPENSE" EntitySet="R_HOTELEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3861" Association="InnovatorSolutionsModel.fk3861">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_MEALSANDFIXEDSUBSIDIES" EntitySet="R_MEALSANDFIXEDSUBSIDIES" />
+    </AssociationSet>
+    <AssociationSet Name="fk3866" Association="InnovatorSolutionsModel.fk3866">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_TRAFFICEXPENSE" EntitySet="R_TRAFFICEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3871" Association="InnovatorSolutionsModel.fk3871">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_OTHERS" EntitySet="R_OTHERS" />
+    </AssociationSet>
+    <EntitySet Name="B_TAXCODECONFIGURE" EntityType="InnovatorSolutionsModel.B_TAXCODECONFIGURE" />
+    <EntitySet Name="B_PRCHOICESUPPLIERS" EntityType="InnovatorSolutionsModel.B_PRCHOICESUPPLIERS" />
+    <EntitySet Name="B_CHOICESUPPLIERS" EntityType="InnovatorSolutionsModel.B_CHOICESUPPLIERS" />
+    <AssociationSet Name="fk3813" Association="InnovatorSolutionsModel.fk3813">
+      <End Role="B_PRMANAGE" EntitySet="B_PRMANAGE" />
+      <End Role="B_CHOICESUPPLIERS" EntitySet="B_CHOICESUPPLIERS" />
+    </AssociationSet>
+    <AssociationSet Name="fk3814" Association="InnovatorSolutionsModel.fk3814">
+      <End Role="B_PRCHOICESUPPLIERS" EntitySet="B_PRCHOICESUPPLIERS" />
+      <End Role="B_CHOICESUPPLIERS" EntitySet="B_CHOICESUPPLIERS" />
+    </AssociationSet>
+    <EntitySet Name="B_AGENTSET" EntityType="InnovatorSolutionsModel.B_AGENTSET" />
+    <EntitySet Name="B_BUSINESSTRAVEL" EntityType="InnovatorSolutionsModel.B_BUSINESSTRAVEL" />
+    <EntitySet Name="B_WORKFLOWVERSIONMANAGEMENT" EntityType="InnovatorSolutionsModel.B_WORKFLOWVERSIONMANAGEMENT" />
+    <EntitySet Name="B_BOOKINGSTAFFING" EntityType="InnovatorSolutionsModel.B_BOOKINGSTAFFING" />
+  </EntityContainer>
+  <EntityType Name="ACTIVITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ACTIVE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CAN_DELEGATE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CAN_REFUSE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CLONED_AS" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLOSED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CONSOLIDATE_ONDELEGATE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ESCALATE_TO" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="EXPECTED_DURATION" Type="Int32" />
+    <Property Name="ICON" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IS_AUTO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_END" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_ESCALATED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_START" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="MESSAGE" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="PRIORITY" Type="Int32" />
+    <Property Name="REMINDER_COUNT" Type="Int32" />
+    <Property Name="REMINDER_INTERVAL" Type="Int32" />
+    <Property Name="ROLE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SUBFLOW" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TIMEOUT_DURATION" Type="Int32" />
+    <Property Name="WAIT_FOR_ALL_INPUTS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="WAIT_FOR_ALL_VOTES" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="X" Type="Int32" />
+    <Property Name="Y" Type="Int32" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ACTIVITY_ASSIGNMENT" Relationship="InnovatorSolutionsModel.FK__ACTIVITY___SOURC__1B48FEF0" FromRole="ACTIVITY" ToRole="ACTIVITY_ASSIGNMENT" />
+    <NavigationProperty Name="WORKFLOW_PROCESS_ACTIVITY" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__064DE20A" FromRole="ACTIVITY" ToRole="WORKFLOW_PROCESS_ACTIVITY" />
+    <Property Name="LABEL_ZC1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="MESSAGE_ZC1" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ACTIVITY_ASSIGNMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CLAIMED_BY" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLOSED_BY" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLOSED_ON" Type="DateTime" Precision="3" />
+    <Property Name="COMMENTS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ESCALATE_TO" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="FOR_ALL_MEMBERS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_DISABLED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_OVERDUE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_REQUIRED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PATH" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="REMINDERS_SENT" Type="Int32" />
+    <Property Name="VOTING_WEIGHT" Type="Int32" Nullable="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ACTIVITY" Relationship="InnovatorSolutionsModel.FK__ACTIVITY___SOURC__1B48FEF0" FromRole="ACTIVITY_ASSIGNMENT" ToRole="ACTIVITY" />
+    <NavigationProperty Name="IDENTITY" Relationship="InnovatorSolutionsModel.FK__ACTIVITY___RELAT__1C3D2329" FromRole="ACTIVITY_ASSIGNMENT" ToRole="IDENTITY" />
+  </EntityType>
+  <EntityType Name="ACTIVITY_TEMPLATE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CAN_DELEGATE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CAN_REFUSE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONSOLIDATE_ONDELEGATE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ESCALATE_TO" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="EXPECTED_DURATION" Type="Int32" />
+    <Property Name="ICON" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IS_AUTO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_END" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_START" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="MESSAGE" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="PRIORITY" Type="Int32" />
+    <Property Name="REMINDER_COUNT" Type="Int32" />
+    <Property Name="REMINDER_INTERVAL" Type="Int32" />
+    <Property Name="ROLE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SUBFLOW" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TIMEOUT_DURATION" Type="Int32" />
+    <Property Name="WAIT_FOR_ALL_INPUTS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="WAIT_FOR_ALL_VOTES" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="X" Type="Int32" />
+    <Property Name="Y" Type="Int32" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="WORKFLOW_MAP_ACTIVITY" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__7CC477D0" FromRole="ACTIVITY_TEMPLATE" ToRole="WORKFLOW_MAP_ACTIVITY" />
+    <Property Name="LABEL_ZC1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="MESSAGE_ZC1" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HISTORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ACTION" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="COMMENTS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON_TICK" Type="Decimal" Precision="19" Scale="0" />
+    <Property Name="ITEM_MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_VERSION" Type="Int32" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="VERSION" Type="Int32" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="SOURCE_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IDENTITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="IS_ALIAS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="MAXIMUM_PWD_AGE" Type="Int32" />
+    <Property Name="PWD_HISTORY_LENGTH" Type="Int32" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACTIVITY_ASSIGNMENT" Relationship="InnovatorSolutionsModel.FK__ACTIVITY___RELAT__1C3D2329" FromRole="IDENTITY" ToRole="ACTIVITY_ASSIGNMENT" />
+    <NavigationProperty Name="MEMBER" Relationship="InnovatorSolutionsModel.FK__MEMBER__RELATED___3E923B2D" FromRole="IDENTITY" ToRole="MEMBER" />
+    <NavigationProperty Name="MEMBER1" Relationship="InnovatorSolutionsModel.FK__MEMBER__SOURCE_I__3D9E16F4" FromRole="IDENTITY" ToRole="MEMBER" />
+  </EntityType>
+  <EntityType Name="MEMBER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="END_DATE" Type="DateTime" Precision="3" />
+    <Property Name="FROM_DATE" Type="DateTime" Precision="3" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="SOURCE_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="IDENTITY" Relationship="InnovatorSolutionsModel.FK__MEMBER__RELATED___3E923B2D" FromRole="MEMBER" ToRole="IDENTITY" />
+    <NavigationProperty Name="IDENTITY1" Relationship="InnovatorSolutionsModel.FK__MEMBER__SOURCE_I__3D9E16F4" FromRole="MEMBER" ToRole="IDENTITY" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="CELL" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="COMPANY_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="DEFAULT_VAULT" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ESIGNATURE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="FAX" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="FIRST_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="HOME_PHONE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_LOGIN_DATE" Type="DateTime" Precision="3" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOGON_ENABLED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAIL_STOP" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGER" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PAGER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PICTURE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PWD_IS_SET_ON" Type="DateTime" Precision="3" />
+    <Property Name="STARTING_PAGE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="TELEPHONE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="USER_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="WORKING_DIRECTORY" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="LOGIN_NAME" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_JOBNUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_CHINESENAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_ENGLISHNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_CENTRE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPARTMENT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_IDNUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_SENIORMANAGER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_DIRECTOR" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_VP" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_AFFILIATEDCOMPANY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WORKFLOW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SOURCE_TYPE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="WORKFLOW_PROCESS" Relationship="InnovatorSolutionsModel.FK__WORKFLOW__RELATE__1A54DAB7" FromRole="WORKFLOW" ToRole="WORKFLOW_PROCESS" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_MAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ARAS_UNIQUENESS_HELPER" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EFFECTIVE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="RELEASE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="LABEL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_BG_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_LABEL1_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_LABEL1_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_LABEL2_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_LABEL2_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_NAME_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_NAME_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_SIZE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="PROCESS_OWNER" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TRANSITION_LINE_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="TRANSITION_NAME_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="TRANSITION_NAME_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="SUPERSEDED_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="WORKFLOW_MAP_ACTIVITY" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__7BD05397" FromRole="WORKFLOW_MAP" ToRole="WORKFLOW_MAP_ACTIVITY" />
+    <Property Name="LABEL_ZC1" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION_ZC1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_MAP_ACTIVITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACTIVITY_TEMPLATE" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__7CC477D0" FromRole="WORKFLOW_MAP_ACTIVITY" ToRole="ACTIVITY_TEMPLATE" />
+    <NavigationProperty Name="WORKFLOW_MAP" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__7BD05397" FromRole="WORKFLOW_MAP_ACTIVITY" ToRole="WORKFLOW_MAP" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_MAP_PATH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHENTICATION" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="IS_DEFAULT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_OVERRIDE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="SEGMENTS" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="X" Type="Int32" />
+    <Property Name="Y" Type="Int32" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="LABEL_ZC1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_PROCESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ACTIVE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CLOSED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="COPIED_FROM" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="COPIED_FROM_STRING" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="LABEL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_BG_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_LABEL1_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_LABEL1_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_LABEL2_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_LABEL2_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_NAME_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="NODE_NAME_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NODE_SIZE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="PROCESS_OWNER" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SUB_OF" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TRANSITION_LINE_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="TRANSITION_NAME_COLOR" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="TRANSITION_NAME_FONT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="WORKFLOW" Relationship="InnovatorSolutionsModel.FK__WORKFLOW__RELATE__1A54DAB7" FromRole="WORKFLOW_PROCESS" ToRole="WORKFLOW" />
+    <NavigationProperty Name="WORKFLOW_PROCESS_ACTIVITY" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__0559BDD1" FromRole="WORKFLOW_PROCESS" ToRole="WORKFLOW_PROCESS_ACTIVITY" />
+    <Property Name="LABEL_ZC1" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION_ZC1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_PROCESS_ACTIVITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACTIVITY" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___RELAT__064DE20A" FromRole="WORKFLOW_PROCESS_ACTIVITY" ToRole="ACTIVITY" />
+    <NavigationProperty Name="WORKFLOW_PROCESS" Relationship="InnovatorSolutionsModel.FK__WORKFLOW___SOURC__0559BDD1" FromRole="WORKFLOW_PROCESS_ACTIVITY" ToRole="WORKFLOW_PROCESS" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_PROCESS_PATH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHENTICATION" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="IS_COMPLETE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_DEFAULT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_DISABLED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IS_OVERRIDE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LABEL" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="SEGMENTS" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="X" Type="Int32" />
+    <Property Name="Y" Type="Int32" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="LABEL_ZC1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__ACTIVITY___SOURC__1B48FEF0">
+    <End Type="InnovatorSolutionsModel.ACTIVITY" Role="ACTIVITY" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.ACTIVITY_ASSIGNMENT" Role="ACTIVITY_ASSIGNMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACTIVITY_ASSIGNMENT">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___RELAT__064DE20A">
+    <End Type="InnovatorSolutionsModel.ACTIVITY" Role="ACTIVITY" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.WORKFLOW_PROCESS_ACTIVITY" Role="WORKFLOW_PROCESS_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_PROCESS_ACTIVITY">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ACTIVITY___RELAT__1C3D2329">
+    <End Type="InnovatorSolutionsModel.IDENTITY" Role="IDENTITY" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.ACTIVITY_ASSIGNMENT" Role="ACTIVITY_ASSIGNMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDENTITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACTIVITY_ASSIGNMENT">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___RELAT__7CC477D0">
+    <End Type="InnovatorSolutionsModel.ACTIVITY_TEMPLATE" Role="ACTIVITY_TEMPLATE" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.WORKFLOW_MAP_ACTIVITY" Role="WORKFLOW_MAP_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY_TEMPLATE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_MAP_ACTIVITY">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEMBER__RELATED___3E923B2D">
+    <End Type="InnovatorSolutionsModel.IDENTITY" Role="IDENTITY" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.MEMBER" Role="MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDENTITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MEMBER">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEMBER__SOURCE_I__3D9E16F4">
+    <End Type="InnovatorSolutionsModel.IDENTITY" Role="IDENTITY" Multiplicity="1" />
+    <End Type="InnovatorSolutionsModel.MEMBER" Role="MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDENTITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MEMBER">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW__RELATE__1A54DAB7">
+    <End Type="InnovatorSolutionsModel.WORKFLOW_PROCESS" Role="WORKFLOW_PROCESS" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.WORKFLOW" Role="WORKFLOW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKFLOW_PROCESS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___SOURC__7BD05397">
+    <End Type="InnovatorSolutionsModel.WORKFLOW_MAP" Role="WORKFLOW_MAP" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.WORKFLOW_MAP_ACTIVITY" Role="WORKFLOW_MAP_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKFLOW_MAP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_MAP_ACTIVITY">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___SOURC__0559BDD1">
+    <End Type="InnovatorSolutionsModel.WORKFLOW_PROCESS" Role="WORKFLOW_PROCESS" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.WORKFLOW_PROCESS_ACTIVITY" Role="WORKFLOW_PROCESS_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKFLOW_PROCESS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_PROCESS_ACTIVITY">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="B_PROJECTMANAGE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_PMTORPATLEADER" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PMTORPATLEADERID" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTDIRECTOR" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTDIRECTORID" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTNAME" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTMANAGERID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTMANAGER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTRECORDNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISINUSE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_PROJECTVP" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_SORT" Type="Int32" />
+    <Property Name="B_APPLICABLECOMPANY" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_PRMANAGE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_APPLICANT" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_APPLICANTID" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_AUTHORIZEDPURCHASE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_BUDGET" Type="Decimal" Nullable="false" Precision="25" Scale="2" />
+    <Property Name="B_BUDGETCODE" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_BUDGETSTATUS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="B_BUSINESSDEPARTMENT" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_BUYER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_BUYERID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_EMAILADDRESS" Type="String" Nullable="false" MaxLength="34" FixedLength="false" Unicode="true" />
+    <Property Name="B_INDEXNUM" Type="Int32" Nullable="false" />
+    <Property Name="B_PHONENO" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTDIRECTOR" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTLEADER" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_PRRECORDNO" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_PRTYPE" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_RAISEDDATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="B_REPETITIVEPURCHASE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_URGENTPURCHASE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_PURCHASECONTENT" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="B_CONTRACTPARTY" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_APPLICANTADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISSINGLESUPPLIER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_CONTRACTTYPE" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPTMANAGER" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPTDIRECTOR" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="B_ADDITIONALBUDGET" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_COSTCENTER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_PURCHASINGREASON" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTMANAGER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_REMARK" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="B_CHOICESUPPLIERS" Relationship="InnovatorSolutionsModel.fk3813" FromRole="B_PRMANAGE" ToRole="B_CHOICESUPPLIERS" />
+    <Property Name="B_VERSIONNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPTVP" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_EXPENSEREIMBURSEMENT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_RECORDNO" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+    <Property Name="B_COMPANYCODE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_REIMBURSEMENTPLACE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISBUDGETARY" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_PREPARER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_PREPARERNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_APPLICATIONDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_EMPLOYEE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_STAFFNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_POSITION" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_COSTCENTER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TEL" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+    <Property Name="B_ADVANCEDAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TOTALEXPENSE" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_DUECOMPANY" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISHANGUP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_INDEXNUM" Type="Int32" />
+    <Property Name="B_AMOUNTINWORDS" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TOTALAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TYPE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_ATTACHMENTSQUANTITY" Type="Int32" />
+    <Property Name="B_LINELEADER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPARTMENTLEADER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DIVISIONVP" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_LINELEADERID" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPARTMENTLEADERID" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DIVISIONVPID" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_HANGUPACTIVITYNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_REMARK" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="B_EACDATE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISSENDTOSAP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_ACCOUNT_DOC" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="B_SENDTOSAPTIME" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="R_REIMBURSEMENTITEM" Relationship="InnovatorSolutionsModel.fk3821" FromRole="B_EXPENSEREIMBURSEMENT" ToRole="R_REIMBURSEMENTITEM" />
+  </EntityType>
+  <EntityType Name="B_EXPENSECATEGORY">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_COSTNAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="B_CORRESPONSUBJECT" Type="String" Nullable="false" MaxLength="68" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_ORGANIZATIONALSTRUCTURE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_NODENAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_NODECODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_PARENTNODECODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_NODEPERSONNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_NODELEVEL" Type="Int32" />
+    <Property Name="B_COSTCENTER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_COMPANYCODE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_REIMBURSEMENTITEM">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_DATE" Type="DateTime" Precision="3" />
+    <Property Name="B_CATEGORYNUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_BUDGETNUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_CURRENCY" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+    <Property Name="B_RATE" Type="Double" />
+    <Property Name="B_ORIGINALCURRENCY" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_COUNT" Type="Int32" />
+    <Property Name="B_TAXRATE" Type="Double" />
+    <Property Name="B_TAX" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="Decimal" Precision="25" Scale="2" />
+    <NavigationProperty Name="R_REIMBURSEMENTITEM" Relationship="InnovatorSolutionsModel.fk3822" FromRole="B_REIMBURSEMENTITEM" ToRole="R_REIMBURSEMENTITEM" />
+  </EntityType>
+  <EntityType Name="R_REIMBURSEMENTITEM">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="B_EXPENSEREIMBURSEMENT" Relationship="InnovatorSolutionsModel.fk3821" FromRole="R_REIMBURSEMENTITEM" ToRole="B_EXPENSEREIMBURSEMENT" />
+    <NavigationProperty Name="B_REIMBURSEMENTITEM" Relationship="InnovatorSolutionsModel.fk3822" FromRole="R_REIMBURSEMENTITEM" ToRole="B_REIMBURSEMENTITEM" />
+  </EntityType>
+  <Association Name="fk3821">
+    <End Type="InnovatorSolutionsModel.B_EXPENSEREIMBURSEMENT" Role="B_EXPENSEREIMBURSEMENT" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_REIMBURSEMENTITEM" Role="R_REIMBURSEMENTITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_EXPENSEREIMBURSEMENT">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_REIMBURSEMENTITEM">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3822">
+    <End Type="InnovatorSolutionsModel.B_REIMBURSEMENTITEM" Role="B_REIMBURSEMENTITEM" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_REIMBURSEMENTITEM" Role="R_REIMBURSEMENTITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_REIMBURSEMENTITEM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_REIMBURSEMENTITEM">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="B_TRIPREIMBURSEMENTFORM">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_RECORDNO" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_COMPANYCODE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_REIMBURSEMENTPLACE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISBUDGETARY" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_APPLICATIONDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_INTALBUSINESS" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PREPARER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PREPARERNO" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_EMPLOYEE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_STAFFNO" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_POSITION" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_COSTCENTER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_TEL" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_BUDGETNUMBER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_ADVANCEDAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TOTALEXPENSE" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_INDEXNUM" Type="Int32" />
+    <Property Name="B_TYPE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPTLEADER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_LINELEADER" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_DIVISIONVP" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_ATTACHMENTSQUANTITY" Type="Int32" />
+    <Property Name="B_LINELEADERID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPTLEADERID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_DIVISIONVPID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_REMARK" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISHANGUP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_AMOUNTINWORDS" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TOTALAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_HANGUPACTIVITYNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISSENDTOSAP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_ACCOUNT_DOC" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="B_EACDATE" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="B_HOTELINWORDS" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_HOTELAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TRAFINWORDS" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TRAFAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_MEALINWORDS" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_MEALAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_OTHINWORDS" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_OTHAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_AMOUNTINTOTAL" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="R_HOTELEXPENSE" Relationship="InnovatorSolutionsModel.fk3856" FromRole="B_TRIPREIMBURSEMENTFORM" ToRole="R_HOTELEXPENSE" />
+    <NavigationProperty Name="R_MEALSANDFIXEDSUBSIDIES" Relationship="InnovatorSolutionsModel.fk3861" FromRole="B_TRIPREIMBURSEMENTFORM" ToRole="R_MEALSANDFIXEDSUBSIDIES" />
+    <NavigationProperty Name="R_TRAFFICEXPENSE" Relationship="InnovatorSolutionsModel.fk3866" FromRole="B_TRIPREIMBURSEMENTFORM" ToRole="R_TRAFFICEXPENSE" />
+    <NavigationProperty Name="R_OTHERS" Relationship="InnovatorSolutionsModel.fk3871" FromRole="B_TRIPREIMBURSEMENTFORM" ToRole="R_OTHERS" />
+    <Property Name="B_BTRECORDNO" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+    <Property Name="B_TRAVELBUDGET" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_ISBEYONDBUDGET" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_BEYONDREASON" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_EXPENSEAUDITCONFIGURATION">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_ROLENAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TYPE" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+    <Property Name="B_COMPANYCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_COSTCENTERS" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="B_HANDLEPERSONS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_HOTELEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_STARTDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_ENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_CITY" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_HOTEL" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_CURRENCY" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_RATE" Type="Double" />
+    <Property Name="B_ORIGINALCURRENCY" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_DAYS" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_TAXRATE" Type="Double" />
+    <Property Name="B_TAX" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="Decimal" Precision="25" Scale="2" />
+    <NavigationProperty Name="R_HOTELEXPENSE" Relationship="InnovatorSolutionsModel.fk3857" FromRole="B_HOTELEXPENSE" ToRole="R_HOTELEXPENSE" />
+  </EntityType>
+  <EntityType Name="B_MEALSANDFIXEDSUBSIDIES">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_STARTDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_ENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PLACE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_COMPANIONAMOUNT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_COMPANIONNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_CURRENCY" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_RATE" Type="Double" />
+    <Property Name="B_FIXEDSUBSIDY" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXRATE" Type="Double" />
+    <Property Name="B_TAX" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="Decimal" Precision="25" Scale="2" />
+    <NavigationProperty Name="R_MEALSANDFIXEDSUBSIDIES" Relationship="InnovatorSolutionsModel.fk3862" FromRole="B_MEALSANDFIXEDSUBSIDIES" ToRole="R_MEALSANDFIXEDSUBSIDIES" />
+  </EntityType>
+  <EntityType Name="B_OTHERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_STARTDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_ENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_PLACE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_TYPE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_REASON" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_CURRENCY" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_RATE" Type="Double" />
+    <Property Name="B_ORIGINALCURRENCY" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_COUNT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_TAXRATE" Type="Double" />
+    <Property Name="B_TAX" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="Decimal" Precision="25" Scale="2" />
+    <NavigationProperty Name="R_OTHERS" Relationship="InnovatorSolutionsModel.fk3872" FromRole="B_OTHERS" ToRole="R_OTHERS" />
+  </EntityType>
+  <EntityType Name="B_TRAFFICEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_STARTDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_ENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_TYPE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_STARTPOINT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_ENDPOINT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_CURRENCY" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_RATE" Type="Double" />
+    <Property Name="B_ORIGINALCURRENCY" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_KILOMETRE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_TAXRATE" Type="Double" />
+    <Property Name="B_TAX" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="Decimal" Precision="25" Scale="2" />
+    <NavigationProperty Name="R_TRAFFICEXPENSE" Relationship="InnovatorSolutionsModel.fk3867" FromRole="B_TRAFFICEXPENSE" ToRole="R_TRAFFICEXPENSE" />
+  </EntityType>
+  <EntityType Name="R_HOTELEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="B_HOTELEXPENSE" Relationship="InnovatorSolutionsModel.fk3857" FromRole="R_HOTELEXPENSE" ToRole="B_HOTELEXPENSE" />
+    <NavigationProperty Name="B_TRIPREIMBURSEMENTFORM" Relationship="InnovatorSolutionsModel.fk3856" FromRole="R_HOTELEXPENSE" ToRole="B_TRIPREIMBURSEMENTFORM" />
+  </EntityType>
+  <EntityType Name="R_MEALSANDFIXEDSUBSIDIES">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="B_MEALSANDFIXEDSUBSIDIES" Relationship="InnovatorSolutionsModel.fk3862" FromRole="R_MEALSANDFIXEDSUBSIDIES" ToRole="B_MEALSANDFIXEDSUBSIDIES" />
+    <NavigationProperty Name="B_TRIPREIMBURSEMENTFORM" Relationship="InnovatorSolutionsModel.fk3861" FromRole="R_MEALSANDFIXEDSUBSIDIES" ToRole="B_TRIPREIMBURSEMENTFORM" />
+  </EntityType>
+  <EntityType Name="R_OTHERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="B_OTHERS" Relationship="InnovatorSolutionsModel.fk3872" FromRole="R_OTHERS" ToRole="B_OTHERS" />
+    <NavigationProperty Name="B_TRIPREIMBURSEMENTFORM" Relationship="InnovatorSolutionsModel.fk3871" FromRole="R_OTHERS" ToRole="B_TRIPREIMBURSEMENTFORM" />
+  </EntityType>
+  <EntityType Name="R_TRAFFICEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="B_TRAFFICEXPENSE" Relationship="InnovatorSolutionsModel.fk3867" FromRole="R_TRAFFICEXPENSE" ToRole="B_TRAFFICEXPENSE" />
+    <NavigationProperty Name="B_TRIPREIMBURSEMENTFORM" Relationship="InnovatorSolutionsModel.fk3866" FromRole="R_TRAFFICEXPENSE" ToRole="B_TRIPREIMBURSEMENTFORM" />
+  </EntityType>
+  <Association Name="fk3857">
+    <End Type="InnovatorSolutionsModel.B_HOTELEXPENSE" Role="B_HOTELEXPENSE" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_HOTELEXPENSE" Role="R_HOTELEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_HOTELEXPENSE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_HOTELEXPENSE">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3862">
+    <End Type="InnovatorSolutionsModel.B_MEALSANDFIXEDSUBSIDIES" Role="B_MEALSANDFIXEDSUBSIDIES" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_MEALSANDFIXEDSUBSIDIES" Role="R_MEALSANDFIXEDSUBSIDIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_MEALSANDFIXEDSUBSIDIES">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_MEALSANDFIXEDSUBSIDIES">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3872">
+    <End Type="InnovatorSolutionsModel.B_OTHERS" Role="B_OTHERS" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_OTHERS" Role="R_OTHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_OTHERS">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_OTHERS">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3867">
+    <End Type="InnovatorSolutionsModel.B_TRAFFICEXPENSE" Role="B_TRAFFICEXPENSE" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_TRAFFICEXPENSE" Role="R_TRAFFICEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRAFFICEXPENSE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_TRAFFICEXPENSE">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3856">
+    <End Type="InnovatorSolutionsModel.B_TRIPREIMBURSEMENTFORM" Role="B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_HOTELEXPENSE" Role="R_HOTELEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_HOTELEXPENSE">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3861">
+    <End Type="InnovatorSolutionsModel.B_TRIPREIMBURSEMENTFORM" Role="B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_MEALSANDFIXEDSUBSIDIES" Role="R_MEALSANDFIXEDSUBSIDIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_MEALSANDFIXEDSUBSIDIES">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3866">
+    <End Type="InnovatorSolutionsModel.B_TRIPREIMBURSEMENTFORM" Role="B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_TRAFFICEXPENSE" Role="R_TRAFFICEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_TRAFFICEXPENSE">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3871">
+    <End Type="InnovatorSolutionsModel.B_TRIPREIMBURSEMENTFORM" Role="B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.R_OTHERS" Role="R_OTHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_OTHERS">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="B_TAXCODECONFIGURE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_TAXCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_LEDGERACCOUNT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_CORRESPONSUBJECT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_PRCHOICESUPPLIERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_CONTRACTPRICE" Type="Decimal" Nullable="false" Precision="25" Scale="2" />
+    <Property Name="B_CONTRACTPROPERTY" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="true" />
+    <Property Name="B_PAYMENTCLAUSE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_PONO" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="true" />
+    <Property Name="B_SUPPLIER" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="B_CHOICESUPPLIERS" Relationship="InnovatorSolutionsModel.fk3814" FromRole="B_PRCHOICESUPPLIERS" ToRole="B_CHOICESUPPLIERS" />
+  </EntityType>
+  <EntityType Name="B_CHOICESUPPLIERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="SOURCE_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="BEHAVIOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SORT_ORDER" Type="Int32" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="RELATED_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="B_PRMANAGE" Relationship="InnovatorSolutionsModel.fk3813" FromRole="B_CHOICESUPPLIERS" ToRole="B_PRMANAGE" />
+    <NavigationProperty Name="B_PRCHOICESUPPLIERS" Relationship="InnovatorSolutionsModel.fk3814" FromRole="B_CHOICESUPPLIERS" ToRole="B_PRCHOICESUPPLIERS" />
+  </EntityType>
+  <Association Name="fk3813">
+    <End Type="InnovatorSolutionsModel.B_PRMANAGE" Role="B_PRMANAGE" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.B_CHOICESUPPLIERS" Role="B_CHOICESUPPLIERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_PRMANAGE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="B_CHOICESUPPLIERS">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3814">
+    <End Type="InnovatorSolutionsModel.B_PRCHOICESUPPLIERS" Role="B_PRCHOICESUPPLIERS" Multiplicity="0..1" />
+    <End Type="InnovatorSolutionsModel.B_CHOICESUPPLIERS" Role="B_CHOICESUPPLIERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_PRCHOICESUPPLIERS">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="B_CHOICESUPPLIERS">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="B_AGENTSET">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_DELEGATENAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_AGENTNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="B_STARTDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="B_ENDDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="B_AGENTCONTENT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="B_AGENTREASON" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="B_STARTDATEMINUTE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="B_ENDDATEMINUTE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="B_ISVALID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="B_BUSINESSTRAVEL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_COMPANYCODE" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_LOCATION" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_APPLICATIONDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_TRIPTYPE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TYPE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_PREPARER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_EMPLOYEE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_STAFFNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_POSITION" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_DEPT" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_COSTCENTER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_MOBILE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_PROJECTNAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_DESTINATION" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="B_SENIORMANAGER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DIRECTOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_VP" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TRAVELDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_ESTIMATEDRETURNDATE" Type="DateTime" Precision="3" />
+    <Property Name="B_PURPOSE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="B_TRAVELSCHEDULE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="B_TRAVELBUDGET" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_DOCUMENTNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_REMARK" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="B_INDEXNUM" Type="Int32" />
+    <Property Name="B_ISHANGUP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="B_HANGUPACTIVITYNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_FLIGHTISSSUE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_FLIGHTBOOKING" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_HOTELBOOKING" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_DIDI" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_OTHERS" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_NEEDADMINSUPPORT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="B_OTHERCONTENT" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="B_VERSIONNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_TRAFFICEXPENSE" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_HOTELEXPENSE" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_FIXEDSUBSIDY" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_OTHEREXPENSES" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_ISREIMBURSEMENT" Type="Int32" />
+    <Property Name="B_DIDIMONEY" Type="Decimal" Precision="25" Scale="2" />
+    <Property Name="B_DIDIADDMONEY" Type="Decimal" Precision="25" Scale="2" />
+  </EntityType>
+  <EntityType Name="B_WORKFLOWVERSIONMANAGEMENT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_VERSIONNO" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_WORKFLOWNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="B_WORKFLOWCHARTCODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="B_BOOKINGSTAFFING">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CLASSIFICATION" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="KEYED_NAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_ON" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATED_BY_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="OWNED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MANAGED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="MODIFIED_ON" Type="DateTime" Precision="3" />
+    <Property Name="MODIFIED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="CURRENT_STATE" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="LOCKED_BY_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="IS_CURRENT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MAJOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_REV" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IS_RELEASED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOT_LOCKABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GENERATION" Type="Int32" />
+    <Property Name="NEW_VERSION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONFIG_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="PERMISSION_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="TEAM_ID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="B_USERNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

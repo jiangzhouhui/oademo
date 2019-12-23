@@ -1,0 +1,39 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+    <canvas id="workFlowCanvas" width="800" height="800" style="border:1px solid #d3d3d3;"></canvas>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //获取流程数据
+            GetWorkFlowData();
+        });
+
+        function GetWorkFlowData()
+        {
+            $.ajax({
+                url: '/WorkFlow/GetWorkFlowData',
+                data: {"workFlowId":""},
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        //dialog.showMsg("错误提示", ans.error[0].value);
+                        return;
+                    }
+
+
+                }
+            });
+        }
+
+
+    </script>
+</body>
+</html>

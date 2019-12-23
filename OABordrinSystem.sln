@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OABordrinSystem", "OABordrinSystem\OABordrinSystem.csproj", "{1BBB2F7A-7568-4CBB-BF4D-D47504D45A2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAEntitys", "OAEntitys\OAEntitys.csproj", "{15CF8EC6-A8D9-4FB4-A5D3-10C4C693B9F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OABordrinBll", "OABordrinBll\OABordrinBll.csproj", "{5028B2F9-AF27-4FB3-A848-C49262F289CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OABordrinEntity", "OABordrinEntity\OABordrinEntity.csproj", "{F642A559-2CCA-4D2E-A8D4-4B4461B1D6E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OABordrinCommon", "OABordrinCommon\OABordrinCommon.csproj", "{63831F39-CA93-4AB3-927E-ADF1A6D54176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OABordrinDAL", "OABordrinDAL\OABordrinDAL.csproj", "{B2C19BEA-EF04-446D-9CF5-9284A6E52A33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OABordrinService", "OABordrinService\OABordrinService.csproj", "{FCC79A8C-3992-4542-B7BE-17DFFA3A7194}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BBB2F7A-7568-4CBB-BF4D-D47504D45A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBB2F7A-7568-4CBB-BF4D-D47504D45A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBB2F7A-7568-4CBB-BF4D-D47504D45A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBB2F7A-7568-4CBB-BF4D-D47504D45A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15CF8EC6-A8D9-4FB4-A5D3-10C4C693B9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15CF8EC6-A8D9-4FB4-A5D3-10C4C693B9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15CF8EC6-A8D9-4FB4-A5D3-10C4C693B9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15CF8EC6-A8D9-4FB4-A5D3-10C4C693B9F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5028B2F9-AF27-4FB3-A848-C49262F289CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5028B2F9-AF27-4FB3-A848-C49262F289CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5028B2F9-AF27-4FB3-A848-C49262F289CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5028B2F9-AF27-4FB3-A848-C49262F289CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F642A559-2CCA-4D2E-A8D4-4B4461B1D6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F642A559-2CCA-4D2E-A8D4-4B4461B1D6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F642A559-2CCA-4D2E-A8D4-4B4461B1D6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F642A559-2CCA-4D2E-A8D4-4B4461B1D6E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63831F39-CA93-4AB3-927E-ADF1A6D54176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63831F39-CA93-4AB3-927E-ADF1A6D54176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63831F39-CA93-4AB3-927E-ADF1A6D54176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63831F39-CA93-4AB3-927E-ADF1A6D54176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C19BEA-EF04-446D-9CF5-9284A6E52A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C19BEA-EF04-446D-9CF5-9284A6E52A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C19BEA-EF04-446D-9CF5-9284A6E52A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C19BEA-EF04-446D-9CF5-9284A6E52A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC79A8C-3992-4542-B7BE-17DFFA3A7194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC79A8C-3992-4542-B7BE-17DFFA3A7194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC79A8C-3992-4542-B7BE-17DFFA3A7194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC79A8C-3992-4542-B7BE-17DFFA3A7194}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

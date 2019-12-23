@@ -1,0 +1,214 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("菜单权限管理", "CommonName", "Common", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("权限管理", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("菜单权限管理", "CommonName", "Common", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="MemuDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;min-width:800px;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("身份", "CommonName", "Common", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("拥有权限", "CommonName", "Common", ViewBag.language)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/MenuAuthManage/MenuAuthManageEdit.cshtml")
+@section scripts{
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+
+    <script type="text/javascript">
+        var $MemuDataTable = $("#MemuDataTable"), MemuDataTableObj, $MenuAuthManageEdit = $("#MenuAuthManageEdit");
+        MenuAuthManageParam = app.util.getEditParam($MenuAuthManageEdit);
+        $(document).ready(function () {
+            //加载表格数据
+            MemuDataTableObj = $MemuDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": true,
+                "sAjaxSource": '/MenuAuthManage/GetIdentityList',
+                "fnServerData": RetrieveIdentityData,
+                "aoColumns": [
+                        { "data": "KEYED_NAME", "sWidth": 250 },
+                        { "data": "AuthStr", "bSortable": false }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language) "
+
+                },
+                "aLengthMenu": [15, 25, 50, 100]
+            });
+
+            //加载菜单列表
+            LoadSystemMenuList();
+        });
+
+        function GetIdentitySearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;
+            var iDisplayStart = aoData[3].value;
+            var iDisplayLength = aoData[4].value;
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+
+            var searchValue = $("input[name='SearchValue']").val();
+
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue };
+        }
+
+
+        function RetrieveIdentityData(sSource, aoData, fnCallback) {
+            $.ajax({
+                url: '/MenuAuthManage/GetIdentityList',//这个就是请求地址对应sAjaxSource
+                data: GetIdentitySearchParam(aoData),
+                dataType: 'json',
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
+
+
+        $("#BtnSearch").click(function () {
+            MemuDataTableObj.fnDraw();
+        });
+
+        $MemuDataTable.delegate(".configMemuAuth", "click", function () {
+            app.util.clearError($MenuAuthManageEdit);
+            app.util.bindValue(MenuAuthManageParam, "");
+            $("#SystemMenuList").find("input").each(function () {
+                $(this).iCheck('uncheck');
+            });
+            $.ajax({
+
+                url: '/MenuAuthManage/GetMenuAuthByIdentity',
+                data: { "Id": $(this).attr("Id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        dialog.showMsg("错误提示！", ans.error[0].value);
+                        return;
+                    }
+                    app.util.bindValue(MenuAuthManageParam, ans);
+                    if (ans.data != null && ans.data.AuthList.length > 0) {
+                        for (var i = 0; i < ans.data.AuthList.length; i++) {
+                            //$("input[value='" + ans.data.AuthList[i] + "']").closest("div").addClass("checked");
+                            $("input[value='" + ans.data.AuthList[i] + "']").iCheck('check');
+                        }
+                    }
+                    $MenuAuthManageEdit.modal("show");
+                }
+            });
+        });
+
+        function GetSaveParam() {
+            var Id = MenuAuthManageParam.Id.val();
+            var Is_Alias = MenuAuthManageParam.Is_Alias.val();
+            var KEYED_NAME = MenuAuthManageParam.KEYED_NAME.val();
+            var AuthList = [];
+            $("div.icheckbox_square-green").each(function () {
+                if ($(this).hasClass("checked")) {
+                    AuthList.push($(this).find("input").first().val());
+                }
+            });
+            return { "Id": Id, "Is_Alias": Is_Alias, "KEYED_NAME": KEYED_NAME, "AuthList": AuthList };
+        }
+
+        $("#SaveMemuAuth").click(function () {
+            $.ajax({
+                url: '/MenuAuthManage/SaveMenuAuth',
+                data: GetSaveParam(),
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        app.util.onError(ans.error, $MenuAuthManageEdit);
+                        return;
+                    }
+                    $MenuAuthManageEdit.modal("hide");
+                    MemuDataTableObj.fnPageChange(app.util.DTCurrentPage(MemuDataTableObj));
+                }
+            });
+        });
+
+
+        //加载菜单列表
+        function LoadSystemMenuList() {
+            $.ajax({
+                url: '/MenuAuthManage/GetSystemMenuList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    $("#SystemMenuList").empty();
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            $("#SystemMenuList").append(" <label><input class='i-checks' type='checkbox' value='" + item.Value + "'> <i></i>&nbsp;" + item.Text + "&nbsp;</label>");
+                        }
+                    }
+                    $('.i-checks').iCheck({
+                        checkboxClass: 'icheckbox_square-green',
+                        radioClass: 'iradio_square-green',
+                    });
+                }
+            });
+        }
+    </script>
+}

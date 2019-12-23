@@ -1,0 +1,284 @@
+﻿<div tabindex="-1" class="modal fade in" id="BusinessTravelDetailModel" role="dialog" aria-hidden="true" style="padding-right: 17px;">
+    <div class="modal-dialog modal-lg modelWith">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel1">@OABordrinCommon.Common.GetLanguageValueByParam("详情", "CommonName", "Common", ViewBag.language)</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" name="Id" />
+                    <input type="hidden" name="status" />
+                    <input type="hidden" name="activityId" />
+                    <input type="hidden" name="activityAssignmentId" />
+                    <input type="hidden" name="b_DocumentNo" />
+                    <input type="hidden" name="b_IsHangUp" />
+                    <input type="hidden" name="b_HangUpActivityName" />
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("公司代码", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_CompanyCode"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("归属地", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Location"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_ApplicationDate"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("出差类型", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_TripType"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("是否项目", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Type"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("代申请人", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Preparer"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Employee"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("工号", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_StaffNo"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("职务", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Position"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("部门", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Dept"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("成本中心", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_CostCenter"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("手机", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Mobile"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="b_ProjectNameDetail">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-7">
+                            <label class="control-label" name="b_ProjectName"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="departmentLeaderDetail">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("经理", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_SeniorManager"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("总监", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Director"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("中心VP", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_VP"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("出差开始日期", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_TravelDate"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("预计出差结束日期", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_EstimatedReturnDate"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("目的地", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Destination"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("出差事由", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-11">
+                            <label class="control-label" name="b_Purpose"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("行程安排", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-11">
+                            <label class="control-label" name="b_TravelSchedule"></label>
+                        </div>
+                    </div>
+                    <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                        @OABordrinCommon.Common.GetLanguageValueByParam("出差预算", "b_FlightBooking", "BTItemType", ViewBag.language)
+                    </h5>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("交通费", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-5">
+                            <label class="control-label" name="b_TrafficExpense"></label><span>@OABordrinCommon.Common.GetLanguageValueByParam("元", "CommonName", "Common", ViewBag.language)</span>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("住宿费", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-5">
+                            <label class="control-label" name="b_HotelExpense"></label><span>@OABordrinCommon.Common.GetLanguageValueByParam("元", "CommonName", "Common", ViewBag.language)</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("固定补贴", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-5">
+                            <label class="control-label" name="b_FixedSubsidy"></label><span>@OABordrinCommon.Common.GetLanguageValueByParam("元", "CommonName", "Common", ViewBag.language)</span>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("其他", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-5">
+                            <label class="control-label" name="b_OtherExpenses"></label><span>@OABordrinCommon.Common.GetLanguageValueByParam("元", "CommonName", "Common", ViewBag.language)</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("需要行政支持事项", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                        <div class="col-sm-5" style="padding-top:10px;">
+                            <label><input type="checkbox" class="i-checks" id="b_FlightIsssue" value="FlightIsssue" disabled="disabled">&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("机票审批", "b_BusinessTravel", "BTItemType", ViewBag.language)&nbsp;</label>
+                            <label style="margin-left:10px;" class="BookingStaffing"><input type="checkbox" class="i-checks" id="b_FlightBooking" value="FlightBooking" disabled="disabled">&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("机票代订", "b_BusinessTravel", "BTItemType", ViewBag.language)&nbsp;</label>
+                            <label style="margin-left:10px;" class="BookingStaffing"><input type="checkbox" class="i-checks" id="b_HotelBooking" value="HotelBooking" disabled="disabled">&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("酒店代订", "b_BusinessTravel", "BTItemType", ViewBag.language)&nbsp;</label>
+                            <label style="margin-left:10px;"><input type="checkbox" class="i-checks" id="b_Didi" value="Didi" disabled="disabled">&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("滴滴额度", "b_BusinessTravel", "BTItemType", ViewBag.language)&nbsp;</label>
+                            <label style="margin-left:10px;"><input type="checkbox" class="i-checks" id="b_Others" value="Others" disabled="disabled">&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("其他", "b_BusinessTravel", "BTItemType", ViewBag.language)&nbsp;</label>
+                        </div>
+                        <div class="col-sm-6" style="text-align:left;padding-top:5px;margin-left:-50px;">
+                            <input type="text" style="display:none;" class="form-control" name="b_OtherContent" disabled="disabled">
+                        </div>
+                    </div>
+
+                    <div class="table-responsive" id="FlightBookingInfoDetails">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("机票代订", "b_FlightBooking", "BTItemType", ViewBag.language)
+                        </h5>
+                        <table id="FlightBookingItemTr" class="table table-bordered" style="text-align:left;min-width:1150px;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("姓", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("名", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("证件类型", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("身份证号码", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("国籍", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("护照号码", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("护照有效期", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("出生年月日", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("有效地址", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("出发时间", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("出发地点", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:8.3%">@OABordrinCommon.Common.GetLanguageValueByParam("航班号", "b_FlightBooking", "BTItemType", ViewBag.language)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="FlightBookingItemTrDetail">
+                                <tr>
+                                    <td>
+                                        <label class="control-label b_FirstName"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_LastName"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_IDType"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_IDCardNo"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Nationality"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_PassportNumber"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Dateofexpiration"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Dateofbirth"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Address"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Gooff"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Goplace"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Flightnumber"></label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="HotelBookingDetails">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("酒店代订", "b_HotelBooking", "BTItemType", ViewBag.language)
+                        </h5>
+                        <div class="table-responsive">
+                            <table id="HotelBookingItemTr" class="table table-bordered" style="text-align:left;min-width:1150px;">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center; background-color: white;width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("入住日期", "b_HotelBooking", "BTItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white;width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("离店日期", "b_HotelBooking", "BTItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white;width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("具体地址", "b_HotelBooking", "BTItemType", ViewBag.language)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="HotelBookingTrDetail">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label b_Checkindate"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_Leavedate"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_Specificaddress"></label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="DidiItemsDetail">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("滴滴额度", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </h5>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("金额", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                            <div class="col-sm-5">
+                                <label class="control-label" name="b_DidiMoney"></label>
+                            </div>
+                            <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("额外追加额度", "b_BusinessTravel", "BTItemType", ViewBag.language)</label>
+                            <div class="col-sm-5">
+                                <label class="control-label" name="b_DidiAddMoney"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("备注", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                        <div class="col-sm-11">
+                            <label name="OldRemark"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("附件", "Common", "ItemType", ViewBag.language)</label>
+                        <div class="col-sm-3" style="margin-top:5px;">
+                            <div id="fileListDetail">
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" type="button" data-dismiss="modal">@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)</button>
+            </div>
+        </div>
+    </div>
+</div>

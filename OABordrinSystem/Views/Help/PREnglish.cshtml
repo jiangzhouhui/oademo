@@ -1,0 +1,154 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Help";
+}
+<style type="text/css">
+    .auto-style1 {
+        height: 183px;
+    }
+
+    .auto-style2 {
+        height: 30px;
+    }
+</style>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="animated fadeInRight" style="">
+                    <div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>OA平台帮助手册</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div id="calendar">
+
+                                    <table style="width:100%;">
+                                        <tr style="height:30px">
+                                            <td>
+                                                <strong>
+                                                    一、OA系统登录
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="auto-style2">1. 在浏览器 （建议Chrome）中输入<a href="http://oa.bordrin.com/Login/Index">http://oa.bordrin.com/Login/Index</a>，在显示的页面中输入您的域账号和域密码。</td>
+                                        </tr>
+                            
+                                        <tr>
+                                            <td>&nbsp;<img src="~/Images/Help/image001.jpg" width=430 height=221><br />
+                                        </tr>
+                                        <tr style="height:60px">
+                                            <td>2. 登录后系统进入主页面。系统目前包含主页、采购管理两个主菜单，其中采购管理包含采购PR单管理和查询PR单两个子菜单。<BR />采购PR单管理页面包含是当前待办PR单。查询PR单包含权限允许的所有可看PR单。</td>
+                                        </tr>
+                                        <tr><td>&nbsp;<img src="~/Images/Help/image002.jpg" width=543 height=169><br /></td></tr>
+                                        <tr style="height:30px">
+                                            <td><strong>二、采购PR单管理页面使用</strong></td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>1. 采购PR单页面介绍 </td>
+                                        </tr>
+                                        <tr>
+                                            <td>如图所示，在采购PR单页面可对待办的采购单可进行查询、排序等操作，单击新增可创建PR单。 </td>
+                                        </tr>
+                                        <tr>
+                                            <td> &nbsp;<img src="~/Images/Help/image003.jpg" width=540 height=222><br /></td>
+                                        </tr>
+                                        <tr style="height:35px">
+                                            <td>单击 <img src="~/Images/Help/image004.png" width=21 height=24>图标打开申请单，此时PR单状态为编辑状态。 </td>
+                                        </tr>
+                                        <tr style="height:35px">
+                                            <td>单击  <img src="~/Images/Help/image005.png" width=17 height=23>图标打开查看日志页面，通过此页面可以看到该张PR单的审批情况及驳回意见。</td>
+                                        </tr>
+                                        <tr>
+                                            <td> <img src="~/Images/Help/image006.jpg" width=433 height=153></td>
+                                        </tr>
+                                        <tr style="height:35px">
+                                            <td>单击  <img src="~/Images/Help/image007.png" width=13 height=23>图标打开流程状态，通过此页面可以看到该张PR单的流程情况及当前节点。</td>
+                                        </tr>
+                                        <tr>
+                                            <td> <img src="~/Images/Help/image008.jpg" width=472 height=183></td>
+                                        </tr>
+                                        <tr style="height:35px">
+                                            <td>单击 <img src="~/Images/Help/image009.png" width=17 height=24> 图标打开申请单，此时PR单状态为查看状态。</td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td><strong>三、采购PR单</strong></td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>1. 采购PR单新增 </td>
+                                        </tr>
+                                        <tr style="height:45px">
+                                            <td>&nbsp;单击新增按钮后系统会弹出新增PR单页面，申请人填写相关信息，如单击保存按钮系统保存当前填写内容，但流程状态仍为草稿，此时申请人可继续修改。单击提交按钮为提交申请单，申请人不可再修改内容，提交后当前处理人为申请人领导。</td>
+                                        </tr>
+                                        <tr>
+                                            <td> <img src="~/Images/Help/image010.jpg" width=521 height=325></td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>&nbsp;2. 采购PR单审批</td>
+                                        </tr>
+                                        <tr>
+                                            <td> 单击<img src="~/Images/Help/image004.png" width=21 height=24>图标打开PR单，单击同意或驳回审批PR单。 </td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td> <img src="~/Images/Help/image011.jpg" width=512 height=187> </td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>单击同意按钮审批通过PR单并提交下一环节。</td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>单击驳回按钮表明不同意该张申请单PR内容，在驳回时可选择退回的环节，挑选退回环节，单击完成提交。 </td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td><img src="~/Images/Help/image012.jpg" width=490 height=210>  </td>
+                                        </tr>
+
+                                        <tr style="height:30px">
+                                            <td><strong>四、查询PR单页面</strong></td>
+                                        </tr>
+                                        <tr style="height:30px">
+                                            <td>&nbsp; 1. 查询PR单页面介绍</td>
+                                        </tr>
+                                        <tr style="height:60px">
+                                            <td>&nbsp; 在查询PR单页面可看到当前账户可看到的所有PR单，可以对所有PR单进行查看等操作，如有管理员、采购员挑选PR、采购员、PR单可查看权限身份账号可以进行导出、打印等操作。 </td>
+                                        </tr>
+                                        <tr>
+                                            <td>  <img src="~/Images/Help/image014.jpg" width=511 height=159></td>
+                                        </tr>
+                                        <tr style="height:60px">
+                                            <td>&nbsp;单击 <img src="~/Images/Help/image015.png" width=19 height=26>图标可打印当前PR单，首次单击<img src="~/Images/Help/image015.png" width=19 height=26>图标，系统会要求安装打印控件，按照系统要求安装后即可使用。在弹出的打印界面中单击打印按钮，可打印PR单。 </td>
+                                        </tr>
+
+                                    </table>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    &nbsp;<br />
+                                    &nbsp;<br />
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

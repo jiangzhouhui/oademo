@@ -1,0 +1,363 @@
+﻿<div tabindex="-1" class="modal fade in" id="PrManageDetailModel" role="dialog" aria-hidden="true" style="padding-right: 17px;">
+    <div class="modal-dialog modal-lg prModelWith">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel1">@OABordrinCommon.Common.GetLanguageValueByParam("详情", "CommonName", "Common", ViewBag.language)</h4>
+            </div>
+            <div class="errorMessage fa fa-exclamation-triangle" style="background-color: #f4eedc; width:100%;padding:5px; display: none;"><span style="margin-left:10px;"></span></div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" name="id" />
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("需求部门", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_BusinessDepartment"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("预算", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Budget"></label><span>@OABordrinCommon.Common.GetLanguageValueByParam("元", "CommonName", "Common", ViewBag.language)</span>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请人", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_Applicant"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_RaisedDate"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("邮箱", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_EmailAddress"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("联系电话", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_PhoneNo"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("预算号", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_BudgetCode"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("成本中心", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_CostCenter"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("采购类型", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label style="padding-top:5px;"><input class="i-checks" type="radio" name="b_PrType" value="Non Project" checked="checked"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("非产品开发类项目", "B_PrManage", "PRItemType", ViewBag.language)&nbsp;</label>
+                            <label><input class="i-checks" type="radio" name="b_PrType" value="project"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("产品开发类项目", "B_PrManage", "PRItemType", ViewBag.language)&nbsp;</label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("签约方", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_ContractParty" style="text-align:left;"></label>
+                        </div>
+                        <div class="ProjectLeaderInfoDetail">
+                            <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <label class="control-label" name="b_ProjectName"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="departmentLeaderInfoDetail">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("部门经理", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_DeptManager"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("部门总监", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_DeptDirector"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">VP</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_DeptVP"></label>
+                        </div>
+                    </div>
+                    <div class="form-group ProjectLeaderInfoDetail" style="display:none;">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("PMT/PAT 经理", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_ProjectLeader"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("项目经理", "b_ProjectManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_ProjectManager"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("项目总监", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_ProjectDirector"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("采购内容", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-11">
+                            <label class="control-label" name="b_PurchaseContent" style="text-align:left;"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("采购原因", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label>
+                        <div class="col-sm-11">
+                            <label class="control-label" name="b_PurchasingReason" style="text-align:left;"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("交货地址", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                        <div class="col-sm-11">
+                            <label class="control-label" name="b_ApplicantAddress"></label>
+                        </div>
+                    </div>
+                    <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                        @OABordrinCommon.Common.GetLanguageValueByParam("[需求信息]", "PRFormTitle", "PRItemType", ViewBag.language)
+                    </h5>
+                    <div class="table-responsive">
+                        <table id="PrManageItemDetail" class="table table-bordered" style="text-align:left;min-width:980px;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; background-color: white; width:20%">@OABordrinCommon.Common.GetLanguageValueByParam("需求清单", "B_PrManageItem", "PRItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:20%">@OABordrinCommon.Common.GetLanguageValueByParam("规格型号", "B_PrManageItem", "PRItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("项目编号", "B_PrManageItem", "PRItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("二级科目", "B_PrManageItem", "PRItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("数量", "B_PrManageItem", "PRItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("单位", "B_PrManageItem", "PRItemType", ViewBag.language)</th>
+                                    @*<th style="text-align: center; background-color: white;width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("操作", "Common", "ItemType")</th>*@
+
+                                </tr>
+
+                            </thead>
+                            <tbody id="PrManageItemTrDetail">
+                                <tr>
+                                    <td>
+                                        <label class="control-label b_RequestList"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_SpecificationQuantity"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_ProjectNo"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_TaskNo"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Qty"></label>
+                                    </td>
+                                    <td>
+                                        <label class="control-label b_Unit"></label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="b_BudgetStatusDetail">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("[财务部批准预算使用]", "PRFormTitle", "PRItemType", ViewBag.language)
+                        </h5>
+                        <div class="form-group">
+
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("预算来源及使用情况", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                            <div class="col-sm-10">
+                                <label class="control-label" name="b_BudgetStatus"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="b_BuyerDetail">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("[采购部接收PR挑选采购员]", "PRFormTitle", "PRItemType", ViewBag.language)
+                        </h5>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("采购员", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <label class="control-label" name="b_Buyer"></label>
+                            </div>
+                            <div class="col-sm-7">
+                                <label><input class='i-checks' type='checkbox' value="AuthorizedPurchase" name="b_AuthorizedPurchase"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("授权采购", "B_PrManage", "PRItemType", ViewBag.language)&nbsp;</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="PurchasingInquiryDetail">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("[采购部询价作业]", "PRFormTitle", "PRItemType", ViewBag.language)
+                        </h5>
+                        <div class="table-responsive">
+                            <table id="PrQuotationItemDetail" class="table table-bordered" style="text-align:left;min-width:980px;">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: left; background-color: white; width:30%">@OABordrinCommon.Common.GetLanguageValueByParam("供应商", "B_PrQuotationItem", "PRItemType", ViewBag.language)</th>
+                                        <th style="text-align: left; background-color: white; width:30%">@OABordrinCommon.Common.GetLanguageValueByParam("报价总价（含税元）", "B_PrQuotationItem", "PRItemType", ViewBag.language)</th>
+                                        <th style="text-align: left; background-color: white; width:30%">@OABordrinCommon.Common.GetLanguageValueByParam("备注", "B_PrManage", "PRItemType", ViewBag.language)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="PrQuotationItemTrDetail">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label b_Supplier"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_Quotation"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_Remarks"></label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label><input class='i-checks' type='checkbox' value="UrgentPurchase" name="b_UrgentPurchase"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("紧急采购", "B_PrManage", "PRItemType", ViewBag.language)&nbsp;</label>
+                                <label style="margin-left:10%"><input class='i-checks' type='checkbox' value="RepetitivePurchase" name="b_RepetitivePurchase"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("重复采购", "B_PrManage", "PRItemType", ViewBag.language)&nbsp;</label>
+                                <label style="margin-left:10%;"><input class='i-checks' type='checkbox' value="IsSingleSupplier" name="b_IsSingleSupplier"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("单一供应商（品牌）", "B_PrManage", "PRItemType", ViewBag.language)&nbsp;</label>
+                            </div>
+                        </div>
+                        <div id="PrRepeateItemDetail">
+                            <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                                @OABordrinCommon.Common.GetLanguageValueByParam("[重复采购]", "PRFormTitle", "PRItemType", ViewBag.language)
+                            </h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" style="text-align:left;min-width:980px;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: left; background-color: white; width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("合同号", "B_PrRepeateItem", "PRItemType", ViewBag.language)</th>
+                                            <th style="text-align: left; background-color: white; width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("PR号", "B_PrRepeateItem", "PRItemType", ViewBag.language)</th>
+                                            <th style="text-align: left; background-color: white; width:25%">@OABordrinCommon.Common.GetLanguageValueByParam("原供应商", "B_PrRepeateItem", "PRItemType", ViewBag.language)</th>
+
+                                            @*<th style="text-align: left; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("合同金额", "B_PrRepeateItem", "PRItemType", ViewBag.language)</th>*@
+                                            <th style="text-align: left; background-color: white; width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("原采购员", "B_PrRepeateItem", "PRItemType", ViewBag.language)</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="PrRepeateItemTrDetail">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label b_ContractNo"></label>
+                                            </td>
+                                            <td>
+                                                <label class="control-label b_PrRecordNo"></label>
+                                            </td>
+                                            <td>
+                                                <label class="control-label b_PreviousSupplier"></label>
+                                            </td>
+                                            @*<td>
+                                                    <label class="control-label b_ContractPrice"></label>
+                                                </td>*@
+                                            <td>
+                                                <label class="control-label b_PreviousBuyer"></label>
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="ContractRegisterDetail">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("[采购部合同登记]", "PRFormTitle", "PRItemType", ViewBag.language)
+                        </h5>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" style="text-align:left;min-width:980px;" id="PrChoiceSuppliersDetail">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: left; background-color: white; width:25%">@OABordrinCommon.Common.GetLanguageValueByParam("选点供应商", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</th>
+                                        <th style="text-align: left; background-color: white; width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("合同总价（含税元）", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</th>
+                                        <th style="text-align: left; background-color: white; width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("合同（订单）号", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</th>
+                                        <th style="text-align: left; background-color: white; width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("合同性质", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</th>
+                                        <th style="text-align: left; background-color: white; width:15%">@OABordrinCommon.Common.GetLanguageValueByParam("付款条件", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="PrChoiceSuppliersTrDetail">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label b_Supplier"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_ContractPrice"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_PoNo"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_ContractProperty"></label>
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_PaymentClause"></label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                            @*<div class="form-group">
+                <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("选点供应商", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                <div class="col-sm-4">
+                    <label class="control-label" name="b_SourcedSupplier"></label>
+                </div>
+                <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合同总价（含税元）", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                <div class="col-sm-4">
+                    <label class="control-label" name="b_ContractPrice"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合同（订单）号", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                <div class="col-sm-4">
+                    <label class="control-label" name="b_PoNo"></label>
+                </div>
+                <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合同性质", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                <div class="col-sm-4">
+                    <label style="padding-top:5px;"><input class="i-checks" type="radio" name="b_ContractProperty" value="openContract"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("开口", "PRCommon", "PRItemType", ViewBag.language)&nbsp;</label>
+                    <label><input class="i-checks" type="radio" name="b_ContractProperty" value="closeContract"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("闭口", "PRCommon", "PRItemType", ViewBag.language)&nbsp;</label>
+                </div>
+            </div>*@
+                            <div class="form-group AdditionalBudgetDetail">
+                                <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("追加预算", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                                <div class="col-sm-3">
+                                    <label class="control-label" name="b_AdditionalBudget"></label>
+                                </div>
+                            </div>
+                        </div>
+                    <div id="ContractManagementDetail">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("[合同管理]", "PRFormTitle", "PRItemType", ViewBag.language)
+                        </h5>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合同类型", "B_PrManage", "PRItemType", ViewBag.language)</label>
+
+                            <label style="padding-top:5px;"><input class="i-checks" type="radio" name="b_ContractType" value="Purchase Order" checked="checked"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("采购订单", "PRCommon", "PRItemType", ViewBag.language)&nbsp;</label>&nbsp;&nbsp;
+                            <label><input class="i-checks" type="radio" name="b_ContractType" value="Internal Contract"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("内部合同", "PRCommon", "PRItemType", ViewBag.language)&nbsp;</label>&nbsp;&nbsp;
+                            <label><input class="i-checks" type="radio" name="b_ContractType" value="Other Contract"> <i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("其它合同", "PRCommon", "PRItemType", ViewBag.language)&nbsp;</label>&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <div class="form-group" id="PrManageRemarkDetail">
+                        <label class="col-sm-2 control-label">
+                            @OABordrinCommon.Common.GetLanguageValueByParam("备注", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label>
+                        <div class="col-sm-10">
+                            <label name="remarkDetail"></label>
+                        </div>
+                    </div>
+                    <div id="PrManageFilesDetail">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("附件", "Common", "ItemType", ViewBag.language)</label>
+                            <div class="col-sm-4" style="margin-top:5px;">
+                                <div id="fileListDetail">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" type="button" data-dismiss="modal">@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,472 @@
+﻿@{
+    Layout = null;
+}
+@model OABordrinSystem.Models.BusinessTravelModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" />
+    @*<meta http-equiv="X-UA-Compatible" content="IE=11" />*@
+    <title>&nbsp; </title>
+    <script src="~/OpenResouce/js/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/LodopFuncs.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript">
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    </script>
+</head>
+<body>
+    <div id="content" class="center">
+        <style type="text/css">
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                font-size: 12px;
+                vertical-align: baseline;
+                background: transparent;
+                font-weight: normal;
+            }
+
+            .title {
+                text-align: center;
+                width: 100%;
+                font-weight: bold;
+                font-size: 16px;
+                margin: 5px 0 15px 0;
+            }
+
+            .center {
+                margin: 0 auto;
+                vertical-align: middle;
+                text-align: center;
+                width: 780px;
+                height: 140px;
+            }
+
+            .tbinfo {
+                width: 100%;
+                text-align: left;
+            }
+
+                .tbinfo td {
+                    padding: 10px;
+                }
+
+            .infoV {
+                width: 100px;
+                display: inline-block;
+                border-bottom: 1px solid #000;
+                text-align: center;
+            }
+
+            .tbItems {
+                border: 1px solid #000;
+                width: 100%;
+                border-collapse: collapse;
+                margin-left: 2px;
+            }
+
+                .tbItems td {
+                    border: 1px solid #000;
+                    padding: 2px;
+                    padding-left: 5px;
+                    text-align: left;
+                    height: 30px;
+                    vertical-align: middle;
+                }
+
+            .pageContent {
+                height: 800px;
+                margin-top: 10px;
+            }
+        </style>
+
+        <div class="pageContent">
+            <div class="title">
+                @OABordrinCommon.Common.GetLanguageValueByParam("出差申请单", "b_BusinessTravel", "BTItemType", ViewBag.language)@Html.Raw("(" + Model.b_DocumentNo + ")")
+            </div>
+            <table class="tbinfo">
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("公司代码", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_CompanyCode)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("归属地", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_Location)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_ApplicationDate)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("出差类型", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_TripType)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("是否项目", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Type)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("代申请人", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_Preparer)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Employee)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("工号", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_StaffNo)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("职务", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_Position)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("部门", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Dept)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("成本中心", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_CostCenter)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("手机", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Mobile)</span>
+                    </td>
+                </tr>
+                @if (Model.b_Type == "Project")
+                {
+                    <tr>
+                        <td colspan="3">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 85%; text-align:left;">@Html.Raw(Model.b_ProjectName)</span>
+                        </td>
+
+                    </tr>
+                }
+                @if (Model.b_Type == "Non Project")
+                {
+                    <tr>
+                        <td style="width: 35%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("经理", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_SeniorManager)</span>
+                        </td>
+                        <td style="width: 35%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("总监", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Director)</span>
+                        </td>
+                        <td style="width: 30%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("中心VP", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_VP)</span>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("出差开始日期", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_TravelDate)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("预计出差结束日期", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_EstimatedReturnDate)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("目的地", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Destination)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("出差事由", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 85%;text-align:left;">@Html.Raw(Model.b_Purpose)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("行程安排", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 85%;text-align:left;">@Html.Raw(Model.b_TravelSchedule)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("交通费", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;text-align:left;">@Html.Raw(Model.b_TrafficExpense)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("住宿费", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;text-align:left;">@Html.Raw(Model.b_HotelExpense)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("固定补贴", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;text-align:left;">@Html.Raw(Model.b_FixedSubsidy)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("其他", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;text-align:left;">@Html.Raw(Model.b_OtherExpenses)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("需要行政支持事项", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label>
+                        <label>
+                            @if (Model.b_FlightIsssue == "FlightIsssue")
+                            {
+                                <input class="i-checks" type="checkbox" value="FlightIsssue" disabled="disabled" checked="checked">
+                            }
+                            else
+                            {
+                                <input class="i-checks" type="checkbox" value="FlightIsssue" disabled="disabled">
+                            }
+                            @OABordrinCommon.Common.GetLanguageValueByParam("机票审批", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label>
+                        <label>
+                            @if (Model.b_FlightBooking == "FlightBooking")
+                            {
+                                <input class="i-checks" type="checkbox" value="FlightBooking" disabled="disabled" checked="checked">
+                            }
+                            else
+                            {
+                                <input class="i-checks" type="checkbox" value="FlightBooking" disabled="disabled">
+                            }
+                            @OABordrinCommon.Common.GetLanguageValueByParam("机票代订", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label>
+                        <label>
+                            @if (Model.b_HotelBooking == "HotelBooking")
+                            {
+                                <input class="i-checks" type="checkbox" value="HotelBooking" disabled="disabled" checked="checked">
+                            }
+                            else
+                            {
+                                <input class="i-checks" type="checkbox" value="FlightBooking" disabled="disabled">
+                            }
+                            @OABordrinCommon.Common.GetLanguageValueByParam("酒店代订", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label>
+                        <label>
+                            @if (Model.b_Didi == "Didi")
+                            {
+                                <input class="i-checks" type="checkbox" value="Didi" disabled="disabled" checked="checked">
+                            }
+                            else
+                            {
+                                <input class="i-checks" type="checkbox" value="Didi" disabled="disabled">
+                            }
+                            @OABordrinCommon.Common.GetLanguageValueByParam("滴滴额度", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label>
+                        <label>
+                            @if (Model.b_Others == "Others")
+                            {
+                                <input class="i-checks" type="checkbox" value="Others" disabled="disabled" checked="checked">
+                            }
+                            else
+                            {
+                                <input class="i-checks" type="checkbox" value="Others" disabled="disabled">
+                            }
+                            @OABordrinCommon.Common.GetLanguageValueByParam("其他", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="width: 120px;">@Html.Raw(Model.b_OtherContent)</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            @if (Model.FlightBookingItems != null && Model.FlightBookingItems.Count > 0)
+            {
+                <table class="tbItems">
+                    <tr>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("姓", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("名", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("证件类型", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("身份证号码", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("国籍", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("护照号码", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("护照有效期", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("出生年月", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("有效地址", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("出发时间", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("出发地点", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("航班号", "b_FlightBooking", "BTItemType", ViewBag.language)</td>
+                    </tr>
+
+                    @for (int i = 0; i < Model.FlightBookingItems.Count; i++)
+                    {
+                        var item = Model.FlightBookingItems[i];
+                        <tr>
+                            <td>
+                                @item.b_FirstName
+                            </td>
+                            <td>
+                                @item.b_LastName
+                            </td>
+                            <td>
+                                @(item.b_IDType == "ShenFen" ? "身份证" : "护照")
+                            </td>
+                            <td>
+                                @item.b_IDCardNo
+                            </td>
+                            <td>
+                                @item.b_Nationality
+                            </td>
+                            <td>
+                                @item.b_PassportNumber
+                            </td>
+                            <td>
+                                @item.b_Dateofexpiration
+                            </td>
+                            <td>
+                                @item.b_Dateofbirth
+                            </td>
+                            <td>
+                                @item.b_Address
+                            </td>
+                            <td>
+                                @item.b_Gooff
+                            </td>
+                            <td>
+                                @item.b_Goplace
+                            </td>
+                            <td>
+                                @item.b_Flightnumber
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            <br />
+            @if (Model.HotelBookingItems != null && Model.HotelBookingItems.Count > 0)
+            {
+                <table class="tbItems">
+                    <tr>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("入住日期", "b_HotelBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("离店日期", "b_HotelBooking", "BTItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("具体地址", "b_HotelBooking", "BTItemType", ViewBag.language)</td>
+                    </tr>
+                    @for (var i = 0; i < Model.HotelBookingItems.Count; i++)
+                    {
+                        var item = Model.HotelBookingItems[i];
+                        <tr>
+                            <td>
+                                @item.b_Checkindate
+                            </td>
+                            <td>
+                                @item.b_Leavedate
+                            </td>
+                            <td>
+                                @item.b_Specificaddress
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            @if (Model.b_Didi == "Didi")
+            {
+                <table class="tbinfo">
+                    <tr>
+                        <td style="width: 35%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("金额", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 120px;text-align:left;">@Html.Raw(Model.b_DidiMoney)</span>
+                        </td>
+                        <td style="width: 30%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("额外追加额度", "b_BusinessTravel", "BTItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 120px;text-align:left;">@Html.Raw(Model.b_DidiAddMoney)</span>
+                        </td>
+                    </tr>
+                </table>
+            }
+            @if (Model.HistoryList != null && Model.HistoryList.Count > 0)
+            {
+                <table class="tbItems" style="margin-top:20px;">
+                    <tr>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("状态", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作时间", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作人", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("内容", "CommonName", "Common", ViewBag.language)
+                        </td>
+                    </tr>
+                    @for (int i = 0; i < Model.HistoryList.Count; i++)
+                    {
+                        var item = Model.HistoryList[i];
+                        <tr>
+                            <td>
+                                @item.ItemStatus
+                            </td>
+                            <td>
+                                @item.OperateStr
+                            </td>
+                            <td>
+                                @item.Created_on
+                            </td>
+                            <td>
+                                @item.CreateName
+                            </td>
+                            <td>
+                                @item.Comments
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.print();
+    </script>
+</body>
+</html>

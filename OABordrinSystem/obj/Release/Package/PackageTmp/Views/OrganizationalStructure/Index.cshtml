@@ -1,0 +1,159 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("组织架构", "CommonName", "Common", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("组织管理", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("组织架构", "CommonName", "Common", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+    <div style="text-align:right;margin-right:2%;margin-top:50px;">
+        <button type="button" class="btn btn-w-m btn-warning" id="btnImport">@OABordrinCommon.Common.GetLanguageValueByParam("导入", "CommonName", "Common", ViewBag.language)</button>
+    </div>
+</div>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-content">
+                <table class="tree" id="treeTable">
+                    <thead>
+                        <tr>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("部门名称", "CommonName", "Common", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("部门负责人", "CommonName", "Common", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("公司代码", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("成本中心代码", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("级别", "CommonName", "Common", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/OrganizationalStructure/OrganizationalStructureImport.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/OrganizationalStructure/OrganizationalStructureEdit.cshtml")
+@section scripts{
+    <link href="~/OpenResouce/css/plugins/treegrid/jquery.treegrid.css" rel="stylesheet" />
+    <script src="~/OpenResouce/js/plugins/treegrid/jquery.treegrid.js"></script>
+    <script type="text/javascript">
+        var $OrganizationalStructureImport = $("#OrganizationalStructureImport");
+        var $OrganizationalStructureEdit = $("#OrganizationalStructureEdit");
+        var OrganizationalStructureParam = app.util.getEditParam($OrganizationalStructureEdit);
+
+        $(document).ready(function () {
+            LoadTreeData();
+        });
+
+        $("#btnImport").click(function () {
+            app.util.clearError($OrganizationalStructureImport);
+            //上传文件控件
+            var fileobj = $("#Prfile").clone().val("");
+            $("#Prfile").closest("label").empty().append(fileobj);
+            $OrganizationalStructureImport.modal("show");
+        });
+
+
+
+        $("#upload").click(function () {
+            var $this = $(this);
+            var formData = new FormData();
+            formData.append("myfile", document.getElementById("Prfile").files[0]);
+            $this.attr("disabled", "disabled");
+            $.ajax({
+                url: '/OrganizationalStructure/UploadOrganizationalStructureFile',
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        $this.removeAttr("disabled", "disabled");
+                        app.util.onError(ans.error, $OrganizationalStructureImport);
+                        return;
+                    }
+                    $this.removeAttr("disabled", "disabled");
+                    $OrganizationalStructureImport.modal("hide");
+                    LoadTreeData();
+                }
+            });
+        });
+
+        //加载数据
+        function LoadTreeData() {
+            var $tree = $('.tree').first();
+            $tree.find("tbody").empty();
+            $.ajax({
+                url: '/OrganizationalStructure/GetOrganizationalStructureList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            //<div class='row'><div class='col-md-6'>{0}</div><div class='col-md-6' style='text-align:right'>{1}</div></div>
+                            if (item.b_ParentNodeCode == "") {
+                                $tree.find("tbody").append("<tr class='treegrid-" + item.Number + "'><td>" + item.b_NodeName + "</td><td>" + item.b_NodePersonName + "</td><td>" + item.b_CompanyCode + "</td><td>" + item.b_CostCenter + "</td><td>" + item.b_NodeLevel + "</td><td><a class='glyphicon glyphicon-pencil edit' title='修改' id='" + item.id + "'></a></td></tr>");
+                            }
+                            else {
+                                $tree.find("tbody").append("<tr class='treegrid-" + item.Number + " treegrid-parent-" + item.ParentNumber + "' ><td>" + item.b_NodeName + "</td><td>" + item.b_NodePersonName + "</td><td>" + item.b_CompanyCode + "</td><td>" + item.b_CostCenter + "</td><td>" + item.b_NodeLevel + "</td><td><a class='glyphicon glyphicon-pencil edit' title='修改' id='" + item.id + "'></a></td></tr>");
+                            }
+                        }
+                    }
+                    $('.tree').treegrid();
+                }
+            });
+        }
+
+        $("#treeTable").delegate("a", "click", function () {
+            $.ajax({
+                url: '/OrganizationalStructure/GetOrganizationalStructureById',
+                data: { "id": $(this).attr("id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    app.util.bindValue(OrganizationalStructureParam, ans);
+                    $("#OrganizationalStructureEdit").modal("show");
+                }
+            });
+        });
+
+
+        //保存组织架构
+        $("#SaveOrganizationalStructure").click(function () {
+            if (app.util.ValidationFromData($OrganizationalStructureEdit)) {
+                $.ajax({
+                    url: '/OrganizationalStructure/SaveOrganizationalStructure',
+                    data: app.util.serializeParamArray(OrganizationalStructureParam),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            app.util.onError(ans.error, $OrganizationalStructureEdit);
+                            return;
+                        }
+                        //刷新树
+                        LoadTreeData();
+                        $("#OrganizationalStructureEdit").modal("hide");
+                    }
+                });
+            }
+        });
+    </script>
+
+}

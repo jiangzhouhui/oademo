@@ -1,0 +1,87 @@
+﻿<div tabindex="-1" class="modal fade in" id="UserEdit" role="dialog" aria-hidden="true" style="padding-right: 17px;">
+    <div class="modal-dialog modal-lg" style="max-width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel1">@OABordrinCommon.Common.GetLanguageValueByParam("新增", "CommonName", "Common", ViewBag.language)</h4>
+            </div>
+            <div class="errorMessage fa fa-exclamation-triangle" style="background-color: #f4eedc; width:100%;padding:5px; display: none;"><span style="margin-left:10px;"></span></div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" name="Id" />
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="first_Name" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)" isnotnull="true" disabled="disabled">
+                        </div>
+                        <label class="col-sm-2 control-label">工号</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_JobNumber">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">中文名</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_ChineseName">
+                        </div>
+                        <label class="col-sm-2 control-label">英文名</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_EnglishName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">邮件</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="Email" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)" isnotnull="true">
+                        </div>
+                        <label class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="Telephone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">中心</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_Centre">
+                        </div>
+                        <label class="col-sm-2 control-label">部门</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_Department">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">高级经理</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_SeniorManager">
+                        </div>
+                        <label class="col-sm-2 control-label">总监</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_Director">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">VP</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_VP">
+                        </div>
+                        <label class="col-sm-2 control-label">所属公司</label>
+                        <div class="col-sm-4" id="b_AffiliatedCompany">
+                            <label><input class='i-checks' type='checkbox' value="博郡"> <i></i>&nbsp;博郡&nbsp;</label>
+                            <label><input class='i-checks' type='checkbox' value="思致"> <i></i>&nbsp;思致&nbsp;</label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                        <label class="col-sm-2 control-label">身份证号</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="b_IdNumber">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" type="button" data-dismiss="modal">@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-primary" type="button" id="SaveUser" operation="save">@OABordrinCommon.Common.GetLanguageValueByParam("保 存", "CommonName", "Common", ViewBag.language)</button>
+            </div>
+        </div>
+    </div>
+</div>

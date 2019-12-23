@@ -1,0 +1,536 @@
+﻿@{
+    Layout = null;
+}
+@model OABordrinSystem.Models.PrManageModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <title>@OABordrinCommon.Common.GetLanguageValueByParam("打印PR单", "PRCommon", "PRItemType", ViewBag.language)</title>
+    <script src="~/OpenResouce/js/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/LodopFuncs.js"></script>
+</head>
+<body>
+    <div id="content" class="center">
+        <style type="text/css">
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                font-size: 12px;
+                vertical-align: baseline;
+                background: transparent;
+                font-weight: normal;
+            }
+
+            .title {
+                text-align: center;
+                width: 100%;
+                font-weight: bold;
+                font-size: 16px;
+                margin: 5px 0 15px 0;
+            }
+
+            .center {
+                margin: 0 auto;
+                vertical-align: middle;
+                text-align: center;
+                width: 780px;
+                height: 140px;
+            }
+
+            .tbinfo {
+                width: 100%;
+                text-align: left;
+            }
+
+                .tbinfo td {
+                    padding: 10px;
+                }
+
+            .infoV {
+                width: 100px;
+                display: inline-block;
+                border-bottom: 1px solid #000;
+                text-align: center;
+            }
+
+            .tbItems {
+                border: 1px solid #000;
+                width: 100%;
+                border-collapse: collapse;
+                margin-left: 2px;
+            }
+
+                .tbItems td {
+                    border: 1px solid #000;
+                    padding: 2px;
+                    padding-left: 5px;
+                    text-align: left;
+                    height: 30px;
+                    vertical-align: middle;
+                }
+
+            .pageContent {
+                height: 800px;
+                margin-top: 10px;
+            }
+        </style>
+        <div class="pageContent">
+            <div class="title">
+                @OABordrinCommon.Common.GetLanguageValueByParam("采购需求单", "PRCommon", "PRItemType", ViewBag.language)@Html.Raw("(" + Model.b_PrRecordNo + ")")
+            </div>
+            <table class="tbinfo">
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("需求部门", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_BusinessDepartment)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("预算", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(String.Format("{0:N}", Model.b_Budget))</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请人", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Applicant)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_RaisedDate)</span>
+                    </td>
+                    <td>
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("邮箱", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 165px;">@Html.Raw(Model.b_EmailAddress)</span>
+                    </td>
+                    <td>
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("联系电话", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 140px;">@Html.Raw(Model.b_PhoneNo)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("预算号", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 165px;">@Html.Raw(Model.b_BudgetCode)</span>
+                    </td>
+                    <td>
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("成本中心", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label>
+                        <span class="infoV" style="width:120px;">@Html.Raw(Model.b_CostCenter)</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("采购类型", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 165px;">@Html.Raw(Model.b_PrType)</span>
+                    </td>
+                    <td>
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("签约方", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_ContractParty)</span>
+                    </td>
+                    @if (Model.b_PrType == "project")
+                    {
+                        <td>
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 140px;">@Html.Raw(string.IsNullOrEmpty(Model.b_ProjectName) ? "&nbsp;" : Model.b_ProjectName)</span>
+                        </td>
+                    }
+                </tr>
+                @if (Model.b_PrType == "Non Project")
+                {
+                    <tr>
+                        <td>
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("部门经理", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label>
+                            <span class="infoV" style="width: 165px;">@Html.Raw(string.IsNullOrEmpty(Model.b_DeptManager) ? "&nbsp;" : Model.b_DeptManager)</span>
+                        </td>
+                        <td>
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("部门总监", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label>
+                            <span class="infoV" style="width: 155px;">@Html.Raw(string.IsNullOrEmpty(Model.b_DeptDirector) ? "&nbsp;" : Model.b_DeptDirector)</span>
+                        </td>
+                        <td>
+                            <label>VP</label>
+                            <span class="infoV" style="width: 125px;">@Html.Raw(string.IsNullOrEmpty(Model.b_DeptVP) ? "&nbsp;" : Model.b_DeptVP)</span>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("PMT/PAT 经理", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 155px;">@Html.Raw(string.IsNullOrEmpty(Model.b_ProjectLeader) ? "&nbsp;" : Model.b_ProjectLeader)</span>
+                        </td>
+                        <td>
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("项目经理", "b_ProjectManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 155px;">@Html.Raw(string.IsNullOrEmpty(Model.b_ProjectManager) ? "&nbsp;" : Model.b_ProjectManager)</span>
+                        </td>
+                        <td>
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("项目总监", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 125px;">@Html.Raw(string.IsNullOrEmpty(Model.b_ProjectDirector) ? "&nbsp;" : Model.b_ProjectDirector)</span>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("采购内容", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 555px; text-align:left;">@Html.Raw(string.IsNullOrEmpty(Model.b_PurchaseContent) ? "&nbsp;" : Model.b_PurchaseContent)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("采购原因", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label>
+                        <span class="infoV" style="width:555px;text-align:left;">@Html.Raw(string.IsNullOrEmpty(Model.b_PurchasingReason) ? "&nbsp;" : Model.b_PurchasingReason)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("交货地址", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 685px;text-align:left;">@Html.Raw(string.IsNullOrEmpty(Model.b_ApplicantAddress) ? "&nbsp;" : Model.b_ApplicantAddress)</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tbItems">
+                <tr>
+                    <td>@OABordrinCommon.Common.GetLanguageValueByParam("需求清单", "B_PrManageItem", "PRItemType", ViewBag.language)</td>
+                    <td>@OABordrinCommon.Common.GetLanguageValueByParam("规格型号", "B_PrManageItem", "PRItemType", ViewBag.language)</td>
+                    <td>@OABordrinCommon.Common.GetLanguageValueByParam("项目编号", "B_PrManageItem", "PRItemType", ViewBag.language)</td>
+                    <td>@OABordrinCommon.Common.GetLanguageValueByParam("二级科目", "B_PrManageItem", "PRItemType", ViewBag.language)</td>
+                    <td>@OABordrinCommon.Common.GetLanguageValueByParam("数量", "B_PrManageItem", "PRItemType", ViewBag.language)</td>
+                    <td>@OABordrinCommon.Common.GetLanguageValueByParam("单位", "B_PrManageItem", "PRItemType", ViewBag.language)</td>
+                </tr>
+                @if (Model.PrManageItems != null && Model.PrManageItems.Count > 0)
+                {
+                    for (int i = 0; i < Model.PrManageItems.Count; i++)
+                    {
+                        var item = Model.PrManageItems[i];
+                        <tr>
+                            <td>
+                                @item.b_RequestList
+                            </td>
+                            <td>
+                                @item.b_SpecificationQuantity
+                            </td>
+                            <td>
+                                @item.b_ProjectNo
+                            </td>
+                            <td>
+                                @item.b_TaskNo
+                            </td>
+                            <td>
+                                @item.b_Qty
+                            </td>
+                            <td>
+                                @item.b_Unit
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+            <table class="tbinfo">
+                <tr>
+                    <td colspan="2">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("预算来源及使用情况", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 165px;">@Html.Raw(string.IsNullOrEmpty(Model.b_BudgetStatus) ? "&nbsp;" : Model.b_BudgetStatus)</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="width: 50%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("采购员", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 165px;">@Html.Raw(string.IsNullOrEmpty(Model.b_Buyer) ? "&nbsp;" : Model.b_Buyer)</span>
+                    </td>
+                    <td style="width:50%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("授权采购", "B_PrManage", "PRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 165px;">@Html.Raw(Model.b_AuthorizedPurchase == true ? "Yes" : "No")</span>
+                    </td>
+                </tr>
+            </table>
+            @if (Model.IsPurchasingAuth)
+            {
+                <table class="tbItems" style="margin-top:20px;">
+                    <tr>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("供应商", "B_PrQuotationItem", "PRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("报价总价（含税元）", "B_PrQuotationItem", "PRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("备注", "B_PrManage", "PRItemType", ViewBag.language)</td>
+                    </tr>
+                    @if (Model.PrQuotationItems != null && Model.PrQuotationItems.Count > 0)
+                    {
+                        for (int i = 0; i < Model.PrQuotationItems.Count; i++)
+                        {
+                            var item = Model.PrQuotationItems[i];
+                            <tr>
+                                <td>
+                                    @item.b_Supplier
+                                </td>
+                                <td>
+                                    @item.b_Quotation
+                                </td>
+                                <td>
+                                    @item.b_Remarks
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+                <table class="tbinfo">
+                    <tr>
+                        <td style="width: 35%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("紧急采购", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 125px;">@Html.Raw(Model.b_UrgentPurchase == true ? "Yes" : "No")</span>
+                        </td>
+                        <td style="width: 35%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("重复采购", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 125px;">@Html.Raw(Model.b_RepetitivePurchase == true ? "Yes" : "No")</span>
+                        </td>
+                        <td style="width: 30%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("单一供应商（品牌）", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 65px;">@Html.Raw(Model.b_IsSingleSupplier == true ? "Yes" : "No")</span>
+                        </td>
+                    </tr>
+                </table>
+
+                if (Model.PrRepeateItems != null && Model.PrRepeateItems.Count > 0)
+                {
+                    <table class="tbItems" style="margin-top:20px;">
+                        <tr>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("PR号", "B_PrRepeateItem", "PRItemType", ViewBag.language)</td>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("原供应商", "B_PrRepeateItem", "PRItemType", ViewBag.language)</td>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("合同号", "B_PrRepeateItem", "PRItemType", ViewBag.language)</td>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("原采购员", "B_PrRepeateItem", "PRItemType", ViewBag.language)</td>
+                        </tr>
+                        @if (Model.PrRepeateItems != null && Model.PrRepeateItems.Count > 0)
+                    {
+                        for (int i = 0; i < Model.PrRepeateItems.Count; i++)
+                        {
+                            var item = Model.PrRepeateItems[i];
+                                <tr>
+                                    <td>
+                                        @item.b_PrRecordNo
+                                    </td>
+                                    <td>
+                                        @item.b_PreviousSupplier
+                                    </td>
+                                    <td>
+                                        @item.b_ContractNo
+                                    </td>
+                                    <td>
+                                        @item.b_PreviousBuyer
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                }
+
+                if (Model.PrChoiceSupplierItems != null && Model.PrChoiceSupplierItems.Count > 0)
+                {
+                    <table class="tbItems" style="margin-top:20px;">
+                        <tr>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("选点供应商", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</td>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("合同总价（含税元）", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</td>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("合同（订单）号", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</td>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("合同性质", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</td>
+                            <td>@OABordrinCommon.Common.GetLanguageValueByParam("付款条件", "B_PrChoiceSuppliers", "PRItemType", ViewBag.language)</td>
+                        </tr>
+                        @for (int i = 0; i < Model.PrChoiceSupplierItems.Count; i++)
+                        {
+                            var item = Model.PrChoiceSupplierItems[i];
+                            <tr>
+                                <td>
+                                    @item.b_Supplier
+                                </td>
+                                <td>
+                                    @item.b_ContractPrice
+                                </td>
+                                <td>
+                                    @item.b_PoNo
+                                </td>
+                                <td>
+                                    @(item.b_ContractProperty == "openContract" ? "开口" : "闭口")
+                                </td>
+                                <td>
+                                    @item.b_PaymentClause
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+
+                <table class="tbinfo">
+                    @*<tr>
+                            <td style="width: 50%">
+                                <label>
+                                    @OABordrinCommon.Common.GetLanguageValueByParam("选点供应商", "B_PrManage", "PRItemType", ViewBag.language)
+                                </label><span class="infoV" style="width: 165px;">@Html.Raw(Model.b_SourcedSupplier)</span>
+                            </td>
+                            <td style="width: 50%">
+                                <label>
+                                    @OABordrinCommon.Common.GetLanguageValueByParam("合同总价（含税元）", "B_PrManage", "PRItemType", ViewBag.language)
+                                </label><span class="infoV" style="width: 165px;">@Html.Raw(Model.b_ContractPrice)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    @OABordrinCommon.Common.GetLanguageValueByParam("合同（订单）号", "B_PrManage", "PRItemType", ViewBag.language)
+                                </label><span class="infoV" style="width: 165px;">@Html.Raw(string.IsNullOrEmpty(Model.b_PoNo) ? "&nbsp;" : Model.b_PoNo)</span>
+                            </td>
+                            <td>
+                                <label>
+                                    @OABordrinCommon.Common.GetLanguageValueByParam("合同性质", "B_PrManage", "PRItemType", ViewBag.language)
+                                </label><span class="infoV" style="width: 165px;">@Html.Raw(Model.b_ContractProperty == "openContract" ? "开口" : "闭口")</span>
+                            </td>
+                        </tr>*@
+                    @if (!string.IsNullOrEmpty(Model.b_AdditionalBudget))
+                    {
+                        <tr>
+                            <td>
+                                <label>@OABordrinCommon.Common.GetLanguageValueByParam("追加预算", "B_PrManage", "PRItemType", ViewBag.language)</label>
+                                <span class="infoV" style="width: 165px;">@Html.Raw(Model.b_AdditionalBudget)</span>
+                            </td>
+                        </tr>
+                    }
+
+                    <tr>
+                        <td>
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合同类型", "B_PrManage", "PRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Html.Raw(string.IsNullOrEmpty(Model.b_ContractType) ? "&nbsp;" : Model.b_ContractType)</span>
+                        </td>
+                    </tr>
+                </table>
+
+            }
+
+            @if (Model.HistoryList != null && Model.HistoryList.Count > 0)
+            {
+                <table class="tbItems" style="margin-top:20px;">
+                    <tr>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("状态", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作时间", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作人", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("内容", "CommonName", "Common", ViewBag.language)
+                        </td>
+                    </tr>
+                    @for (int i = 0; i < Model.HistoryList.Count; i++)
+                    {
+                        var item = Model.HistoryList[i];
+                        <tr>
+                            <td>
+                                @item.ItemStatus
+                            </td>
+                            <td>
+                                @item.OperateStr
+                            </td>
+                            <td>
+                                @item.Created_on
+                            </td>
+                            <td>
+                                @item.CreateName
+                            </td>
+                            <td>
+                                @item.Comments
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        //$(document).ready(function () {
+        //    if (needCLodop())
+        //    {
+        //        OpenPreview();
+        //    }
+
+        //});
+        //$(window).load(function () {
+        //    LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+        //});
+
+        window.print();
+
+        //if (needCLodop()) {
+        //    window.On_CLodop_Opened = function () {
+        //        OpenPreview(); //调用打印方法打印，详见样例22
+        //        window.On_CLodop_Opened = null;
+        //    };
+        //}
+        //else {
+        //    window.onload = function () {
+        //        OpenPreview();
+        //    };
+        //}
+
+        //function loadWeb()
+        //{
+        //    if (needCLodop()) {
+        //        window.On_CLodop_Opened = function () {
+        //            OpenPreview(); //调用打印方法打印，详见样例22
+        //            window.On_CLodop_Opened = null;
+        //        };
+        //    }
+        //    else {
+        //        window.onload = function () {
+        //            OpenPreview();
+        //        };
+        //    }
+        //}
+
+        //function OpenPreview() {
+        //    LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+        //    if (typeof (LODOP.PRINT_INIT) == "undefined") { return; }
+        //    LODOP.PRINT_INIT("Pr单");
+        //    LODOP.SET_PRINT_PAGESIZE(0, 0, 0, "复写 9.5 x 11 英寸");
+        //    LODOP.ADD_PRINT_HTM(0, 0, "100%", "100%", document.getElementById("content").innerHTML);
+        //    LODOP.PREVIEW();
+        //    window.close();
+        //}
+    </script>
+</body>
+</html>

@@ -1,0 +1,1614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InnovatorSolutionsModelStoreContainer" CdmEntityContainer="InnovatorSolutionsEntities">
+    <EntitySetMapping Name="ACTIVITY">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.ACTIVITY">
+        <MappingFragment StoreEntitySet="ACTIVITY">
+          <ScalarProperty Name="MESSAGE_ZC1" ColumnName="MESSAGE_ZC" />
+          <ScalarProperty Name="LABEL_ZC1" ColumnName="LABEL_ZC" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="WAIT_FOR_ALL_VOTES" ColumnName="WAIT_FOR_ALL_VOTES" />
+          <ScalarProperty Name="WAIT_FOR_ALL_INPUTS" ColumnName="WAIT_FOR_ALL_INPUTS" />
+          <ScalarProperty Name="TIMEOUT_DURATION" ColumnName="TIMEOUT_DURATION" />
+          <ScalarProperty Name="SUBFLOW" ColumnName="SUBFLOW" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+          <ScalarProperty Name="REMINDER_INTERVAL" ColumnName="REMINDER_INTERVAL" />
+          <ScalarProperty Name="REMINDER_COUNT" ColumnName="REMINDER_COUNT" />
+          <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="IS_START" ColumnName="IS_START" />
+          <ScalarProperty Name="IS_ESCALATED" ColumnName="IS_ESCALATED" />
+          <ScalarProperty Name="IS_END" ColumnName="IS_END" />
+          <ScalarProperty Name="IS_AUTO" ColumnName="IS_AUTO" />
+          <ScalarProperty Name="ICON" ColumnName="ICON" />
+          <ScalarProperty Name="EXPECTED_DURATION" ColumnName="EXPECTED_DURATION" />
+          <ScalarProperty Name="ESCALATE_TO" ColumnName="ESCALATE_TO" />
+          <ScalarProperty Name="CONSOLIDATE_ONDELEGATE" ColumnName="CONSOLIDATE_ONDELEGATE" />
+          <ScalarProperty Name="CLOSED_DATE" ColumnName="CLOSED_DATE" />
+          <ScalarProperty Name="CLONED_AS" ColumnName="CLONED_AS" />
+          <ScalarProperty Name="CAN_REFUSE" ColumnName="CAN_REFUSE" />
+          <ScalarProperty Name="CAN_DELEGATE" ColumnName="CAN_DELEGATE" />
+          <ScalarProperty Name="ACTIVE_DATE" ColumnName="ACTIVE_DATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACTIVITY_ASSIGNMENT">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.ACTIVITY_ASSIGNMENT">
+        <MappingFragment StoreEntitySet="ACTIVITY_ASSIGNMENT">
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="VOTING_WEIGHT" ColumnName="VOTING_WEIGHT" />
+          <ScalarProperty Name="REMINDERS_SENT" ColumnName="REMINDERS_SENT" />
+          <ScalarProperty Name="PATH" ColumnName="PATH" />
+          <ScalarProperty Name="IS_REQUIRED" ColumnName="IS_REQUIRED" />
+          <ScalarProperty Name="IS_OVERDUE" ColumnName="IS_OVERDUE" />
+          <ScalarProperty Name="IS_DISABLED" ColumnName="IS_DISABLED" />
+          <ScalarProperty Name="FOR_ALL_MEMBERS" ColumnName="FOR_ALL_MEMBERS" />
+          <ScalarProperty Name="ESCALATE_TO" ColumnName="ESCALATE_TO" />
+          <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+          <ScalarProperty Name="CLOSED_ON" ColumnName="CLOSED_ON" />
+          <ScalarProperty Name="CLOSED_BY" ColumnName="CLOSED_BY" />
+          <ScalarProperty Name="CLAIMED_BY" ColumnName="CLAIMED_BY" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACTIVITY_TEMPLATE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.ACTIVITY_TEMPLATE">
+        <MappingFragment StoreEntitySet="ACTIVITY_TEMPLATE">
+          <ScalarProperty Name="MESSAGE_ZC1" ColumnName="MESSAGE_ZC" />
+          <ScalarProperty Name="LABEL_ZC1" ColumnName="LABEL_ZC" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="WAIT_FOR_ALL_VOTES" ColumnName="WAIT_FOR_ALL_VOTES" />
+          <ScalarProperty Name="WAIT_FOR_ALL_INPUTS" ColumnName="WAIT_FOR_ALL_INPUTS" />
+          <ScalarProperty Name="TIMEOUT_DURATION" ColumnName="TIMEOUT_DURATION" />
+          <ScalarProperty Name="SUBFLOW" ColumnName="SUBFLOW" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+          <ScalarProperty Name="REMINDER_INTERVAL" ColumnName="REMINDER_INTERVAL" />
+          <ScalarProperty Name="REMINDER_COUNT" ColumnName="REMINDER_COUNT" />
+          <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="IS_START" ColumnName="IS_START" />
+          <ScalarProperty Name="IS_END" ColumnName="IS_END" />
+          <ScalarProperty Name="IS_AUTO" ColumnName="IS_AUTO" />
+          <ScalarProperty Name="ICON" ColumnName="ICON" />
+          <ScalarProperty Name="EXPECTED_DURATION" ColumnName="EXPECTED_DURATION" />
+          <ScalarProperty Name="ESCALATE_TO" ColumnName="ESCALATE_TO" />
+          <ScalarProperty Name="CONSOLIDATE_ONDELEGATE" ColumnName="CONSOLIDATE_ONDELEGATE" />
+          <ScalarProperty Name="CAN_REFUSE" ColumnName="CAN_REFUSE" />
+          <ScalarProperty Name="CAN_DELEGATE" ColumnName="CAN_DELEGATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HISTORY">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.HISTORY">
+        <MappingFragment StoreEntitySet="HISTORY">
+          <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="ITEM_VERSION" ColumnName="ITEM_VERSION" />
+          <ScalarProperty Name="ITEM_STATE" ColumnName="ITEM_STATE" />
+          <ScalarProperty Name="ITEM_MAJOR_REV" ColumnName="ITEM_MAJOR_REV" />
+          <ScalarProperty Name="CREATED_ON_TICK" ColumnName="CREATED_ON_TICK" />
+          <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+          <ScalarProperty Name="ACTION" ColumnName="ACTION" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IDENTITY">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.IDENTITY">
+        <MappingFragment StoreEntitySet="IDENTITY">
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PWD_HISTORY_LENGTH" ColumnName="PWD_HISTORY_LENGTH" />
+          <ScalarProperty Name="MAXIMUM_PWD_AGE" ColumnName="MAXIMUM_PWD_AGE" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="IS_ALIAS" ColumnName="IS_ALIAS" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEMBER">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.MEMBER">
+        <MappingFragment StoreEntitySet="MEMBER">
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="FROM_DATE" ColumnName="FROM_DATE" />
+          <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="B_AFFILIATEDCOMPANY" ColumnName="B_AFFILIATEDCOMPANY" />
+          <ScalarProperty Name="B_VP" ColumnName="B_VP" />
+          <ScalarProperty Name="B_DIRECTOR" ColumnName="B_DIRECTOR" />
+          <ScalarProperty Name="B_SENIORMANAGER" ColumnName="B_SENIORMANAGER" />
+          <ScalarProperty Name="B_IDNUMBER" ColumnName="B_IDNUMBER" />
+          <ScalarProperty Name="B_DEPARTMENT" ColumnName="B_DEPARTMENT" />
+          <ScalarProperty Name="B_CENTRE" ColumnName="B_CENTRE" />
+          <ScalarProperty Name="B_ENGLISHNAME" ColumnName="B_ENGLISHNAME" />
+          <ScalarProperty Name="B_CHINESENAME" ColumnName="B_CHINESENAME" />
+          <ScalarProperty Name="B_JOBNUMBER" ColumnName="B_JOBNUMBER" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="LOGIN_NAME" ColumnName="LOGIN_NAME" />
+          <ScalarProperty Name="WORKING_DIRECTORY" ColumnName="WORKING_DIRECTORY" />
+          <ScalarProperty Name="USER_NO" ColumnName="USER_NO" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="STARTING_PAGE" ColumnName="STARTING_PAGE" />
+          <ScalarProperty Name="PWD_IS_SET_ON" ColumnName="PWD_IS_SET_ON" />
+          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="PAGER" ColumnName="PAGER" />
+          <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
+          <ScalarProperty Name="MAIL_STOP" ColumnName="MAIL_STOP" />
+          <ScalarProperty Name="LOGON_ENABLED" ColumnName="LOGON_ENABLED" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="LAST_LOGIN_DATE" ColumnName="LAST_LOGIN_DATE" />
+          <ScalarProperty Name="HOME_PHONE" ColumnName="HOME_PHONE" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="ESIGNATURE" ColumnName="ESIGNATURE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DEFAULT_VAULT" ColumnName="DEFAULT_VAULT" />
+          <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+          <ScalarProperty Name="CELL" ColumnName="CELL" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKFLOW">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.WORKFLOW">
+        <MappingFragment StoreEntitySet="WORKFLOW">
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="SOURCE_TYPE" ColumnName="SOURCE_TYPE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKFLOW_MAP">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.WORKFLOW_MAP">
+        <MappingFragment StoreEntitySet="WORKFLOW_MAP">
+          <ScalarProperty Name="DESCRIPTION_ZC1" ColumnName="DESCRIPTION_ZC" />
+          <ScalarProperty Name="LABEL_ZC1" ColumnName="LABEL_ZC" />
+          <ScalarProperty Name="SUPERSEDED_DATE" ColumnName="SUPERSEDED_DATE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="TRANSITION_NAME_FONT" ColumnName="TRANSITION_NAME_FONT" />
+          <ScalarProperty Name="TRANSITION_NAME_COLOR" ColumnName="TRANSITION_NAME_COLOR" />
+          <ScalarProperty Name="TRANSITION_LINE_COLOR" ColumnName="TRANSITION_LINE_COLOR" />
+          <ScalarProperty Name="PROCESS_OWNER" ColumnName="PROCESS_OWNER" />
+          <ScalarProperty Name="NODE_SIZE" ColumnName="NODE_SIZE" />
+          <ScalarProperty Name="NODE_NAME_FONT" ColumnName="NODE_NAME_FONT" />
+          <ScalarProperty Name="NODE_NAME_COLOR" ColumnName="NODE_NAME_COLOR" />
+          <ScalarProperty Name="NODE_LABEL2_FONT" ColumnName="NODE_LABEL2_FONT" />
+          <ScalarProperty Name="NODE_LABEL2_COLOR" ColumnName="NODE_LABEL2_COLOR" />
+          <ScalarProperty Name="NODE_LABEL1_FONT" ColumnName="NODE_LABEL1_FONT" />
+          <ScalarProperty Name="NODE_LABEL1_COLOR" ColumnName="NODE_LABEL1_COLOR" />
+          <ScalarProperty Name="NODE_BG_COLOR" ColumnName="NODE_BG_COLOR" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="RELEASE_DATE" ColumnName="RELEASE_DATE" />
+          <ScalarProperty Name="EFFECTIVE_DATE" ColumnName="EFFECTIVE_DATE" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="ARAS_UNIQUENESS_HELPER" ColumnName="ARAS:UNIQUENESS_HELPER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKFLOW_MAP_ACTIVITY">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.WORKFLOW_MAP_ACTIVITY">
+        <MappingFragment StoreEntitySet="WORKFLOW_MAP_ACTIVITY">
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKFLOW_MAP_PATH">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.WORKFLOW_MAP_PATH">
+        <MappingFragment StoreEntitySet="WORKFLOW_MAP_PATH">
+          <ScalarProperty Name="LABEL_ZC1" ColumnName="LABEL_ZC" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="SEGMENTS" ColumnName="SEGMENTS" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="IS_OVERRIDE" ColumnName="IS_OVERRIDE" />
+          <ScalarProperty Name="IS_DEFAULT" ColumnName="IS_DEFAULT" />
+          <ScalarProperty Name="AUTHENTICATION" ColumnName="AUTHENTICATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKFLOW_PROCESS">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.WORKFLOW_PROCESS">
+        <MappingFragment StoreEntitySet="WORKFLOW_PROCESS">
+          <ScalarProperty Name="DESCRIPTION_ZC1" ColumnName="DESCRIPTION_ZC" />
+          <ScalarProperty Name="LABEL_ZC1" ColumnName="LABEL_ZC" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="TRANSITION_NAME_FONT" ColumnName="TRANSITION_NAME_FONT" />
+          <ScalarProperty Name="TRANSITION_NAME_COLOR" ColumnName="TRANSITION_NAME_COLOR" />
+          <ScalarProperty Name="TRANSITION_LINE_COLOR" ColumnName="TRANSITION_LINE_COLOR" />
+          <ScalarProperty Name="SUB_OF" ColumnName="SUB_OF" />
+          <ScalarProperty Name="PROCESS_OWNER" ColumnName="PROCESS_OWNER" />
+          <ScalarProperty Name="NODE_SIZE" ColumnName="NODE_SIZE" />
+          <ScalarProperty Name="NODE_NAME_FONT" ColumnName="NODE_NAME_FONT" />
+          <ScalarProperty Name="NODE_NAME_COLOR" ColumnName="NODE_NAME_COLOR" />
+          <ScalarProperty Name="NODE_LABEL2_FONT" ColumnName="NODE_LABEL2_FONT" />
+          <ScalarProperty Name="NODE_LABEL2_COLOR" ColumnName="NODE_LABEL2_COLOR" />
+          <ScalarProperty Name="NODE_LABEL1_FONT" ColumnName="NODE_LABEL1_FONT" />
+          <ScalarProperty Name="NODE_LABEL1_COLOR" ColumnName="NODE_LABEL1_COLOR" />
+          <ScalarProperty Name="NODE_BG_COLOR" ColumnName="NODE_BG_COLOR" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="COPIED_FROM_STRING" ColumnName="COPIED_FROM_STRING" />
+          <ScalarProperty Name="COPIED_FROM" ColumnName="COPIED_FROM" />
+          <ScalarProperty Name="CLOSED_DATE" ColumnName="CLOSED_DATE" />
+          <ScalarProperty Name="ACTIVE_DATE" ColumnName="ACTIVE_DATE" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKFLOW_PROCESS_ACTIVITY">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.WORKFLOW_PROCESS_ACTIVITY">
+        <MappingFragment StoreEntitySet="WORKFLOW_PROCESS_ACTIVITY">
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKFLOW_PROCESS_PATH">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.WORKFLOW_PROCESS_PATH">
+        <MappingFragment StoreEntitySet="WORKFLOW_PROCESS_PATH">
+          <ScalarProperty Name="LABEL_ZC1" ColumnName="LABEL_ZC" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="SEGMENTS" ColumnName="SEGMENTS" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+          <ScalarProperty Name="IS_OVERRIDE" ColumnName="IS_OVERRIDE" />
+          <ScalarProperty Name="IS_DISABLED" ColumnName="IS_DISABLED" />
+          <ScalarProperty Name="IS_DEFAULT" ColumnName="IS_DEFAULT" />
+          <ScalarProperty Name="IS_COMPLETE" ColumnName="IS_COMPLETE" />
+          <ScalarProperty Name="AUTHENTICATION" ColumnName="AUTHENTICATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_PROJECTMANAGE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_PROJECTMANAGE">
+        <MappingFragment StoreEntitySet="B_PROJECTMANAGE">
+          <ScalarProperty Name="B_APPLICABLECOMPANY" ColumnName="B_APPLICABLECOMPANY" />
+          <ScalarProperty Name="B_SORT" ColumnName="B_SORT" />
+          <ScalarProperty Name="B_PROJECTVP" ColumnName="B_PROJECTVP" />
+          <ScalarProperty Name="B_ISINUSE" ColumnName="B_ISINUSE" />
+          <ScalarProperty Name="B_PROJECTRECORDNO" ColumnName="B_PROJECTRECORDNO" />
+          <ScalarProperty Name="B_PROJECTMANAGER" ColumnName="B_PROJECTMANAGER" />
+          <ScalarProperty Name="B_PROJECTMANAGERID" ColumnName="B_PROJECTMANAGERID" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_PROJECTDIRECTORID" ColumnName="B_PROJECTDIRECTORID" />
+          <ScalarProperty Name="B_PROJECTDIRECTOR" ColumnName="B_PROJECTDIRECTOR" />
+          <ScalarProperty Name="B_PMTORPATLEADERID" ColumnName="B_PMTORPATLEADERID" />
+          <ScalarProperty Name="B_PMTORPATLEADER" ColumnName="B_PMTORPATLEADER" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_PRMANAGE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_PRMANAGE">
+        <MappingFragment StoreEntitySet="B_PRMANAGE">
+          <ScalarProperty Name="B_DEPTVP" ColumnName="B_DEPTVP" />
+          <ScalarProperty Name="B_VERSIONNO" ColumnName="B_VERSIONNO" />
+          <ScalarProperty Name="B_REMARK" ColumnName="B_REMARK" />
+          <ScalarProperty Name="B_PROJECTMANAGER" ColumnName="B_PROJECTMANAGER" />
+          <ScalarProperty Name="B_PURCHASINGREASON" ColumnName="B_PURCHASINGREASON" />
+          <ScalarProperty Name="B_COSTCENTER" ColumnName="B_COSTCENTER" />
+          <ScalarProperty Name="B_ADDITIONALBUDGET" ColumnName="B_ADDITIONALBUDGET" />
+          <ScalarProperty Name="B_DEPTDIRECTOR" ColumnName="B_DEPTDIRECTOR" />
+          <ScalarProperty Name="B_DEPTMANAGER" ColumnName="B_DEPTMANAGER" />
+          <ScalarProperty Name="B_CONTRACTTYPE" ColumnName="B_CONTRACTTYPE" />
+          <ScalarProperty Name="B_ISSINGLESUPPLIER" ColumnName="B_ISSINGLESUPPLIER" />
+          <ScalarProperty Name="B_APPLICANTADDRESS" ColumnName="B_APPLICANTADDRESS" />
+          <ScalarProperty Name="B_CONTRACTPARTY" ColumnName="B_CONTRACTPARTY" />
+          <ScalarProperty Name="B_PURCHASECONTENT" ColumnName="B_PURCHASECONTENT" />
+          <ScalarProperty Name="B_URGENTPURCHASE" ColumnName="B_URGENTPURCHASE" />
+          <ScalarProperty Name="B_REPETITIVEPURCHASE" ColumnName="B_REPETITIVEPURCHASE" />
+          <ScalarProperty Name="B_RAISEDDATE" ColumnName="B_RAISEDDATE" />
+          <ScalarProperty Name="B_PRTYPE" ColumnName="B_PRTYPE" />
+          <ScalarProperty Name="B_PRRECORDNO" ColumnName="B_PRRECORDNO" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_PROJECTLEADER" ColumnName="B_PROJECTLEADER" />
+          <ScalarProperty Name="B_PROJECTDIRECTOR" ColumnName="B_PROJECTDIRECTOR" />
+          <ScalarProperty Name="B_PHONENO" ColumnName="B_PHONENO" />
+          <ScalarProperty Name="B_INDEXNUM" ColumnName="B_INDEXNUM" />
+          <ScalarProperty Name="B_EMAILADDRESS" ColumnName="B_EMAILADDRESS" />
+          <ScalarProperty Name="B_BUYERID" ColumnName="B_BUYERID" />
+          <ScalarProperty Name="B_BUYER" ColumnName="B_BUYER" />
+          <ScalarProperty Name="B_BUSINESSDEPARTMENT" ColumnName="B_BUSINESSDEPARTMENT" />
+          <ScalarProperty Name="B_BUDGETSTATUS" ColumnName="B_BUDGETSTATUS" />
+          <ScalarProperty Name="B_BUDGETCODE" ColumnName="B_BUDGETCODE" />
+          <ScalarProperty Name="B_BUDGET" ColumnName="B_BUDGET" />
+          <ScalarProperty Name="B_AUTHORIZEDPURCHASE" ColumnName="B_AUTHORIZEDPURCHASE" />
+          <ScalarProperty Name="B_APPLICANTID" ColumnName="B_APPLICANTID" />
+          <ScalarProperty Name="B_APPLICANT" ColumnName="B_APPLICANT" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_EXPENSEREIMBURSEMENT">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_EXPENSEREIMBURSEMENT">
+        <MappingFragment StoreEntitySet="B_EXPENSEREIMBURSEMENT">
+          <ScalarProperty Name="B_SENDTOSAPTIME" ColumnName="B_SENDTOSAPTIME" />
+          <ScalarProperty Name="B_ACCOUNT_DOC" ColumnName="B_ACCOUNT_DOC" />
+          <ScalarProperty Name="B_ISSENDTOSAP" ColumnName="B_ISSENDTOSAP" />
+          <ScalarProperty Name="B_EACDATE" ColumnName="B_EACDATE" />
+          <ScalarProperty Name="B_REMARK" ColumnName="B_REMARK" />
+          <ScalarProperty Name="B_HANGUPACTIVITYNAME" ColumnName="B_HANGUPACTIVITYNAME" />
+          <ScalarProperty Name="B_DIVISIONVPID" ColumnName="B_DIVISIONVPID" />
+          <ScalarProperty Name="B_DEPARTMENTLEADERID" ColumnName="B_DEPARTMENTLEADERID" />
+          <ScalarProperty Name="B_LINELEADERID" ColumnName="B_LINELEADERID" />
+          <ScalarProperty Name="B_DIVISIONVP" ColumnName="B_DIVISIONVP" />
+          <ScalarProperty Name="B_DEPARTMENTLEADER" ColumnName="B_DEPARTMENTLEADER" />
+          <ScalarProperty Name="B_LINELEADER" ColumnName="B_LINELEADER" />
+          <ScalarProperty Name="B_ATTACHMENTSQUANTITY" ColumnName="B_ATTACHMENTSQUANTITY" />
+          <ScalarProperty Name="B_TYPE" ColumnName="B_TYPE" />
+          <ScalarProperty Name="B_TOTALAMOUNT" ColumnName="B_TOTALAMOUNT" />
+          <ScalarProperty Name="B_AMOUNTINWORDS" ColumnName="B_AMOUNTINWORDS" />
+          <ScalarProperty Name="B_INDEXNUM" ColumnName="B_INDEXNUM" />
+          <ScalarProperty Name="B_ISHANGUP" ColumnName="B_ISHANGUP" />
+          <ScalarProperty Name="B_DUECOMPANY" ColumnName="B_DUECOMPANY" />
+          <ScalarProperty Name="B_TOTALEXPENSE" ColumnName="B_TOTALEXPENSE" />
+          <ScalarProperty Name="B_ADVANCEDAMOUNT" ColumnName="B_ADVANCEDAMOUNT" />
+          <ScalarProperty Name="B_TEL" ColumnName="B_TEL" />
+          <ScalarProperty Name="B_COSTCENTER" ColumnName="B_COSTCENTER" />
+          <ScalarProperty Name="B_DEPT" ColumnName="B_DEPT" />
+          <ScalarProperty Name="B_POSITION" ColumnName="B_POSITION" />
+          <ScalarProperty Name="B_STAFFNO" ColumnName="B_STAFFNO" />
+          <ScalarProperty Name="B_EMPLOYEE" ColumnName="B_EMPLOYEE" />
+          <ScalarProperty Name="B_APPLICATIONDATE" ColumnName="B_APPLICATIONDATE" />
+          <ScalarProperty Name="B_PREPARERNO" ColumnName="B_PREPARERNO" />
+          <ScalarProperty Name="B_PREPARER" ColumnName="B_PREPARER" />
+          <ScalarProperty Name="B_ISBUDGETARY" ColumnName="B_ISBUDGETARY" />
+          <ScalarProperty Name="B_REIMBURSEMENTPLACE" ColumnName="B_REIMBURSEMENTPLACE" />
+          <ScalarProperty Name="B_COMPANYCODE" ColumnName="B_COMPANYCODE" />
+          <ScalarProperty Name="B_RECORDNO" ColumnName="B_RECORDNO" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_EXPENSECATEGORY">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_EXPENSECATEGORY">
+        <MappingFragment StoreEntitySet="B_EXPENSECATEGORY">
+          <ScalarProperty Name="B_CORRESPONSUBJECT" ColumnName="B_CORRESPONSUBJECT" />
+          <ScalarProperty Name="B_COSTNAME" ColumnName="B_COSTNAME" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_ORGANIZATIONALSTRUCTURE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_ORGANIZATIONALSTRUCTURE">
+        <MappingFragment StoreEntitySet="B_ORGANIZATIONALSTRUCTURE">
+          <ScalarProperty Name="B_COMPANYCODE" ColumnName="B_COMPANYCODE" />
+          <ScalarProperty Name="B_COSTCENTER" ColumnName="B_COSTCENTER" />
+          <ScalarProperty Name="B_NODELEVEL" ColumnName="B_NODELEVEL" />
+          <ScalarProperty Name="B_NODEPERSONNAME" ColumnName="B_NODEPERSONNAME" />
+          <ScalarProperty Name="B_PARENTNODECODE" ColumnName="B_PARENTNODECODE" />
+          <ScalarProperty Name="B_NODECODE" ColumnName="B_NODECODE" />
+          <ScalarProperty Name="B_NODENAME" ColumnName="B_NODENAME" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_REIMBURSEMENTITEM">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_REIMBURSEMENTITEM">
+        <MappingFragment StoreEntitySet="B_REIMBURSEMENTITEM">
+          <ScalarProperty Name="B_CNYSUBTOTAL" ColumnName="B_CNYSUBTOTAL" />
+          <ScalarProperty Name="B_TAXFREEAMOUNT" ColumnName="B_TAXFREEAMOUNT" />
+          <ScalarProperty Name="B_TAX" ColumnName="B_TAX" />
+          <ScalarProperty Name="B_TAXRATE" ColumnName="B_TAXRATE" />
+          <ScalarProperty Name="B_COUNT" ColumnName="B_COUNT" />
+          <ScalarProperty Name="B_ORIGINALCURRENCY" ColumnName="B_ORIGINALCURRENCY" />
+          <ScalarProperty Name="B_RATE" ColumnName="B_RATE" />
+          <ScalarProperty Name="B_CURRENCY" ColumnName="B_CURRENCY" />
+          <ScalarProperty Name="B_BUDGETNUMBER" ColumnName="B_BUDGETNUMBER" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_CATEGORYNUMBER" ColumnName="B_CATEGORYNUMBER" />
+          <ScalarProperty Name="B_DATE" ColumnName="B_DATE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_REIMBURSEMENTITEM">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.R_REIMBURSEMENTITEM">
+        <MappingFragment StoreEntitySet="R_REIMBURSEMENTITEM">
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_TRIPREIMBURSEMENTFORM">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_TRIPREIMBURSEMENTFORM">
+        <MappingFragment StoreEntitySet="B_TRIPREIMBURSEMENTFORM">
+          <ScalarProperty Name="B_BEYONDREASON" ColumnName="B_BEYONDREASON" />
+          <ScalarProperty Name="B_ISBEYONDBUDGET" ColumnName="B_ISBEYONDBUDGET" />
+          <ScalarProperty Name="B_TRAVELBUDGET" ColumnName="B_TRAVELBUDGET" />
+          <ScalarProperty Name="B_BTRECORDNO" ColumnName="B_BTRECORDNO" />
+          <ScalarProperty Name="B_AMOUNTINTOTAL" ColumnName="B_AMOUNTINTOTAL" />
+          <ScalarProperty Name="B_OTHAMOUNT" ColumnName="B_OTHAMOUNT" />
+          <ScalarProperty Name="B_OTHINWORDS" ColumnName="B_OTHINWORDS" />
+          <ScalarProperty Name="B_MEALAMOUNT" ColumnName="B_MEALAMOUNT" />
+          <ScalarProperty Name="B_MEALINWORDS" ColumnName="B_MEALINWORDS" />
+          <ScalarProperty Name="B_TRAFAMOUNT" ColumnName="B_TRAFAMOUNT" />
+          <ScalarProperty Name="B_TRAFINWORDS" ColumnName="B_TRAFINWORDS" />
+          <ScalarProperty Name="B_HOTELAMOUNT" ColumnName="B_HOTELAMOUNT" />
+          <ScalarProperty Name="B_HOTELINWORDS" ColumnName="B_HOTELINWORDS" />
+          <ScalarProperty Name="B_EACDATE" ColumnName="B_EACDATE" />
+          <ScalarProperty Name="B_ACCOUNT_DOC" ColumnName="B_ACCOUNT_DOC" />
+          <ScalarProperty Name="B_ISSENDTOSAP" ColumnName="B_ISSENDTOSAP" />
+          <ScalarProperty Name="B_HANGUPACTIVITYNAME" ColumnName="B_HANGUPACTIVITYNAME" />
+          <ScalarProperty Name="B_TOTALAMOUNT" ColumnName="B_TOTALAMOUNT" />
+          <ScalarProperty Name="B_AMOUNTINWORDS" ColumnName="B_AMOUNTINWORDS" />
+          <ScalarProperty Name="B_ISHANGUP" ColumnName="B_ISHANGUP" />
+          <ScalarProperty Name="B_REMARK" ColumnName="B_REMARK" />
+          <ScalarProperty Name="B_DIVISIONVPID" ColumnName="B_DIVISIONVPID" />
+          <ScalarProperty Name="B_DEPTLEADERID" ColumnName="B_DEPTLEADERID" />
+          <ScalarProperty Name="B_LINELEADERID" ColumnName="B_LINELEADERID" />
+          <ScalarProperty Name="B_ATTACHMENTSQUANTITY" ColumnName="B_ATTACHMENTSQUANTITY" />
+          <ScalarProperty Name="B_DIVISIONVP" ColumnName="B_DIVISIONVP" />
+          <ScalarProperty Name="B_LINELEADER" ColumnName="B_LINELEADER" />
+          <ScalarProperty Name="B_DEPTLEADER" ColumnName="B_DEPTLEADER" />
+          <ScalarProperty Name="B_TYPE" ColumnName="B_TYPE" />
+          <ScalarProperty Name="B_INDEXNUM" ColumnName="B_INDEXNUM" />
+          <ScalarProperty Name="B_TOTALEXPENSE" ColumnName="B_TOTALEXPENSE" />
+          <ScalarProperty Name="B_ADVANCEDAMOUNT" ColumnName="B_ADVANCEDAMOUNT" />
+          <ScalarProperty Name="B_BUDGETNUMBER" ColumnName="B_BUDGETNUMBER" />
+          <ScalarProperty Name="B_TEL" ColumnName="B_TEL" />
+          <ScalarProperty Name="B_COSTCENTER" ColumnName="B_COSTCENTER" />
+          <ScalarProperty Name="B_DEPT" ColumnName="B_DEPT" />
+          <ScalarProperty Name="B_POSITION" ColumnName="B_POSITION" />
+          <ScalarProperty Name="B_STAFFNO" ColumnName="B_STAFFNO" />
+          <ScalarProperty Name="B_EMPLOYEE" ColumnName="B_EMPLOYEE" />
+          <ScalarProperty Name="B_PREPARERNO" ColumnName="B_PREPARERNO" />
+          <ScalarProperty Name="B_PREPARER" ColumnName="B_PREPARER" />
+          <ScalarProperty Name="B_INTALBUSINESS" ColumnName="B_INTALBUSINESS" />
+          <ScalarProperty Name="B_APPLICATIONDATE" ColumnName="B_APPLICATIONDATE" />
+          <ScalarProperty Name="B_ISBUDGETARY" ColumnName="B_ISBUDGETARY" />
+          <ScalarProperty Name="B_REIMBURSEMENTPLACE" ColumnName="B_REIMBURSEMENTPLACE" />
+          <ScalarProperty Name="B_COMPANYCODE" ColumnName="B_COMPANYCODE" />
+          <ScalarProperty Name="B_RECORDNO" ColumnName="B_RECORDNO" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_EXPENSEAUDITCONFIGURATION">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_EXPENSEAUDITCONFIGURATION">
+        <MappingFragment StoreEntitySet="B_EXPENSEAUDITCONFIGURATION">
+          <ScalarProperty Name="B_HANDLEPERSONS" ColumnName="B_HANDLEPERSONS" />
+          <ScalarProperty Name="B_COSTCENTERS" ColumnName="B_COSTCENTERS" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_COMPANYCODE" ColumnName="B_COMPANYCODE" />
+          <ScalarProperty Name="B_TYPE" ColumnName="B_TYPE" />
+          <ScalarProperty Name="B_ROLENAME" ColumnName="B_ROLENAME" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_HOTELEXPENSE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_HOTELEXPENSE">
+        <MappingFragment StoreEntitySet="B_HOTELEXPENSE">
+          <ScalarProperty Name="B_CNYSUBTOTAL" ColumnName="B_CNYSUBTOTAL" />
+          <ScalarProperty Name="B_TAXFREEAMOUNT" ColumnName="B_TAXFREEAMOUNT" />
+          <ScalarProperty Name="B_TAX" ColumnName="B_TAX" />
+          <ScalarProperty Name="B_TAXRATE" ColumnName="B_TAXRATE" />
+          <ScalarProperty Name="B_DAYS" ColumnName="B_DAYS" />
+          <ScalarProperty Name="B_ORIGINALCURRENCY" ColumnName="B_ORIGINALCURRENCY" />
+          <ScalarProperty Name="B_RATE" ColumnName="B_RATE" />
+          <ScalarProperty Name="B_CURRENCY" ColumnName="B_CURRENCY" />
+          <ScalarProperty Name="B_HOTEL" ColumnName="B_HOTEL" />
+          <ScalarProperty Name="B_CITY" ColumnName="B_CITY" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_ENDDATE" ColumnName="B_ENDDATE" />
+          <ScalarProperty Name="B_STARTDATE" ColumnName="B_STARTDATE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_MEALSANDFIXEDSUBSIDIES">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_MEALSANDFIXEDSUBSIDIES">
+        <MappingFragment StoreEntitySet="B_MEALSANDFIXEDSUBSIDIES">
+          <ScalarProperty Name="B_CNYSUBTOTAL" ColumnName="B_CNYSUBTOTAL" />
+          <ScalarProperty Name="B_TAXFREEAMOUNT" ColumnName="B_TAXFREEAMOUNT" />
+          <ScalarProperty Name="B_TAX" ColumnName="B_TAX" />
+          <ScalarProperty Name="B_TAXRATE" ColumnName="B_TAXRATE" />
+          <ScalarProperty Name="B_FIXEDSUBSIDY" ColumnName="B_FIXEDSUBSIDY" />
+          <ScalarProperty Name="B_RATE" ColumnName="B_RATE" />
+          <ScalarProperty Name="B_CURRENCY" ColumnName="B_CURRENCY" />
+          <ScalarProperty Name="B_COMPANIONNAME" ColumnName="B_COMPANIONNAME" />
+          <ScalarProperty Name="B_COMPANIONAMOUNT" ColumnName="B_COMPANIONAMOUNT" />
+          <ScalarProperty Name="B_PLACE" ColumnName="B_PLACE" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_ENDDATE" ColumnName="B_ENDDATE" />
+          <ScalarProperty Name="B_STARTDATE" ColumnName="B_STARTDATE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_OTHERS">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_OTHERS">
+        <MappingFragment StoreEntitySet="B_OTHERS">
+          <ScalarProperty Name="B_CNYSUBTOTAL" ColumnName="B_CNYSUBTOTAL" />
+          <ScalarProperty Name="B_TAXFREEAMOUNT" ColumnName="B_TAXFREEAMOUNT" />
+          <ScalarProperty Name="B_TAX" ColumnName="B_TAX" />
+          <ScalarProperty Name="B_TAXRATE" ColumnName="B_TAXRATE" />
+          <ScalarProperty Name="B_COUNT" ColumnName="B_COUNT" />
+          <ScalarProperty Name="B_ORIGINALCURRENCY" ColumnName="B_ORIGINALCURRENCY" />
+          <ScalarProperty Name="B_RATE" ColumnName="B_RATE" />
+          <ScalarProperty Name="B_CURRENCY" ColumnName="B_CURRENCY" />
+          <ScalarProperty Name="B_REASON" ColumnName="B_REASON" />
+          <ScalarProperty Name="B_TYPE" ColumnName="B_TYPE" />
+          <ScalarProperty Name="B_PLACE" ColumnName="B_PLACE" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_ENDDATE" ColumnName="B_ENDDATE" />
+          <ScalarProperty Name="B_STARTDATE" ColumnName="B_STARTDATE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_TRAFFICEXPENSE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_TRAFFICEXPENSE">
+        <MappingFragment StoreEntitySet="B_TRAFFICEXPENSE">
+          <ScalarProperty Name="B_CNYSUBTOTAL" ColumnName="B_CNYSUBTOTAL" />
+          <ScalarProperty Name="B_TAXFREEAMOUNT" ColumnName="B_TAXFREEAMOUNT" />
+          <ScalarProperty Name="B_TAX" ColumnName="B_TAX" />
+          <ScalarProperty Name="B_TAXRATE" ColumnName="B_TAXRATE" />
+          <ScalarProperty Name="B_KILOMETRE" ColumnName="B_KILOMETRE" />
+          <ScalarProperty Name="B_ORIGINALCURRENCY" ColumnName="B_ORIGINALCURRENCY" />
+          <ScalarProperty Name="B_RATE" ColumnName="B_RATE" />
+          <ScalarProperty Name="B_CURRENCY" ColumnName="B_CURRENCY" />
+          <ScalarProperty Name="B_ENDPOINT" ColumnName="B_ENDPOINT" />
+          <ScalarProperty Name="B_STARTPOINT" ColumnName="B_STARTPOINT" />
+          <ScalarProperty Name="B_TYPE" ColumnName="B_TYPE" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_ENDDATE" ColumnName="B_ENDDATE" />
+          <ScalarProperty Name="B_STARTDATE" ColumnName="B_STARTDATE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_HOTELEXPENSE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.R_HOTELEXPENSE">
+        <MappingFragment StoreEntitySet="R_HOTELEXPENSE">
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_MEALSANDFIXEDSUBSIDIES">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.R_MEALSANDFIXEDSUBSIDIES">
+        <MappingFragment StoreEntitySet="R_MEALSANDFIXEDSUBSIDIES">
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_OTHERS">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.R_OTHERS">
+        <MappingFragment StoreEntitySet="R_OTHERS">
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_TRAFFICEXPENSE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.R_TRAFFICEXPENSE">
+        <MappingFragment StoreEntitySet="R_TRAFFICEXPENSE">
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_TAXCODECONFIGURE">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_TAXCODECONFIGURE">
+        <MappingFragment StoreEntitySet="B_TAXCODECONFIGURE">
+          <ScalarProperty Name="B_CORRESPONSUBJECT" ColumnName="B_CORRESPONSUBJECT" />
+          <ScalarProperty Name="B_LEDGERACCOUNT" ColumnName="B_LEDGERACCOUNT" />
+          <ScalarProperty Name="B_TAXCODE" ColumnName="B_TAXCODE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_PRCHOICESUPPLIERS">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_PRCHOICESUPPLIERS">
+        <MappingFragment StoreEntitySet="B_PRCHOICESUPPLIERS">
+          <ScalarProperty Name="B_SUPPLIER" ColumnName="B_SUPPLIER" />
+          <ScalarProperty Name="B_PONO" ColumnName="B_PONO" />
+          <ScalarProperty Name="B_PAYMENTCLAUSE" ColumnName="B_PAYMENTCLAUSE" />
+          <ScalarProperty Name="B_CONTRACTPROPERTY" ColumnName="B_CONTRACTPROPERTY" />
+          <ScalarProperty Name="B_CONTRACTPRICE" ColumnName="B_CONTRACTPRICE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_CHOICESUPPLIERS">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_CHOICESUPPLIERS">
+        <MappingFragment StoreEntitySet="B_CHOICESUPPLIERS">
+          <ScalarProperty Name="RELATED_ID" ColumnName="RELATED_ID" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="BEHAVIOR" ColumnName="BEHAVIOR" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_AGENTSET">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_AGENTSET">
+        <MappingFragment StoreEntitySet="B_AGENTSET">
+          <ScalarProperty Name="B_ISVALID" ColumnName="B_ISVALID" />
+          <ScalarProperty Name="B_ENDDATEMINUTE" ColumnName="B_ENDDATEMINUTE" />
+          <ScalarProperty Name="B_STARTDATEMINUTE" ColumnName="B_STARTDATEMINUTE" />
+          <ScalarProperty Name="B_AGENTREASON" ColumnName="B_AGENTREASON" />
+          <ScalarProperty Name="B_AGENTCONTENT" ColumnName="B_AGENTCONTENT" />
+          <ScalarProperty Name="B_ENDDATE" ColumnName="B_ENDDATE" />
+          <ScalarProperty Name="B_STARTDATE" ColumnName="B_STARTDATE" />
+          <ScalarProperty Name="B_AGENTNAME" ColumnName="B_AGENTNAME" />
+          <ScalarProperty Name="B_DELEGATENAME" ColumnName="B_DELEGATENAME" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_BUSINESSTRAVEL">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_BUSINESSTRAVEL">
+        <MappingFragment StoreEntitySet="B_BUSINESSTRAVEL">
+          <ScalarProperty Name="B_DIDIADDMONEY" ColumnName="B_DIDIADDMONEY" />
+          <ScalarProperty Name="B_DIDIMONEY" ColumnName="B_DIDIMONEY" />
+          <ScalarProperty Name="B_ISREIMBURSEMENT" ColumnName="B_ISREIMBURSEMENT" />
+          <ScalarProperty Name="B_OTHEREXPENSES" ColumnName="B_OTHEREXPENSES" />
+          <ScalarProperty Name="B_FIXEDSUBSIDY" ColumnName="B_FIXEDSUBSIDY" />
+          <ScalarProperty Name="B_HOTELEXPENSE" ColumnName="B_HOTELEXPENSE" />
+          <ScalarProperty Name="B_TRAFFICEXPENSE" ColumnName="B_TRAFFICEXPENSE" />
+          <ScalarProperty Name="B_VERSIONNO" ColumnName="B_VERSIONNO" />
+          <ScalarProperty Name="B_OTHERCONTENT" ColumnName="B_OTHERCONTENT" />
+          <ScalarProperty Name="B_NEEDADMINSUPPORT" ColumnName="B_NEEDADMINSUPPORT" />
+          <ScalarProperty Name="B_OTHERS" ColumnName="B_OTHERS" />
+          <ScalarProperty Name="B_DIDI" ColumnName="B_DIDI" />
+          <ScalarProperty Name="B_HOTELBOOKING" ColumnName="B_HOTELBOOKING" />
+          <ScalarProperty Name="B_FLIGHTBOOKING" ColumnName="B_FLIGHTBOOKING" />
+          <ScalarProperty Name="B_FLIGHTISSSUE" ColumnName="B_FLIGHTISSSUE" />
+          <ScalarProperty Name="B_HANGUPACTIVITYNAME" ColumnName="B_HANGUPACTIVITYNAME" />
+          <ScalarProperty Name="B_ISHANGUP" ColumnName="B_ISHANGUP" />
+          <ScalarProperty Name="B_INDEXNUM" ColumnName="B_INDEXNUM" />
+          <ScalarProperty Name="B_REMARK" ColumnName="B_REMARK" />
+          <ScalarProperty Name="B_DOCUMENTNO" ColumnName="B_DOCUMENTNO" />
+          <ScalarProperty Name="B_TRAVELBUDGET" ColumnName="B_TRAVELBUDGET" />
+          <ScalarProperty Name="B_TRAVELSCHEDULE" ColumnName="B_TRAVELSCHEDULE" />
+          <ScalarProperty Name="B_PURPOSE" ColumnName="B_PURPOSE" />
+          <ScalarProperty Name="B_ESTIMATEDRETURNDATE" ColumnName="B_ESTIMATEDRETURNDATE" />
+          <ScalarProperty Name="B_TRAVELDATE" ColumnName="B_TRAVELDATE" />
+          <ScalarProperty Name="B_VP" ColumnName="B_VP" />
+          <ScalarProperty Name="B_DIRECTOR" ColumnName="B_DIRECTOR" />
+          <ScalarProperty Name="B_SENIORMANAGER" ColumnName="B_SENIORMANAGER" />
+          <ScalarProperty Name="B_DESTINATION" ColumnName="B_DESTINATION" />
+          <ScalarProperty Name="B_PROJECTNAME" ColumnName="B_PROJECTNAME" />
+          <ScalarProperty Name="B_MOBILE" ColumnName="B_MOBILE" />
+          <ScalarProperty Name="B_COSTCENTER" ColumnName="B_COSTCENTER" />
+          <ScalarProperty Name="B_DEPT" ColumnName="B_DEPT" />
+          <ScalarProperty Name="B_POSITION" ColumnName="B_POSITION" />
+          <ScalarProperty Name="B_STAFFNO" ColumnName="B_STAFFNO" />
+          <ScalarProperty Name="B_EMPLOYEE" ColumnName="B_EMPLOYEE" />
+          <ScalarProperty Name="B_PREPARER" ColumnName="B_PREPARER" />
+          <ScalarProperty Name="B_TYPE" ColumnName="B_TYPE" />
+          <ScalarProperty Name="B_TRIPTYPE" ColumnName="B_TRIPTYPE" />
+          <ScalarProperty Name="B_APPLICATIONDATE" ColumnName="B_APPLICATIONDATE" />
+          <ScalarProperty Name="B_LOCATION" ColumnName="B_LOCATION" />
+          <ScalarProperty Name="B_COMPANYCODE" ColumnName="B_COMPANYCODE" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_WORKFLOWVERSIONMANAGEMENT">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_WORKFLOWVERSIONMANAGEMENT">
+        <MappingFragment StoreEntitySet="B_WORKFLOWVERSIONMANAGEMENT">
+          <ScalarProperty Name="B_WORKFLOWCHARTCODE" ColumnName="B_WORKFLOWCHARTCODE" />
+          <ScalarProperty Name="B_WORKFLOWNAME" ColumnName="B_WORKFLOWNAME" />
+          <ScalarProperty Name="B_VERSIONNO" ColumnName="B_VERSIONNO" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_BOOKINGSTAFFING">
+      <EntityTypeMapping TypeName="InnovatorSolutionsModel.B_BOOKINGSTAFFING">
+        <MappingFragment StoreEntitySet="B_BOOKINGSTAFFING">
+          <ScalarProperty Name="B_USERNAME" ColumnName="B_USERNAME" />
+          <ScalarProperty Name="TEAM_ID" ColumnName="TEAM_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="NEW_VERSION" ColumnName="NEW_VERSION" />
+          <ScalarProperty Name="GENERATION" ColumnName="GENERATION" />
+          <ScalarProperty Name="CSS" ColumnName="CSS" />
+          <ScalarProperty Name="NOT_LOCKABLE" ColumnName="NOT_LOCKABLE" />
+          <ScalarProperty Name="IS_RELEASED" ColumnName="IS_RELEASED" />
+          <ScalarProperty Name="MINOR_REV" ColumnName="MINOR_REV" />
+          <ScalarProperty Name="MAJOR_REV" ColumnName="MAJOR_REV" />
+          <ScalarProperty Name="IS_CURRENT" ColumnName="IS_CURRENT" />
+          <ScalarProperty Name="LOCKED_BY_ID" ColumnName="LOCKED_BY_ID" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CURRENT_STATE" ColumnName="CURRENT_STATE" />
+          <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+          <ScalarProperty Name="MODIFIED_ON" ColumnName="MODIFIED_ON" />
+          <ScalarProperty Name="MANAGED_BY_ID" ColumnName="MANAGED_BY_ID" />
+          <ScalarProperty Name="OWNED_BY_ID" ColumnName="OWNED_BY_ID" />
+          <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+          <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+          <ScalarProperty Name="KEYED_NAME" ColumnName="KEYED_NAME" />
+          <ScalarProperty Name="CLASSIFICATION" ColumnName="CLASSIFICATION" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

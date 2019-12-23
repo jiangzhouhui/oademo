@@ -1,0 +1,1950 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InnovatorSolutionsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACTIVITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="ACTIVE_DATE" Type="datetime" />
+    <Property Name="CAN_DELEGATE" Type="char" MaxLength="1" />
+    <Property Name="CAN_REFUSE" Type="char" MaxLength="1" />
+    <Property Name="CLONED_AS" Type="char" MaxLength="32" />
+    <Property Name="CLOSED_DATE" Type="datetime" />
+    <Property Name="CONSOLIDATE_ONDELEGATE" Type="char" MaxLength="1" />
+    <Property Name="ESCALATE_TO" Type="char" MaxLength="32" />
+    <Property Name="EXPECTED_DURATION" Type="int" />
+    <Property Name="ICON" Type="nvarchar" MaxLength="128" />
+    <Property Name="IS_AUTO" Type="char" MaxLength="1" />
+    <Property Name="IS_END" Type="char" MaxLength="1" />
+    <Property Name="IS_ESCALATED" Type="char" MaxLength="1" />
+    <Property Name="IS_START" Type="char" MaxLength="1" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="MESSAGE" Type="nvarchar" MaxLength="1024" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="PRIORITY" Type="int" />
+    <Property Name="REMINDER_COUNT" Type="int" />
+    <Property Name="REMINDER_INTERVAL" Type="int" />
+    <Property Name="ROLE" Type="char" MaxLength="32" />
+    <Property Name="SUBFLOW" Type="char" MaxLength="32" />
+    <Property Name="TIMEOUT_DURATION" Type="int" />
+    <Property Name="WAIT_FOR_ALL_INPUTS" Type="char" MaxLength="1" />
+    <Property Name="WAIT_FOR_ALL_VOTES" Type="char" MaxLength="1" />
+    <Property Name="X" Type="int" />
+    <Property Name="Y" Type="int" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="LABEL_ZC" Type="nvarchar" MaxLength="64" />
+    <Property Name="MESSAGE_ZC" Type="nvarchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="ACTIVITY_ASSIGNMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="CLAIMED_BY" Type="char" MaxLength="32" />
+    <Property Name="CLOSED_BY" Type="char" MaxLength="32" />
+    <Property Name="CLOSED_ON" Type="datetime" />
+    <Property Name="COMMENTS" Type="nvarchar(max)" />
+    <Property Name="ESCALATE_TO" Type="char" MaxLength="32" />
+    <Property Name="FOR_ALL_MEMBERS" Type="char" MaxLength="1" />
+    <Property Name="IS_DISABLED" Type="char" MaxLength="1" />
+    <Property Name="IS_OVERDUE" Type="char" MaxLength="1" />
+    <Property Name="IS_REQUIRED" Type="char" MaxLength="1" />
+    <Property Name="PATH" Type="nvarchar" MaxLength="32" />
+    <Property Name="REMINDERS_SENT" Type="int" />
+    <Property Name="VOTING_WEIGHT" Type="int" Nullable="false" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="ACTIVITY_TEMPLATE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="CAN_DELEGATE" Type="char" MaxLength="1" />
+    <Property Name="CAN_REFUSE" Type="char" MaxLength="1" />
+    <Property Name="CONSOLIDATE_ONDELEGATE" Type="char" MaxLength="1" />
+    <Property Name="ESCALATE_TO" Type="char" MaxLength="32" />
+    <Property Name="EXPECTED_DURATION" Type="int" />
+    <Property Name="ICON" Type="nvarchar" MaxLength="128" />
+    <Property Name="IS_AUTO" Type="char" MaxLength="1" />
+    <Property Name="IS_END" Type="char" MaxLength="1" />
+    <Property Name="IS_START" Type="char" MaxLength="1" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="MESSAGE" Type="nvarchar" MaxLength="1024" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="PRIORITY" Type="int" />
+    <Property Name="REMINDER_COUNT" Type="int" />
+    <Property Name="REMINDER_INTERVAL" Type="int" />
+    <Property Name="ROLE" Type="char" MaxLength="32" />
+    <Property Name="SUBFLOW" Type="char" MaxLength="32" />
+    <Property Name="TIMEOUT_DURATION" Type="int" />
+    <Property Name="WAIT_FOR_ALL_INPUTS" Type="char" MaxLength="1" />
+    <Property Name="WAIT_FOR_ALL_VOTES" Type="char" MaxLength="1" />
+    <Property Name="X" Type="int" />
+    <Property Name="Y" Type="int" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="LABEL_ZC" Type="nvarchar" MaxLength="64" />
+    <Property Name="MESSAGE_ZC" Type="nvarchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="B_AGENTSET">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_DELEGATENAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_AGENTNAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_STARTDATE" Type="nvarchar" MaxLength="20" />
+    <Property Name="B_ENDDATE" Type="nvarchar" MaxLength="20" />
+    <Property Name="B_AGENTCONTENT" Type="nvarchar" MaxLength="500" />
+    <Property Name="B_AGENTREASON" Type="nvarchar" MaxLength="500" />
+    <Property Name="B_STARTDATEMINUTE" Type="nvarchar" MaxLength="10" />
+    <Property Name="B_ENDDATEMINUTE" Type="nvarchar" MaxLength="10" />
+    <Property Name="B_ISVALID" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="B_BOOKINGSTAFFING">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_USERNAME" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="B_BUSINESSTRAVEL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_COMPANYCODE" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_LOCATION" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_APPLICATIONDATE" Type="datetime" />
+    <Property Name="B_TRIPTYPE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TYPE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_PREPARER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_EMPLOYEE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_STAFFNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_POSITION" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_DEPT" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_COSTCENTER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_MOBILE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_DESTINATION" Type="nvarchar" MaxLength="256" />
+    <Property Name="B_SENIORMANAGER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DIRECTOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_VP" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TRAVELDATE" Type="datetime" />
+    <Property Name="B_ESTIMATEDRETURNDATE" Type="datetime" />
+    <Property Name="B_PURPOSE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="B_TRAVELSCHEDULE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="B_TRAVELBUDGET" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_DOCUMENTNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_REMARK" Type="nvarchar" MaxLength="1000" />
+    <Property Name="B_INDEXNUM" Type="int" />
+    <Property Name="B_ISHANGUP" Type="char" MaxLength="1" />
+    <Property Name="B_HANGUPACTIVITYNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_FLIGHTISSSUE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_FLIGHTBOOKING" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_HOTELBOOKING" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DIDI" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_OTHERS" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_NEEDADMINSUPPORT" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_OTHERCONTENT" Type="nvarchar" MaxLength="200" />
+    <Property Name="B_VERSIONNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TRAFFICEXPENSE" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_HOTELEXPENSE" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_FIXEDSUBSIDY" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_OTHEREXPENSES" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_ISREIMBURSEMENT" Type="int" />
+    <Property Name="B_DIDIMONEY" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_DIDIADDMONEY" Type="decimal" Precision="25" Scale="2" />
+  </EntityType>
+  <EntityType Name="B_CHOICESUPPLIERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="B_EXPENSEAUDITCONFIGURATION">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_ROLENAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TYPE" Type="nvarchar" MaxLength="34" />
+    <Property Name="B_COMPANYCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_COSTCENTERS" Type="nvarchar" MaxLength="1000" />
+    <Property Name="B_HANDLEPERSONS" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="B_EXPENSECATEGORY">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_COSTNAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="B_CORRESPONSUBJECT" Type="nvarchar" MaxLength="68" Nullable="false" />
+  </EntityType>
+  <EntityType Name="B_EXPENSEREIMBURSEMENT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_RECORDNO" Type="nvarchar" MaxLength="34" />
+    <Property Name="B_COMPANYCODE" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_REIMBURSEMENTPLACE" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_ISBUDGETARY" Type="char" MaxLength="1" />
+    <Property Name="B_PREPARER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_PREPARERNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_APPLICATIONDATE" Type="datetime" />
+    <Property Name="B_EMPLOYEE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_STAFFNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_POSITION" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DEPT" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_COSTCENTER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TEL" Type="nvarchar" MaxLength="34" />
+    <Property Name="B_ADVANCEDAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TOTALEXPENSE" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_DUECOMPANY" Type="nvarchar" MaxLength="34" />
+    <Property Name="B_ISHANGUP" Type="char" MaxLength="1" />
+    <Property Name="B_INDEXNUM" Type="int" />
+    <Property Name="B_AMOUNTINWORDS" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TOTALAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TYPE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_ATTACHMENTSQUANTITY" Type="int" />
+    <Property Name="B_LINELEADER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DEPARTMENTLEADER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DIVISIONVP" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_LINELEADERID" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DEPARTMENTLEADERID" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DIVISIONVPID" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_HANGUPACTIVITYNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_REMARK" Type="nvarchar" MaxLength="800" />
+    <Property Name="B_EACDATE" Type="nvarchar" MaxLength="4" />
+    <Property Name="B_ISSENDTOSAP" Type="char" MaxLength="1" />
+    <Property Name="B_ACCOUNT_DOC" Type="nvarchar" MaxLength="5" />
+    <Property Name="B_SENDTOSAPTIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="B_HOTELEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_STARTDATE" Type="datetime" />
+    <Property Name="B_ENDDATE" Type="datetime" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_CITY" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_HOTEL" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_CURRENCY" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_RATE" Type="float" />
+    <Property Name="B_ORIGINALCURRENCY" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_DAYS" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_TAXRATE" Type="float" />
+    <Property Name="B_TAX" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="decimal" Precision="25" Scale="2" />
+  </EntityType>
+  <EntityType Name="B_MEALSANDFIXEDSUBSIDIES">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_STARTDATE" Type="datetime" />
+    <Property Name="B_ENDDATE" Type="datetime" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_PLACE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_COMPANIONAMOUNT" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_COMPANIONNAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_CURRENCY" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_RATE" Type="float" />
+    <Property Name="B_FIXEDSUBSIDY" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXRATE" Type="float" />
+    <Property Name="B_TAX" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="decimal" Precision="25" Scale="2" />
+  </EntityType>
+  <EntityType Name="B_ORGANIZATIONALSTRUCTURE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_NODENAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_NODECODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_PARENTNODECODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_NODEPERSONNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_NODELEVEL" Type="int" />
+    <Property Name="B_COSTCENTER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_COMPANYCODE" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="B_OTHERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_STARTDATE" Type="datetime" />
+    <Property Name="B_ENDDATE" Type="datetime" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_PLACE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_TYPE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_REASON" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_CURRENCY" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_RATE" Type="float" />
+    <Property Name="B_ORIGINALCURRENCY" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_COUNT" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_TAXRATE" Type="float" />
+    <Property Name="B_TAX" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="decimal" Precision="25" Scale="2" />
+  </EntityType>
+  <EntityType Name="B_PRCHOICESUPPLIERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_CONTRACTPRICE" Type="decimal" Precision="25" Scale="2" Nullable="false" />
+    <Property Name="B_CONTRACTPROPERTY" Type="nvarchar" MaxLength="48" Nullable="false" />
+    <Property Name="B_PAYMENTCLAUSE" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_PONO" Type="nvarchar" MaxLength="48" Nullable="false" />
+    <Property Name="B_SUPPLIER" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="B_PRMANAGE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_APPLICANT" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="B_APPLICANTID" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="B_AUTHORIZEDPURCHASE" Type="char" MaxLength="1" />
+    <Property Name="B_BUDGET" Type="decimal" Precision="25" Scale="2" Nullable="false" />
+    <Property Name="B_BUDGETCODE" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="B_BUDGETSTATUS" Type="nvarchar" MaxLength="200" />
+    <Property Name="B_BUSINESSDEPARTMENT" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="B_BUYER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_BUYERID" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_EMAILADDRESS" Type="nvarchar" MaxLength="34" Nullable="false" />
+    <Property Name="B_INDEXNUM" Type="int" Nullable="false" />
+    <Property Name="B_PHONENO" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="B_PROJECTDIRECTOR" Type="nvarchar" MaxLength="24" />
+    <Property Name="B_PROJECTLEADER" Type="nvarchar" MaxLength="24" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="24" />
+    <Property Name="B_PRRECORDNO" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="B_PRTYPE" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="B_RAISEDDATE" Type="datetime" Nullable="false" />
+    <Property Name="B_REPETITIVEPURCHASE" Type="char" MaxLength="1" />
+    <Property Name="B_URGENTPURCHASE" Type="char" MaxLength="1" />
+    <Property Name="B_PURCHASECONTENT" Type="nvarchar" MaxLength="1000" />
+    <Property Name="B_CONTRACTPARTY" Type="nvarchar" MaxLength="24" />
+    <Property Name="B_APPLICANTADDRESS" Type="nvarchar" MaxLength="50" />
+    <Property Name="B_ISSINGLESUPPLIER" Type="char" MaxLength="1" />
+    <Property Name="B_CONTRACTTYPE" Type="nvarchar" MaxLength="24" />
+    <Property Name="B_DEPTMANAGER" Type="nvarchar" MaxLength="24" />
+    <Property Name="B_DEPTDIRECTOR" Type="nvarchar" MaxLength="24" />
+    <Property Name="B_ADDITIONALBUDGET" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_COSTCENTER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_PURCHASINGREASON" Type="nvarchar" MaxLength="1000" />
+    <Property Name="B_PROJECTMANAGER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_REMARK" Type="nvarchar" MaxLength="1000" />
+    <Property Name="B_VERSIONNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DEPTVP" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="B_PROJECTMANAGE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_PMTORPATLEADER" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="B_PMTORPATLEADERID" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="B_PROJECTDIRECTOR" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="B_PROJECTDIRECTORID" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="B_PROJECTMANAGERID" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_PROJECTMANAGER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_PROJECTRECORDNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_ISINUSE" Type="char" MaxLength="1" />
+    <Property Name="B_PROJECTVP" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_SORT" Type="int" />
+    <Property Name="B_APPLICABLECOMPANY" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="B_REIMBURSEMENTITEM">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_DATE" Type="datetime" />
+    <Property Name="B_CATEGORYNUMBER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_BUDGETNUMBER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_CURRENCY" Type="nvarchar" MaxLength="34" />
+    <Property Name="B_RATE" Type="float" />
+    <Property Name="B_ORIGINALCURRENCY" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_COUNT" Type="int" />
+    <Property Name="B_TAXRATE" Type="float" />
+    <Property Name="B_TAX" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="decimal" Precision="25" Scale="2" />
+  </EntityType>
+  <EntityType Name="B_TAXCODECONFIGURE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_TAXCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_LEDGERACCOUNT" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_CORRESPONSUBJECT" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="B_TRAFFICEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_STARTDATE" Type="datetime" />
+    <Property Name="B_ENDDATE" Type="datetime" />
+    <Property Name="B_PROJECTNAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_TYPE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_STARTPOINT" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_ENDPOINT" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_CURRENCY" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_RATE" Type="float" />
+    <Property Name="B_ORIGINALCURRENCY" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_KILOMETRE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_TAXRATE" Type="float" />
+    <Property Name="B_TAX" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TAXFREEAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_CNYSUBTOTAL" Type="decimal" Precision="25" Scale="2" />
+  </EntityType>
+  <EntityType Name="B_TRIPREIMBURSEMENTFORM">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_RECORDNO" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_COMPANYCODE" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_REIMBURSEMENTPLACE" Type="nvarchar" MaxLength="128" />
+    <Property Name="B_ISBUDGETARY" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_APPLICATIONDATE" Type="datetime" />
+    <Property Name="B_INTALBUSINESS" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_PREPARER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_PREPARERNO" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_EMPLOYEE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_STAFFNO" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_POSITION" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_DEPT" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_COSTCENTER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_TEL" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_BUDGETNUMBER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_ADVANCEDAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TOTALEXPENSE" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_AMOUNTINTOTAL" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_INDEXNUM" Type="int" />
+    <Property Name="B_TYPE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_DEPTLEADER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_LINELEADER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_DIVISIONVP" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_ATTACHMENTSQUANTITY" Type="int" />
+    <Property Name="B_LINELEADERID" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_DEPTLEADERID" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_DIVISIONVPID" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_REMARK" Type="nvarchar" MaxLength="800" />
+    <Property Name="B_ISHANGUP" Type="char" MaxLength="1" />
+    <Property Name="B_AMOUNTINWORDS" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TOTALAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_HANGUPACTIVITYNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_ISSENDTOSAP" Type="char" MaxLength="1" />
+    <Property Name="B_ACCOUNT_DOC" Type="nvarchar" MaxLength="5" />
+    <Property Name="B_EACDATE" Type="nvarchar" MaxLength="6" />
+    <Property Name="B_HOTELINWORDS" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_HOTELAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_TRAFINWORDS" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_TRAFAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_MEALINWORDS" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_MEALAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_OTHINWORDS" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_OTHAMOUNT" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_BTRECORDNO" Type="nvarchar" MaxLength="34" />
+    <Property Name="B_TRAVELBUDGET" Type="decimal" Precision="25" Scale="2" />
+    <Property Name="B_ISBEYONDBUDGET" Type="char" MaxLength="1" />
+    <Property Name="B_BEYONDREASON" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="B_WORKFLOWVERSIONMANAGEMENT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="B_VERSIONNO" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_WORKFLOWNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_WORKFLOWCHARTCODE" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HISTORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="ACTION" Type="nvarchar" MaxLength="32" />
+    <Property Name="COMMENTS" Type="nvarchar(max)" />
+    <Property Name="CREATED_ON_TICK" Type="decimal" Precision="19" Scale="0" />
+    <Property Name="ITEM_MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="ITEM_STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="ITEM_VERSION" Type="int" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="VERSION" Type="int" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="ITEM_ID" Type="char" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IDENTITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="64" />
+    <Property Name="IS_ALIAS" Type="char" MaxLength="1" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="MAXIMUM_PWD_AGE" Type="int" />
+    <Property Name="PWD_HISTORY_LENGTH" Type="int" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="MEMBER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="END_DATE" Type="datetime" />
+    <Property Name="FROM_DATE" Type="datetime" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="R_HOTELEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="R_MEALSANDFIXEDSUBSIDIES">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="R_OTHERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="R_REIMBURSEMENTITEM">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="R_TRAFFICEXPENSE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="CELL" Type="nvarchar" MaxLength="32" />
+    <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="DEFAULT_VAULT" Type="char" MaxLength="32" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="64" />
+    <Property Name="ESIGNATURE" Type="char" MaxLength="32" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="32" />
+    <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="HOME_PHONE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LAST_LOGIN_DATE" Type="datetime" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="LAST_NAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOGON_ENABLED" Type="char" MaxLength="1" />
+    <Property Name="MAIL_STOP" Type="nvarchar" MaxLength="16" />
+    <Property Name="MANAGER" Type="char" MaxLength="32" />
+    <Property Name="PAGER" Type="nvarchar" MaxLength="32" />
+    <Property Name="PASSWORD" Type="char" MaxLength="32" />
+    <Property Name="PICTURE" Type="nvarchar" MaxLength="128" />
+    <Property Name="PWD_IS_SET_ON" Type="datetime" />
+    <Property Name="STARTING_PAGE" Type="nvarchar" MaxLength="64" />
+    <Property Name="TELEPHONE" Type="nvarchar" MaxLength="32" />
+    <Property Name="USER_NO" Type="nvarchar" MaxLength="15" />
+    <Property Name="WORKING_DIRECTORY" Type="nvarchar" MaxLength="256" />
+    <Property Name="LOGIN_NAME" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_JOBNUMBER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_CHINESENAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_ENGLISHNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_CENTRE" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_DEPARTMENT" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_IDNUMBER" Type="nvarchar" MaxLength="64" />
+    <Property Name="B_SENIORMANAGER" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_DIRECTOR" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_VP" Type="nvarchar" MaxLength="32" />
+    <Property Name="B_AFFILIATEDCOMPANY" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="WORKFLOW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="SOURCE_TYPE" Type="char" MaxLength="32" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_MAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ARAS:UNIQUENESS_HELPER" Type="char" MaxLength="32" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="EFFECTIVE_DATE" Type="datetime" />
+    <Property Name="RELEASE_DATE" Type="datetime" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="COMMENTS" Type="nvarchar" MaxLength="256" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="64" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="128" />
+    <Property Name="NODE_BG_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_LABEL1_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_LABEL1_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="NODE_LABEL2_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_LABEL2_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="NODE_NAME_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_NAME_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="NODE_SIZE" Type="nvarchar" MaxLength="8" />
+    <Property Name="PROCESS_OWNER" Type="char" MaxLength="32" />
+    <Property Name="TRANSITION_LINE_COLOR" Type="char" MaxLength="7" />
+    <Property Name="TRANSITION_NAME_COLOR" Type="char" MaxLength="7" />
+    <Property Name="TRANSITION_NAME_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="SUPERSEDED_DATE" Type="datetime" />
+    <Property Name="LABEL_ZC" Type="nvarchar" MaxLength="128" />
+    <Property Name="DESCRIPTION_ZC" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_MAP_ACTIVITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_MAP_PATH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="AUTHENTICATION" Type="nvarchar" MaxLength="64" />
+    <Property Name="IS_DEFAULT" Type="char" MaxLength="1" />
+    <Property Name="IS_OVERRIDE" Type="char" MaxLength="1" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="SEGMENTS" Type="nvarchar" MaxLength="128" />
+    <Property Name="X" Type="int" />
+    <Property Name="Y" Type="int" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="LABEL_ZC" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_PROCESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="ACTIVE_DATE" Type="datetime" />
+    <Property Name="CLOSED_DATE" Type="datetime" />
+    <Property Name="COPIED_FROM" Type="char" MaxLength="32" />
+    <Property Name="COPIED_FROM_STRING" Type="nvarchar" MaxLength="32" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="64" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="128" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="NODE_BG_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_LABEL1_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_LABEL1_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="NODE_LABEL2_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_LABEL2_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="NODE_NAME_COLOR" Type="char" MaxLength="7" />
+    <Property Name="NODE_NAME_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="NODE_SIZE" Type="nvarchar" MaxLength="8" />
+    <Property Name="PROCESS_OWNER" Type="char" MaxLength="32" />
+    <Property Name="SUB_OF" Type="char" MaxLength="32" />
+    <Property Name="TRANSITION_LINE_COLOR" Type="char" MaxLength="7" />
+    <Property Name="TRANSITION_NAME_COLOR" Type="char" MaxLength="7" />
+    <Property Name="TRANSITION_NAME_FONT" Type="nvarchar" MaxLength="64" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="LABEL_ZC" Type="nvarchar" MaxLength="128" />
+    <Property Name="DESCRIPTION_ZC" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_PROCESS_ACTIVITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="WORKFLOW_PROCESS_PATH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="KEYED_NAME" Type="nvarchar" MaxLength="128" />
+    <Property Name="CLASSIFICATION" Type="nvarchar" MaxLength="512" />
+    <Property Name="CREATED_ON" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="MODIFIED_ON" Type="datetime" />
+    <Property Name="CREATED_BY_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="CURRENT_STATE" Type="char" MaxLength="32" />
+    <Property Name="MODIFIED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="32" />
+    <Property Name="LOCKED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="IS_CURRENT" Type="char" MaxLength="1" />
+    <Property Name="MAJOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="MINOR_REV" Type="nvarchar" MaxLength="8" />
+    <Property Name="IS_RELEASED" Type="char" MaxLength="1" />
+    <Property Name="NOT_LOCKABLE" Type="char" MaxLength="1" />
+    <Property Name="RELATED_ID" Type="char" MaxLength="32" />
+    <Property Name="SOURCE_ID" Type="char" MaxLength="32" />
+    <Property Name="BEHAVIOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="SORT_ORDER" Type="int" />
+    <Property Name="TEAM_ID" Type="char" MaxLength="32" />
+    <Property Name="CSS" Type="nvarchar(max)" />
+    <Property Name="AUTHENTICATION" Type="nvarchar" MaxLength="64" />
+    <Property Name="IS_COMPLETE" Type="char" MaxLength="1" />
+    <Property Name="IS_DEFAULT" Type="char" MaxLength="1" />
+    <Property Name="IS_DISABLED" Type="char" MaxLength="1" />
+    <Property Name="IS_OVERRIDE" Type="char" MaxLength="1" />
+    <Property Name="LABEL" Type="nvarchar" MaxLength="64" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="32" />
+    <Property Name="SEGMENTS" Type="nvarchar" MaxLength="128" />
+    <Property Name="X" Type="int" />
+    <Property Name="Y" Type="int" />
+    <Property Name="CONFIG_ID" Type="char" MaxLength="32" Nullable="false" />
+    <Property Name="GENERATION" Type="int" />
+    <Property Name="MANAGED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="NEW_VERSION" Type="char" MaxLength="1" />
+    <Property Name="OWNED_BY_ID" Type="char" MaxLength="32" />
+    <Property Name="PERMISSION_ID" Type="char" MaxLength="32" />
+    <Property Name="LABEL_ZC" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <Association Name="FK__ACTIVITY___RELAT__1C3D2329">
+    <End Role="IDENTITY" Type="Self.IDENTITY" Multiplicity="0..1" />
+    <End Role="ACTIVITY_ASSIGNMENT" Type="Self.ACTIVITY_ASSIGNMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDENTITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACTIVITY_ASSIGNMENT">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ACTIVITY___SOURC__1B48FEF0">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="ACTIVITY_ASSIGNMENT" Type="Self.ACTIVITY_ASSIGNMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ACTIVITY_ASSIGNMENT">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEMBER__RELATED___3E923B2D">
+    <End Role="IDENTITY" Type="Self.IDENTITY" Multiplicity="0..1" />
+    <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDENTITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MEMBER">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEMBER__SOURCE_I__3D9E16F4">
+    <End Role="IDENTITY" Type="Self.IDENTITY" Multiplicity="1" />
+    <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDENTITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MEMBER">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___RELAT__064DE20A">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="WORKFLOW_PROCESS_ACTIVITY" Type="Self.WORKFLOW_PROCESS_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_PROCESS_ACTIVITY">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___RELAT__7CC477D0">
+    <End Role="ACTIVITY_TEMPLATE" Type="Self.ACTIVITY_TEMPLATE" Multiplicity="0..1" />
+    <End Role="WORKFLOW_MAP_ACTIVITY" Type="Self.WORKFLOW_MAP_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY_TEMPLATE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_MAP_ACTIVITY">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___SOURC__0559BDD1">
+    <End Role="WORKFLOW_PROCESS" Type="Self.WORKFLOW_PROCESS" Multiplicity="0..1" />
+    <End Role="WORKFLOW_PROCESS_ACTIVITY" Type="Self.WORKFLOW_PROCESS_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKFLOW_PROCESS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_PROCESS_ACTIVITY">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW___SOURC__7BD05397">
+    <End Role="WORKFLOW_MAP" Type="Self.WORKFLOW_MAP" Multiplicity="0..1" />
+    <End Role="WORKFLOW_MAP_ACTIVITY" Type="Self.WORKFLOW_MAP_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKFLOW_MAP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW_MAP_ACTIVITY">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WORKFLOW__RELATE__1A54DAB7">
+    <End Role="WORKFLOW_PROCESS" Type="Self.WORKFLOW_PROCESS" Multiplicity="0..1" />
+    <End Role="WORKFLOW" Type="Self.WORKFLOW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKFLOW_PROCESS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKFLOW">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3813">
+    <End Role="B_PRMANAGE" Type="Self.B_PRMANAGE" Multiplicity="0..1" />
+    <End Role="B_CHOICESUPPLIERS" Type="Self.B_CHOICESUPPLIERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_PRMANAGE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="B_CHOICESUPPLIERS">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3814">
+    <End Role="B_PRCHOICESUPPLIERS" Type="Self.B_PRCHOICESUPPLIERS" Multiplicity="0..1" />
+    <End Role="B_CHOICESUPPLIERS" Type="Self.B_CHOICESUPPLIERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_PRCHOICESUPPLIERS">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="B_CHOICESUPPLIERS">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3821">
+    <End Role="B_EXPENSEREIMBURSEMENT" Type="Self.B_EXPENSEREIMBURSEMENT" Multiplicity="0..1" />
+    <End Role="R_REIMBURSEMENTITEM" Type="Self.R_REIMBURSEMENTITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_EXPENSEREIMBURSEMENT">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_REIMBURSEMENTITEM">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3822">
+    <End Role="B_REIMBURSEMENTITEM" Type="Self.B_REIMBURSEMENTITEM" Multiplicity="0..1" />
+    <End Role="R_REIMBURSEMENTITEM" Type="Self.R_REIMBURSEMENTITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_REIMBURSEMENTITEM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_REIMBURSEMENTITEM">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3856">
+    <End Role="B_TRIPREIMBURSEMENTFORM" Type="Self.B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Role="R_HOTELEXPENSE" Type="Self.R_HOTELEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_HOTELEXPENSE">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3857">
+    <End Role="B_HOTELEXPENSE" Type="Self.B_HOTELEXPENSE" Multiplicity="0..1" />
+    <End Role="R_HOTELEXPENSE" Type="Self.R_HOTELEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_HOTELEXPENSE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_HOTELEXPENSE">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3861">
+    <End Role="B_TRIPREIMBURSEMENTFORM" Type="Self.B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Role="R_MEALSANDFIXEDSUBSIDIES" Type="Self.R_MEALSANDFIXEDSUBSIDIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_MEALSANDFIXEDSUBSIDIES">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3862">
+    <End Role="B_MEALSANDFIXEDSUBSIDIES" Type="Self.B_MEALSANDFIXEDSUBSIDIES" Multiplicity="0..1" />
+    <End Role="R_MEALSANDFIXEDSUBSIDIES" Type="Self.R_MEALSANDFIXEDSUBSIDIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_MEALSANDFIXEDSUBSIDIES">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_MEALSANDFIXEDSUBSIDIES">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3866">
+    <End Role="B_TRIPREIMBURSEMENTFORM" Type="Self.B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Role="R_TRAFFICEXPENSE" Type="Self.R_TRAFFICEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_TRAFFICEXPENSE">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3867">
+    <End Role="B_TRAFFICEXPENSE" Type="Self.B_TRAFFICEXPENSE" Multiplicity="0..1" />
+    <End Role="R_TRAFFICEXPENSE" Type="Self.R_TRAFFICEXPENSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRAFFICEXPENSE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_TRAFFICEXPENSE">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3871">
+    <End Role="B_TRIPREIMBURSEMENTFORM" Type="Self.B_TRIPREIMBURSEMENTFORM" Multiplicity="0..1" />
+    <End Role="R_OTHERS" Type="Self.R_OTHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_TRIPREIMBURSEMENTFORM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_OTHERS">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk3872">
+    <End Role="B_OTHERS" Type="Self.B_OTHERS" Multiplicity="0..1" />
+    <End Role="R_OTHERS" Type="Self.R_OTHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="B_OTHERS">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="R_OTHERS">
+        <PropertyRef Name="RELATED_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InnovatorSolutionsModelStoreContainer">
+    <EntitySet Name="ACTIVITY" EntityType="Self.ACTIVITY" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="ACTIVITY_ASSIGNMENT" EntityType="Self.ACTIVITY_ASSIGNMENT" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="ACTIVITY_TEMPLATE" EntityType="Self.ACTIVITY_TEMPLATE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_AGENTSET" EntityType="Self.B_AGENTSET" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_BOOKINGSTAFFING" EntityType="Self.B_BOOKINGSTAFFING" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_BUSINESSTRAVEL" EntityType="Self.B_BUSINESSTRAVEL" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_CHOICESUPPLIERS" EntityType="Self.B_CHOICESUPPLIERS" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_EXPENSEAUDITCONFIGURATION" EntityType="Self.B_EXPENSEAUDITCONFIGURATION" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_EXPENSECATEGORY" EntityType="Self.B_EXPENSECATEGORY" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_EXPENSEREIMBURSEMENT" EntityType="Self.B_EXPENSEREIMBURSEMENT" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_HOTELEXPENSE" EntityType="Self.B_HOTELEXPENSE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_MEALSANDFIXEDSUBSIDIES" EntityType="Self.B_MEALSANDFIXEDSUBSIDIES" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_ORGANIZATIONALSTRUCTURE" EntityType="Self.B_ORGANIZATIONALSTRUCTURE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_OTHERS" EntityType="Self.B_OTHERS" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_PRCHOICESUPPLIERS" EntityType="Self.B_PRCHOICESUPPLIERS" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_PRMANAGE" EntityType="Self.B_PRMANAGE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_PROJECTMANAGE" EntityType="Self.B_PROJECTMANAGE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_REIMBURSEMENTITEM" EntityType="Self.B_REIMBURSEMENTITEM" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_TAXCODECONFIGURE" EntityType="Self.B_TAXCODECONFIGURE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_TRAFFICEXPENSE" EntityType="Self.B_TRAFFICEXPENSE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_TRIPREIMBURSEMENTFORM" EntityType="Self.B_TRIPREIMBURSEMENTFORM" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="B_WORKFLOWVERSIONMANAGEMENT" EntityType="Self.B_WORKFLOWVERSIONMANAGEMENT" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="HISTORY" EntityType="Self.HISTORY" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="IDENTITY" EntityType="Self.IDENTITY" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="MEMBER" EntityType="Self.MEMBER" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="R_HOTELEXPENSE" EntityType="Self.R_HOTELEXPENSE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="R_MEALSANDFIXEDSUBSIDIES" EntityType="Self.R_MEALSANDFIXEDSUBSIDIES" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="R_OTHERS" EntityType="Self.R_OTHERS" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="R_REIMBURSEMENTITEM" EntityType="Self.R_REIMBURSEMENTITEM" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="R_TRAFFICEXPENSE" EntityType="Self.R_TRAFFICEXPENSE" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="WORKFLOW" EntityType="Self.WORKFLOW" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="WORKFLOW_MAP" EntityType="Self.WORKFLOW_MAP" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="WORKFLOW_MAP_ACTIVITY" EntityType="Self.WORKFLOW_MAP_ACTIVITY" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="WORKFLOW_MAP_PATH" EntityType="Self.WORKFLOW_MAP_PATH" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="WORKFLOW_PROCESS" EntityType="Self.WORKFLOW_PROCESS" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="WORKFLOW_PROCESS_ACTIVITY" EntityType="Self.WORKFLOW_PROCESS_ACTIVITY" Schema="innovator" store:Type="Tables" />
+    <EntitySet Name="WORKFLOW_PROCESS_PATH" EntityType="Self.WORKFLOW_PROCESS_PATH" Schema="innovator" store:Type="Tables" />
+    <AssociationSet Name="FK__ACTIVITY___RELAT__1C3D2329" Association="Self.FK__ACTIVITY___RELAT__1C3D2329">
+      <End Role="IDENTITY" EntitySet="IDENTITY" />
+      <End Role="ACTIVITY_ASSIGNMENT" EntitySet="ACTIVITY_ASSIGNMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ACTIVITY___SOURC__1B48FEF0" Association="Self.FK__ACTIVITY___SOURC__1B48FEF0">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="ACTIVITY_ASSIGNMENT" EntitySet="ACTIVITY_ASSIGNMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEMBER__RELATED___3E923B2D" Association="Self.FK__MEMBER__RELATED___3E923B2D">
+      <End Role="IDENTITY" EntitySet="IDENTITY" />
+      <End Role="MEMBER" EntitySet="MEMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEMBER__SOURCE_I__3D9E16F4" Association="Self.FK__MEMBER__SOURCE_I__3D9E16F4">
+      <End Role="IDENTITY" EntitySet="IDENTITY" />
+      <End Role="MEMBER" EntitySet="MEMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___RELAT__064DE20A" Association="Self.FK__WORKFLOW___RELAT__064DE20A">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="WORKFLOW_PROCESS_ACTIVITY" EntitySet="WORKFLOW_PROCESS_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___RELAT__7CC477D0" Association="Self.FK__WORKFLOW___RELAT__7CC477D0">
+      <End Role="ACTIVITY_TEMPLATE" EntitySet="ACTIVITY_TEMPLATE" />
+      <End Role="WORKFLOW_MAP_ACTIVITY" EntitySet="WORKFLOW_MAP_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___SOURC__0559BDD1" Association="Self.FK__WORKFLOW___SOURC__0559BDD1">
+      <End Role="WORKFLOW_PROCESS" EntitySet="WORKFLOW_PROCESS" />
+      <End Role="WORKFLOW_PROCESS_ACTIVITY" EntitySet="WORKFLOW_PROCESS_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW___SOURC__7BD05397" Association="Self.FK__WORKFLOW___SOURC__7BD05397">
+      <End Role="WORKFLOW_MAP" EntitySet="WORKFLOW_MAP" />
+      <End Role="WORKFLOW_MAP_ACTIVITY" EntitySet="WORKFLOW_MAP_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WORKFLOW__RELATE__1A54DAB7" Association="Self.FK__WORKFLOW__RELATE__1A54DAB7">
+      <End Role="WORKFLOW_PROCESS" EntitySet="WORKFLOW_PROCESS" />
+      <End Role="WORKFLOW" EntitySet="WORKFLOW" />
+    </AssociationSet>
+    <AssociationSet Name="fk3813" Association="Self.fk3813">
+      <End Role="B_PRMANAGE" EntitySet="B_PRMANAGE" />
+      <End Role="B_CHOICESUPPLIERS" EntitySet="B_CHOICESUPPLIERS" />
+    </AssociationSet>
+    <AssociationSet Name="fk3814" Association="Self.fk3814">
+      <End Role="B_PRCHOICESUPPLIERS" EntitySet="B_PRCHOICESUPPLIERS" />
+      <End Role="B_CHOICESUPPLIERS" EntitySet="B_CHOICESUPPLIERS" />
+    </AssociationSet>
+    <AssociationSet Name="fk3821" Association="Self.fk3821">
+      <End Role="B_EXPENSEREIMBURSEMENT" EntitySet="B_EXPENSEREIMBURSEMENT" />
+      <End Role="R_REIMBURSEMENTITEM" EntitySet="R_REIMBURSEMENTITEM" />
+    </AssociationSet>
+    <AssociationSet Name="fk3822" Association="Self.fk3822">
+      <End Role="B_REIMBURSEMENTITEM" EntitySet="B_REIMBURSEMENTITEM" />
+      <End Role="R_REIMBURSEMENTITEM" EntitySet="R_REIMBURSEMENTITEM" />
+    </AssociationSet>
+    <AssociationSet Name="fk3856" Association="Self.fk3856">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_HOTELEXPENSE" EntitySet="R_HOTELEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3857" Association="Self.fk3857">
+      <End Role="B_HOTELEXPENSE" EntitySet="B_HOTELEXPENSE" />
+      <End Role="R_HOTELEXPENSE" EntitySet="R_HOTELEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3861" Association="Self.fk3861">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_MEALSANDFIXEDSUBSIDIES" EntitySet="R_MEALSANDFIXEDSUBSIDIES" />
+    </AssociationSet>
+    <AssociationSet Name="fk3862" Association="Self.fk3862">
+      <End Role="B_MEALSANDFIXEDSUBSIDIES" EntitySet="B_MEALSANDFIXEDSUBSIDIES" />
+      <End Role="R_MEALSANDFIXEDSUBSIDIES" EntitySet="R_MEALSANDFIXEDSUBSIDIES" />
+    </AssociationSet>
+    <AssociationSet Name="fk3866" Association="Self.fk3866">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_TRAFFICEXPENSE" EntitySet="R_TRAFFICEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3867" Association="Self.fk3867">
+      <End Role="B_TRAFFICEXPENSE" EntitySet="B_TRAFFICEXPENSE" />
+      <End Role="R_TRAFFICEXPENSE" EntitySet="R_TRAFFICEXPENSE" />
+    </AssociationSet>
+    <AssociationSet Name="fk3871" Association="Self.fk3871">
+      <End Role="B_TRIPREIMBURSEMENTFORM" EntitySet="B_TRIPREIMBURSEMENTFORM" />
+      <End Role="R_OTHERS" EntitySet="R_OTHERS" />
+    </AssociationSet>
+    <AssociationSet Name="fk3872" Association="Self.fk3872">
+      <End Role="B_OTHERS" EntitySet="B_OTHERS" />
+      <End Role="R_OTHERS" EntitySet="R_OTHERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

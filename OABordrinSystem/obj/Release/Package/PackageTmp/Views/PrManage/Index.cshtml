@@ -1,0 +1,1543 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("待办", "PRCommon", "PRItemType", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("采购管理", "PRCommon", "PRItemType", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("待办", "PRCommon", "PRItemType", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="startTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("开始时间", "CommonName", "Common", ViewBag.language)" />--
+                        <input type="text" name="endTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("结束时间", "CommonName", "Common", ViewBag.language)" />
+                    </div>
+                    <div class="form-group">
+                        <select name="status" class="form-control"></select>
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                    <button type="button" class="btn btn-w-m btn-warning" id="btnAdd">@OABordrinCommon.Common.GetLanguageValueByParam("新建", "CommonName", "Common", ViewBag.language)</button>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="PrManageDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;min-width:1074px;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("PR单号", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th style="min-width:100px;">
+
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("采购内容", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("需求部门", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("预算", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("申请人", "B_PrManage", "PRItemType", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("当前处理人", "CommonName", "Common", ViewBag.language)
+                                    </th>
+                                    <th>
+                                        @OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "CommonName", "Common", ViewBag.language)
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/PrManage/PrManageEdit.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/WorkFlow/WorkflowActivityCompletion.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/PrManage/PrManageHistory.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/PrManage/PrManageDetail.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/PrManage/PrManageWorkFlow.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/WorkFlow/WorkFlowActivitySign.cshtml")
+@section scripts{
+    <!-- jquery-ui -->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+    <!-- bootstrap-datepicker CSS-->
+    <link href="~/OpenResouce/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <!-- bootstrap-datepicker JS-->
+    <script src="~/OpenResouce/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!--工作流-->
+    <script src="@Url.Version("~/Scripts/WorkflowActivityCompletion.js")"></script>
+
+    <!--日志-->
+    <script src="@Url.Version("~/Scripts/PrManage/PrManageHistory.js")"></script>
+
+    <!--详情-->
+    <script src="@Url.Version("~/Scripts/PrManage/PrManageDetail.js")"></script>
+
+    <!--加签-->
+    <script src="@Url.Version("~/Scripts/WorkFlowActivitySign.js")"></script>
+
+    @*<!--DROPZONE css-->
+        <link href="~/OpenResouce/css/plugins/dropzone/basic.css" rel="stylesheet" />
+        <link href="~/OpenResouce/css/plugins/dropzone/dropzone.css" rel="stylesheet" />
+
+        <!-- DROPZONE js -->
+        <script src="~/OpenResouce/js/plugins/dropzone/dropzone.js"></script>*@
+
+    <script type="text/javascript">
+        var $PrManageEdit = $("#PrManageEdit"), $PrManageItem = $("#PrManageItem"), $PrManageItemTr = $("#PrManageItemTr");
+        //采购询价对象
+        var $PrQuotationItem = $("#PrQuotationItem"), $PrQuotationItemTr = $("#PrQuotationItemTr"), QuotationHtmlTr = $PrQuotationItemTr.html();
+        //重复采购
+        var $PrRepeateItem = $("#PrRepeateItem"), $PrRepeateItemTr = $("#PrRepeateItemTr"), RepeateHtmlTr = $PrRepeateItemTr.html();
+        //选择供应商
+        var $PrChoiceSuppliers = $("#PrChoiceSuppliers"), $PrChoiceSuppliersTr = $("#PrChoiceSuppliersTr"), ChoiceSupplierHtmlTr = $PrChoiceSuppliersTr.html();
+
+
+        var $PrManageDataTable = $("#PrManageDataTable"), PrManageDataTableObj;
+        var htmlTr = $PrManageItemTr.html();
+        PrManageEditParam = app.util.getEditParam($PrManageEdit);
+        PrSearchParam = app.util.getEditParam($("#SearchPara"));
+
+
+        $(document).ready(function () {
+
+            PrSearchParam.startTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            PrSearchParam.endTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            loadWorkFlowStatus();
+            GetAutocompleteChoiceUserData();
+            //$('textarea').on('keydown', function (e) {
+            //    if (e.keyCode != 13) return;
+            //    e.preventDefault();
+            //    this.value += '<enter>';
+            //});
+
+            //加载表格
+            //加载表格数据
+            PrManageDataTableObj = $PrManageDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": false,
+                "aaSorting": [3, "desc"],
+                "sAjaxSource": '/PrManage/GetPrManageList',
+                "fnServerData": RetrievePrManageData,
+                "aoColumns": [
+                        { "data": "b_PrRecordNo", "sWidth": 300 },
+                        { "data": "b_PurchaseContent" },
+                        { "data": "b_BusinessDepartment", "sWidth": 60 },
+                        { "data": "b_RaisedDate", "sWidth": 60 },
+                        { "data": "b_Budget", "sWidth": 60, "render": function (data, type, row) { return data.formatMoney() } },
+                        { "data": "b_Applicant", "sWidth": 120 },
+                        { "data": "AuditorStr", "sWidth": 120, "bSortable": false },
+                        { "data": "status", "sWidth": 80 }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language)",
+                    "oPaginate": {//分页的样式内容。
+                        "sPrevious": "@OABordrinCommon.Common.GetLanguageValueByParam("上一页", "CommonName", "Common", ViewBag.language)",
+                        "sNext": "@OABordrinCommon.Common.GetLanguageValueByParam("下一页", "CommonName", "Common", ViewBag.language)",
+                        "sFirst": "@OABordrinCommon.Common.GetLanguageValueByParam("第一页", "CommonName", "Common", ViewBag.language)",
+                        "sLast": "@OABordrinCommon.Common.GetLanguageValueByParam("最后", "CommonName", "Common", ViewBag.language)"
+                    }
+                },
+                "aLengthMenu": [15, 25, 50, 100],
+            });
+
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+            PrManageEditParam.b_Budget.digital();
+            //PrManageEditParam.b_ContractPrice.digital();
+            PrManageEditParam.b_AdditionalBudget.digital();
+
+            $("input[name='b_PrType']").on('ifChecked', function (event) {
+                var $this = $(this);
+                if ($this.val() == "project") {
+                    $(".ProjectLeaderInfo").show();
+                    $("#departmentLeaderInfo").hide();
+                }
+                else {
+                    $(".ProjectLeaderInfo").hide();
+                    $("#departmentLeaderInfo").show();
+                }
+            });
+
+            $("input[name='b_RepetitivePurchase']").on('ifChanged', function (event) {
+                var $this = $(this);
+                if ($this[0].checked == true) {
+                    $PrRepeateItem.show();
+                }
+                else {
+                    $PrRepeateItem.hide();
+                }
+            });
+
+            $("input[name='b_ContractType']").on('ifChanged', function (event) {
+                var $this = $(this);
+                if ($this[0].checked == true && $this.val() == "Other Contract") {
+                    $("#DownloadContract").hide();
+                }
+                else {
+                    $("#DownloadContract").show();
+                }
+            });
+
+            $PrManageItem.delegate("a", "click", function () {
+                var $this = $(this);
+                if ($this.hasClass("AddPrManageItem")) {
+                    $this.closest("tr").after(AddNewPrManageItem());
+                    return false;
+                }
+
+                if ($this.hasClass("deletePrManageItem")) {
+                    $this.closest("tr").remove();
+                    if ($PrManageItemTr.find("tr").length <= 0) {
+                        $PrManageItemTr.prepend(AddNewPrManageItem());
+                    }
+                    return false;
+                }
+            }).delegate("input.b_Qty", "keyup", function () {
+                var $this = $(this);
+                $this.val($this.val().replace(/[^\d]/g, ''));
+            });
+
+            //项目列表
+            GetProjectList();
+
+            //加载合同编号
+            LoadContractNoList();
+
+            //加载公司代码
+            GetStructureCompanyCode();
+        });
+
+        //采购询价委托事件
+        $PrQuotationItem.delegate("a", "click", function () {
+            var $this = $(this);
+            if ($this.hasClass("AddItem")) {
+                $this.closest("tr").after($(QuotationHtmlTr));
+                return false;
+            }
+            if ($this.hasClass("deleteItem")) {
+                $this.closest("tr").remove();
+                if ($PrQuotationItemTr.find("tr").length <= 0) {
+                    $PrQuotationItemTr.prepend($(QuotationHtmlTr));
+                }
+                return false;
+            }
+        });
+
+        //重复采购
+        $PrRepeateItem.delegate("a", "click", function () {
+            var $this = $(this);
+            if ($this.hasClass("AddItem")) {
+                $this.closest("tr").after(AddNewRepeateItem());
+                return false;
+            }
+            if ($this.hasClass("deleteItem")) {
+                $this.closest("tr").remove();
+                if ($PrRepeateItemTr.find("tr").length <= 0) {
+                    $PrRepeateItemTr.prepend(AddNewRepeateItem());
+                }
+                return false;
+            }
+        });
+
+        //选择供应商
+        $PrChoiceSuppliers.delegate("a", "click", function () {
+            var $this = $(this);
+            if ($this.hasClass("AddItem")) {
+                $this.closest("tr").after(AddChoiceSupplierItem());
+                return false;
+            }
+            if ($this.hasClass("deleteItem")) {
+                $this.closest("tr").remove();
+                if ($PrChoiceSuppliersTr.find("tr").length <= 0) {
+                    $PrChoiceSuppliersTr.prepend(AddChoiceSupplierItem());
+                }
+                ContractBudgetHandle();
+                return false;
+            }
+        }).delegate("input.b_ContractPrice", "keyup", function () {
+            var $this = $(this);
+            $this.val($this.val().replace(/[^\d\.]/g, ''));
+        }).delegate("input.b_ContractPrice", "blur", function () {
+            ContractBudgetHandle();
+        });
+
+        function AddChoiceSupplierItem() {
+            var html = $(ChoiceSupplierHtmlTr);
+            $.ajax({
+                url: '/PrManage/GetContractPoNo',
+                data: { "b_Buyer": PrManageEditParam.b_Buyer.val() },
+                dataType: "json",
+                async: false,
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    html.find(".b_PoNo").val(ans.data);
+                }
+            });
+            return html;
+        }
+
+        function AddNewRepeateItem() {
+            var html = $(RepeateHtmlTr);
+            if (PrManageEditParam.status.val() == "Buyer Inquiry") {
+                html.find(".b_ContractNo").autocomplete({
+                    source: function (request, response) {
+                        var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                        response($.grep(contractNoList, function (value) {
+                            return matcher.test(value);
+                        }));
+                    }, scrollHeight: 300
+                });
+
+                html.find(".b_PreviousBuyer").autocomplete({
+                    source: function (request, response) {
+                        var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                        response($.grep(choiceUserList, function (value) {
+                            return matcher.test(value);
+                        }));
+                    }, scrollHeight: 300
+                });
+
+            }
+            return html;
+        }
+
+        var contractNoList = [];
+        function LoadContractNoList() {
+            $.ajax({
+                url: '/AutoComplete/GetContractNoList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    contractNoList = [];
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            contractNoList.push(item);
+                        }
+                    }
+                }
+            });
+        }
+
+        function GetPrManageSearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;
+            var iDisplayStart = aoData[3].value;
+            var iDisplayLength = aoData[4].value;
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+            if (iSortTitle == "b_RaisedDate") {
+                iSortTitle = "nb_RaisedDate";
+            }
+            var searchValue = $("input[name='SearchValue']").val();
+
+            var startTime = PrSearchParam.startTime.val();
+
+            var endTime = PrSearchParam.endTime.val();
+
+            var status = PrSearchParam.status.val();
+
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue, "startTime": startTime, "endTime": endTime, "status": status };
+        }
+
+        function RetrievePrManageData(sSource, aoData, fnCallback) {
+            $.ajax({
+                url: '/PrManage/GetPrManageList',//这个就是请求地址对应sAjaxSource
+                data: GetPrManageSearchParam(aoData),
+                dataType: 'json',
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
+
+
+        $("#btnAdd").click(function () {
+            $PrManageEdit.find("input[type=radio],input[type=checkbox]").each(function () {
+                $(this).removeAttr("disabled", "disabled");
+            });
+            app.util.clearError($PrManageEdit);
+            $PrManageItemTr.empty().append(AddNewPrManageItem());
+            app.util.bindValue(PrManageEditParam, "");
+            $PrManageEdit.find("input[name='b_ContractParty']").find("option:eq(0)").attr("selected", "selected");
+            $PrManageEdit.find("h4.modal-title").empty().html("@OABordrinCommon.Common.GetLanguageValueByParam("新增PR单", "PRCommon", "PRItemType", ViewBag.language)");
+
+            $PrManageEdit.find("input[name='b_PrType']").first().iCheck('check');
+            $PrManageEdit.find("input[name='b_PrType']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+            $("#departmentLeaderInfo").hide();
+            PrManageEditParam.b_RaisedDate.val(GetNowFormatDate());
+            PrManageEditParam.b_BusinessDepartment.val('@ViewBag.department');
+            PrManageEditParam.b_EmailAddress.val('@ViewBag.UserEmail');
+            PrManageEditParam.b_Applicant.val('@ViewBag.UserName');
+            LoadEmployeeInfo(PrManageEditParam.b_Applicant.val());
+            $("#PrManageRemark").hide();
+            //上传文件控件
+            $("#fileList").empty();
+            var fileobj = $("#Prfile").clone().val("");
+            $("#Prfile").closest("label").empty().append(fileobj);
+            displayModelSetting(PrManageEditParam);
+            $PrManageEdit.modal({ backdrop: 'static' });
+            $PrManageEdit.modal("show");
+        });
+
+        function AddNewPrManageItem() {
+            var html = $(htmlTr);
+            return html;
+        }
+
+        function GetSaveParam(operation) {
+            var param = app.util.serializeParamArray(PrManageEditParam);
+            param.operation = operation;
+            //获取单选按钮的值
+            var b_PrType;
+            $PrManageEdit.find("input[name='b_PrType']").each(function () {
+                var $this = $(this);
+                if ($this.closest("div").hasClass("checked")) {
+                    b_PrType = $this.val();
+                }
+            });
+
+            param.b_PrType = b_PrType;
+            var items = [];
+            $PrManageItemTr.find("tr").each(function () {
+                var $this = $(this);
+                var id = $.trim($this.find("input.id").val());
+                var b_RequestList = $.trim($this.find("input.b_RequestList").val());
+                var b_SpecificationQuantity = $.trim($this.find("input.b_SpecificationQuantity").val());
+                var b_ProjectNo = $.trim($this.find("input.b_ProjectNo").val());
+                var b_TaskNo = $.trim($this.find("input.b_TaskNo").val());
+                var b_Qty = $.trim($this.find("input.b_Qty").val());
+                var b_Unit = $.trim($this.find("input.b_Unit").val());
+                if (b_RequestList != "" && b_SpecificationQuantity != "" && b_Qty != "" && b_Unit != "") {
+                    items.push({ "id": id, "b_RequestList": b_RequestList, "b_SpecificationQuantity": b_SpecificationQuantity, "b_ProjectNo": b_ProjectNo, "b_TaskNo": b_TaskNo, "b_Qty": b_Qty, "b_Unit": b_Unit });
+                }
+            });
+            param.PrManageItems = items;
+
+            //上传的文件集
+            var fileIds = [];
+            $("#fileList").find("a.fileObj").each(function () {
+                var id = $(this).attr("id");
+                var source_id = $(this).attr("source_id");
+                if (source_id == "" || source_id == undefined) {
+                    fileIds.push(id);
+                }
+            });
+            param.fileIds = fileIds;
+            return param;
+        }
+
+        $("#BtnSearch").click(function () {
+            PrManageDataTableObj.fnDraw();
+        });
+
+        $PrManageEdit.delegate("#SavePrManage,#SubmitPrManage", "click", function () {
+            var $this = $(this);
+            var operation = $(this).attr("operation");
+
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($PrManageEdit)) {
+                //验证预算是否为正浮点数
+                if (!app.util.ValidJustFloat(PrManageEditParam.b_Budget)) {
+                    return;
+                }
+                //验证邮箱是否正确
+                if (!app.util.ValidEmail(PrManageEditParam.b_EmailAddress)) {
+                    return;
+                }
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/PrManage/SavePrManage',
+                    data: GetSaveParam(operation),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $PrManageEdit);
+                            return;
+                        }
+                        $PrManageEdit.modal("hide");
+                        $this.removeAttr("disabled", "disabled");
+                        PrManageDataTableObj.fnDraw();
+
+                    }
+                });
+            }
+        });
+
+        $PrManageDataTable.delegate(".delete", "click", function () {
+            var $this = $(this);
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要删除吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/PrManage/DeletePrManage',
+                    data: { "id": $this.attr("id") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        PrManageDataTableObj.fnPageChange(app.util.DTCurrentPage(PrManageDataTableObj));
+                    }
+                });
+            }
+        }).delegate(".edit,.audit", "click", function () {
+            var $this = $(this);
+            var opertorType = "";
+            if ($this.hasClass("audit")) {
+                opertorType = "audit";
+            }
+            else {
+                opertorType = "edit";
+            }
+            var activityId = $this.attr("activityId");
+            var activityAssignmentId = $this.attr("activityAssignmentId");
+            $.ajax({
+                url: '/PrManage/GetPrManageById',
+                data: { "id": $this.attr("id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                        return;
+                    }
+                    app.util.clearError($PrManageEdit);
+                    app.util.bindValue(PrManageEditParam, ans);
+                    if (opertorType=="audit" && ans != null && ans.data != null && ans.data.b_Budget != null)
+                    {
+                        PrManageEditParam.b_Budget.val(ans.data.b_Budget.formatMoney());
+                    }
+
+                    $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("修改PR单", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + ans.data.b_PrRecordNo + "</label>");
+
+                    if (ans.data.b_PrType == "project") {
+                        $(".ProjectLeaderInfo").show();
+                    }
+                    else {
+                        $(".ProjectLeaderInfo").hide();
+                    }
+
+                    $PrManageEdit.find("input[name='b_PrType']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_PrType) {
+                            $this.iCheck('check');
+                        }
+                    });
+
+                    if (ans.data.b_AuthorizedPurchase) {
+                        $PrManageEdit.find("input[name='b_AuthorizedPurchase']").first().iCheck('check');
+                    }
+
+                    if (ans.data.b_RepetitivePurchase) {
+                        $PrManageEdit.find("input[name='b_RepetitivePurchase']").first().iCheck('check');
+                    }
+                    else {
+                        $PrRepeateItem.hide();
+                    }
+
+                    //合同类型
+                    $PrManageEdit.find("input[name='b_ContractType']").first().iCheck('check');
+                    $PrManageEdit.find("input[name='b_ContractType']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_ContractType) {
+                            $this.iCheck('check');
+                        }
+                    });
+
+                    if (ans.data.Remark != "") {
+                        $("label[name='remark']").html(ans.data.Remark);
+                        $("#PrManageRemark").show();
+                    }
+                    else {
+                        $("#PrManageRemark").hide();
+                    }
+                    //合同预算处理
+                    //ContractBudgetHandle();
+
+                    //获取绑定的状态
+                    PrManageEditParam.status.val($this.attr("ItemStatus"));
+                    PrManageEditParam.activityId.val(activityId);
+                    PrManageEditParam.activityAssignmentId.val(activityAssignmentId);
+                    //绑定需求信息
+                    $PrManageItemTr.empty()
+                    if (ans.data != null && ans.data.PrManageItems != null && ans.data.PrManageItems.length > 0) {
+                        for (var i = 0; i < ans.data.PrManageItems.length; i++) {
+                            var item = ans.data.PrManageItems[i];
+                            $tr = AddNewPrManageItem();
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_No").val(item.b_No);
+                            $tr.find(".b_RequestList").val(item.b_RequestList);
+                            $tr.find(".b_SpecificationQuantity").val(item.b_SpecificationQuantity);
+                            $tr.find(".b_ProjectNo").val(item.b_ProjectNo);
+                            $tr.find(".b_TaskNo").val(item.b_TaskNo);
+                            $tr.find(".b_Qty").val(item.b_Qty);
+                            $tr.find(".b_Unit").val(item.b_Unit);
+                            $PrManageItemTr.append($tr);
+                        }
+                    } else {
+                        $PrManageItemTr.prepend(AddNewPrManageItem());
+                    }
+
+                    //绑定询价信息
+                    $PrQuotationItemTr.empty()
+                    if (ans.data != null && ans.data.PrQuotationItems != null && ans.data.PrQuotationItems.length > 0) {
+
+                        for (var i = 0; i < ans.data.PrQuotationItems.length; i++) {
+                            var item = ans.data.PrQuotationItems[i];
+                            $tr = $(QuotationHtmlTr);
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_Supplier").val(item.b_Supplier);
+                            $tr.find(".b_Quotation").val(item.b_Quotation);
+                            $tr.find(".b_Remarks").val(item.b_Remarks);
+                            $PrQuotationItemTr.append($tr);
+                        }
+                    }
+                    $PrRepeateItemTr.empty();
+                    if (ans.data != null && ans.data.PrRepeateItems != null && ans.data.PrRepeateItems.length > 0) {
+                        for (var i = 0; i < ans.data.PrRepeateItems.length; i++) {
+                            var item = ans.data.PrRepeateItems[i];
+                            $tr = $(AddNewRepeateItem());
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_PrRecordNo").val(item.b_PrRecordNo);
+                            $tr.find(".b_PreviousSupplier").val(item.b_PreviousSupplier);
+                            $tr.find(".b_ContractNo").val(item.b_ContractNo);
+                            //$tr.find(".b_ContractPrice").text(item.b_ContractPrice);
+                            $tr.find(".b_PreviousBuyer").val(item.b_PreviousBuyer);
+                            $PrRepeateItemTr.append($tr);
+                        }
+                        $PrRepeateItem.show();
+                    }
+                    else {
+                        $PrRepeateItemTr.prepend(AddNewRepeateItem());
+                    }
+
+                    $PrChoiceSuppliersTr.empty();
+                    if (ans.data != null && ans.data.PrChoiceSupplierItems != null && ans.data.PrChoiceSupplierItems.length > 0) {
+                        for (var i = 0; i < ans.data.PrChoiceSupplierItems.length; i++) {
+                            var item = ans.data.PrChoiceSupplierItems[i]
+                            $tr = $(AddChoiceSupplierItem());
+                            $tr.find(".id").val(item.id);
+                            $tr.find(".b_Supplier").val(item.b_Supplier);
+                            $tr.find(".b_ContractPrice").val(item.b_ContractPrice);
+                            $tr.find(".b_PoNo").val(item.b_PoNo);
+                            $tr.find(".b_ContractProperty").val(item.b_ContractProperty);
+                            $tr.find(".b_PaymentClause").val(item.b_PaymentClause);
+                            $PrChoiceSuppliersTr.append($tr);
+                        }
+                    }
+                    else {
+                        $PrChoiceSuppliersTr.prepend(AddChoiceSupplierItem());
+                    }
+
+                    $("#fileList").empty();
+                    if (ans.data != null && ans.data.Files != null && ans.data.Files.length > 0) {
+                        for (var i = 0; i < ans.data.Files.length; i++) {
+                            var item = ans.data.Files[i];
+                            if (item.comments != "Contract Management" || (item.comments == "Contract Management" && ans.data.IsPurchasingAuth)) {
+                                if (item.comments == PrManageEditParam.status.val()) {
+                                    $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a>&nbsp;&nbsp;&nbsp;<a href='#' class='glyphicon glyphicon-remove text-danger' id='" + item.id + "' source_id='" + item.source_id + "' relationId='" + item.relationId + "' onclick='DeleteFile(this)'></a></label></div>");
+                                }
+                                else {
+                                    $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a></label></div>");
+                                }
+                            }
+                        }
+                    }
+
+                    //上传文件控件
+                    var fileobj = $("#Prfile").clone().val("");
+                    $("#Prfile").closest("label").empty().append(fileobj);
+                    ContractBudgetHandle();
+                    displayModelSetting(PrManageEditParam);
+                    $PrManageEdit.modal({ backdrop: 'static' });
+                    $PrManageEdit.modal('show');
+                }
+            });
+        }).delegate(".history", "click", function () {
+            PrManageHistoryParam.Item_id.val($(this).attr("id"));
+            PrManageHistory.fnDraw();
+            $PrManageHistoryModel.modal('show');
+        }).delegate(".detail", "click", function () {
+            LoadDetail($(this).attr("id"));
+        }).delegate(".workflow", "click", function () {
+            var itemStatus = $(this).attr("ItemStatus");
+            //获取版本号
+            var b_VersionNo = $(this).attr("b_VersionNo");
+            GetWorkFlowVersionByVersionNo(b_VersionNo, $("#workflow"), itemStatus);
+            $(".workFlowDescription").hide();
+            $("." + b_VersionNo + "").show();
+            //$("#workflow").find("text").each(function () {
+            //    var aimRect = $(this).closest("g").find("rect").first();
+            //    if (aimRect.attr("fill") == "rgb(238, 238, 0)") {
+            //        aimRect.attr("fill", "none");
+            //    }
+            //});
+            //$("#workflow").find("text").each(function () {
+            //    var textValue = $(this).attr("status");
+            //    if (textValue == itemStatus) {
+            //        var aimRect = $(this).closest("g").find("rect").first();
+            //        aimRect.attr("fill", "rgb(238, 238, 0)");
+            //        aimRect.attr("fill-opacity", "1");
+            //        aimRect.attr("fill-rule", "evenodd");
+            //    }
+            //});
+            $("#PrManageWorkFlow").modal("show");
+        });
+
+
+
+
+        //审核通过
+        $PrManageEdit.delegate("#AuditApprove", "click", function () {
+            var $this = $(this);
+
+            //采购合同登记数据验证
+            var isValid = true;
+
+            if (PrManageEditParam.status.val() == "Financial Analyst") {
+                if ($.trim(PrManageEditParam.b_BudgetStatus.val()) == "") {
+                    PrManageEditParam.b_BudgetStatus.closest("div").addClass("has-error");
+                    isValid = false;
+                }
+            }
+
+            if (PrManageEditParam.status.val() == "Financial Analyst" || PrManageEditParam.status.val() == "Financial Manager" || PrManageEditParam.status.val() == "Financial Director" || PrManageEditParam.status.val() == "CFO") {
+                if ($.trim(PrManageEditParam.b_BudgetCode.val()) == "") {
+                    PrManageEditParam.b_BudgetCode.closest("div").addClass("has-error");
+                    isValid = false;
+                }
+
+                if ($.trim(PrManageEditParam.b_CostCenter.val()) == "") {
+                    PrManageEditParam.b_CostCenter.closest("div").addClass("has-error");
+                    isValid = false;
+                }
+            }
+
+            if (PrManageEditParam.status.val() == "Contract Management") {
+                var count = $("#fileList").find("a.glyphicon-remove").length;
+                var errorList = [];
+                if (count == 0) {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("合同管理必须上传附件", "PRCommon", "PRItemType", ViewBag.language)！" });
+                    app.util.onError(errorList, $PrManageEdit);
+                    isValid = false;
+                }
+            }
+
+            if (isValid) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/PrManage/AuditPrManage',
+                    data: GetAuditPrManageParam(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $PrManageEdit);
+                            return;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $PrManageEdit.modal("hide");
+                        PrManageDataTableObj.fnPageChange(app.util.DTCurrentPage(PrManageDataTableObj));
+                    }
+                });
+            }
+        });
+
+        //获取审核的界面数据
+        function GetAuditPrManageParam() {
+            var param = app.util.serializeParamArray(PrManageEditParam);
+            param.b_Budget = delcommafy(param.b_Budget);
+
+            if (PrManageEditParam.status.val() == "Receive PR") {
+                var AuthorizedPurchase = $("input[name=b_AuthorizedPurchase]").closest("div").hasClass('checked');
+                param.b_AuthorizedPurchase = AuthorizedPurchase;
+            }
+
+            //获取单选按钮的值
+            var b_PrType;
+            $PrManageEdit.find("input[name='b_PrType']").each(function () {
+                var $this = $(this);
+                if ($this.closest("div").hasClass("checked")) {
+                    b_PrType = $this.val();
+                }
+            });
+            param.b_PrType = b_PrType;
+
+            if (PrManageEditParam.status.val() == "Buyer Inquiry") {
+                var prQuotationItems = [];
+                $PrQuotationItemTr.find("tr").each(function () {
+                    var $this = $(this);
+                    var id = $.trim($this.find("input.id").val());
+                    var b_Supplier = $.trim($this.find("input.b_Supplier").val());
+                    var b_Quotation = $.trim($this.find("input.b_Quotation").val());
+                    var b_Remarks = $.trim($this.find("input.b_Remarks").val());
+                    if (b_Supplier != "") {
+                        prQuotationItems.push({ "id": id, "b_Supplier": b_Supplier, "b_Quotation": b_Quotation, "b_Remarks": b_Remarks });
+                    }
+                });
+                param.PrQuotationItems = prQuotationItems;
+                //获取选择项
+                var UrgentPurchase = $("input[name=b_UrgentPurchase]").closest("div").hasClass('checked');
+                var RepetitivePurchase = $("input[name=b_RepetitivePurchase]").closest("div").hasClass('checked');
+                var IsSingleSupplier = $("input[name=b_IsSingleSupplier]").closest("div").hasClass('checked');
+                param.b_UrgentPurchase = UrgentPurchase;
+                param.b_RepetitivePurchase = RepetitivePurchase;
+                param.b_IsSingleSupplier = IsSingleSupplier;
+
+                //获取重复采购数据
+                var prRepeateItems = [];
+                if (param.b_RepetitivePurchase) {
+                    $PrRepeateItemTr.find("tr").each(function () {
+                        var $this = $(this);
+                        var id = $.trim($this.find(".id").val());
+                        var b_PrRecordNo = $.trim($this.find(".b_PrRecordNo").val());
+                        var b_PreviousSupplier = $.trim($this.find(".b_PreviousSupplier").val());
+                        var b_ContractNo = $.trim($this.find(".b_ContractNo").val());
+                        var b_PreviousBuyer = $.trim($this.find(".b_PreviousBuyer").val());
+                        if (b_PrRecordNo != "" && b_PreviousSupplier != "" && b_ContractNo != "" && b_PreviousBuyer != "") {
+                            prRepeateItems.push({ "id": id, "b_PrRecordNo": b_PrRecordNo, "b_PreviousSupplier": b_PreviousSupplier, "b_ContractNo": b_ContractNo, "b_PreviousBuyer": b_PreviousBuyer })
+                        }
+                    });
+                }
+                param.prRepeateItems = prRepeateItems;
+            }
+
+            if (PrManageEditParam.status.val() == "Contract Registration") {
+                var prChoiceSupplierItems = [];
+                $PrChoiceSuppliersTr.find("tr").each(function () {
+                    var $this = $(this);
+                    var id = $.trim($this.find("input.id").val());
+                    var b_Supplier = $.trim($this.find("input.b_Supplier").val());
+                    var b_ContractPrice = $.trim($this.find("input.b_ContractPrice").val());
+                    var b_PoNo = $.trim($this.find("input.b_PoNo").val());
+                    var b_ContractProperty = $.trim($this.find("select.b_ContractProperty").val());
+                    var b_PaymentClause = $.trim($this.find("input.b_PaymentClause").val());
+
+                    if (b_Supplier != "" && b_ContractPrice != "" && b_PoNo != "" && b_ContractProperty != "" && b_PaymentClause != "") {
+                        prChoiceSupplierItems.push({ "id": id, "b_Supplier": b_Supplier, "b_ContractPrice": b_ContractPrice, "b_PoNo": b_PoNo, "b_ContractProperty": b_ContractProperty, "b_PaymentClause": b_PaymentClause });
+                    }
+                });
+                param.prChoiceSupplierItems = prChoiceSupplierItems;
+            }
+
+
+            if (PrManageEditParam.status.val() == "Contract Management") {
+                var b_ContractType;
+                $PrManageEdit.find("input[name='b_ContractType']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_ContractType = $this.val();
+                    }
+                });
+                param.b_ContractType = b_ContractType;
+            }
+            return param;
+        }
+
+        //显示设置
+        function displayModelSetting(PrManageEditParam) {
+            $("#PrTips").hide();
+            PrManageEditParam.b_CostCenter.attr("disabled", "disabled");
+            if (PrManageEditParam.status.val() == "Dept.Manager" || PrManageEditParam.status.val() == "Dept.Director" || PrManageEditParam.status.val() == "Dept.VP" || PrManageEditParam.status.val() == "GM") {
+                app.util.ModelToDetails($PrManageEdit);
+                //隐藏操作按钮
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $("#b_BudgetStatus").hide();
+                $("#b_Buyer").hide();
+                $("#PurchasingInquiry").hide();
+                $("#ContractRegister").hide();
+                $("#ContractManagement").hide();
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                app.util.ModelToEdit(PrManageEditParam.b_Remark.closest("div"));
+                app.util.ModelToEdit($("#BudgetCodeEdit"));
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("审核PR单", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+
+            }
+            else if (PrManageEditParam.status.val() == "PMT/PAT Leader" || PrManageEditParam.status.val() == "Project Manager" || PrManageEditParam.status.val() == "Project Director") {
+                app.util.ModelToDetails($PrManageEdit);
+                //隐藏操作按钮
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $("#b_BudgetStatus").hide();
+                $("#b_Buyer").hide();
+                $("#PurchasingInquiry").hide();
+                $("#ContractRegister").hide();
+                $("#ContractManagement").hide();
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                app.util.ModelToEdit($("#BudgetCodeEdit"));
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("审核PR单", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                var count = GetAuditActivityCount()
+                if (count > 1) {
+                    $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+                }
+                else {
+                    $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-info' type='button' id='ActivitySign'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("加 签", "CommonName", "Common", ViewBag.language)' + "</button>");
+                }
+            }
+            else if (PrManageEditParam.status.val() == "Financial Analyst") {
+                app.util.ModelToDetails($PrManageEdit);
+                //隐藏操作按钮
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").hide();
+                $("#PurchasingInquiry").hide();
+                $("#ContractRegister").hide();
+                $("#ContractManagement").hide();
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                app.util.ModelToEdit($("#b_BudgetStatus"));
+                app.util.ModelToEdit($("#CostCenterEdit"));
+                app.util.ModelToEdit($("#BudgetCodeEdit"));
+                PrManageEditParam.b_CostCenter.removeAttr("disabled", "disabled");
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("审核PR单", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            else if (PrManageEditParam.status.val() == "Financial Manager" || PrManageEditParam.status.val() == "Financial Director" || PrManageEditParam.status.val() == "CFO") {
+                app.util.ModelToDetails($PrManageEdit);
+                //隐藏操作按钮
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").hide();
+                $("#PurchasingInquiry").hide();
+                $("#ContractRegister").hide();
+                $("#ContractManagement").hide();
+                app.util.ModelToEdit($("#CostCenterEdit"));
+                app.util.ModelToEdit($("#BudgetCodeEdit"));
+                PrManageEditParam.b_CostCenter.removeAttr("disabled", "disabled");
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("审核PR单", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            else if (PrManageEditParam.status.val() == "Receive PR") {
+                app.util.ModelToDetails($PrManageEdit);
+                //隐藏操作按钮
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").show();
+                $("#PurchasingInquiry").hide();
+                $("#ContractRegister").hide();
+                $("#ContractManagement").hide();
+                app.util.ModelToEdit($("#b_Buyer"));
+                GetAutocompleteData();
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("采购员填写", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            else if (PrManageEditParam.status.val() == "Buyer Inquiry") {
+                app.util.ModelToDetails($PrManageEdit);
+                //隐藏操作按钮
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").show();
+                $("#PurchasingInquiry").show();
+                $("#ContractRegister").hide();
+                $("#ContractManagement").hide();
+                app.util.ModelToEdit($("#PurchasingInquiry"));
+                if ($PrQuotationItemTr.find("tr").length <= 0) {
+                    $PrQuotationItemTr.prepend($(QuotationHtmlTr));
+                }
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("采购员询价", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            else if (PrManageEditParam.status.val() == "Contract Registration") {
+                app.util.ModelToDetails($PrManageEdit);
+
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $PrManageEdit.find(".AddItem,.deleteItem").hide();
+                $PrChoiceSuppliersTr.find(".AddItem,.deleteItem").show();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").show();
+                $("#PurchasingInquiry").show();
+                $("#ContractRegister").show();
+                $("#ContractManagement").hide();
+                app.util.ModelToEdit($("#ContractRegister"));
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("合同登记", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            else if (PrManageEditParam.status.val() == "Contract Management") {
+                app.util.ModelToDetails($PrManageEdit);
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $PrManageEdit.find(".AddItem,.deleteItem").hide();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").show();
+                $("#PurchasingInquiry").show();
+                $("#ContractRegister").show();
+                $("#ContractManagement").show();
+                app.util.ModelToEdit($("#ContractManagement"));
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                $PrManageEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("合同管理", "PRCommon", "PRItemType", ViewBag.language)<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            else if (PrManageEditParam.status.val() == "Purchase Manager") {
+                app.util.ModelToDetails($PrManageEdit);
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $PrManageEdit.find(".AddItem,.deleteItem").hide();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").show();
+                $("#PurchasingInquiry").show();
+                $("#ContractRegister").show();
+                $("#ContractManagement").show();
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                $PrManageEdit.find("h4.modal-title").empty().append("采购经理审批<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            else if (PrManageEditParam.status.val() == "Purchase Director") {
+                app.util.ModelToDetails($PrManageEdit);
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").hide();
+                $PrManageEdit.find(".AddItem,.deleteItem").hide();
+                $("#b_BudgetStatus").show();
+                $("#b_Buyer").show();
+                $("#PurchasingInquiry").show();
+                $("#ContractRegister").show();
+                $("#ContractManagement").show();
+                $("#MonetaryUnit").removeClass("input-group-addon");
+                $PrManageEdit.find("h4.modal-title").empty().append("采购总监审批<label style='color:rgb(88,136,193)'>" + PrManageEditParam.b_PrRecordNo.val() + "</label>");
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='AuditApprove' >" + '@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-warning' type='button' id='SendBack'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)' + "</button>");
+
+            }
+            else {
+                app.util.ModelToEdit($PrManageEdit);
+                $("#b_BudgetStatus").hide();
+                $("#b_Buyer").hide();
+                $("#PurchasingInquiry").hide();
+                $("#ContractRegister").hide();
+                $("#ContractManagement").hide();
+                $("#MonetaryUnit").addClass("input-group-addon");
+                $("#PrTips").show();
+                //显示操作按钮
+                $PrManageItemTr.find(".AddPrManageItem,.deletePrManageItem").show();
+                $PrManageEdit.find("div.modal-footer").empty().append("<button class='btn btn-white' type='button' data-dismiss='modal'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-primary' type='button' id='SavePrManage' operation='save'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("保 存", "CommonName", "Common", ViewBag.language)' + "</button><button class='btn btn-success' type='button' id='SubmitPrManage' operation='submit'>" + '@OABordrinCommon.Common.GetLanguageValueByParam("提 交", "CommonName", "Common", ViewBag.language)' + "</button>");
+            }
+            app.util.ModelToEdit(PrManageEditParam.b_Remark.closest("div"));
+        }
+
+
+        //采购人员自动AutoComplate
+        var chioceBuyer = [];
+        $("input[name=b_Buyer]").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(chioceBuyer, function (value) {
+                    return matcher.test(value);
+                }));
+            }
+        });
+
+        function GetAutocompleteData() {
+            $.ajax({
+                url: '/AutoComplete/GetBuyerList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    chioceBuyer = [];
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            chioceBuyer.push(ans.data[i]);
+                        }
+                    }
+                }
+            });
+        }
+
+        //退回代码
+        $PrManageEdit.delegate("#SendBack", "click", function () {
+            //获取单选按钮的值
+            var b_PrType;
+            $PrManageEdit.find("input[name='b_PrType']").each(function () {
+                var $this = $(this);
+                if ($this.closest("div").hasClass("checked")) {
+                    b_PrType = $this.val();
+                }
+            });
+
+            $.ajax({
+                url: '/PrManage/GetWorkflowProcessPathByActivityId',
+                data: { "activityId": PrManageEditParam.activityId.val(), "b_PrType": b_PrType, "b_DeptManager": PrManageEditParam.b_DeptManager.val(), "b_DeptDirector": PrManageEditParam.b_DeptDirector.val() },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    LoadActivityList(PrManageEditParam.id.val(), PrManageEditParam.activityId.val(), PrManageEditParam.activityAssignmentId.val(), ans.data);
+                    app.util.clearError($WorkflowActivityModel);
+                    $("#WorkflowActivityModel").modal("show");
+                }
+            });
+        }).delegate("#ActivitySign", "click", function () {
+            app.util.bindValue(WorkflowActivitySignParam, "");
+            WorkflowActivitySignParam.activityId.val(PrManageEditParam.activityId.val());
+            WorkflowActivitySignParam.activityAssignmentId.val(PrManageEditParam.activityAssignmentId.val());
+            WorkflowActivitySignParam.itemId.val(PrManageEditParam.id.val());
+            WorkflowActivitySignParam.recordNo.val(PrManageEditParam.b_PrRecordNo.val());
+            WorkflowActivitySignParam.linkStr.val("/PrManage/Index");
+            WorkflowActivitySignParam.operateTable.val("innovator.B_PRMANAGE");
+            $PrManageEdit.modal('hide');
+            $WorkflowActivitySignModel.modal({ backdrop: 'static' });
+            $WorkflowActivitySignModel.modal("show");
+        });
+
+        $("button[name=completeActivity]").click(function () {
+            var $this = $(this);
+            $this.attr("disabled", "disabled");
+            $.ajax({
+                url: '/WorkFlow/CompleteActivity',
+                data: GetWorkFlowActivityParam(),
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        $this.removeAttr("disabled", "disabled");
+                        app.util.onError(ans.error, $WorkflowActivityModel);
+                        return;
+                    }
+                    $this.removeAttr("disabled", "disabled");
+                    $WorkflowActivityModel.modal("hide");
+                    $PrManageEdit.modal("hide");
+                    PrManageDataTableObj.fnPageChange(app.util.DTCurrentPage(PrManageDataTableObj));
+                }
+            });
+        });
+
+        //监听Modal事件
+        $WorkflowActivityModel.on("hidden.bs.modal", function () {
+            $(document.body).addClass("modal-open");
+        });
+
+        //项目列表AutoComplate
+        var projectList = [];
+        function GetProjectList() {
+            $.ajax({
+                url: '/AutoComplete/GetProjectList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            projectList.push(item);
+
+                        }
+                    }
+                }
+            });
+        }
+        PrManageEditParam.b_ProjectName.autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(projectList, function (value) {
+                    return matcher.test(value);
+                }));
+            }, scrollHeight: 300
+        });
+
+
+        //当项目名称改变时
+        $PrManageEdit.delegate("input[name=b_ProjectName]", "blur", function () {
+            PrManageEditParam.b_ProjectLeader.val("");
+            PrManageEditParam.b_ProjectDirector.val("");
+            PrManageEditParam.b_ProjectManager.val("");
+
+            var isinArray = $.inArray($(this).val(), projectList);
+            //获取单选按钮的值
+            var b_PrType;
+            $PrManageEdit.find("input[name='b_PrType']").each(function () {
+                var $this = $(this);
+                if ($this.closest("div").hasClass("checked")) {
+                    b_PrType = $this.val();
+                }
+            });
+            if (b_PrType == "project" && isinArray != -1) {
+                $.ajax({
+                    url: '/PrManage/GetProjectManageByName',
+                    data: { "name": PrManageEditParam.b_ProjectName.val() },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            return false;
+                        }
+                        PrManageEditParam.b_ProjectDirector.val(ans.data.b_ProjectDirector);
+                        PrManageEditParam.b_ProjectManager.val(ans.data.b_ProjectManager);
+                    }
+                })
+            }
+        });
+
+        //重复采购委托事件
+        $PrRepeateItem.delegate(".b_ContractNo", "blur", function () {
+            var $this = $(this);
+            $.ajax({
+                url: '/PrManage/GetPrManageByContractNo',
+                data: { "contractNo": $this.val() },
+                dataType: "json",
+                success: function (ans) {
+                    var tr = $this.closest("tr");
+                    if (ans.error.length > 0) {
+                        tr.find(".b_PrRecordNo").val("");
+                        tr.find(".b_PreviousSupplier").val("");
+                        tr.find(".b_PreviousBuyer").val("");
+                        return false;
+                    }
+                    if (ans.data != null) {
+                        tr.find(".b_PrRecordNo").val(ans.data.b_PrRecordNo);
+                        tr.find(".b_PreviousSupplier").val(ans.data.b_PreviousSupplier);
+                        tr.find(".b_PreviousBuyer").val(ans.data.b_PreviousBuyer);
+                    }
+                }
+            });
+        });
+
+        //监听点击事件
+        $("input[name='b_AuthorizedPurchase']").on('ifChanged', function (event) {
+            var $this = $(this);
+            if ($this[0].checked == true) {
+                PrManageEditParam.b_Buyer.val(PrManageEditParam.b_Applicant.val());
+                PrManageEditParam.b_Buyer.attr("disabled", "disabled");
+            }
+            else {
+                PrManageEditParam.b_Buyer.val("");
+                PrManageEditParam.b_Buyer.removeAttr("disabled");
+            }
+        });
+
+
+        //下载合同
+        $("#DownloadContract").click(function () {
+            var contractType;
+            $PrManageEdit.find("input[name='b_ContractType']").each(function () {
+                var $this = $(this);
+                if ($this.closest("div").hasClass("checked")) {
+                    contractType = $this.val();
+                }
+            });
+            location.href = '@Url.Action("DownloadContract", "PrManage")' + "?contractType=" + contractType + "&id=" + PrManageEditParam.id.val();
+        });
+
+        //上传附件
+
+        $("#upload").click(function () {
+            var formData = new FormData();
+            formData.append("myfile", document.getElementById("Prfile").files[0]);
+            formData.append("id", PrManageEditParam.id.val());
+            formData.append("status", PrManageEditParam.status.val());
+            $.ajax({
+                url: '/PrManage/UploadPrManageFile',
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        app.util.onError(ans.error, $PrManageEdit);
+                        return;
+                    }
+                    if (ans.data != null) {
+                        $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + ans.data.id + "' onclick='DownloadAttachment(this)'>" + ans.data.fileName + "</a>&nbsp;&nbsp;&nbsp;<a href='#' class='glyphicon glyphicon-remove text-danger' id='" + ans.data.id + "' relationId='" + ans.data.relationId + "' onclick='DeleteFile(this)'></a></label></div>");
+                    }
+                }
+            });
+        });
+
+        ///删除附件
+        function DeleteFile(obj) {
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要删除改附件吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/PrManage/DeletePrManageFile',
+                    data: { "id": $(obj).attr("id"), "relationId": $(obj).attr("relationId") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            app.util.onError(ans.error, $PrManageEdit);
+                            return;
+                        }
+                        $(obj).closest("div").remove();
+                    }
+                })
+            }
+        }
+
+        //获取查询Select流程状态数据
+        function loadWorkFlowStatus() {
+            $.ajax({
+                url: '/PrManage/GetWorkflowStatusList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    PrSearchParam.status.empty();
+                    PrSearchParam.status.append("<option value=''>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "Common", "ItemType", ViewBag.language)</option>");
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            PrSearchParam.status.append("<option value='" + item.value + "'>" + item.text + "</option>");
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+        //下载附件
+        function DownloadAttachment(obj) {
+            location.href = '@Url.Action("DownloadAttachment", "PrManage")' + "?id=" + $(obj).attr("id");
+        }
+
+        //部门领导AutoComplete
+        var choiceUserList = [];
+        PrManageEditParam.b_DeptManager.autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(choiceUserList, function (value) {
+                    return matcher.test(value);
+                }));
+            }
+        });
+        PrManageEditParam.b_DeptDirector.autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(choiceUserList, function (value) {
+                    return matcher.test(value);
+                }));
+            }
+        });
+        PrManageEditParam.b_ProjectLeader.autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(choiceUserList, function (value) {
+                    return matcher.test(value);
+                }));
+            }
+        });
+
+        function GetAutocompleteChoiceUserData() {
+            $.ajax({
+                url: '/AutoComplete/GetDelegateToNames',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    choiceUserList = [];
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            choiceUserList.push(ans.data[i]);
+                        }
+                    }
+                }
+            });
+        }
+
+
+        //合同预算处理
+        function ContractBudgetHandle() {
+            var contractPrice = 0;
+            $PrChoiceSuppliersTr.find("tr").each(function () {
+                var $this = $(this);
+                contractPrice = contractPrice + parseFloat($this.find("input.b_ContractPrice").val());
+            });
+
+            if (contractPrice > 0) {
+                contractPrice = parseFloat(contractPrice);
+                var budget = parseFloat(PrManageEditParam.b_Budget.val());
+                if (contractPrice > budget) {
+                    $("div.AdditionalBudgetOBJ").show();
+                }
+                else {
+                    $("div.AdditionalBudgetOBJ").hide();
+                    PrManageEditParam.b_AdditionalBudget.val("");
+                }
+            }
+            else {
+                $("div.AdditionalBudgetOBJ").hide();
+                PrManageEditParam.b_AdditionalBudget.val("");
+            }
+        }
+
+        $("#btnActivitySign").click(function () {
+            var $this = $(this);
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($WorkflowActivitySignModel)) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/WorkFlow/SaveWorkflowActivitySign',
+                    data: app.util.serializeParamArray(WorkflowActivitySignParam),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $WorkflowActivitySignModel);
+                            return false;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $WorkflowActivitySignModel.modal("hide");
+                        PrManageDataTableObj.fnPageChange(app.util.DTCurrentPage(PrManageDataTableObj));
+                    }
+                });
+            }
+        });
+
+        function GetAuditActivityCount() {
+            var count;
+            $.ajax({
+                url: '/PrManage/GetAuditActivityCount',
+                data: { "activityId": PrManageEditParam.activityId.val() },
+                dataType: "json",
+                async: false,
+                success: function (ans) {
+                    count = ans.data;
+                }
+            });
+            return count;
+        }
+
+        function LoadEmployeeInfo(name) {
+            $.ajax({
+                url: '/Common/GetUserByName',
+                dataType: "json",
+                async: false,
+                data: { "name": name },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    if (ans.data != null) {
+                        var item = ans.data;
+                        PrManageEditParam.b_DeptManager.val(item.b_SeniorManager);
+                        PrManageEditParam.b_DeptDirector.val(item.b_Director);
+                        PrManageEditParam.b_DeptVP.val(item.b_VP);
+
+                        if (item.b_Department != null && item.b_Department != "") {
+                            PrManageEditParam.b_BusinessDepartment.val(item.b_Department);
+                        }
+                        else if (item.b_Centre != null && item.b_Dept != "") {
+                            PrManageEditParam.b_BusinessDepartment.val(item.b_Centre);
+                        }
+                        PrManageEditParam.b_CostCenter.val(item.b_CostCenter);
+                    }
+                }
+            });
+        }
+
+        //获取公司代码列表
+        function GetStructureCompanyCode() {
+            $.ajax({
+                url: '/AutoComplete/GetStructureCompanyCode',
+                dataType: "json",
+                async: false,
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    PrManageEditParam.b_ContractParty.empty();
+                    PrManageEditParam.b_ContractParty.append("<option value=''>选择公司代码</option>")
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var value = ans.data[i];
+                            if (value.indexOf("2010") == -1) {
+                                PrManageEditParam.b_ContractParty.append("<option value='" + value + "'>" + value + "</option>");
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        PrManageEditParam.b_ContractParty.change(function () {
+            var currentCompanyCode = $(this).val();
+            currentCompanyCode = $.trim(currentCompanyCode.substring(0, currentCompanyCode.indexOf('(')));
+            $.ajax({
+                url: '/Common/GetUserByName',
+                dataType: "json",
+                async: false,
+                data: { "name": PrManageEditParam.b_Applicant.val() },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    if (ans.data != null) {
+                        var joinCostCenterStr = currentCompanyCode + ans.data.b_CostCenter;
+                        PrManageEditParam.b_CostCenter.val(joinCostCenterStr);
+                    }
+                }
+            });
+        });
+
+    </script>
+}

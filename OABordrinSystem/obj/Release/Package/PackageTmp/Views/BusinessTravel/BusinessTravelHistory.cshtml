@@ -1,0 +1,28 @@
+﻿<div tabindex="-1" class="modal fade in" id="BusinessTravelHistoryModel" role="dialog" aria-hidden="true" style="padding-right: 17px;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel1">@OABordrinCommon.Common.GetLanguageValueByParam("日志", "CommonName", "Common", ViewBag.language)</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="Item_id" />
+                <table id="BusinessTravelHistory" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("状态", "CommonName", "Common", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("操作时间", "CommonName", "Common", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("操作人", "CommonName", "Common", ViewBag.language)</th>
+                            <th>@OABordrinCommon.Common.GetLanguageValueByParam("内容", "CommonName", "Common", ViewBag.language)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" type="button" data-dismiss="modal">@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)</button>
+            </div>
+        </div>
+    </div>
+</div>

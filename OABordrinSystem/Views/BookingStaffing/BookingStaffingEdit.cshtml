@@ -1,0 +1,26 @@
+﻿<div class="modal" tabindex="-1" id="BookingStaffingEdit" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="max-width:600px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel1">@OABordrinCommon.Common.GetLanguageValueByParam("新增", "CommonName", "Common", ViewBag.language)</h4>
+            </div>
+            <div class="errorMessage fa fa-exclamation-triangle" style="background-color: #f4eedc; width:100%;padding:5px; display: none;"><span style="margin-left:10px;"></span></div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" name="Id" />
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">员工名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="b_UserName" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)" isnotnull="true">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" type="button" data-dismiss="modal">@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-primary" type="button" id="SaveBookingStaffing" operation="save">@OABordrinCommon.Common.GetLanguageValueByParam("保 存", "CommonName", "Common", ViewBag.language)</button>
+            </div>
+        </div>
+    </div>
+</div>

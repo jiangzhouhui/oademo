@@ -1,0 +1,919 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("出差申请", "b_BusinessTravel", "BTItemType", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("差旅管理", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("出差申请", "b_BusinessTravel", "BTItemType", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="startTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("开始时间", "CommonName", "Common", ViewBag.language)" />--
+                        <input type="text" name="endTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("结束时间", "CommonName", "Common", ViewBag.language)" />
+                    </div>
+                    <div class="form-group">
+                        <select name="status" class="form-control"></select>
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                    <button type="button" class="btn btn-w-m btn-warning" id="btnAdd">@OABordrinCommon.Common.GetLanguageValueByParam("新建", "CommonName", "Common", ViewBag.language)</button>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="BusinessTravelDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;min-width:1074px;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("单号", "b_BusinessTravel", "BTItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_BusinessTravel", "BTItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请部门", "b_BusinessTravel", "BTItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_BusinessTravel", "BTItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_BusinessTravel", "BTItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("目的地", "b_BusinessTravel", "BTItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("当前处理人", "CommonName", "Common", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "CommonName", "Common", ViewBag.language)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/BusinessTravel/BusinessTravelEdit.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/BusinessTravel/BusinessTravelHistory.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/BusinessTravel/BusinessTravelDetail.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/BusinessTravel/BusinessTravelWorkFlow.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/WorkFlow/WorkflowTurnToDo.cshtml")
+@section scripts{
+    <!-- jquery-ui -->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <!-- bootstrap-datepicker CSS-->
+    <link href="~/OpenResouce/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <!-- bootstrap-datepicker JS-->
+    <script src="~/OpenResouce/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- 编辑Js -->
+    <script src="@Url.Version("~/Scripts/BusinessTravel/BusinessTravelEdit.js")"></script>
+
+    <!-- 日志Js -->
+    <script src="@Url.Version("~/Scripts/BusinessTravel/BusinessTravelHistory.js")"></script>
+
+    <!-- 详情Js -->
+    <script src="@Url.Version("~/Scripts/BusinessTravel/BusinessTravelDetail.js")"></script>
+
+    <!-- 转办Js -->
+    <script src="@Url.Version("~/Scripts/WorkflowTurnToDo.js")"></script>
+
+    <script type="text/javascript">
+        var $BusinessTravelDataTable = $("#BusinessTravelDataTable");
+        var BusinessTravelDataTableObj;
+        BtSearchParam = app.util.getEditParam($("#SearchPara"));
+
+        $(document).ready(function () {
+            BtSearchParam.startTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            BtSearchParam.endTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            BusinessTravelDataTableObj = $BusinessTravelDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": false,
+                "aaSorting": [1, "desc"],
+                "sAjaxSource": '/BusinessTravel/GetBusinessTravelList',
+                "fnServerData": RetrieveBusinessTravelData,
+                "aoColumns": [
+                        { "data": "b_DocumentNo", "sWidth": 240 },
+                        { "data": "b_ApplicationDate", "sWidth": 70 },
+                        { "data": "b_Dept" },
+                        { "data": "b_Employee" },
+                        { "data": "b_ProjectName" },
+                        { "data": "b_Destination", "sWidth": 50 },
+                        { "data": "AuditorStr", "sWidth": 100, "bSortable": false },
+                        { "data": "status", "sWidth": 80 }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language)",
+                    "oPaginate": {//分页的样式内容。
+                        "sPrevious": "@OABordrinCommon.Common.GetLanguageValueByParam("上一页", "CommonName", "Common", ViewBag.language)",
+                        "sNext": "@OABordrinCommon.Common.GetLanguageValueByParam("下一页", "CommonName", "Common", ViewBag.language)",
+                        "sFirst": "@OABordrinCommon.Common.GetLanguageValueByParam("第一页", "CommonName", "Common", ViewBag.language)",
+                        "sLast": "@OABordrinCommon.Common.GetLanguageValueByParam("最后", "CommonName", "Common", ViewBag.language)"
+                    }
+                },
+                "aLengthMenu": [15, 25, 50, 100],
+            });
+            //加载流程状态
+            loadWorkFlowStatus();
+
+        });
+
+        function RetrieveBusinessTravelData(sSource, aoData, fnCallback) {
+            $.ajax({
+                url: '/BusinessTravel/GetBusinessTravelList',//这个就是请求地址对应sAjaxSource
+                data: GetBusinessTravelSearchParam(aoData),
+                dataType: 'json',
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
+
+        function GetBusinessTravelSearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;
+            var iDisplayStart = aoData[3].value;
+            var iDisplayLength = aoData[4].value;
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+
+            if (iSortTitle == "b_ApplicationDate") {
+                iSortTitle = "nb_ApplicationDate";
+            }
+            var searchValue = $("input[name='SearchValue']").val();
+
+            var startTime = BtSearchParam.startTime.val();
+
+            var endTime = BtSearchParam.endTime.val();
+
+            var status = BtSearchParam.status.val();
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue, "startTime": startTime, "endTime": endTime, "status": status };
+        }
+
+        $("#btnAdd").click(function () {
+            //清除小窗口错误
+            app.util.clearError($BusinessTravelEdit);
+            //表格保证最少一行
+            $FlightBookingItemTr.empty().append(AddNewFlightBookingTr('@ViewBag.UserName'));
+            $HotelBookingItemTr.empty().append(AddNewBookingItemTr());
+
+            //将小窗口数据清空
+            app.util.bindValue(BusinessTravelEditParam, "");
+            BusinessTravelEditParam.b_ApplicationDate.val(GetNowFormatDate());
+            BusinessTravelEditParam.b_Employee.val('@ViewBag.UserName');
+            BusinessTravelEditParam.b_Preparer.val('@ViewBag.UserName');
+            BusinessTravelEditParam.b_DidiMoney.digital();
+            BusinessTravelEditParam.b_DidiAddMoney.digital();
+            LoadEmployeeInfo(BusinessTravelEditParam.b_Employee.val());
+
+            $BusinessTravelEdit.find("input[name='b_Type']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+            $BusinessTravelEdit.find("input[name='b_TripType']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+            $BusinessTravelEdit.find("input[name='b_Others']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+            //上传文件控件
+            $("#fileList").empty();
+            var fileobj = $("#Btfile").clone().val("");
+            $("#Btfile").closest("label").empty().append(fileobj);
+            displayModelSetting();
+            $("#departmentLeaderInfo").hide();
+            $("#nb_ProjectName").hide();
+            $("#FlightBookingInfo").hide();
+            $("#HotelBookingEdit").hide();
+            $("#DidiItemsEdit").hide();
+            $("#tipsEdit").show();
+            BusinessTravelEditParam.b_OtherContent.hide();
+            //验证人员信息是否完整
+            ValidUserInfo(BusinessTravelEditParam.b_Employee.val());
+            //打开小窗口
+            $BusinessTravelEdit.modal({ backdrop: 'static' });
+            $BusinessTravelEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("新建出差申请单", "ERCommon", "ERItemType", ViewBag.language)");
+            $BusinessTravelEdit.modal("show");
+        })
+
+        //查询
+        $("#BtnSearch").click(function () {
+            BusinessTravelDataTableObj.fnDraw();
+        });
+
+        //保存和提交单据
+        $BusinessTravelEdit.delegate("#SaveBusinessTravel,#SubmitBusinessTravel", "click", function () {
+            var $this = $(this);
+            var operation = $(this).attr("operation");
+            var validData = true;
+            var errorList = [];
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($BusinessTravelEdit)) {
+                var b_Didi;
+                if (BusinessTravelEditParam.b_Didi.closest("div").hasClass("checked")) {
+                    b_Didi = "Didi";
+                }
+
+                if (b_Didi == "Didi" && $.trim(BusinessTravelEditParam.b_DidiMoney.val()) == "") {
+                    BusinessTravelEditParam.b_DidiMoney.closest("div").addClass("has-error");
+                    return;
+                }
+                else {
+                    BusinessTravelEditParam.b_DidiMoney.closest("div").removeClass("has-error");
+                }
+
+                //验证预算是否为正浮点数
+                if (!app.util.ValidJustFloat(BusinessTravelEditParam.b_TrafficExpense)) {
+                    return;
+                }
+
+                if (!app.util.ValidJustFloat(BusinessTravelEditParam.b_HotelExpense)) {
+                    return;
+                }
+
+
+                if (!app.util.ValidJustFloat(BusinessTravelEditParam.b_FixedSubsidy)) {
+                    return;
+                }
+
+                if (!app.util.ValidJustFloat(BusinessTravelEditParam.b_OtherExpenses)) {
+                    return;
+                }
+
+                //选择滴滴时的数据验证
+                if (!app.util.ValidJustFloat(BusinessTravelEditParam.b_DidiMoney)) {
+                    return;
+                }
+                if ($.trim(BusinessTravelEditParam.b_DidiAddMoney.val()) != "") {
+                    if (!app.util.ValidJustFloat(BusinessTravelEditParam.b_DidiAddMoney)) {
+                        return;
+                    }
+                }
+
+                //判断金额是否超额
+                var b_DidiMoney = BusinessTravelEditParam.b_DidiMoney.val();
+                var days = GetDateDiff(BusinessTravelEditParam.b_TravelDate.val(), BusinessTravelEditParam.b_EstimatedReturnDate.val());
+                var nDidiMoney = (days + 1) * 100;
+                if (b_DidiMoney > nDidiMoney) {
+                    errorList.push({ "key": "errorMessage", "value": "已超额度，超额部分请填写追加额度！" });
+                    validData = false;
+                }
+
+
+                var b_Type = "";
+                $BusinessTravelEdit.find("input[name='b_Type']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_Type = $this.val();
+                    }
+                });
+                if (b_Type == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择是否项目！", "BTCommon", "BTItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                if (b_Type == "Project" && $.trim(BusinessTravelEditParam.b_ProjectName.val()) == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当选择项目时，项目名称不可为空！", "BTCommon", "BTItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                var b_TripType = "";
+                $BusinessTravelEdit.find("input[name='b_TripType']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_TripType = $this.val();
+                    }
+                });
+                if (b_TripType == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择出差类型！", "ERCommon", "ERItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                var b_Others;
+                if (BusinessTravelEditParam.b_Others.closest("div").hasClass("checked")) {
+                    b_Others = "Others";
+                }
+
+                if (b_Others == "Others" && $.trim(BusinessTravelEditParam.b_OtherContent.val()) == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("选择行政支持其他，必须填写相关内容！", "BTCommon", "BTItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                //机票代订填写完整性验证
+                $FlightBookingItemTr.find("tr").each(function () {
+                    var b_FirstName = $.trim($(this).find("input.b_FirstName").val());
+                    var b_LastName = $.trim($(this).find("input.b_LastName").val());
+                    var b_IDType = $.trim($(this).find("select.b_IDType").val());
+                    var b_IDCardNo = $.trim($(this).find("input.b_IDCardNo").val());
+                    var b_Nationality = $.trim($(this).find("input.b_Nationality").val());
+                    var b_PassportNumber = $.trim($(this).find("input.b_PassportNumber").val());
+                    var b_Dateofexpiration = $.trim($(this).find("input.b_Dateofexpiration").val());
+                    var b_Dateofbirth = $.trim($(this).find("input.b_Dateofbirth").val());
+                    var b_Address = $.trim($(this).find("input.b_Address").val());
+                    var b_Gooff = $.trim($(this).find("input.b_Gooff").val());
+                    var b_Goplace = $.trim($(this).find("input.b_Goplace").val());
+                    var b_Flightnumber = $.trim($(this).find("input.b_Flightnumber").val());
+
+
+                    if (b_FirstName != "" || b_LastName != "" || b_IDCardNo != "" || b_PassportNumber != "" || b_Dateofexpiration != "" || b_Dateofbirth != "" || b_Address != "" || b_Gooff != "" || b_Goplace != "" || b_Flightnumber != "") {
+                        if (b_IDType == "ShenFen") {
+
+                            if (b_IDCardNo == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当选择身份证时必须填写身份证号！", "BTCommon", "BTItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+
+                            if (b_FirstName == "" || b_LastName == "" || b_Address == "" || b_Gooff == "" || b_Goplace == "" || b_Flightnumber == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("机票代订信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                        else {
+                            if (b_Nationality == "" || b_PassportNumber == "" || b_Dateofexpiration == "" || b_Dateofbirth == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当选择护照时（国籍、护照号码、护照有效期、出生年月日）都必须填写！", "BTCommon", "BTItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+
+                            if (b_FirstName == "" || b_LastName == "" || b_Nationality == "" || b_PassportNumber == "" || b_Dateofexpiration == "" || b_Dateofbirth == "" || b_Address == "" || b_Gooff == "" || b_Goplace == "" || b_Flightnumber == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("机票代订信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                    }
+                });
+
+                //酒店代订填写完整性验证
+                $HotelBookingItemTr.find("tr").each(function () {
+                    var b_Checkindate = $.trim($(this).find("input.b_Checkindate").val());
+                    var b_Leavedate = $.trim($(this).find("input.b_Leavedate").val());
+                    var b_Specificaddress = $.trim($(this).find("input.b_Specificaddress").val());
+                    if (b_Checkindate != "" || b_Leavedate != "" || b_Specificaddress != "") {
+                        if (b_Checkindate == "" || b_Leavedate == "" || b_Specificaddress == "") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("酒店代订信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                    }
+                });
+
+                if (errorList.length > 0) {
+                    app.util.onError(errorList, $BusinessTravelEdit);
+                }
+
+                if (validData) {
+                    $this.attr("disabled", "disabled");
+                    $.ajax({
+                        url: '/BusinessTravel/SaveBusinessTravel',
+                        data: GetSaveParam(operation),
+                        dataType: "json",
+                        success: function (ans) {
+                            if (ans.error.length > 0) {
+                                $this.removeAttr("disabled", "disabled");
+                                app.util.onError(ans.error, $BusinessTravelEdit);
+                                return;
+                            }
+                            $BusinessTravelEdit.modal("hide");
+                            $this.removeAttr("disabled", "disabled");
+                            BusinessTravelDataTableObj.fnDraw();
+                        }
+                    });
+                }
+            }
+        });
+
+        //修改审核
+        $BusinessTravelDataTable.delegate(".edit,.audit", "click", function () {
+            var $this = $(this);
+            var opertorType = "";
+            if ($this.hasClass("audit")) {
+                opertorType = "audit";
+            }
+            else {
+                opertorType = "edit";
+            }
+            var activityId = $this.attr("activityId");
+            var activityAssignmentId = $this.attr("activityAssignmentId");
+            BusinessTravelEditParam.b_FlightIsssue.iCheck('uncheck');
+            BusinessTravelEditParam.b_FlightBooking.iCheck('uncheck');
+            BusinessTravelEditParam.b_HotelBooking.iCheck('uncheck');
+            BusinessTravelEditParam.b_Didi.iCheck('uncheck');
+            BusinessTravelEditParam.b_Others.iCheck('uncheck');
+            $("#tipsEdit").hide();
+            $.ajax({
+                url: '/BusinessTravel/GetBusinessTravelById',
+                data: { "id": $this.attr("id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                        return;
+                    }
+                    app.util.clearError($BusinessTravelEdit);
+                    app.util.bindValue(BusinessTravelEditParam, ans);
+                    $BusinessTravelEdit.find("input[name='b_Type']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_Type.toString()) {
+                            $this.iCheck('check');
+                        }
+                    });
+                    $BusinessTravelEdit.find("input[name='b_TripType']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_TripType.toString()) {
+                            $this.iCheck('check');
+                        }
+                    });
+
+                    if (ans.data.b_FlightIsssue == "FlightIsssue") {
+                        $BusinessTravelEdit.find("input[name='b_FlightIsssue']").first().iCheck('check');
+                    } else {
+                        $BusinessTravelEdit.find("input[name='b_FlightIsssue']").first().iCheck('uncheck');
+                    }
+
+                    if (ans.data.b_FlightBooking == "FlightBooking") {
+                        $BusinessTravelEdit.find("input[name='b_FlightBooking']").first().iCheck('check');
+                    }
+                    else {
+                        $BusinessTravelEdit.find("input[name='b_FlightBooking']").first().iCheck('uncheck');
+                    }
+
+                    if (ans.data.b_HotelBooking == "HotelBooking") {
+                        $BusinessTravelEdit.find("input[name='b_HotelBooking']").first().iCheck('check');
+
+                    }
+                    else {
+                        $BusinessTravelEdit.find("input[name='b_HotelBooking']").first().iCheck('uncheck');
+                    }
+
+                    if (ans.data.b_Didi == "Didi") {
+                        $BusinessTravelEdit.find("input[name='b_Didi']").first().iCheck('check');
+                    } else {
+                        $BusinessTravelEdit.find("input[name='b_Didi']").first().iCheck('uncheck');
+                    }
+
+                    if (ans.data.b_Others == "Others") {
+                        $BusinessTravelEdit.find("input[name='b_Others']").first().iCheck('check');
+                    } else {
+                        $BusinessTravelEdit.find("input[name='b_Others']").first().iCheck('uncheck');
+                    }
+
+                    //获取绑定的状态
+                    BusinessTravelEditParam.status.val($this.attr("ItemStatus"));
+                    BusinessTravelEditParam.activityId.val(activityId);
+                    BusinessTravelEditParam.activityAssignmentId.val(activityAssignmentId);
+
+                    $FlightBookingItemTr.empty();
+                    if (ans.data != null && ans.data.FlightBookingItems != null && ans.data.FlightBookingItems.length > 0) {
+                        for (var i = 0; i < ans.data.FlightBookingItems.length; i++) {
+                            var item = ans.data.FlightBookingItems[i];
+                            $tr = $(AddNewFlightBookingTr());
+                            $tr.find(".Id").val(item.Id);
+                            $tr.find(".b_FirstName").val(item.b_FirstName);
+                            $tr.find(".b_LastName").val(item.b_LastName);
+                            $tr.find(".b_IDType").val(item.b_IDType);
+                            $tr.find(".b_IDCardNo").val(item.b_IDCardNo);
+                            $tr.find(".b_Nationality").val(item.b_Nationality);
+                            $tr.find(".b_PassportNumber").val(item.b_PassportNumber);
+                            $tr.find(".b_Dateofexpiration").val(item.b_Dateofexpiration);
+                            $tr.find(".b_Dateofbirth").val(item.b_Dateofbirth);
+                            $tr.find(".b_Address").val(item.b_Address);
+                            $tr.find(".b_Gooff").val(item.b_Gooff);
+                            $tr.find(".b_Goplace").val(item.b_Goplace);
+                            $tr.find(".b_Flightnumber").val(item.b_Flightnumber);
+                            $FlightBookingItemTr.append($tr);
+                        }
+                        $("#FlightBookingItem").show();
+                    }
+                    else {
+
+                        if (ans.data.b_FlightBooking == "FlightBooking" && ($FlightBookingItemTr.find("tr").length > 0 || BusinessTravelEditParam.status.val() == "Start" || BusinessTravelEditParam.status.val() == "Administrative approval")) {
+                            $("#FlightBookingInfo").show();
+                        }
+                        else {
+                            $("#FlightBookingInfo").hide();
+                        }
+
+                        //if (((BusinessTravelEditParam.status.val() != "Start" || BusinessTravelEditParam.status.val() != "Administrative approval") && ans.data.b_FlightBooking != "FlightBooking") || ((BusinessTravelEditParam.status.val() != "Start" || BusinessTravelEditParam.status.val() != "Administrative approval") && $FlightBookingItemTr.find("tr").length==0)) {
+                        //    $("#FlightBookingInfo").hide();
+                        //} else {
+                        //    $("#FlightBookingInfo").show();
+                        //}
+                    }
+                    if ((BusinessTravelEditParam.status.val() == "Start" || BusinessTravelEditParam.status.val() == "Administrative approval") && $FlightBookingItemTr.find("tr").length == 0) {
+                        $FlightBookingItemTr.prepend(AddNewFlightBookingTr());
+                    }
+
+                    $HotelBookingItemTr.empty();
+                    if (ans.data != null && ans.data.HotelBookingItems != null && ans.data.HotelBookingItems.length > 0) {
+                        for (var i = 0; i < ans.data.HotelBookingItems.length; i++) {
+                            var item = ans.data.HotelBookingItems[i];
+                            $tr = $(AddNewBookingItemTr(""));
+                            $tr.find(".Id").val(item.Id);
+                            $tr.find(".b_Checkindate").val(item.b_Checkindate);
+                            $tr.find(".b_Leavedate").val(item.b_Leavedate);
+                            $tr.find(".b_Specificaddress").val(item.b_Specificaddress);
+                            $HotelBookingItemTr.append($tr);
+                        }
+                        $("#HotelBookingEdit").show();
+                    }
+                    else {
+                        if (ans.data.b_HotelBooking == "HotelBooking" && ($HotelBookingItemTr.find("tr").length > 0 || BusinessTravelEditParam.status.val() == "Start" || BusinessTravelEditParam.status.val() == "Administrative approval")) {
+                            $("#HotelBookingEdit").show();
+                        }
+                        else {
+                            $("#HotelBookingEdit").hide();
+
+                        }
+
+                        //if (((BusinessTravelEditParam.status.val() != "Start" || BusinessTravelEditParam.status.val() != "Administrative approval") && ans.data.b_HotelBooking != "HotelBooking") || ((BusinessTravelEditParam.status.val() != "Start" || BusinessTravelEditParam.status.val() != "Administrative approval") && $HotelBookingItemTr.find("tr").length == 0)) {
+                        //    $("#HotelBookingEdit").hide();
+                        //} else {
+                        //    $("#HotelBookingEdit").show();
+                        //}
+                    }
+                    if ((BusinessTravelEditParam.status.val() == "Start" || BusinessTravelEditParam.status.val() == "Administrative approval") && $HotelBookingItemTr.find("tr").length == 0) {
+                        $HotelBookingItemTr.prepend(AddNewBookingItemTr());
+                    }
+
+                    $("#fileList").empty();
+                    if (ans.data != null && ans.data.Files != null && ans.data.Files.length > 0) {
+                        for (var i = 0; i < ans.data.Files.length; i++) {
+                            var item = ans.data.Files[i];
+                            if (item.comments == BusinessTravelEditParam.status.val()) {
+                                $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a>&nbsp;&nbsp;&nbsp;<a href='#' class='glyphicon glyphicon-remove text-danger' id='" + item.id + "' source_id='" + item.source_id + "' relationId='" + item.relationId + "' onclick='DeleteFile(this)'></a></label></div>");
+                            }
+                            else {
+                                $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a></label></div>");
+                            }
+                        }
+                    }
+
+                    //上传文件控件
+                    var fileobj = $("#Btfile").clone().val("");
+                    $("#Btfile").closest("label").empty().append(fileobj);
+                    if (BusinessTravelEditParam.status.val() == "Start") {
+                        $BusinessTravelEdit.find("h4.modal-title").empty().append("修改 <label style='color:rgb(88,136,193)'>" + BusinessTravelEditParam.b_DocumentNo.val() + "</label>");
+                    }
+                    else {
+                        $BusinessTravelEdit.find("h4.modal-title").empty().append("审核 <label style='color:rgb(88,136,193)'>" + BusinessTravelEditParam.b_DocumentNo.val() + "</label>");
+                    }
+                    displayModelSetting();
+                    if (ans.data.b_Others == "Others") {
+                        BusinessTravelEditParam.b_OtherContent.show();
+                    }
+                    else {
+                        BusinessTravelEditParam.b_OtherContent.hide();
+                    }
+
+                    if (opertorType == "audit") {
+                        BusinessTravelEditParam.b_OtherContent.hide();
+                        $(".MonetaryUnit").hide();
+                    }
+                    $BusinessTravelEdit.modal({ backdrop: 'static' });
+                    $BusinessTravelEdit.modal('show');
+                }
+            });
+        }).delegate(".delete", "click", function () {
+            var $this = $(this);
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要删除吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/BusinessTravel/DeleteBusinessTravel',
+                    data: { "id": $this.attr("Id") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        BusinessTravelDataTableObj.fnPageChange(app.util.DTCurrentPage(BusinessTravelDataTableObj));
+                    }
+                });
+            }
+        }).delegate(".history", "click", function () {
+            BusinessTravelHistoryParam.Item_id.val($(this).attr("Id"));
+            BusinessTravelHistory.fnDraw();
+            $BusinessTravelHistoryModel.modal('show');
+        }).delegate(".detail", "click", function () {
+            LoadDetail($(this).attr("Id"));
+        }).delegate(".recall", "click", function () {
+            var $this = $(this);
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要撤回吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/BusinessTravel/RecallBusinessTravel',
+                    data: { "id": $this.attr("Id"), "activityId": $this.attr("activityId") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        BusinessTravelDataTableObj.fnPageChange(app.util.DTCurrentPage(BusinessTravelDataTableObj));
+                    }
+                });
+            }
+        }).delegate(".workflow", "click", function () {
+            var itemStatus = $(this).attr("ItemStatus");
+            $("#workflow").find("text").each(function () {
+                var aimRect = $(this).closest("g").find("rect").first();
+                if (aimRect.attr("fill") == "rgb(238, 238, 0)") {
+                    aimRect.attr("fill", "none");
+                }
+            });
+            $("#workflow").find("text").each(function () {
+                var textValue = $(this).attr("status");
+                if (textValue == itemStatus) {
+                    var aimRect = $(this).closest("g").find("rect").first();
+                    aimRect.attr("fill", "rgb(238, 238, 0)");
+                    aimRect.attr("fill-opacity", "1");
+                    aimRect.attr("fill-rule", "evenodd");
+                }
+            });
+            $("#BusinessTravelWorkFlow").modal("show");
+        });
+
+        //审核出差单
+        $BusinessTravelEdit.delegate("#AuditApprove", "click", function () {
+            var $this = $(this);
+            var validData = true;
+            var errorList = [];
+            var Param;
+
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($BusinessTravelEdit)) {
+                if (BusinessTravelEditParam.status.val() == "Administrative approval") {
+                    var b_Type = "";
+                    $BusinessTravelEdit.find("input[name='b_Type']").each(function () {
+                        var $this = $(this);
+                        if ($this.closest("div").hasClass("checked")) {
+                            b_Type = $this.val();
+                        }
+                    });
+                    if (b_Type == "") {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择项目类型！", "ERCommon", "ERItemType", ViewBag.language)" });
+                        validData = false;
+                    }
+                    var b_TripType = "";
+                    $BusinessTravelEdit.find("input[name='b_TripType']").each(function () {
+                        var $this = $(this);
+                        if ($this.closest("div").hasClass("checked")) {
+                            b_TripType = $this.val();
+                        }
+                    });
+                    if (b_TripType == "") {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择出差类型！", "ERCommon", "ERItemType", ViewBag.language)" });
+                        validData = false;
+                    }
+
+
+
+                    //机票代订填写完整性验证
+                    $FlightBookingItemTr.find("tr").each(function () {
+                        var b_FirstName = $.trim($(this).find("input.b_FirstName").val());
+                        var b_LastName = $.trim($(this).find("input.b_LastName").val());
+                        var b_IDType = $.trim($(this).find("select.b_IDType").val());
+                        var b_IDCardNo = $.trim($(this).find("input.b_IDCardNo").val());
+                        var b_Nationality = $.trim($(this).find("input.b_Nationality").val());
+                        var b_PassportNumber = $.trim($(this).find("input.b_PassportNumber").val());
+                        var b_Dateofexpiration = $.trim($(this).find("input.b_Dateofexpiration").val());
+                        var b_Dateofbirth = $.trim($(this).find("input.b_Dateofbirth").val());
+                        var b_Address = $.trim($(this).find("input.b_Address").val());
+                        var b_Gooff = $.trim($(this).find("input.b_Gooff").val());
+                        var b_Goplace = $.trim($(this).find("input.b_Goplace").val());
+                        var b_Flightnumber = $.trim($(this).find("input.b_Flightnumber").val());
+
+
+                        if (b_FirstName != "" || b_LastName != "" || b_IDCardNo != "" || b_PassportNumber != "" || b_Dateofexpiration != "" || b_Dateofbirth != "" || b_Address != "" || b_Gooff != "" || b_Goplace != "" || b_Flightnumber != "") {
+                            if (b_IDType == "ShenFen") {
+
+                                if (b_IDCardNo == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "当选择身份证时必须填写身份证号！" });
+                                    validData = false;
+                                    return false;
+                                }
+
+                                if (b_FirstName == "" || b_LastName=="" || b_Address == "" || b_Gooff == "" || b_Goplace == "" || b_Flightnumber == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("机票代订信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+                            }
+                            else {
+                                if (b_Nationality=="" || b_PassportNumber == "" || b_Dateofexpiration == "" || b_Dateofbirth == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "当选择护照时（国籍、护照号码、护照有效期、出生年月日）都必须填写！" });
+                                    validData = false;
+                                    return false;
+                                }
+
+                                if (b_FirstName == "" || b_LastName == "" || b_Nationality=="" || b_PassportNumber == "" || b_Dateofexpiration == "" || b_Dateofbirth == "" || b_Address == "" || b_Gooff == "" || b_Goplace == "" || b_Flightnumber == "") {
+                                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("机票代订信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                                    validData = false;
+                                    return false;
+                                }
+                            }
+                        }
+                    });
+
+                    //酒店代订填写完整性验证
+                    $HotelBookingItemTr.find("tr").each(function () {
+                        var b_Checkindate = $.trim($(this).find("input.b_Checkindate").val());
+                        var b_Leavedate = $.trim($(this).find("input.b_Leavedate").val());
+                        var b_Specificaddress = $.trim($(this).find("input.b_Specificaddress").val());
+
+                        if (b_Checkindate != "" || b_Leavedate != "" || b_Specificaddress != "") {
+                            if (b_Checkindate == "" || b_Leavedate == "" || b_Specificaddress == "") {
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("酒店代订信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                    });
+                    Param = GetSaveParam("audit");
+                }
+                else {
+                    Param = GetAuditBusinessTravel();
+                }
+                if (errorList.length > 0) {
+                    app.util.onError(errorList, $BusinessTravelEdit);
+                }
+                if (validData) {
+                    $this.attr("disabled", "disabled");
+                    $.ajax({
+                        url: '/BusinessTravel/AuditBusinessTravel',
+                        data: Param,
+                        dataType: "json",
+                        success: function (ans) {
+                            if (ans.error.length > 0) {
+                                $this.removeAttr("disabled", "disabled");
+                                app.util.onError(ans.error, $BusinessTravelEdit);
+                                return;
+                            }
+                            $this.removeAttr("disabled", "disabled");
+                            $BusinessTravelEdit.modal("hide");
+                            BusinessTravelDataTableObj.fnPageChange(app.util.DTCurrentPage(BusinessTravelDataTableObj));
+                        }
+                    });
+                }
+            } ///拒绝
+        }).delegate("#SendRefuse", "click", function () {
+            var $this = $(this);
+            var isValid = true;
+            if ($.trim(BusinessTravelEditParam.b_Remark.val()) == "") {
+                BusinessTravelEditParam.b_Remark.closest("div").addClass("has-error");
+                isValid = false;
+            }
+            if (isValid) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/BusinessTravel/RefuseBusinessTravel',
+                    data: GetAuditBusinessTravel(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $BusinessTravelEdit);
+                            return;
+                        }
+                        $BusinessTravelEdit.modal("hide");
+                        $this.removeAttr("disabled", "disabled");
+                        BusinessTravelDataTableObj.fnPageChange(app.util.DTCurrentPage(BusinessTravelDataTableObj));
+                    }
+                });
+            }
+        }).delegate("#SendHangUp", "click", function () {
+            var $this = $(this);
+            var isValid = true;
+            if ($.trim(BusinessTravelEditParam.b_Remark.val()) == "") {
+                BusinessTravelEditParam.b_Remark.closest("div").addClass("has-error");
+                isValid = false;
+            }
+            if (isValid) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/BusinessTravel/HangUpBusinessTravel',
+                    data: GetAuditBusinessTravel(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $BusinessTravelEdit);
+                            return;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $BusinessTravelEdit.modal("hide");
+                        BusinessTravelDataTableObj.fnPageChange(app.util.DTCurrentPage(BusinessTravelDataTableObj));
+                    }
+                });
+            }
+        });
+
+
+        //获取查询Select流程状态数据
+        function loadWorkFlowStatus() {
+            $.ajax({
+                url: '/BusinessTravel/GetWorkflowStatusList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    BtSearchParam.status.empty();
+                    BtSearchParam.status.append("<option value=''>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "Common", "ItemType", ViewBag.language)</option>");
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            BtSearchParam.status.append("<option value='" + item.value + "'>" + item.text + "</option>");
+                        }
+                    }
+                }
+            });
+        }
+
+
+        //验证用户信息
+        function ValidUserInfo(userName) {
+            $.ajax({
+                url: '/BusinessTravel/ValidUserInfo',
+                dataType: "json",
+                data: { "userName": userName },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        app.util.onError(ans.error, $BusinessTravelEdit);
+                        return;
+                    }
+                }
+            });
+        }
+
+
+        BusinessTravelEditParam.b_CompanyCode.change(function () {
+            var currentCompanyCode = $(this).val();
+            currentCompanyCode = $.trim(currentCompanyCode.substring(0, currentCompanyCode.indexOf('(')));
+            $.ajax({
+                url: '/Common/GetUserByName',
+                dataType: "json",
+                async: false,
+                data: { "name": BusinessTravelEditParam.b_Employee.val() },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    if (ans.data != null) {
+                        var joinCostCenterStr = currentCompanyCode + ans.data.b_CostCenter;
+                        BusinessTravelEditParam.b_CostCenter.val(joinCostCenterStr);
+                    }
+                }
+            })
+        })
+
+
+    </script>
+}

@@ -1,0 +1,14 @@
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\OABordrinCommon.dll
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\OABordrinCommon.pdb
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\EntityFramework.dll
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\EntityFramework.SqlServer.dll
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\Newtonsoft.Json.dll
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\OAEntitys.dll
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\OAEntitys.pdb
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\EntityFramework.xml
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\EntityFramework.SqlServer.xml
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\Newtonsoft.Json.xml
+D:\OASystem\trunk\OABordrinCommon\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\OASystem\trunk\OABordrinCommon\obj\Debug\OABordrinCommon.csprojResolveAssemblyReference.cache
+D:\OASystem\trunk\OABordrinCommon\obj\Debug\OABordrinCommon.dll
+D:\OASystem\trunk\OABordrinCommon\obj\Debug\OABordrinCommon.pdb

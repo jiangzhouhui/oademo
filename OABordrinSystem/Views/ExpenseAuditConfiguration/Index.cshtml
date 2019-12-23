@@ -1,0 +1,302 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("审核人配置表", "CommonName", "Common", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("报销管理", "ERCommon", "ERItemType", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("审核人配置表", "CommonName", "Common", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                    <button type="button" class="btn btn-w-m btn-warning" id="btnAdd">@OABordrinCommon.Common.GetLanguageValueByParam("新建", "CommonName", "Common", ViewBag.language)</button>
+                    <button type="button" class="btn btn-w-m btn-success" id="btnImport">@OABordrinCommon.Common.GetLanguageValueByParam("导入", "CommonName", "Common", ViewBag.language)</button>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="ExpenseAuditConfigurationDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>角色名称</th>
+                                    <th>报销类型</th>
+                                    <th>公司代码</th>
+                                    <th>项目名称</th>
+                                    <th>成本中心</th>
+                                    <th>处理人</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/ExpenseAuditConfiguration/ExpenseAuditConfigurationImport.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/ExpenseAuditConfiguration/ExpenseAuditConfigurationEdit.cshtml")
+@section scripts{
+    <!-- jquery-ui -->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- chosen  控件 -->
+    <link href="~/OpenResouce/css/plugins/chosen/chosen.css" rel="stylesheet" />
+    <script src="~/OpenResouce/js/plugins/chosen/chosen.jquery.js"></script>
+
+
+    <script src="@Url.Version("~/Scripts/ExpenseAuditConfiguration/ExpenseAuditConfigurationEdit.js")"></script>
+
+    <script type="text/javascript">
+        var $ExpenseAuditConfigurationDataTable = $("#ExpenseAuditConfigurationDataTable"), ExpenseAuditConfigurationDataTableObj;
+        EACSearchParam = app.util.getEditParam($("#SearchPara"));
+
+        var $ExpenseAuditConfigurationImport = $("#ExpenseAuditConfigurationImport");
+
+        $(document).ready(function () {
+            //加载表格数据
+            ExpenseAuditConfigurationDataTableObj = $ExpenseAuditConfigurationDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": false,
+                "sAjaxSource": '/ExpenseAuditConfiguration/GetAuditConfigurationList',
+                "fnServerData": RetrieveAuditConfigurationData,
+                "aoColumns": [
+                        { "data": "b_RoleName", "sWidth": 200 },
+                        { "data": "b_Type", "sWidth": 100 },
+                        { "data": "b_CompanyCode", "sWidth": 100 },
+                        { "data": "b_ProjectName", "sWidth": 100 },
+                        { "data": "b_CostCenters"  },
+                        { "data": "b_HandlePersons", "sWidth": 200 }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language)",
+                    "oPaginate": {//分页的样式内容。
+                        "sPrevious": "@OABordrinCommon.Common.GetLanguageValueByParam("上一页", "CommonName", "Common", ViewBag.language)",
+                        "sNext": "@OABordrinCommon.Common.GetLanguageValueByParam("下一页", "CommonName", "Common", ViewBag.language)",
+                        "sFirst": "@OABordrinCommon.Common.GetLanguageValueByParam("第一页", "CommonName", "Common", ViewBag.language)",
+                        "sLast": "@OABordrinCommon.Common.GetLanguageValueByParam("最后", "CommonName", "Common", ViewBag.language)"
+                    }
+                },
+                "aLengthMenu": [15, 25, 50, 100],
+            });
+
+            LoadAutocompleteData();
+            SetAutocomplete();
+        });
+
+        function RetrieveAuditConfigurationData(sSource, aoData, fnCallback) {
+            $.ajax({
+                url: '/ExpenseAuditConfiguration/GetAuditConfigurationList',//这个就是请求地址对应sAjaxSource
+                data: GetAuditConfigurationSearchParam(aoData),
+                dataType: 'json',
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
+
+        function GetAuditConfigurationSearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;
+            var iDisplayStart = aoData[3].value;
+            var iDisplayLength = aoData[4].value;
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+            var searchValue = $("input[name='SearchValue']").val();
+
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue };
+        }
+
+        //查询
+        $("#BtnSearch").click(function () {
+            ExpenseAuditConfigurationDataTableObj.fnDraw();
+        });
+
+
+        //新增
+        $("#btnAdd").click(function () {
+            app.util.ModelToEdit($ExpenseAuditConfigurationEdit);
+            app.util.clearError($ExpenseAuditConfigurationEdit);
+            app.util.bindValue(ExpenseAuditConfigurationParam, "");
+            $ExpenseAuditConfigurationEdit.find(".modal-title").text("@OABordrinCommon.Common.GetLanguageValueByParam("新增", "CommonName", "Common", ViewBag.language)");
+            $("#SaveExpenseAuditConfiguration").show();
+            ExpenseAuditConfigurationParam.b_CostCenters.chosen("destroy");
+            ExpenseAuditConfigurationParam.b_Type.val("Non Project");
+            ExpenseAuditConfigurationParam.b_Type.trigger("change");
+            LoadCostCenter();
+            $ExpenseAuditConfigurationEdit.modal({ backdrop: 'static' });
+            $ExpenseAuditConfigurationEdit.modal("show");
+        });
+
+
+        $("#SaveExpenseAuditConfiguration").click(function () {
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($ExpenseAuditConfigurationEdit)) {
+                $.ajax({
+                    url: '/ExpenseAuditConfiguration/SaveExpenseAuditConfiguration',
+                    data: GetSaveParam(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            app.util.onError(ans.error, $ExpenseAuditConfigurationEdit);
+                            return;
+                        }
+                        $ExpenseAuditConfigurationEdit.modal("hide");
+                        ExpenseAuditConfigurationDataTableObj.fnDraw();
+                    }
+                });
+            }
+        });
+
+        $ExpenseAuditConfigurationDataTable.delegate(".edit", "click", function () {
+            $.ajax({
+                url: '/ExpenseAuditConfiguration/GetExpenseAuditConfigurationById',
+                data: { "id": $(this).attr("id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                        return;
+                    }
+                    $("#SaveExpenseAuditConfiguration").show();
+                    //加载成本中心
+                    ExpenseAuditConfigurationParam.b_CostCenters.chosen("destroy");
+                    LoadCostCenter();
+                    //$(".chosen-select").hide();
+                    app.util.ModelToEdit($ExpenseAuditConfigurationEdit);
+                    $("label.theValue").remove()
+                    app.util.clearError($ExpenseAuditConfigurationEdit);
+                    app.util.bindValue(ExpenseAuditConfigurationParam, ans);
+                    ExpenseAuditConfigurationParam.b_Type.trigger("change");
+                    ExpenseAuditConfigurationParam.b_CostCenters.hide();
+                    var CostCenters = [];
+                    if (ans.data != null && ans.data.b_CostCenters != "") {
+                        CostCenters = ans.data.b_CostCenters.split(',');
+                    }
+                    ExpenseAuditConfigurationParam.b_CostCenters.val(CostCenters);
+                    ExpenseAuditConfigurationParam.b_CostCenters.trigger("chosen:updated");
+                    $ExpenseAuditConfigurationEdit.find(".modal-title").text("@OABordrinCommon.Common.GetLanguageValueByParam("修改", "CommonName", "Common", ViewBag.language)");
+                    $ExpenseAuditConfigurationEdit.modal("show");
+                }
+            });
+        }).delegate(".detail", "click", function () {
+            $.ajax({
+                url: '/ExpenseAuditConfiguration/GetExpenseAuditConfigurationById',
+                data: { "id": $(this).attr("id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                        return;
+                    }
+        
+                    $("#SaveExpenseAuditConfiguration").hide();
+                    app.util.clearError($ExpenseAuditConfigurationEdit);
+                    app.util.bindValue(ExpenseAuditConfigurationParam, ans);
+                    ExpenseAuditConfigurationParam.b_Type.trigger("change");
+                    var CostCenters = [];
+                    if (ans.data != null && ans.data.b_CostCenters != "") {
+                        CostCenters = ans.data.b_CostCenters.split(',');
+                    }
+                    ExpenseAuditConfigurationParam.b_CostCenters.val(CostCenters);
+                    ExpenseAuditConfigurationParam.b_CostCenters.trigger("chosen:updated");
+                    app.util.ModelToDetails($ExpenseAuditConfigurationEdit);
+                    $("#b_CostCenters").find("label.theValue").text(ans.data.b_CostCenters);
+                    $("#b_CostCenters").find("label.theValue").css("width", 600);
+                    $("#b_CostCenters").find("label.theValue").css("word-wrap", "break-word");
+                    $ExpenseAuditConfigurationEdit.find(".chosen-container").hide();
+                    $ExpenseAuditConfigurationEdit.find(".modal-title").text("@OABordrinCommon.Common.GetLanguageValueByParam("详情", "CommonName", "Common", ViewBag.language)");
+                    $ExpenseAuditConfigurationEdit.modal("show");
+                }
+            });
+        }).delegate(".delete", "click", function () {
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要删除吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/ExpenseAuditConfiguration/DeleteExpenseAuditConfiguration',
+                    data: { "id": $(this).attr("id") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        ExpenseAuditConfigurationDataTableObj.fnPageChange(app.util.DTCurrentPage(ExpenseAuditConfigurationDataTableObj));
+                    }
+                });
+            }
+        });
+
+        $("#btnImport").click(function () {
+            app.util.clearError($ExpenseAuditConfigurationImport);
+            //上传文件控件
+            var fileobj = $("#Prfile").clone().val("");
+            $("#Prfile").closest("label").empty().append(fileobj);
+            $ExpenseAuditConfigurationImport.modal("show");
+        });
+
+        //上传
+        $("#upload").click(function () {
+            var $this = $(this);
+            var formData = new FormData();
+            formData.append("myfile", document.getElementById("Prfile").files[0]);
+            $this.attr("disabled", "disabled");
+            $.ajax({
+                url: '/ExpenseAuditConfiguration/UploadExpenseAuditFile',
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        $this.removeAttr("disabled", "disabled");
+                        app.util.onError(ans.error, $ExpenseAuditConfigurationImport);
+                        return;
+                    }
+                    $this.removeAttr("disabled", "disabled");
+                    $ExpenseAuditConfigurationImport.modal("hide");
+                    ExpenseAuditConfigurationDataTableObj.fnDraw();
+                }
+            });
+        });
+    </script>
+}

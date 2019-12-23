@@ -1,0 +1,738 @@
+﻿
+@{
+    Layout = null;
+}
+@model OABordrinSystem.Models.TripReimbursementModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" />
+    @*<meta http-equiv="X-UA-Compatible" content="IE=11" />*@
+    <title>@OABordrinCommon.Common.GetLanguageValueByParam("打印差旅报销单", "TRCommon", "TRItemType", ViewBag.language)</title>
+    <script src="~/OpenResouce/js/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/LodopFuncs.js"></script>
+</head>
+<body>
+    <div id="content" class="center">
+        <style type="text/css">
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                font-size: 12px;
+                vertical-align: baseline;
+                background: transparent;
+                font-weight: normal;
+            }
+
+            .title {
+                text-align: center;
+                width: 100%;
+                font-weight: bold;
+                font-size: 16px;
+                margin: 5px 0 15px 0;
+            }
+
+            .center {
+                margin: 0 auto;
+                vertical-align: middle;
+                text-align: center;
+                width: 780px;
+                height: 140px;
+            }
+
+            .tbinfo {
+                width: 100%;
+                text-align: left;
+            }
+
+                .tbinfo td {
+                    padding: 10px;
+                }
+
+            .infoV {
+                width: 100px;
+                display: inline-block;
+                border-bottom: 1px solid #000;
+                text-align: center;
+            }
+
+            .tbItems {
+                border: 1px solid #000;
+                width: 100%;
+                border-collapse: collapse;
+                margin-left: 2px;
+            }
+
+                .tbItems td {
+                    border: 1px solid #000;
+                    padding: 2px;
+                    padding-left: 5px;
+                    text-align: left;
+                    height: 30px;
+                    vertical-align: middle;
+                }
+
+            .pageContent {
+                height: 800px;
+                margin-top: 10px;
+            }
+        </style>
+        <div class="pageContent">
+            <div class="title">
+                @OABordrinCommon.Common.GetLanguageValueByParam("差旅报销单", "TRCommon", "TRItemType", ViewBag.language)@Html.Raw("(" + Model.b_RecordNo + ")")
+            </div>
+            <table class="tbinfo">
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("公司代码", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_CompanyCode)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("报销所在地", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 115px;">@Html.Raw(Model.b_ReimbursementPlace)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("是否预算内", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_IsBudgetary ? "是" : "否")</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("预算编号", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_BudgetNumber)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("报销类型", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Type == "Project" ? "项目" : "非项目")</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_ApplicationDate)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("是否国际出差", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 110px;">@Html.Raw(Model.b_IntalBusiness ? "是" : "否")</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("代申请人", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_Preparer)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("代申请人工号", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_PreparerNo)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_Employee)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请人工号", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_StaffNo)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("申请部门", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_Dept)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("成本中心代码", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_CostCenter)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("电话", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_Tel)</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("附件张数", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                        </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_AttachmentsQuantity)</span>
+                    </td>
+                </tr>
+                @if (Model.b_Type == "Non Project")
+                {
+                    <tr>
+                        <td style="width: 35%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("高级经理", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_LineLeader)</span>
+                        </td>
+                        <td style="width: 30%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("总监", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 135px;">@Html.Raw(Model.b_DeptLeader)</span>
+                        </td>
+                        <td style="width: 35%">
+                            <label>
+                                VP
+                            </label><span class="infoV" style="width: 120px;">@Html.Raw(Model.b_DivisionVP)</span>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td style="width:35%">
+                        <label>
+                            出差单号
+                        </label>
+                        <span class="infoV" style="width:120px;">@Html.Raw(Model.b_BTRecordNo)</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            出差预算
+                        </label>
+                        <span class="infoV" style="width:135px;">@Html.Raw(Model.b_TravelBudget)</span>
+                    </td>
+                    <td style="width:35%">
+                        <label>
+                            是否超出预算
+                        </label>
+                        <span class="infoV" style="width:120px;">@Html.Raw(Model.b_IsBeyondBudget)</span>
+                    </td>
+                </tr>
+                @if (Model.b_IsBeyondBudget=="是")
+                {
+                    <tr>
+                        <td colspan="3">
+                            <label>
+                                超出理由
+                            </label>
+                            <span class="infoV" style="width:85%;text-align:left;">@Html.Raw(Model.b_BeyondReason)</span>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <br />
+            @if (Model.HotelExpenseItems != null && Model.HotelExpenseItems.Count > 0)
+            {
+                <h5 style="text-align:left;">@OABordrinCommon.Common.GetLanguageValueByParam("住宿费（非增值税专用发票，税率处请填写0）", "TRCommon", "TRItemType", ViewBag.language)</h5>
+                <table class="tbItems">
+                    <tr>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("城市", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("酒店", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("原币单价", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("天数", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_HotelExpense", "TRItemType", ViewBag.language)</td>
+                    </tr>
+                    @for (int i = 0; i < Model.HotelExpenseItems.Count; i++)
+                    {
+                        var item = Model.HotelExpenseItems[i];
+                        <tr>
+                            <td>
+                                @item.b_StartDate
+                            </td>
+                            <td>
+                                @item.b_EndDate
+                            </td>
+                            <td>
+                                @item.b_ProjectName
+                            </td>
+                            <td>
+                                @item.b_City
+                            </td>
+                            <td>
+                                @item.b_Hotel
+                            </td>
+                            <td>
+                                @item.b_Currency
+                            </td>
+                            <td>
+                                @item.b_Rate
+                            </td>
+                            <td>
+                                @item.b_OriginalCurrency
+                            </td>
+                            <td>
+                                @item.b_Count
+                            </td>
+                            <td>
+                                @item.b_TaxRate
+                            </td>
+                            <td>
+                                @item.b_Tax
+                            </td>
+                            <td>
+                                @item.b_TaxFreeAmount
+                            </td>
+                            <td>
+                                @item.b_CNYSubtotal
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <br />
+                <table class="tbinfo">
+                    <tr>
+                        <td style="width: 50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_HotelInWords</span>
+                        </td>
+                        <td style="width:50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_HotelAmount</span>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            }
+            @if (Model.TrafficExpenseItems != null && Model.TrafficExpenseItems.Count > 0)
+            {
+                <h5 style="text-align:left;">@OABordrinCommon.Common.GetLanguageValueByParam("交通费（非增值税专用发票，税率处请填写0）", "TRCommon", "TRItemType", ViewBag.language)</h5>
+                <table class="tbItems">
+                    <tr>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("类别", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("线路起", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("线路止", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("原币单价", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("数量/公里", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_TrafficExpense", "TRItemType", ViewBag.language)</td>
+                    </tr>
+
+                    @for (int i = 0; i < Model.TrafficExpenseItems.Count; i++)
+                    {
+                        var item = Model.TrafficExpenseItems[i];
+                        <tr>
+                            <td>
+                                @item.b_StartDate
+                            </td>
+                            <td>
+                                @item.b_EndDate
+                            </td>
+                            <td>
+                                @item.b_ProjectName
+                            </td>
+                            <td>
+                                @item.b_Type
+                            </td>
+                            <td>
+                                @item.b_StartPoint
+                            </td>
+                            <td>
+                                @item.b_EndPoint
+                            </td>
+                            <td>
+                                @item.b_Currency
+                            </td>
+                            <td>
+                                @item.b_Rate
+                            </td>
+                            <td>
+                                @item.b_OriginalCurrency
+                            </td>
+                            <td>
+                                @item.b_Count
+                            </td>
+                            <td>
+                                @item.b_TaxRate
+                            </td>
+                            <td>
+                                @item.b_Tax
+                            </td>
+                            <td>
+                                @item.b_TaxFreeAmount
+                            </td>
+                            <td>
+                                @item.b_CNYSubtotal
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <br />
+                <table class="tbinfo">
+                    <tr>
+                        <td style="width: 50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_TrafInWords</span>
+                        </td>
+                        <td style="width:50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_TrafAmount</span>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            }
+            @if (Model.MealsSubsidiesItems != null && Model.MealsSubsidiesItems.Count > 0)
+            {
+                <h5 style="text-align:left;">@OABordrinCommon.Common.GetLanguageValueByParam("固定补贴（非增值税专用发票，税率处请填写0）", "TRCommon", "TRItemType", ViewBag.language)</h5>
+                <table class="tbItems">
+                    <tr>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("地点", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("同行者人数", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("同行者姓名", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("固定补贴(人民币)", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td style="display:none;">@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td style="display:none;">@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                    </tr>
+                    @for (int i = 0; i < Model.MealsSubsidiesItems.Count; i++)
+                    {
+                        var item = Model.MealsSubsidiesItems[i];
+                        <tr>
+                            <td>
+                                @item.b_StartDate
+                            </td>
+                            <td>
+                                @item.b_EndDate
+                            </td>
+                            <td>
+                                @item.b_ProjectName
+                            </td>
+                            <td>
+                                @item.b_Place
+                            </td>
+                            <td>
+                                @item.b_CompanionAmount
+                            </td>
+                            <td>
+                                @item.b_CompanionName
+                            </td>
+                            <td>
+                                @item.b_Currency
+                            </td>
+                            <td>
+                                @item.b_Rate
+                            </td>
+                            <td>
+                                @item.b_FixedSubsidy
+                            </td>
+                            <td style="display:none;">
+                                @item.b_TaxRate
+                            </td>
+                            <td style="display:none;">
+                                @item.b_Tax
+                            </td>
+                            <td>
+                                @item.b_TaxFreeAmount
+                            </td>
+                            <td>
+                                @item.b_CNYSubtotal
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <br />
+                <table class="tbinfo">
+                    <tr>
+                        <td style="width: 50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_MealInWords</span>
+                        </td>
+                        <td style="width:50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_MealAmount</span>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            }
+            @if (Model.OthersItems != null && Model.OthersItems.Count > 0)
+            {
+                <h5 style="text-align:left;">@OABordrinCommon.Common.GetLanguageValueByParam("其他（签证/其他费用/非增值税专用发票，税率处请填写0）", "b_Others", "TRItemType", ViewBag.language)</h5>
+                <table class="tbItems">
+                    <tr>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("地点", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("类别", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("事由", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("原币单价", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("数量", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</td>
+                    </tr>
+                    @for (int i = 0; i < Model.OthersItems.Count; i++)
+                    {
+                        var item = Model.OthersItems[i];
+                        <tr>
+                            <td>
+                                @item.b_StartDate
+                            </td>
+                            <td>
+                                @item.b_EndDate
+                            </td>
+                            <td>
+                                @item.b_ProjectName
+                            </td>
+                            <td>
+                                @item.b_Place
+                            </td>
+                            <td>
+                                @item.b_Type
+                            </td>
+                            <td>
+                                @item.b_Reason
+                            </td>
+                            <td>
+                                @item.b_Currency
+                            </td>
+                            <td>
+                                @item.b_Rate
+                            </td>
+                            <td>
+                                @item.b_OriginalCurrency
+                            </td>
+                            <td>
+                                @item.b_Count
+                            </td>
+                            <td>
+                                @item.b_TaxRate
+                            </td>
+                            <td>
+                                @item.b_Tax
+                            </td>
+                            <td>
+                                @item.b_TaxFreeAmount
+                            </td>
+                            <td>
+                                @item.b_CNYSubtotal
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <br />
+                <table class="tbinfo">
+                    <tr>
+                        <td style="width: 50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_OthInWords</span>
+                        </td>
+                        <td style="width:50%">
+                            <label>
+                                @OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+                            </label><span class="infoV" style="width: 165px;">@Model.b_OthAmount</span>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            }
+            @if (Model.LoanItems != null && Model.LoanItems.Count > 0)
+            {
+                <h5 style="text-align:left;"> @OABordrinCommon.Common.GetLanguageValueByParam("借款明细", "b_LoanItem", "ERItemType", ViewBag.language)</h5>
+                <table class="tbItems">
+                    <tr>
+                        <td> @OABordrinCommon.Common.GetLanguageValueByParam("借款单单号", "b_LoanItem", "ERItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("借款日期", "b_LoanItem", "ERItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("借款人", "b_LoanItem", "ERItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("借款金额", "b_LoanItem", "ERItemType", ViewBag.language)</td>
+                        <td>@OABordrinCommon.Common.GetLanguageValueByParam("借款事由", "b_LoanItem", "ERItemType", ViewBag.language)</td>
+                    </tr>
+                    @for (var i = 0; i < Model.LoanItems.Count; i++)
+                    {
+                        var item = Model.LoanItems[i];
+                        <tr>
+                            <td>
+                                @item.b_LoanOrderNo
+                            </td>
+                            <td>
+                                @item.b_Date
+                            </td>
+                            <td>
+                                @item.b_Borrower
+                            </td>
+                            <td>
+                                @item.b_LoanAmount
+                            </td>
+                            <td>
+                                @item.b_LoanReason
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                <br />
+            }
+            <table class="tbinfo">
+                <tr>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("向公司预支现金", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+
+                        </label><span class="infoV" style="width: 120px;">@Model.b_AdvancedAmount</span>
+                    </td>
+                    <td style="width: 35%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("总费用", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+
+                        </label><span class="infoV" style="width: 120px;">@Model.b_TotalExpense</span>
+                    </td>
+                    <td style="width: 30%">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("合计金额", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+
+                        </label><span class="infoV" style="width: 120px;">@Model.b_AmountInTotal</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("备注", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)
+
+                        </label>&nbsp;&nbsp;<span style="width:80%;display: inline-block;text-align:left;">@Html.Raw(Model.OldRemark)</span>
+                    </td>
+                </tr>
+            </table>
+            @if (Model.HistoryList != null && Model.HistoryList.Count > 0)
+            {
+                <table class="tbItems" style="margin-top:20px;">
+                    <tr>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("状态", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作时间", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("操作人", "CommonName", "Common", ViewBag.language)
+                        </td>
+                        <td>
+                            @OABordrinCommon.Common.GetLanguageValueByParam("内容", "CommonName", "Common", ViewBag.language)
+                        </td>
+                    </tr>
+                    @for (int i = 0; i < Model.HistoryList.Count; i++)
+                    {
+                        var item = Model.HistoryList[i];
+                        <tr>
+                            <td>
+                                @item.ItemStatus
+                            </td>
+                            <td>
+                                @item.OperateStr
+                            </td>
+                            <td>
+                                @item.Created_on
+                            </td>
+                            <td>
+                                @item.CreateName
+                            </td>
+                            <td>
+                                @item.Comments
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //$(window).load(function () {
+        //    LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+        //});
+
+        //if (IEVersion() != "edge") {
+        //    if (needCLodop()) {
+        //        window.On_CLodop_Opened = function () {
+        //            OpenPreview(); //调用打印方法打印，详见样例22
+        //            window.On_CLodop_Opened = null;
+        //        };
+        //    }
+        //    else {
+        //        window.onload = function () {
+        //            OpenPreview();
+        //        };
+        //    }
+        //}
+        //else {
+
+        //}
+        window.print();
+
+        //function OpenPreview() {
+        //    LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+        //    if (typeof (LODOP.PRINT_INIT) == "undefined") { return; }
+        //    LODOP.PRINT_INIT("TR单");
+        //    LODOP.SET_PRINT_PAGESIZE(0, 0, 0, "复写 9.5 x 11 英寸");
+        //    LODOP.ADD_PRINT_HTM(0, 0, "100%", "100%", document.getElementById("content").innerHTML);
+        //    LODOP.PREVIEW();
+        //    window.close();
+        //}
+
+        //function IEVersion() {
+        //    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        //    var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+        //    var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+        //    var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+        //    if (isIE) {
+        //        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+        //        reIE.test(userAgent);
+        //        var fIEVersion = parseFloat(RegExp["$1"]);
+        //        if (fIEVersion == 7) {
+        //            return 7;
+        //        } else if (fIEVersion == 8) {
+        //            return 8;
+        //        } else if (fIEVersion == 9) {
+        //            return 9;
+        //        } else if (fIEVersion == 10) {
+        //            return 10;
+        //        } else {
+        //            return 6;//IE版本<=7
+        //        }
+        //    } else if (isEdge) {
+        //        return 'edge';//edge
+        //    } else if (isIE11) {
+        //        return 11; //IE11
+        //    } else {
+        //        return -1;//不是ie浏览器
+        //    }
+        //}
+    </script>
+</body>
+</html>

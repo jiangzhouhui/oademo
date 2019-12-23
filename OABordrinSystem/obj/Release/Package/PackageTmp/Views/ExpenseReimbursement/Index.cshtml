@@ -1,0 +1,803 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@OABordrinCommon.Common.GetLanguageValueByParam("费用报销申请", "ERCommon", "ERItemType", ViewBag.language)</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">@OABordrinCommon.Common.GetLanguageValueByParam("主页", "CommonName", "Common", ViewBag.language)</a>
+            </li>
+            <li>
+                <a>@OABordrinCommon.Common.GetLanguageValueByParam("报销管理", "ERCommon", "ERItemType", ViewBag.language)</a>
+            </li>
+            <li class="active">
+                <strong>@OABordrinCommon.Common.GetLanguageValueByParam("费用报销申请", "ERCommon", "ERItemType", ViewBag.language)</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <form class="form-inline" id="SearchPara">
+                    <div class="form-group">
+                        <input type="text" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("查询字符","Noun","Common",ViewBag.language)" name="SearchValue" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="startTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("开始时间", "CommonName", "Common", ViewBag.language)" />--
+                        <input type="text" name="endTime" class="form-control" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("结束时间", "CommonName", "Common", ViewBag.language)" />
+                    </div>
+                    <div class="form-group">
+                        <select name="status" class="form-control"></select>
+                    </div>
+                    <button class="btn btn-w-m btn-primary" type="button" id="BtnSearch">@OABordrinCommon.Common.GetLanguageValueByParam("查询", "CommonName", "Common", ViewBag.language)</button>
+                    <button type="button" class="btn btn-w-m btn-warning" id="btnAdd">@OABordrinCommon.Common.GetLanguageValueByParam("新建", "CommonName", "Common", ViewBag.language)</button>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div style="width:98%">
+                        <table id="ExpenseReimbursementDataTable" class="table table-striped table-bordered table-hover dataTables-example MicroYaHei-solid" style="width:100%;min-width:1074px;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("单号", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请部门", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("合计金额", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("当前处理人", "CommonName", "Common", ViewBag.language)</th>
+                                    <th>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "CommonName", "Common", ViewBag.language)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/ExpenseReimbursement/ExpenseReimbursementEdit.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/ExpenseReimbursement/ExpenseReimbursementHistory.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/ExpenseReimbursement/ExpenseReimbursementDetail.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/ExpenseReimbursement/ExpenseReimbursementWorkFlow.cshtml")
+<div style="display:none;"></div>
+@Html.Partial("~/Views/WorkFlow/WorkflowTurnToDo.cshtml")
+@section scripts{
+    <!-- jquery-ui -->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <!-- bootstrap-datepicker CSS-->
+    <link href="~/OpenResouce/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <!-- bootstrap-datepicker JS-->
+    <script src="~/OpenResouce/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- DataTables CSS -->
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <script src="~/OpenResouce/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="~/OpenResouce/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <!-- ICheck CSS -->
+    <link href="~/OpenResouce/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/OpenResouce/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+    <!-- ICheck JS -->
+    <script src="~/OpenResouce/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- 编辑Js -->
+    <script src="@Url.Version("~/Scripts/ExpenseReimbursement/ExpenseReimbursementEdit.js")"></script>
+
+    <!-- 日志Js -->
+    <script src="@Url.Version("~/Scripts/ExpenseReimbursement/ExpenseReimbursementHistory.js")"></script>
+
+    <!-- 详情Js -->
+    <script src="@Url.Version("~/Scripts/ExpenseReimbursement/ExpenseReimbursementDetail.js")"></script>
+
+    <!-- 转办Js -->
+    <script src="@Url.Version("~/Scripts/WorkflowTurnToDo.js")"></script>
+
+    <script type="text/javascript">
+        var $ExpenseReimbursementDataTable = $("#ExpenseReimbursementDataTable"), ExpenseReimbursementDataTableObj;
+        ErSearchParam = app.util.getEditParam($("#SearchPara"));
+
+        $(document).ready(function () {
+            ErSearchParam.startTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+            ErSearchParam.endTime.datepicker({ autoclose: true, format: 'yyyy-mm-dd' });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            //加载表格数据
+            ExpenseReimbursementDataTableObj = $ExpenseReimbursementDataTable.dataTable({
+                "bServerSide": true,
+                "bProcessing": false,
+                "bFilter": false,
+                "bAutoWidth": false,
+                "aaSorting": [1, "desc"],
+                "sAjaxSource": '/ExpenseReimbursement/GetExpenseReimbursementList',
+                "fnServerData": RetrieveExpenseReimbursementData,
+                "aoColumns": [
+                        { "data": "b_RecordNo", "sWidth": 240 },
+                        { "data": "b_ApplicationDate" },
+                        { "data": "b_Dept" },
+                        { "data": "b_Employee" },
+                        { "data": "b_DueCompany" },
+                        { "data": "AuditorStr", "sWidth": 150, "bSortable": false },
+                        { "data": "status", "sWidth": 80 }
+                ],
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": " @OABordrinCommon.Common.GetLanguageValueByParam("从", "CommonName", "Common", ViewBag.language) _START_ @OABordrinCommon.Common.GetLanguageValueByParam("到", "CommonName", "Common", ViewBag.language)  _END_ /@OABordrinCommon.Common.GetLanguageValueByParam("共", "CommonName", "Common", ViewBag.language) _TOTAL_ @OABordrinCommon.Common.GetLanguageValueByParam("条数据", "CommonName", "Common", ViewBag.language)",
+                    "oPaginate": {//分页的样式内容。
+                        "sPrevious": "@OABordrinCommon.Common.GetLanguageValueByParam("上一页", "CommonName", "Common", ViewBag.language)",
+                        "sNext": "@OABordrinCommon.Common.GetLanguageValueByParam("下一页", "CommonName", "Common", ViewBag.language)",
+                        "sFirst": "@OABordrinCommon.Common.GetLanguageValueByParam("第一页", "CommonName", "Common", ViewBag.language)",
+                        "sLast": "@OABordrinCommon.Common.GetLanguageValueByParam("最后", "CommonName", "Common", ViewBag.language)"
+                    }
+                },
+                "aLengthMenu": [15, 25, 50, 100],
+            });
+
+            //加载流程状态
+            loadWorkFlowStatus();
+        });
+
+
+        function RetrieveExpenseReimbursementData(sSource, aoData, fnCallback) {
+            $.ajax({
+                url: '/ExpenseReimbursement/GetExpenseReimbursementList',//这个就是请求地址对应sAjaxSource
+                data: GetExpenseReimbursementSearchParam(aoData),
+                dataType: 'json',
+                success: function (result) {
+                    fnCallback(result);//把返回的数据传给这个方法就可以了,datatable会自动绑定数据的
+                },
+                error: function (msg) {
+                }
+            });
+        }
+
+        function GetExpenseReimbursementSearchParam(aoData) {
+            //DataTable固定传入参数
+            var sEcho = aoData[0].value;
+            var iDisplayStart = aoData[3].value;
+            var iDisplayLength = aoData[4].value;
+            //排序数组中的索引值
+            var index = aoData[aoData.length - 3].value;
+            //根据索引获取排序名称
+            var iSortTitle = aoData[5 + index * 2].value;
+            //获取排序的方式
+            var sSortType = aoData[aoData.length - 2].value;
+
+            if (iSortTitle == "b_ApplicationDate") {
+                iSortTitle = "nb_ApplicationDate";
+            }
+            var searchValue = $("input[name='SearchValue']").val();
+
+
+            var startTime = ErSearchParam.startTime.val();
+
+            var endTime = ErSearchParam.endTime.val();
+
+            var status = ErSearchParam.status.val();
+
+            return { "sEcho": sEcho, "iDisplayStart": iDisplayStart, "iDisplayLength": iDisplayLength, "iSortTitle": iSortTitle, "sSortType": sSortType, "searchValue": searchValue, "startTime": startTime, "endTime": endTime, "status": status };
+        }
+
+
+        $("#btnAdd").click(function () {
+            //清除小窗口错误
+            app.util.clearError($ExpenseReimbursementEdit);
+            //表格保证最少一行
+            $ReimbursementItemTr.empty().append(AddNewReimbursementItemTr());
+            $LoanItemTr.empty().append(AddNewLoanItemTr('@ViewBag.UserName'));
+            //$("#editLoanItemDetails").show();
+            //将小窗口数据清空
+            app.util.bindValue(ExpenseReimbursementEditParam, "");
+            ExpenseReimbursementEditParam.b_ApplicationDate.val(GetNowFormatDate());
+            ExpenseReimbursementEditParam.b_Employee.val('@ViewBag.UserName');
+            ExpenseReimbursementEditParam.b_Dept.val('@ViewBag.department');
+            ExpenseReimbursementEditParam.b_Preparer.val('@ViewBag.UserName');
+            ExpenseReimbursementEditParam.b_PreparerNo.val('@ViewBag.b_JobNumber')
+            LoadEmployeeInfo(ExpenseReimbursementEditParam.b_Employee.val());
+            $ExpenseReimbursementEdit.find("input[name='b_Type']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+            $ExpenseReimbursementEdit.find("input[name='b_IsBudgetary']").each(function () {
+                $(this).iCheck('uncheck');
+            });
+
+
+
+            //上传文件控件
+            $("#fileList").empty();
+            var fileobj = $("#Erfile").clone().val("");
+            $("#Erfile").closest("label").empty().append(fileobj);
+            displayModelSetting();
+            $("#departmentLeaderInfo").hide();
+
+            //验证人员信息是否完整
+            ValidUserInfo(ExpenseReimbursementEditParam.b_Employee.val());
+
+            //打开小窗口
+            $ExpenseReimbursementEdit.modal({ backdrop: 'static' });
+            $ExpenseReimbursementEdit.find("h4.modal-title").empty().append("@OABordrinCommon.Common.GetLanguageValueByParam("新建费用申请", "ERCommon", "ERItemType", ViewBag.language)");
+            $ExpenseReimbursementEdit.modal("show");
+        });
+
+        //查询
+        $("#BtnSearch").click(function () {
+            ExpenseReimbursementDataTableObj.fnDraw();
+        });
+
+        //保存和提交单据
+        $ExpenseReimbursementEdit.delegate("#SaveExpenseReimbursement,#SubmitExpenseReimbursement", "click", function () {
+            var $this = $(this);
+            var operation = $(this).attr("operation");
+            var validData = true;
+            var errorList = [];
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($ExpenseReimbursementEdit)) {
+                //验证输入是否为数字
+                if (!app.util.ValidNumber(ExpenseReimbursementEditParam.b_AttachmentsQuantity)) {
+                    return;
+                }
+
+                var b_Type = "";
+                $ExpenseReimbursementEdit.find("input[name='b_Type']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_Type = $this.val();
+                    }
+                });
+                if (b_Type == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择报销类型！", "ERCommon", "ERItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                var b_IsBudgetary = "";
+                $ExpenseReimbursementEdit.find("input[name='b_IsBudgetary']").each(function () {
+                    var $this = $(this);
+                    if ($this.closest("div").hasClass("checked")) {
+                        b_IsBudgetary = $this.val();
+                    }
+                });
+
+                if (b_IsBudgetary == "") {
+                    errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择是否在预算内！", "ERCommon", "ERItemType", ViewBag.language)" });
+                    validData = false;
+                }
+
+                //报销明细填写完整性验证
+                $ReimbursementItemTr.find("tr").each(function () {
+                    var b_Date = $.trim($(this).find("input.b_Date").val());
+                    var b_CategoryNumber = $.trim($(this).find("select.b_CategoryNumber").val());
+                    var b_ProjectName = $.trim($(this).find("select.b_ProjectName").val());
+                    var b_BudgetNumber = $.trim($(this).find("input.b_BudgetNumber").val());
+                    var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                    var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                    var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                    var b_Count = $.trim($(this).find("input.b_Count").val());
+                    var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+
+                    //判断税率  大于等于0，小于1
+                    if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("税率中设置范围[0,1)，超出范围不让填写。（可以为0）", "ERCommon", "ERItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+
+                    if (b_Date == "" || b_CategoryNumber == "" || b_BudgetNumber == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "") {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("报销明细信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+   
+                    if (b_ProjectName != "" && b_Type != "Project") {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当非项目时，明细不可填写项目名称！", "ERCommon", "ERItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+
+                    if (b_Type == "Project" && b_ProjectName == "") {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当为项目时，明细请填写项目名称！", "ERCommon", "ERItemType", ViewBag.language)" });
+                        validData = false;
+                        return false;
+                    }
+                });
+
+                //借款明细验证
+                $LoanItem.find("tr").each(function () {
+                    var b_LoanOrderNo = $.trim($(this).find("input.b_LoanOrderNo").val());
+                    var b_Date = $.trim($(this).find("input.b_Date").val());
+                    var b_Borrower = $.trim($(this).find("input.b_Borrower").val());
+                    var b_LoanAmount = $.trim($(this).find("input.b_LoanAmount").val());
+                    var b_LoanReason = $.trim($(this).find("input.b_LoanReason").val());
+
+                    if (b_LoanOrderNo != "" || b_Date != "" || b_LoanAmount != "" || b_LoanReason != "") {
+                        if (b_LoanOrderNo == "" || b_Date == "" || b_LoanAmount == "" || b_LoanReason == "") {
+
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("填写借款明细时，必须填写完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                    }
+                });
+
+                if (errorList.length > 0) {
+                    app.util.onError(errorList, $ExpenseReimbursementEdit);
+                }
+
+                if (validData) {
+                    $("#SaveExpenseReimbursement,#SubmitExpenseReimbursement").attr("disabled", "disabled");
+                    $.ajax({
+                        url: '/ExpenseReimbursement/SaveExpenseReimbursement',
+                        data: GetSaveParam(operation),
+                        dataType: "json",
+                        success: function (ans) {
+                            if (ans.error.length > 0) {
+                                $("#SaveExpenseReimbursement,#SubmitExpenseReimbursement").removeAttr("disabled", "disabled");
+                                $this.removeAttr("disabled", "disabled");
+                                app.util.onError(ans.error, $ExpenseReimbursementEdit);
+                                return;
+                            }
+                            $ExpenseReimbursementEdit.modal("hide");
+                            $("#SaveExpenseReimbursement,#SubmitExpenseReimbursement").removeAttr("disabled", "disabled");
+                            ExpenseReimbursementDataTableObj.fnDraw();
+                        }
+                    });
+                }
+            }
+        });
+
+        $ExpenseReimbursementDataTable.delegate(".edit,.audit", "click", function () {
+            var $this = $(this);
+            var opertorType = "";
+            if ($this.hasClass("audit"))
+            {
+                opertorType = "audit";
+            }
+            else
+            {
+                opertorType = "edit";
+            }
+            var activityId = $this.attr("activityId");
+            var activityAssignmentId = $this.attr("activityAssignmentId");
+            $.ajax({
+                url: '/ExpenseReimbursement/GetExpenseReimbursementById',
+                data: { "id": $this.attr("id") },
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                        return;
+                    }
+                    app.util.clearError($ExpenseReimbursementEdit);
+                    app.util.bindValue(ExpenseReimbursementEditParam, ans);
+                    $ExpenseReimbursementEdit.find("input[name='b_IsBudgetary']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_IsBudgetary.toString()) {
+                            $this.iCheck('check');
+                        }
+                    });
+
+                    $ExpenseReimbursementEdit.find("input[name='b_Type']").each(function () {
+                        var $this = $(this);
+                        if ($this.val() == ans.data.b_Type) {
+                            $this.iCheck('check');
+                        }
+                    });
+
+                    //获取绑定的状态
+                    ExpenseReimbursementEditParam.status.val($this.attr("ItemStatus"));
+                    ExpenseReimbursementEditParam.activityId.val(activityId);
+                    ExpenseReimbursementEditParam.activityAssignmentId.val(activityAssignmentId);
+
+                    //报销明细
+                    $ReimbursementItemTr.empty();
+                    if (ans.data != null && ans.data.ReimbursementItems != null && ans.data.ReimbursementItems.length > 0) {
+                        for (var i = 0; i < ans.data.ReimbursementItems.length; i++) {
+                            var item = ans.data.ReimbursementItems[i];
+                            $tr = $(AddNewReimbursementItemTr(opertorType));
+                            $tr.find(".Id").val(item.Id);
+                            $tr.find(".b_Date").val(item.b_Date);
+                            $tr.find(".b_CategoryNumber").val(item.b_CategoryNumber);
+                            $tr.find(".b_ProjectName").val(item.b_ProjectName);
+                            $tr.find(".b_BudgetNumber").val(item.b_BudgetNumber);
+                            $tr.find(".b_Currency").val(item.b_Currency);
+                            $tr.find(".b_Rate").val(item.b_Rate);
+                            $tr.find(".b_OriginalCurrency").val(item.b_OriginalCurrency);
+                            $tr.find(".b_Count").val(item.b_Count);
+                            $tr.find(".b_TaxRate").val(item.b_TaxRate);
+                            $tr.find(".b_Tax").val(item.b_Tax);
+                            $tr.find(".b_TaxFreeAmount").val(item.b_TaxFreeAmount);
+                            $tr.find(".b_CNYSubtotal").html(item.b_CNYSubtotal);
+                            $tr.find(".b_AmountInWords").html(item.b_AmountInWords);
+                            $tr.find(".b_Amount").html(item.b_Amount);
+                            $ReimbursementItemTr.append($tr);
+                        }
+                    }
+                    if (ExpenseReimbursementEditParam.status.val() == "Start" && $ReimbursementItemTr.find("tr").length == 0) {
+                        $ReimbursementItemTr.prepend(AddNewReimbursementItemTr());
+                    }
+
+
+                    //借款明细
+                    $LoanItemTr.empty();
+                    if (ans.data != null && ans.data.LoanItems != null && ans.data.LoanItems.length > 0) {
+                        for (var i = 0; i < ans.data.LoanItems.length; i++) {
+                            var item = ans.data.LoanItems[i];
+                            $tr = $(AddNewLoanItemTr(""));
+                            $tr.find(".Id").val(item.Id);
+                            $tr.find(".b_LoanOrderNo").val(item.b_LoanOrderNo);
+                            $tr.find(".b_Date").val(item.b_Date);
+                            $tr.find(".b_Borrower").val(item.b_Borrower);
+                            $tr.find(".b_LoanAmount").val(item.b_LoanAmount);
+                            $tr.find(".b_LoanReason").val(item.b_LoanReason);
+                            $LoanItemTr.append($tr);
+                        }
+                        $("#editLoanItemDetails").show();
+                    }
+
+                    if (ExpenseReimbursementEditParam.status.val() == "Start" && $LoanItemTr.find("tr").length == 0) {
+                        $LoanItemTr.prepend(AddNewLoanItemTr(ExpenseReimbursementEditParam.b_Employee.val()));
+                    }
+
+
+                    $("#fileList").empty();
+                    if (ans.data != null && ans.data.Files != null && ans.data.Files.length > 0) {
+                        for (var i = 0; i < ans.data.Files.length; i++) {
+                            var item = ans.data.Files[i];
+                            if (item.comments == ExpenseReimbursementEditParam.status.val()) {
+                                $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a>&nbsp;&nbsp;&nbsp;<a href='#' class='glyphicon glyphicon-remove text-danger' id='" + item.id + "' source_id='" + item.source_id + "' relationId='" + item.relationId + "' onclick='DeleteFile(this)'></a></label></div>");
+                            }
+                            else {
+                                $("#fileList").append("<div><label><a href='#' class='fileObj' id='" + item.id + "' onclick='DownloadAttachment(this)'>" + item.fileName + "</a></label></div>");
+                            }
+
+                        }
+                    }
+
+                    //上传文件控件
+                    var fileobj = $("#Erfile").clone().val("");
+                    $("#Erfile").closest("label").empty().append(fileobj);
+                    if (ExpenseReimbursementEditParam.status.val() == "Start") {
+                        $ExpenseReimbursementEdit.find("h4.modal-title").empty().append("修改 <label style='color:rgb(88,136,193)'>" + ExpenseReimbursementEditParam.b_RecordNo.val() + "</label>");
+                    }
+                    else {
+                        $ExpenseReimbursementEdit.find("h4.modal-title").empty().append("审核 <label style='color:rgb(88,136,193)'>" + ExpenseReimbursementEditParam.b_RecordNo.val() + "</label>");
+                    }
+                    displayModelSetting();
+                    $ExpenseReimbursementEdit.modal({ backdrop: 'static' });
+                    $ExpenseReimbursementEdit.modal('show');
+                }
+            });
+        }).delegate(".delete", "click", function () {
+            var $this = $(this);
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要删除吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/ExpenseReimbursement/DeleteExpenseReimbursement',
+                    data: { "id": $this.attr("Id") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        ExpenseReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(ExpenseReimbursementDataTableObj));
+                    }
+                });
+            }
+
+        }).delegate(".history", "click", function () {
+            ExpenseReimbursementHistoryParam.Item_id.val($(this).attr("Id"));
+            ExpenseReimbursementHistory.fnDraw();
+            $ExpenseReimbursementHistoryModel.modal('show');
+        }).delegate(".detail", "click", function () {
+            LoadDetail($(this).attr("Id"));
+        }).delegate(".recall", "click", function () {
+            var $this = $(this);
+            if (confirm("@OABordrinCommon.Common.GetLanguageValueByParam("您确定要撤回吗？", "CommonName", "Common", ViewBag.language)")) {
+                $.ajax({
+                    url: '/ExpenseReimbursement/RecallExpenseReimbursement',
+                    data: { "id": $this.attr("Id"), "activityId": $this.attr("activityId") },
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            dialog.showMsg("@OABordrinCommon.Common.GetLanguageValueByParam("错误提示？", "CommonName", "Common", ViewBag.language)！", ans.error[0].value);
+                            return;
+                        }
+                        ExpenseReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(ExpenseReimbursementDataTableObj));
+                    }
+                });
+            }
+        }).delegate(".workflow", "click", function () {
+            var itemStatus = $(this).attr("ItemStatus");
+            $("#workflow").find("text").each(function () {
+                var aimRect = $(this).closest("g").find("rect").first();
+                if (aimRect.attr("fill") == "rgb(238, 238, 0)") {
+                    aimRect.attr("fill", "none");
+                }
+            });
+            $("#workflow").find("text").each(function () {
+                var textValue = $(this).attr("status");
+                if (textValue == itemStatus) {
+                    var aimRect = $(this).closest("g").find("rect").first();
+                    aimRect.attr("fill", "rgb(238, 238, 0)");
+                    aimRect.attr("fill-opacity", "1");
+                    aimRect.attr("fill-rule", "evenodd");
+                }
+            });
+            $("#ExpenseReimbursementWorkFlow").modal("show");
+        });
+
+        //审核费用报销单
+        $ExpenseReimbursementEdit.delegate("#AuditApprove", "click", function () {
+            var $this = $(this);
+            var validData = true;
+            var errorList = [];
+            var Param;
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($ExpenseReimbursementEdit)) {
+                if (ExpenseReimbursementEditParam.status.val() == "Expense Accountant Check" || ExpenseReimbursementEditParam.status.val() == "Expense Accountant Creation" || ExpenseReimbursementEditParam.status.val() == "Financial Analyst") {
+                    //验证输入是否为数字
+                    if (!app.util.ValidNumber(ExpenseReimbursementEditParam.b_AttachmentsQuantity)) {
+                        return;
+                    }
+
+                    var b_Type = "";
+                    $ExpenseReimbursementEdit.find("input[name='b_Type']").each(function () {
+                        var $this = $(this);
+                        if ($this.closest("div").hasClass("checked")) {
+                            b_Type = $this.val();
+                        }
+                    });
+                    if (b_Type == "") {
+                        errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("必须选择项目类型！", "ERCommon", "ERItemType", ViewBag.language)" });
+                        validData = false;
+                    }
+
+
+                    //报销明细填写完整性验证
+                    $ReimbursementItemTr.find("tr").each(function () {
+                        var b_Date = $.trim($(this).find("input.b_Date").val());
+                        var b_CategoryNumber = $.trim($(this).find("select.b_CategoryNumber").val());
+                        var b_ProjectName = $.trim($(this).find("input.b_ProjectName").val());
+                        var b_BudgetNumber = $.trim($(this).find("input.b_BudgetNumber").val());
+                        var b_Currency = $.trim($(this).find("select.b_Currency").val());
+                        var b_Rate = $.trim($(this).find("input.b_Rate").val());
+                        var b_OriginalCurrency = $.trim($(this).find("input.b_OriginalCurrency").val());
+                        var b_Count = $.trim($(this).find("input.b_Count").val());
+                        var b_TaxRate = $.trim($(this).find("select.b_TaxRate").val());
+
+                        //判断税率  大于等于0，小于1
+                        if (!(b_TaxRate >= 0 && b_TaxRate < 1)) {
+                            errorList.push({ "key": "errorMessage", "value": "税率中设置范围[0,1)，超出范围不让填写。（可以为0）" });
+                            validData = false;
+                            return false;
+                        }
+
+                        if (b_Date == "" || b_CategoryNumber == "" || b_BudgetNumber == "" || b_Currency == "" || b_Rate == "" || b_OriginalCurrency == "" || b_Count == "" || b_TaxRate == "") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("报销明细信息填写不完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+
+                        if (b_ProjectName != "" && b_Type != "Project") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当非项目时，明细不可填写项目名称！", "ERCommon", "ERItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+
+                        if (b_Type == "Project" && b_ProjectName == "") {
+                            errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("当为项目时，明细请填写项目名称！", "ERCommon", "ERItemType", ViewBag.language)" });
+                            validData = false;
+                            return false;
+                        }
+                    });
+
+                    //借款明细验证
+                    $LoanItem.find("tr").each(function () {
+                        var b_LoanOrderNo = $.trim($(this).find("input.b_LoanOrderNo").val());
+                        var b_Date = $.trim($(this).find("input.b_Date").val());
+                        var b_Borrower = $.trim($(this).find("input.b_Borrower").val());
+                        var b_LoanAmount = $.trim($(this).find("input.b_LoanAmount").val());
+                        var b_LoanReason = $.trim($(this).find("input.b_LoanReason").val());
+
+                        if (b_LoanOrderNo != "" || b_Date != "" || b_Borrower != "" || b_LoanAmount != "" || b_LoanReason != "") {
+                            if (b_LoanOrderNo == "" || b_Date == "" || b_Borrower == "" || b_LoanAmount == "" || b_LoanReason == "") {
+
+                                errorList.push({ "key": "errorMessage", "value": "@OABordrinCommon.Common.GetLanguageValueByParam("填写借款明细时，必须填写完整！", "ERCommon", "ERItemType", ViewBag.language)" });
+                                validData = false;
+                                return false;
+                            }
+                        }
+                    });
+                    Param = GetSaveParam("audit");
+                }
+                else {
+                    Param = GetAuditExpenseReimbursement();
+                }
+                if (errorList.length > 0) {
+                    app.util.onError(errorList, $ExpenseReimbursementEdit);
+                }
+
+                if (validData) {
+                    $this.attr("disabled", "disabled");
+                    $.ajax({
+                        url: '/ExpenseReimbursement/AuditExpenseReimbursement',
+                        data: Param,
+                        dataType: "json",
+                        success: function (ans) {
+                            if (ans.error.length > 0) {
+                                $this.removeAttr("disabled", "disabled");
+                                app.util.onError(ans.error, $ExpenseReimbursementEdit);
+                                return;
+                            }
+                            $this.removeAttr("disabled", "disabled");
+                            $ExpenseReimbursementEdit.modal("hide");
+                            ExpenseReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(ExpenseReimbursementDataTableObj));
+                        }
+                    });
+                }
+            }
+            //拒绝操作
+        }).delegate("#SendRefuse", "click", function () {
+            var $this = $(this);
+            var isValid = true;
+            if ($.trim(ExpenseReimbursementEditParam.b_Remark.val()) == "") {
+                ExpenseReimbursementEditParam.b_Remark.closest("div").addClass("has-error");
+                isValid = false;
+            }
+            if (isValid) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/ExpenseReimbursement/RefuseExpenseReimbursement',
+                    data: GetAuditExpenseReimbursement(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $ExpenseReimbursementEdit);
+                            return;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $ExpenseReimbursementEdit.modal("hide");
+                        ExpenseReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(ExpenseReimbursementDataTableObj));
+                    }
+                });
+            }
+        }).delegate("#SendHangUp", "click", function () {
+            var $this = $(this);
+            var isValid = true;
+            if ($.trim(ExpenseReimbursementEditParam.b_Remark.val()) == "") {
+                ExpenseReimbursementEditParam.b_Remark.closest("div").addClass("has-error");
+                isValid = false;
+            }
+            if (isValid) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/ExpenseReimbursement/HangUpExpenseReimbursement',
+                    data: GetAuditExpenseReimbursement(),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $ExpenseReimbursementEdit);
+                            return;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $ExpenseReimbursementEdit.modal("hide");
+                        ExpenseReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(ExpenseReimbursementDataTableObj));
+                    }
+                });
+            }
+        });
+
+        //获取查询Select流程状态数据
+        function loadWorkFlowStatus() {
+            $.ajax({
+                url: '/ExpenseReimbursement/GetWorkflowStatusList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return;
+                    }
+                    ErSearchParam.status.empty();
+                    ErSearchParam.status.append("<option value=''>@OABordrinCommon.Common.GetLanguageValueByParam("流程状态", "Common", "ItemType", ViewBag.language)</option>");
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            ErSearchParam.status.append("<option value='" + item.value + "'>" + item.text + "</option>");
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+        //验证用户信息
+        function ValidUserInfo(userName) {
+            $.ajax({
+                url: '/ExpenseReimbursement/ValidUserInfo',
+                dataType: "json",
+                data: { "userName": userName },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        app.util.onError(ans.error, $ExpenseReimbursementEdit);
+                        return;
+                    }
+                }
+            });
+        }
+
+        ExpenseReimbursementEditParam.b_CompanyCode.change(function () {
+            var currentCompanyCode = $(this).val();
+            currentCompanyCode =$.trim(currentCompanyCode.substring(0, currentCompanyCode.indexOf('(')));
+            $.ajax({
+                url: '/Common/GetUserByName',
+                dataType: "json",
+                async: false,
+                data: { "name": ExpenseReimbursementEditParam.b_Employee.val() },
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    if (ans.data != null) {
+                        var joinCostCenterStr = currentCompanyCode + ans.data.b_CostCenter;
+                        ExpenseReimbursementEditParam.b_CostCenter.val(joinCostCenterStr);
+                    }
+                }
+            });
+        });
+
+        $("#TurnToDo").click(function () {
+            app.util.bindValue(WorkflowTurnToDoParam, "");
+            WorkflowTurnToDoParam.activityId.val(ExpenseReimbursementEditParam.activityId.val());
+            WorkflowTurnToDoParam.activityAssignmentId.val(ExpenseReimbursementEditParam.activityAssignmentId.val());
+            WorkflowTurnToDoParam.itemId.val(ExpenseReimbursementEditParam.Id.val());
+            WorkflowTurnToDoParam.recordNo.val(ExpenseReimbursementEditParam.b_RecordNo.val());
+            WorkflowTurnToDoParam.linkStr.val("/ExpenseReimbursement/Index");
+            $ExpenseReimbursementEdit.modal("hide");
+            $WorkflowTurnToDoModel.find("h4.modal-title").empty().append("转办 <label style='color:rgb(88,136,193)'>" + ExpenseReimbursementEditParam.b_RecordNo.val() + "</label>");
+            $WorkflowTurnToDoModel.modal({ backdrop: 'static' });
+            $WorkflowTurnToDoModel.modal("show");
+        });
+
+        $("#btnTurnToDo").click(function () {
+            var $this = $(this);
+            //验证数据是否填写完整，如果完整提交
+            if (app.util.ValidationFromData($WorkflowTurnToDoModel)) {
+                $this.attr("disabled", "disabled");
+                $.ajax({
+                    url: '/WorkFlow/SaveWorkflowTurnToDo',
+                    data: app.util.serializeParamArray(WorkflowTurnToDoParam),
+                    dataType: "json",
+                    success: function (ans) {
+                        if (ans.error.length > 0) {
+                            $this.removeAttr("disabled", "disabled");
+                            app.util.onError(ans.error, $WorkflowTurnToDoModel);
+                            return false;
+                        }
+                        $this.removeAttr("disabled", "disabled");
+                        $WorkflowTurnToDoModel.modal("hide");
+                        ExpenseReimbursementDataTableObj.fnPageChange(app.util.DTCurrentPage(ExpenseReimbursementDataTableObj));
+                    }
+                });
+            }
+        });
+    </script>
+}

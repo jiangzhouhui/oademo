@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> @OABordrinCommon.Common.GetLanguageValueByParam("博郡BPM平台", "Noun", "Common", ViewBag.language)</title>
+    <style type="text/css">
+    </style>
+        @System.Web.Optimization.Styles.Render("~/Content/css")
+        <a href="~/Views/ProjectManage/Index.cshtml">~/Views/ProjectManage/Index.cshtml</a>
+    <link href="~/Content/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/Portal.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/OpenResouce/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/OpenResouce/js/jquery-2.1.1.js"></script>
+    <style type="text/css">
+        body {
+            font: normal 14px/1.5 Arial,STHeiti,Microsoft YaHei,simsun,Helvetica,sans-serif;
+            color: #343434;
+            background-color: #f6f6f6;
+        }
+    </style>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }</script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fa fa-paper-plane"></i> Bordrin</a>
+            <div class="menu">
+                <a class="toggleMenu" href="#"><img src="~/Images/nav_icon.png" alt="" /> </a>
+                <ul class="nav" id="nav">
+                    <li class="current"><a href="@Url.Action("Index","Portal")">@OABordrinCommon.Common.GetLanguageValueByParam("首页", "PortalNavigation","")</a></li>
+                    <li><a href="#">新闻公告</a></li>
+                    <li><a href="#">知识中心</a></li>
+                    <li><a href="@Url.Action("Index","SelfService")">自助服务</a></li>
+                    <li><a href="#">部门站点</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="gray-bg">
+        @RenderBody()
+        <div class="footer">
+            <div>
+                <strong>Copyright</strong> 南京博郡新能源汽车有限公司 &copy; 2017
+            </div>
+        </div>
+    </div>
+
+    @System.Web.Optimization.Scripts.Render("~/Script/js")
+    <script src="~/Scripts/responsive-nav.js"></script>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        var $nav = $("#nav");
+        $(document).ready(function () {
+            $nav.find("li").each(function () {
+                if ($(this).hasClass("current"))
+                {
+                    $(this).removeClass("current");
+                }
+
+                if ($(this).text() == '@ViewBag.CurrentName') {
+                    $(this).addClass("current");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

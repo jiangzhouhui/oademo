@@ -1,0 +1,222 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "首页";
+}
+<link href="@Url.Version("~/Content/newStyle.css")" rel="stylesheet" />
+<div class="animated fadeInRight" style="">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="ibox float-e-margins" style="width:1000px;">
+                <div class="ibox-title">
+                    <h5>@OABordrinCommon.Common.GetLanguageValueByParam("新闻资讯", "Noun", "Common", ViewBag.language)</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" >
+                    <div class="table-responsive" style="padding:0px;margin:0px;">
+                        <div class="top_slide_wrap">
+                            <div class="bx-wrapper">
+                                <ul class="slide_box">
+
+                                    <li><a href="http://www.bordrin.com/news/show-2.htm" target="_blank"><img src="~/Images/WeChat Image_20170808143728.jpg" alt=""><p></p></a></li>
+                                    <li><a href="http://www.bordrin.com/news/show-1.htm" target="_blank"><img src="~/Images/WeChat Image_20170808150031.jpg" alt=""><p></p></a></li>
+                                    @*<li><a href="#"><img src="~/Images/130Q1115P9-2.jpg" alt=""><p></p></a></li>
+                                        <li><a href="#"><img src="~/Images/150PG55118-1.jpg" alt=""><p></p></a></li>
+                                        <li><a href="#"><img src="~/Images/150PG55118-3.jpg" alt=""><p></p></a></li>*@
+                                </ul>
+                                <ul class="bx-controls">
+                                    <li>
+                                        <a class="actives" href="http://www.bordrin.com/news/show-2.htm" target="_blank">
+                                            <span>
+                                                <label>&nbsp;&nbsp;博郡汽车携手美国麻省理工探索“创新·智造未来汽车出行”</label>
+                                                <div style="margin-bottom:0px;text-align:right;"><label>2017-08-08</label></div>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.bordrin.com/news/show-1.htm" target="_blank">
+                                            <span>
+                                                <label>&nbsp;&nbsp;博郡新能源汽车项目落户南京浦口经济开发区</label>
+                                                <div style="margin-bottom:0px;text-align:right;"><label>2017-08-08</label></div>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li style="border-right:0px;">
+                                        <a href="#">
+                                            <span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a class="options pre" href="javascript:;" data-drec="pre"><i class="pre"></i></a>
+                            <a class="options next" href="javascript:;" data-drex="next"><i class="next"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ibox float-e-margins" style="display:none;">
+                <div class="ibox-title">
+                    <h5>待办事项</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive" style="font-size:12px;padding:0px;margin:0px;">
+                        <table class="table table-hover issue-tracker" style="overflow:scroll;">
+                            <tbody id="todoList">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/PrManage/PrManageEdit.cshtml")
+@section scripts{
+    @*<script src="js/plugins/fullcalendar/moment.min.js"></script>*@
+    <!-- Full Calendar -->
+    @*<link href="~/OpenResouce/css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" />
+        <link href="~/OpenResouce/css/plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet" />
+        <script src="~/OpenResouce/js/plugins/fullcalendar/moment.min.js"></script>
+        <script src="~/OpenResouce/js/plugins/fullcalendar/fullcalendar.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /* initialize the calendar
+           -----------------------------------------------------------------*/
+                var date = new Date();
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    editable: true,
+                    droppable: true
+                });
+            });
+        </script>*@
+
+    <script type="text/javascript">
+        $(function () {
+            var slid = $('ul.slide_box li'), controls = $('ul.bx-controls a');
+            slid.addClass('none');
+            slid.eq(0).removeClass('none');
+
+            var slideindex = 0;
+            function switchi() {
+
+                if (slideindex == slid.length - 1) {
+                    slideindex = 0;
+                } else {
+                    slideindex = slideindex + 1;
+                }
+                slid.addClass('none');
+                slid.eq(slideindex).removeClass('none');
+                controls.removeClass('actives');
+                controls.eq(slideindex).addClass('actives');
+            }
+
+            var timer = setInterval(switchi, 3000);
+            function options(indexs) {
+                slid.addClass('none');
+                slid.eq(indexs).removeClass('none');
+                controls.removeClass('actives');
+                controls.eq(indexs).addClass('actives');
+            }
+
+            $('a.options').click(function () {
+                var drec = $(this).data('drec');
+                if (drec == 'pre') {
+                    if (slideindex == 0) {
+                        slideindex = 4;
+                    } else {
+                        slideindex = slideindex - 1;
+                    }
+                } else {
+                    if (slideindex == 4) {
+                        slideindex = 0;
+                    } else {
+                        slideindex = slideindex + 1;
+                    }
+                }
+                clearInterval(timer);
+                options(slideindex);
+                timer = setInterval(switchi, 3000);
+            });
+
+            $('ul.bx-controls li').hover(function () {
+                slideindex = $(this).index();
+                clearInterval(timer);
+                options(slideindex);
+            }, function () {
+                timer = setInterval(switchi, 3000);
+            });
+
+            //获取任务列表
+            GetTodoList();
+        });
+
+
+        //获取任务列表
+        function GetTodoList() {
+            $.ajax({
+                url: '/Home/GetTodoList',
+                dataType: "json",
+                success: function (ans) {
+                    if (ans.error.length > 0) {
+                        return false;
+                    }
+                    $("#todoList").empty();
+                    if (ans.data != null && ans.data.length > 0) {
+                        for (var i = 0; i < ans.data.length; i++) {
+                            var item = ans.data[i];
+                            $("#todoList").append("<tr id='" + item.Id + "' activityId='" + item.activityId + "' activityAssignmentId='" + item.activityAssignmentId + "' ItemStatus='" + item.status + "' ><td class='col-sm-2'><span class='label label-primary'>" + item.CreateTimeStr + "</span></td><td class='issue-info col-sm-10'><a href='#'>" + item.RecordNo + "</a><small>" + item.CreateName + "</small></td></tr>");
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+
+
+
+
+}
+
+
+
+

@@ -1,0 +1,604 @@
+﻿<div tabindex="-1" class="modal fade in" id="TripReimbursementEdit" role="dialog" aria-hidden="true" style="padding-right: 17px;">
+    <div class="modal-dialog modal-lg modelWith">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel1">@OABordrinCommon.Common.GetLanguageValueByParam("新建差旅申请", "ERCommon", "ERItemType", ViewBag.language)</h4>
+            </div>
+            <div class="errorMessage fa fa-exclamation-triangle" style="background-color: #f4eedc; width:100%;padding:5px; display: none;"><span style="margin-left:10px;"></span></div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" name="id" />
+                    <input type="hidden" name="status" />
+                    <input type="hidden" name="activityId" />
+                    <input type="hidden" name="activityAssignmentId" />
+                    <input type="hidden" name="b_RecordNo" />
+                    <input type="hidden" name="b_IsHangUp" />
+                    <input type="hidden" name="b_HangUpActivityName" />
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("公司代码", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="b_CompanyCode" isnotnull="true" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)"></select>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("报销所在地", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <select name="b_ReimbursementPlace" class="form-control" isnotnull="true"></select>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("是否预算内", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label style="padding-top:5px;"><input type="radio" class="i-checks" name="b_IsBudgetary" value="true"><i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("是", "TRCommon", "TRItemType", ViewBag.language)&nbsp;</label>
+                            <label><input type="radio" class="i-checks" name="b_IsBudgetary" value="false"><i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("否", "TRCommon", "TRItemType", ViewBag.language)&nbsp;</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("预算编号", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_BudgetNumber" isnotnull="true" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)">
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("报销类型", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label style="padding-top:5px;"><input type="radio" class="i-checks" name="b_Type" value="Non Project"><i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("非项目", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)&nbsp;</label>
+                            <label><input type="radio" class="i-checks" name="b_Type" value="Project"><i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("项目", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)&nbsp;</label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请日期", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_ApplicationDate" isnotnull="true" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("是否国际出差", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label style="padding-top:5px;"><input type="radio" class="i-checks" name="b_IntalBusiness" value="true"><i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("是", "TRCommon", "TRItemType", ViewBag.language)&nbsp;</label>
+                            <label><input type="radio" class="i-checks" name="b_IntalBusiness" value="false"><i></i>&nbsp;@OABordrinCommon.Common.GetLanguageValueByParam("否", "TRCommon", "TRItemType", ViewBag.language)&nbsp;</label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("代申请人", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_Preparer" isnotnull="true" disabled="disabled">
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("代申请人工号", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_PreparerNo" isnotnull="true" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请人", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_Employee" isnotnull="true">
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请人工号", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_StaffNo" isnotnull="true" disabled="disabled">
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("申请部门", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_Dept" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)" isnotnull="true" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("成本中心代码", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_CostCenter" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)" isnotnull="true" disabled="disabled" />
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("电话", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_Tel" isnotnull="true" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)">
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("附件张数", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_AttachmentsQuantity" isnotnull="true" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)">
+                        </div>
+                    </div>
+                    <div class="form-group" id="departmentLeaderInfo" style="display:none;">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("高级经理", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_LineLeader" disabled="disabled" />
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("总监", "b_TripReimbursementApplicationForm", "TRItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_DeptLeader" disabled="disabled" />
+                        </div>
+                        <label class="col-sm-1 control-label">VP</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_DivisionVP" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">
+                            出差单号
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_BTRecordNo" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)">
+                        </div>
+                        <label class="col-sm-1 control-label">
+                            出差预算
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="b_TravelBudget" disabled="disabled" placeholder="@OABordrinCommon.Common.GetLanguageValueByParam("必填项", "CommonName", "Common", ViewBag.language)" />
+                        </div>
+                        <label class="col-sm-1 control-label AddRedLabel">
+                            是否超出预算
+                        </label>
+                        <div class="col-sm-3">
+                            <label name="b_IsBeyondBudget" class="control-label AddRedLabel"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="BeyondReasonIsDisplay" style="display:none;">
+                        <label class="col-sm-1 control-label">
+                            超出理由
+                        </label>
+                        <div class="col-sm-11">
+                            <textarea class="form-control" cols="4" rows="4" name="b_BeyondReason"></textarea>
+                        </div>
+                    </div>
+                    <div id="HotelID">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">@OABordrinCommon.Common.GetLanguageValueByParam("住宿费（非增值税专用发票，税率处请填写0）", "TRCommon", "TRItemType", ViewBag.language)</h5>
+                        <div class="form-group">
+                            <div class="table-responsive">
+                                <table id="HotelExpenseItem" class="table table-bordered" style="text-align:left;min-width:1150px;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("城市", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:7%">@OABordrinCommon.Common.GetLanguageValueByParam("酒店", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:5%">@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:7%">@OABordrinCommon.Common.GetLanguageValueByParam("原币单价", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:5%">@OABordrinCommon.Common.GetLanguageValueByParam("天数", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_HotelExpense", "TRItemType", ViewBag.language)</th>
+                                            <th style="text-align: center; background-color: white; width:5%">@OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="HotelExpenseItemTr">
+                                        <tr>
+                                            <td>
+                                                <input type="hidden" class="id" />
+                                                <input type="text" class="form-control b_StartDate">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_EndDate">
+                                            </td>
+                                            <td>
+                                                <select class="form-control b_ProjectName"></select>
+                                                @*<input type="text" class="form-control b_ProjectName">*@
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_City">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_Hotel">
+                                            </td>
+                                            <td>
+                                                <select class="form-control b_Currency">
+                                                    <option value="无">无</option>
+                                                    <option value="人民币">人民币</option>
+                                                    <option value="美元">美元</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_Rate">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_OriginalCurrency">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_Count">
+                                            </td>
+                                            <td>
+                                                <select class="form-control b_TaxRate"></select>
+                                                @*<input type="text" class="form-control b_TaxRate">*@
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_Tax">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control b_TaxFreeAmount">
+                                            </td>
+                                            <td>
+                                                <label class="control-label b_CNYSubtotal"></label>
+                                            </td>
+                                            <td style="text-align:center;line-height:30px;">
+                                                <a class="glyphicon glyphicon-plus AddHotelExpenseItem"></a>
+                                                &nbsp;&nbsp;
+                                                <a class="glyphicon glyphicon-minus delHotelExpenseItem"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group" id="HotelItemDiv">
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_HotelInWords" disabled="disabled" />
+                            </div>
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_HotelAmount" disabled="disabled" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="TrafID">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">@OABordrinCommon.Common.GetLanguageValueByParam("交通费（非增值税专用发票，税率处请填写0）", "TRCommon", "TRItemType", ViewBag.language)</h5>
+                        <div class="table-responsive">
+                            <table id="TrafficExpenseItem" class="table table-bordered" style="text-align:left;min-width:1150px;">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:7%">@OABordrinCommon.Common.GetLanguageValueByParam("类别", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("线路起", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("线路止", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:5%">@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("原币单价", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("数量/公里", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_TrafficExpense", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:5%">@OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="TrafficExpenseItemTr">
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" class="id" />
+                                            <input type="text" class="form-control b_StartDate">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_EndDate">
+                                        </td>
+                                        <td>
+                                            <select class="form-control b_ProjectName"></select>
+                                            @*<input type="text" class="form-control b_ProjectName">*@
+                                        </td>
+                                        <td>
+                                            @*<input type="text" class="form-control b_Type">*@
+                                            <select class="form-control b_Type">
+                                                <option value=""></option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_StartPoint">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_EndPoint">
+                                        </td>
+                                        <td>
+                                            <select class="form-control b_Currency">
+                                                <option value="无">无</option>
+                                                <option value="人民币">人民币</option>
+                                                <option value="美元">美元</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Rate">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_OriginalCurrency">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Count">
+                                        </td>
+                                        <td>
+                                            @*<input type="text" class="form-control b_TaxRate">*@
+                                            <select class="form-control b_TaxRate"></select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Tax">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_TaxFreeAmount">
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_CNYSubtotal"></label>
+                                        </td>
+                                        <td style="text-align:center;line-height:30px;">
+                                            <a class="glyphicon glyphicon-plus AddTrafficExpenseItem"></a>
+                                            &nbsp;&nbsp;
+                                            <a class="glyphicon glyphicon-minus delTrafficExpenseItem"></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group" id="TrafItemDiv">
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_TrafInWords" disabled="disabled" />
+                            </div>
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_TrafAmount" disabled="disabled" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="MealID">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">@OABordrinCommon.Common.GetLanguageValueByParam("固定补贴（非增值税专用发票，税率处请填写0）", "TRCommon", "TRItemType", ViewBag.language)</h5>
+                        <div class="table-responsive">
+                            <table id="MealsSubsidiesItem" class="table table-bordered" style="text-align:left;min-width:1150px;">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("地点", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("同行者人数", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("同行者姓名", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:5%">@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("固定补贴(人民币)", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; display:none;">@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; display:none;">@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_Mealsandfixedsubsidies", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="MealsSubsidiesItemTr">
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" class="id" />
+                                            <input type="text" class="form-control b_StartDate">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_EndDate">
+                                        </td>
+                                        <td>
+                                            <select class="form-control b_ProjectName"></select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Place">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_CompanionAmount">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_CompanionName">
+                                        </td>
+                                        <td>
+                                            <select class="form-control b_Currency">
+                                                <option value="无">无</option>
+                                                <option value="人民币">人民币</option>
+                                                <option value="美元">美元</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Rate">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_FixedSubsidy">
+                                        </td>
+                                        <td style="display:none;">
+                                            <select class="form-control b_TaxRate"></select>
+                                            @*<input type="text" class="form-control b_TaxRate">*@
+                                        </td>
+                                        <td style="display:none;">
+                                            <input type="text" class="form-control b_Tax">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_TaxFreeAmount">
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_CNYSubtotal"></label>
+                                        </td>
+                                        <td style="text-align:center;line-height:30px;">
+                                            <a class="glyphicon glyphicon-plus AddMealsSubsidiesItem"></a>
+                                            &nbsp;&nbsp;
+                                            <a class="glyphicon glyphicon-minus delMealsSubsidiesItem"></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group" id="MealItemDiv">
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_MealInWords" disabled="disabled" />
+                            </div>
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_MealAmount" disabled="disabled" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="OtherID">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">@OABordrinCommon.Common.GetLanguageValueByParam("其他（签证/其他费用/非增值税专用发票，税率处请填写0）", "TRCommon", "TRItemType", ViewBag.language)</h5>
+                        <div class="table-responsive">
+                            <table id="OthersItem" class="table table-bordered" style="text-align:left;min-width:1150px;">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("开始日期", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:10%">@OABordrinCommon.Common.GetLanguageValueByParam("结束日期", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("项目名称", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("地点", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("类别", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("事由", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("币种", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:5%">@OABordrinCommon.Common.GetLanguageValueByParam("汇率", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("原币单价", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("数量", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:8%">@OABordrinCommon.Common.GetLanguageValueByParam("税率", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("税额", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("不含税金额", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("小计(人民币)", "b_Others", "TRItemType", ViewBag.language)</th>
+                                        <th style="text-align: center; background-color: white; width:6%">@OABordrinCommon.Common.GetLanguageValueByParam("操作", "CommonName", "Common", ViewBag.language)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="OthersItemTr">
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" class="id" />
+                                            <input type="text" class="form-control b_StartDate">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_EndDate">
+                                        </td>
+                                        <td>
+                                            <select class="form-control b_ProjectName"></select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Place">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Type">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Reason">
+                                        </td>
+                                        <td>
+                                            <select class="form-control b_Currency">
+                                                <option value="无">无</option>
+                                                <option value="人民币">人民币</option>
+                                                <option value="美元">美元</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Rate">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_OriginalCurrency">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Count">
+                                        </td>
+                                        <td>
+                                            @*<input type="text" class="form-control b_TaxRate">*@
+                                            <select class="form-control b_TaxRate"></select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_Tax">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control b_TaxFreeAmount">
+                                        </td>
+                                        <td>
+                                            <label class="control-label b_CNYSubtotal"></label>
+                                        </td>
+                                        <td style="text-align:center;line-height:30px;">
+                                            <a class="glyphicon glyphicon-plus AddOthersItem"></a>
+                                            &nbsp;&nbsp;
+                                            <a class="glyphicon glyphicon-minus delOthersItem"></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group" id="OtherItemDiv">
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(大写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_OthInWords" disabled="disabled" />
+                            </div>
+                            <label class="col-sm-2 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计(小写)", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="b_OthAmount" disabled="disabled" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="LoanID" style="display:none;">
+                        <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;">@OABordrinCommon.Common.GetLanguageValueByParam("借款明细", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</h5>
+                        <table id="LoanItems" class="table table-bordered" style="text-align:left;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; background-color: white;">@OABordrinCommon.Common.GetLanguageValueByParam("借款单单号", "b_LoanItem", "ERItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;">@OABordrinCommon.Common.GetLanguageValueByParam("借款日期", "b_LoanItem", "ERItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;">@OABordrinCommon.Common.GetLanguageValueByParam("借款人", "b_LoanItem", "ERItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;">@OABordrinCommon.Common.GetLanguageValueByParam("借款金额", "b_LoanItem", "ERItemType", ViewBag.language)</th>
+                                    <th style="text-align: center; background-color: white;">@OABordrinCommon.Common.GetLanguageValueByParam("借款事由", "b_LoanItem", "ERItemType", ViewBag.language)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="LoanItemsTr">
+                                <tr>
+                                    <td>
+                                        <input type="hidden" class="id" />
+                                        <input type="text" class="form-control b_LoanOrderNo">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control b_Date">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control b_Borrower" isnotnull="true" disabled="disabled">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control b_LoanAmount">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control b_LoanReason">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 style="font-weight: bold;border-bottom: 1px solid #bcbcbc;padding-bottom: 4px;text-align: left;"> @OABordrinCommon.Common.GetLanguageValueByParam("总计", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</h5>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("向公司预支现金", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_AdvancedAmount"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("总费用", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_TotalExpense"></label>
+                        </div>
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("合计金额", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                        <div class="col-sm-3">
+                            <label class="control-label" name="b_AmountInTotal"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("历史备注", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                        <div class="col-sm-11">
+                            <label name="OldRemark"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("备注", "b_ExpenseReimbursement", "ERItemType", ViewBag.language)</label>
+                        <div class="col-sm-11">
+                            <textarea class="form-control" cols="4" rows="4" name="b_Remark"></textarea>
+                        </div>
+                    </div>
+                    <br />
+                    <div id="TripReimbursementFiles">
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">@OABordrinCommon.Common.GetLanguageValueByParam("附件", "CommonName", "Common", ViewBag.language)</label>
+                            <div class="col-sm-11" style="margin-top:5px;">
+                                <div id="fileList">
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3">
+                                        <input type="file" id="Trfile" />
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <button class="btn btn-primary" type="button" id="upload" style="height:20px;line-height:8px;">@OABordrinCommon.Common.GetLanguageValueByParam("上传", "CommonName", "Common", ViewBag.language)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" type="button" data-dismiss="modal" id="btnClose">@OABordrinCommon.Common.GetLanguageValueByParam("关 闭", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-primary" type="button" id="SaveTripReimbursement" operation="save">@OABordrinCommon.Common.GetLanguageValueByParam("保 存", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-success" type="button" id="SubmitTripReimbursement" operation="submit">@OABordrinCommon.Common.GetLanguageValueByParam("提 交", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-primary" type="button" id="Approve">@OABordrinCommon.Common.GetLanguageValueByParam("同 意", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-danger" type="button" id="SendRefuse">@OABordrinCommon.Common.GetLanguageValueByParam("驳 回", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-success" type="button" id="SendHangUp">@OABordrinCommon.Common.GetLanguageValueByParam("挂 起", "CommonName", "Common", ViewBag.language)</button>
+                <button class="btn btn-warning" type="button" id="TurnToDo">@OABordrinCommon.Common.GetLanguageValueByParam("转 办", "CommonName", "Common", ViewBag.language)</button>
+            </div>
+        </div>
+    </div>
+</div>

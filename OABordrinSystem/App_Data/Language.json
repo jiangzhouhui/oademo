@@ -1,0 +1,9 @@
+﻿{
+  "PortalNavigation": {
+    "首页": "Home",
+    "新闻公告": "News",
+    "知识中心": "KnowledgeCenter",
+    "自助服务": "SelfService",
+    "部门站点": "DepartmentSite"
+  }
+}
